@@ -1,112 +1,192 @@
-import Image from 'next/image'
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import Link from "next/link";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import trainees_en from "@/data/trainees_en.json";
+import trainees_jp  from "@/data/trainees_jp.json";
+
+const trainees = Array.from(Array(trainees_en.length).keys()).map((index) => ({
+  index,
+  id: trainees_jp[index].id.split("_")[0],
+  code: trainees_jp[index].id,
+  nameEn: trainees_en[index].name,
+  nameJp: trainees_jp[index].name,
+  birthday: trainees_jp[index].birthday,
+  birthPlace: trainees_jp[index].birth_place,
+}));
+
+const getItemImage = (item: any) => {
+  return {
+    src: "/assets/trainees/" + item.code + ".jpg",
+    alt: item.nameEn,
+  };
+};
+
+const Header: FC = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <header className="bg-header-banner bg-no-repeat bg-center bg-cover h-[180px] sm:h-[300px] flex flex-col justify-center items-center">
+      <h1 className="w-[100px] h-[100px] sm:w-[170px] sm:h-[170px]">
+        <Link href="/" className='block relative w-full h-full'>
+          <Image src="/logo_new.svg" alt="Logo" layout="fill" objectFit="contain" />
+        </Link>
+      </h1>
+    </header>
+  )
+};
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+type AvatarProps = {
+  index: number;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  setSelected?: Dispatch<SetStateAction<number[]>>;
+};
+
+const Avatar: FC<AvatarProps> = ({ index, image, setSelected }) => {
+  return (
+    <div
+      className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 flex items-center justify-center ${setSelected ? "cursor-pointer" : ""}`}
+      onClick={() => {
+        if (setSelected) {
+          setSelected((prev) => {
+            const next = [...prev];
+            next[next.indexOf(index)] = -1;
+            return next;
+          });
+          // setSelected([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
+        }
+      }}
+    >
+      {image && (
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="rounded-full border-4 border-[#FF67B3]"
+          src={image.src}
+          alt={image.alt}
+          width={550}
+          height={550}
+        />
+      )}
+    </div>
+  )
+};
+
+type PaletteRowProps = {
+  items: any[];
+  setSelected: Dispatch<SetStateAction<number[]>>;
+}
+
+const PaletteRow: FC<PaletteRowProps> = ({ items, setSelected }) => {
+  return (
+    <div className="flex py-1 gap-2 sm:py-1.5 sm:gap-3 justify-center">{items.map((item, index) => (
+      item ? (
+        <Avatar key={index} index={item.index} image={getItemImage(item)} setSelected={setSelected} />
+      ) : (
+        <Avatar key={index} index={-1} setSelected={setSelected} />
+      )
+    ))}</div>
+  )
+};
+
+type PaletteProps = {
+  items: any[];
+  setSelected: Dispatch<SetStateAction<number[]>>;
+};
+
+const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
+  return (
+    <div>
+      <PaletteRow items={[items[0]]} setSelected={setSelected} />
+      <PaletteRow items={[items[1], items[2]]} setSelected={setSelected} />
+      <PaletteRow items={[items[3], items[4], items[5]]} setSelected={setSelected} />
+      <PaletteRow items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} />
+    </div>
+  )
+};
+
+type ListViewProps = {
+  items: any[];
+  selected: number[];
+  setSelected: Dispatch<SetStateAction<number[]>>;
+};
+
+const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
+  return (
+    <div className="sm:w-96 border border-gray-100 shadow rounded-2xl my-10 sm:my-0 h-full text-sm sm:text-base">
+      <div className="p-3 flex">
+        <input
+          className="bg-gray-100 px-3 py-1.5 rounded-lg focus:outline-none"
+          type="text"
+          placeholder="Search"
         />
       </div>
+      <ul className="flex flex-col h-96 overflow-y-auto">
+        {items.map((item) => {
+          const isSelected = selected.includes(item.index);
+          return (
+          <li
+            key={item.id}
+            className={`flex gap-4 items-center hover:bg-gray-100 px-3 py-3 sm:px-4 sm:py-4 ${isSelected ? "bg-gray-100" : "cursor-pointer"}`}
+            onClick={() => {
+              if (!isSelected && !selected.includes(item.index) && selected.some((index) => index === -1)) {
+                // Add item to selected
+                const newSelected = [...selected];
+                const emptyIndex = newSelected.indexOf(-1);
+                if (emptyIndex !== undefined) {
+                  newSelected[emptyIndex] = item.index;
+                  setSelected(newSelected);
+                }
+              }
+            }}
+          >
+            <Avatar index={item.index} image={getItemImage(item)} />
+            <div>
+              <div>{item.id}</div>
+              <div>{item.nameEn} ({item.nameJp})</div>
+              <div>{item.birthday} {item.birthPlace}</div>
+            </div>
+          </li>
+        )})}
+      </ul>
+    </div>
+  )
+};
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+export default function Home() {
+  const [selected, setSelected] = useState<number[]>([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+  const selectedTrainees = selected.map((index) => index === -1 ? undefined : trainees[index]);
+  const selectionCode = Buffer.from(selected).toString("base64");
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+  useEffect(() => {
+    console.log(selectionCode);
+    window.history.replaceState("", "", "/?=" + selectionCode);
+  }, [selectionCode]);
+
+  return (
+    <main className="h-full">
+      <Header />
+      <div
+        className="flex flex-col sm:flex-row gap-0 sm:gap-20
+        justify-center items-center sm:items-start my-8 px-4"
+      >
+        <div className="flex flex-col items-center">
+          <Palette items={selectedTrainees} setSelected={setSelected} />
+          <div className="mt-8 border border-gray-300 rounded-2xl overflow-hidden flex">
+            <div className="ml-2 px-2 py-2">Share your top 11</div>
+            <button className="px-2 hover:bg-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <ListView items={trainees} selected={selected} setSelected={setSelected} />
       </div>
     </main>
   )
