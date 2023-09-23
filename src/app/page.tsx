@@ -1,4 +1,12 @@
 "use client";
+import { Noto_Sans_JP } from "next/font/google";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+
+const noto_sans_jp = Noto_Sans_JP({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
 import Image from "next/image";
 import Link from "next/link";
@@ -21,18 +29,6 @@ const getItemImage = (item: any) => {
     src: "/assets/trainees/" + item.code + ".jpg",
     alt: item.nameEn,
   };
-};
-
-const Header: FC = () => {
-  return (
-    <header className="bg-header-banner bg-no-repeat bg-center bg-cover h-[180px] sm:h-[300px] flex flex-col justify-center items-center">
-      <h1 className="w-[100px] h-[100px] sm:w-[170px] sm:h-[170px]">
-        <Link href="/" className='block relative w-full h-full'>
-          <Image src="/logo_new.svg" alt="Logo" layout="fill" objectFit="contain" />
-        </Link>
-      </h1>
-    </header>
-  )
 };
 
 type AvatarProps = {
@@ -169,7 +165,7 @@ export default function Home() {
   }, [selectionCode]);
 
   return (
-    <main className="h-full">
+    <main className={`${noto_sans_jp.className} h-full`}>
       <Header />
       <div
         className="flex flex-col sm:flex-row gap-0 sm:gap-20
@@ -188,6 +184,7 @@ export default function Home() {
         </div>
         <ListView items={trainees} selected={selected} setSelected={setSelected} />
       </div>
+      <Footer />
     </main>
   )
 }

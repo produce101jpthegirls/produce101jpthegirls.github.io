@@ -9,10 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'header-banner': "url('/bg_header.webp')",
+      },
+      colors: {
+        'pd-gray': '#767676',
+        'pd-pink-100': '#ff99be',
+        'pd-pink-400': '#ff67b3',
       },
     },
   },
