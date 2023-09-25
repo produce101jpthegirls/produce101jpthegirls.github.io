@@ -9,7 +9,7 @@ const Footer: FC = () => {
         <div>© 2023 github/produce101jpthegirls</div>
         <div className="text-center">
           <span className="inline-block">This site is a fan made site.</span>
-          <span className="inline-block">It's not made by the official team.</span>
+          <span className="inline-block">{`It's not made by the official team.`}</span>
         </div>
         <div className="mt-4 flex gap-4">
           <Link
