@@ -12,7 +12,9 @@ const config: Config = {
         'header-banner': "url('/bg_header.webp')",
       },
       colors: {
-        'pd-gray': '#767676',
+        'pd-gray-300': '#969696',
+        'pd-gray-400': '#767676',
+        'pd-gray-900': '#333333',
         'pd-pink-100': '#ff99be',
         'pd-pink-400': '#ff67b3',
       },
