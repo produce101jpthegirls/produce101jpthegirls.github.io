@@ -1,6 +1,7 @@
 "use client";
 import bs58 from "bs58";
 import { Noto_Sans_JP } from "next/font/google";
+import { useSearchParams } from "next/navigation";
 import { FC, ReactNode, useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -40,24 +41,13 @@ const decodeSelection = (code: any): number[]|undefined => {
   return undefined;
 };
 
-export default function Home({ params, searchParams }: {
-  params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined },
-}) {
-  const decodedSelected = decodeSelection(searchParams["code"]);
+export default function Home() {
+  const searchParams = useSearchParams();
+  const decodedSelected = decodeSelection(searchParams.get("code"));
   const [selected, setSelected] = useState<number[]>(decodedSelected || [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
   const selectionCode = encodeSelection(selected);
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
   const [downloadModalIsOpen, setDownloadModalIsOpen] = useState<boolean>(false);
-
-  // useEffect(() => {
-  //   console.log(selected);
-  //   console.log(selectionCode);
-  // }, [selected]);
-
-  useEffect(() => {
-    // console.log(searchParams)
-  }, []);
 
   useEffect(() => {
     const currentCode = new URL(window.location.toString()).searchParams.get("code");
