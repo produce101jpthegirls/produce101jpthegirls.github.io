@@ -5,6 +5,7 @@ import { FC, ReactNode, useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { SelectionView, TraineeView } from "@/components/trainee";
+import { CompleteModal, DownloadModal } from "@/components/modals";
 
 const noto_sans_jp = Noto_Sans_JP({
   subsets: ["latin", "latin-ext"],
@@ -46,6 +47,8 @@ export default function Home({ params, searchParams }: {
   const decodedSelected = decodeSelection(searchParams["code"]);
   const [selected, setSelected] = useState<number[]>(decodedSelected || [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
   const selectionCode = encodeSelection(selected);
+  const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
+  const [downloadModalIsOpen, setDownloadModalIsOpen] = useState<boolean>(false);
 
   // useEffect(() => {
   //   console.log(selected);
@@ -74,11 +77,11 @@ export default function Home({ params, searchParams }: {
       <Header />
       <div className="my-12 sm:my-20 px-4 text-center">
         <h2
-          className="text-pd-pink-100 text-sm sm:text-xl font-bold mb-6"
+          className="text-pd-pink-400 text-sm sm:text-xl font-bold mb-6"
         >PRODUCE 101 JAPAN THE GIRLS RANKER
         </h2>
         <div
-          className="text-pd-gray-300 text-center text-xs sm:text-base"
+          className="text-pd-gray-400 text-center text-xs sm:text-base"
         >
           初めて羽ばたいた101人の少女たちが<br className="sm:hidden" />デビューを目指して集ました<br />
           <br className="sm:hidden" />夢の花道に向かって駆け抜ける<br className="sm:hidden" />彼女たちを応援していきましょう
@@ -92,10 +95,17 @@ export default function Home({ params, searchParams }: {
           <TraineeView selected={selected} setSelected={setSelected} />
         </Panel>
         <Panel>
-          <SelectionView selected={selected} setSelected={setSelected} />
+          <SelectionView
+            selected={selected}
+            setSelected={setSelected}
+            setCompleteModalIsOpen={setCompleteModalIsOpen}
+            setDownloadModalIsOpen={setDownloadModalIsOpen}
+          />
         </Panel>
       </div>
       <Footer />
+      <CompleteModal isOpen={completeModalIsOpen} setIsOpen={setCompleteModalIsOpen} />
+      <DownloadModal isOpen={downloadModalIsOpen} setIsOpen={setDownloadModalIsOpen} />
     </main>
   )
 }

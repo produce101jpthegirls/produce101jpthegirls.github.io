@@ -1,4 +1,16 @@
 import type { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
+
+const flip = plugin(function ({ addUtilities }) {
+  addUtilities({
+    '.flip-x': {
+      transform: 'rotateX(180deg)',
+    },
+    '.flip-y': {
+      transform: 'rotateY(180deg)',
+    },
+  })
+})
 
 const config: Config = {
   content: [
@@ -20,6 +32,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [flip],
 }
 export default config

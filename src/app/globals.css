@@ -5,3 +5,95 @@
 html, body {
   height: 100%;
 }
+
+.svg-success {
+  display: inline-block;
+  vertical-align: top;
+  opacity: 1;
+  overflow: visible;
+
+  @keyframes success-tick {
+    0% {
+      stroke-dashoffset: 16px;
+      opacity: 1
+    }
+
+    100% {
+      stroke-dashoffset: 31px;
+      opacity: 1
+    }
+  }
+
+  @keyframes success-circle-outline {
+    0% {
+      stroke-dashoffset: 72px;
+      opacity: 1
+    }
+
+    100% {
+      stroke-dashoffset: 0px;
+      opacity: 1
+    }
+  }
+
+  @keyframes success-circle-fill {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .success-tick {
+    fill: none;
+    /* stroke-width: 1px; */
+    stroke-width: 1.5px;
+    stroke: #ffffff;
+    stroke-dasharray: 15px, 15px;
+    stroke-dashoffset: -14px;
+    animation: success-tick 450ms ease 1100ms forwards;
+    opacity: 0;
+  }
+
+  .success-circle-outline {
+    fill: none;
+    stroke-width: 1px;
+    /* stroke: #81c038; */
+    stroke: #ff67b3;
+    stroke-dasharray: 72px, 72px;
+    stroke-dashoffset: 72px;
+    animation: success-circle-outline 300ms ease-in-out 300ms forwards;
+    opacity: 0;
+  }
+
+  .success-circle-fill {
+    /* fill: #81c038; */
+    fill: #ff67b3;
+    stroke: none;
+    opacity: 0;
+    animation: success-circle-fill 300ms ease-out 800ms forwards;
+  }
+
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    .success-tick {
+      stroke-dasharray: 0;
+      stroke-dashoffset: 0;
+      animation: none;
+      opacity: 1;
+    }
+
+    .success-circle-outline {
+      stroke-dasharray: 0;
+      stroke-dashoffset: 0;
+      animation: none;
+      opacity: 1;
+    }
+
+    .success-circle-fill {
+      animation: none;
+      opacity: 1;
+    }
+  }
+}
