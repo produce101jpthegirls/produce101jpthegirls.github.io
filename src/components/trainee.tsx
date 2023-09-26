@@ -335,7 +335,7 @@ export const SelectionView: FC<SelectionViewProps> = ({ selected, setSelected })
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[0.96rem] border-b flex justify-between items-center">
-        <div className="text-pd-pink-100 font-bold text-base sm:text-base">SHARE YOUR TOP 11</div>
+        <div className={`${selectionCompleted ? "text-pd-pink-400" : "text-pd-pink-100"} font-bold text-base sm:text-base`}>SHARE YOUR TOP 11</div>
         <div>
           <button
             className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 hover:text-pd-pink-100"}`}
