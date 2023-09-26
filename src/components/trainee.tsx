@@ -121,11 +121,19 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
         {name && (
           <div className="absolute -bottom-4 sm:-bottom-5 text-xs sm:text-xs whitespace-nowrap">{name}</div>
         )}
+        {index === 0 && (
+          <div className="absolute -top-6 sm:-top-8">
+            {/* Crown Icon */}
+            <svg width="174" height="169" viewBox="0 0 174 169" fill="#ff99be" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-7 sm:w-7">
+              <path d="M33.2439 64.8072C30.4146 64.8072 15.9146 64.0911 3.89021 50.8432L1.76829 48.3369L0 48.6949L45.622 142.504V169H128.378V142.504L174 48.3369L172.585 47.9788L170.11 50.8432C158.085 64.0911 143.585 64.8072 140.756 64.8072H138.281L142.878 83.0678C132.622 97.3898 119.183 101.686 116 102.403C113.524 99.5381 105.39 88.4385 101.854 83.7839V73.4004L116 60.5106L115.293 59.4365C96.5488 38.3115 88.7683 0.358051 88.7683 0H87.3536H85.939C85.939 0.358051 77.8049 38.3115 59.4146 59.4365L58 60.1525L71.7927 73.0424V83.4258C68.2561 88.0805 60.1219 99.1801 57.6463 102.044C54.4634 101.328 41.0244 97.0318 30.7683 82.7098L35.3659 64.4491L33.2439 64.8072Z" />
+            </svg>
+          </div>
+        )}
     </div>
   )
 };
 
-const TRAINEE_VIEW_HEIGHT = "h-[24rem] sm:h-[28rem]"
+const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[30rem]"
 
 type ListViewProps = {
   items: any[];
@@ -380,7 +388,7 @@ export const SelectionView: FC<SelectionViewProps> = ({ selected, setSelected })
           </button>
         </div>
       </div>
-      <div id="palette-wrapper" className="pt-4 pb-8 bg-white">
+      <div id="palette-wrapper" className="py-8 sm:py-10 bg-white">
         <Palette items={selectedTrainees} setSelected={setSelected} />
       </div>
     </>
