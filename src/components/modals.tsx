@@ -1,7 +1,7 @@
 import domtoimage from "dom-to-image";
 import { Dialog, Transition } from "@headlessui/react";
 import { Dispatch, FC, Fragment, SetStateAction, useEffect, useState } from "react";
-import { createDownloadSelection } from "./trainee";
+import { createDownloadSelection } from "./views";
 
 type CompleteModalProps = {
   isOpen: boolean;
@@ -65,6 +65,7 @@ type DownloadModalProps = {
 
 export const DownloadModal: FC<DownloadModalProps> = ({ isOpen, setIsOpen }) => {
   const [downloaded, setDownloaded] = useState<boolean>(false);
+
   useEffect(() => {
     setDownloaded(false);
     setTimeout(() => {
@@ -94,7 +95,7 @@ export const DownloadModal: FC<DownloadModalProps> = ({ isOpen, setIsOpen }) => 
           },
         })
           .then((dataUrl) => {
-            console.log("Creating a tmp element");
+            // Download the converted image
             const link = document.createElement('a');
             link.download = 'pick.png';
             link.href = dataUrl;
@@ -147,5 +148,5 @@ export const DownloadModal: FC<DownloadModalProps> = ({ isOpen, setIsOpen }) => 
         </div>
       </Dialog>
     </Transition>
-  )
+  );
 };

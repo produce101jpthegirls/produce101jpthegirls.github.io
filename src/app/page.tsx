@@ -5,8 +5,8 @@ import { useSearchParams } from "next/navigation";
 import { FC, ReactNode, useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { SelectionView, TraineeView } from "@/components/trainee";
 import { CompleteModal, DownloadModal } from "@/components/modals";
+import { SelectionView, TraineeView } from "@/components/views";
 
 const noto_sans_jp = Noto_Sans_JP({
   subsets: ["latin", "latin-ext"],
@@ -41,10 +41,12 @@ const decodeSelection = (code: any): number[]|undefined => {
   return undefined;
 };
 
+const EMPTY = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+
 export default function Home() {
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
-  const [selected, setSelected] = useState<number[]>(decodedSelected || [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
+  const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY);
   const selectionCode = encodeSelection(selected);
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
   const [downloadModalIsOpen, setDownloadModalIsOpen] = useState<boolean>(false);
