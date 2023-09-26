@@ -24,13 +24,27 @@ const Panel: FC<PanelProps> = ({ children }) => {
   )
 };
 
-const encodeSelection = (selected: number[]) => {
+const encodeSelection = (selected: number[]): string => {
   return bs58.encode(selected);
 };
 
-export default function Home() {
-  const [selected, setSelected] = useState<number[]>([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
+const decodeSelection = (code: any): number[]|undefined => {
+  if (typeof code === "string") {
+    try {
+      return Array.from(bs58.decode(code));
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
+};
 
+export default function Home({ params, searchParams }: {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined },
+}) {
+  const decodedSelected = decodeSelection(searchParams["code"]);
+  const [selected, setSelected] = useState<number[]>(decodedSelected || [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]);
   const selectionCode = encodeSelection(selected);
 
   // useEffect(() => {
@@ -39,12 +53,19 @@ export default function Home() {
   // }, [selected]);
 
   useEffect(() => {
-    if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
-      // Reset URL if no trainees
-      window.history.replaceState({}, "", location.pathname);
-    } else {
-      // Set code in params
-      window.history.replaceState({}, "", "?code=" + selectionCode);
+    // console.log(searchParams)
+  }, []);
+
+  useEffect(() => {
+    const currentCode = new URL(window.location.toString()).searchParams.get("code");
+    if (selectionCode !== currentCode) {
+      if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
+        // Reset URL if no trainees
+        window.history.replaceState({}, "", location.pathname);
+      } else {
+        // Set code in params
+        window.history.replaceState({}, "", "?code=" + selectionCode);
+      }
     }
   }, [selectionCode]);
 

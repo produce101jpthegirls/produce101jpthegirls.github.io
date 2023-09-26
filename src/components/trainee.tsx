@@ -1,7 +1,15 @@
+import domtoimage from "dom-to-image";
+import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import trainees_en from "@/data/trainees_en.json";
 import trainees_jp  from "@/data/trainees_jp.json";
+
+const archivo_black_jp = Archivo_Black({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const trainees = Array.from(Array(trainees_en.length).keys()).map((index) => ({
   index,
@@ -67,7 +75,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
       }}
     >
       <div
-          className={`${draggable ? "cursor-pointer" : ""} h-full w-full`}
+          className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
           draggable={draggable}
           onDragEnd={(e) => {
             if (setSelected) {
@@ -95,7 +103,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
           }}
           onDragOver={(e) => e.preventDefault()}
         >
-          {image && (
+          {image ? (
             <Image
               className={`${STYLES} border-2 sm:border-4 border-pd-pink-400`}
               src={image.src}
@@ -104,6 +112,10 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
               height={550}
               draggable={false}
             />
+          ) : (
+            <span
+              className={`${archivo_black_jp.className} select-none text-gray-50 text-lg sm:text-2xl`}
+            >{index+1}</span>
           )}
         </div>
         {name && (
@@ -166,7 +178,7 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
           >
             <div className={`${isSelected ? "" : "cursor-pointer"}`}>
               <Image
-                className={`${isSelected ? "grayscale" : ""}`}
+                className={`${isSelected ? "grayscale contrast-50" : ""}`}
                 src={image.src}
                 alt={image.alt}
                 width={550}
@@ -275,6 +287,9 @@ type PaletteProps = {
 const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
   return (
     <div className="px-2">
+      <div id="palette-header" className="mx-3 sm:mx-6 border-b sm:border-b-2 border-gray-200 pt-2 pb-3 hidden">
+        <h2 className="text-pd-pink-400 font-bold text-center">PRODUCE 101 JAPAN THE GIRLS<br />RANKER</h2>
+      </div>
       <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} />
       <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} />
       <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} />
@@ -286,29 +301,86 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
 type SelectionViewProps = {
   selected: number[];
   setSelected: Dispatch<SetStateAction<number[]>>;
-}
+};
+
+const createDownloadSelection = (): HTMLElement|undefined => {
+  const element = document.getElementById("palette-wrapper");
+  if (element) {
+    console.log(element)
+    const cloned = element.cloneNode(true) as HTMLElement;
+    const _header = cloned.querySelector("#palette-header");
+    if (_header) {
+      const header = _header as HTMLElement;
+      header.style.setProperty("display", "block");
+    }
+    cloned.style.setProperty("position", "absolute");
+    cloned.style.setProperty("top", "0");
+    return cloned;
+  }
+  return undefined;
+};
 
 export const SelectionView: FC<SelectionViewProps> = ({ selected, setSelected }) => {
   const selectedTrainees = selected.map((index) => index === -1 ? undefined : trainees[index]);
+  const selectionCompleted = !selected.some((value) => value < 0);
+  const disabled = !selectionCompleted;
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[0.96rem] border-b flex justify-between items-center">
         <div className="text-pd-pink-100 font-bold text-base sm:text-base">SHARE YOUR TOP 11</div>
         <div>
-          <button className="px-2 hover:text-pd-pink-100">
+          <button
+            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 hover:text-pd-pink-100"}`}
+            disabled={disabled}
+            onClick={() => {}}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
               <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 013.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0121 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 017.5 16.125V3.375z" />
               <path d="M15 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0017.25 7.5h-1.875A.375.375 0 0115 7.125V5.25zM4.875 6H6v10.125A3.375 3.375 0 009.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V7.875C3 6.839 3.84 6 4.875 6z" />
             </svg>
           </button>
-          <button className="px-2 hover:text-pd-pink-100">
+          <button
+            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 hover:text-pd-pink-100"}`}
+            disabled={disabled}
+            onClick={() => {
+              const tmp = createDownloadSelection();
+              if (tmp) {
+                tmp.id = "tmp";
+                document.body.appendChild(tmp);
+                const node = document.getElementById("tmp");
+                if (node) {
+                  // https://github.com/tsayen/dom-to-image/issues/69#issuecomment-486146688
+                  const scale = 2;
+                  domtoimage.toPng(node, {
+                    width: node.offsetWidth * scale,
+                    height: node.offsetHeight * scale,
+                    style: {
+                      fontFamily: "Noto Sans JP",
+                      transform: "scale(" + scale + ")",
+                      transformOrigin: "top left",
+                      width: node.offsetWidth + "px",
+                      height: node.offsetHeight + "px"
+                    },
+                  })
+                    .then((dataUrl) => {
+                      console.log("Creating hidden element");
+                      const link = document.createElement('a');
+                      link.download = 'pick.png';
+                      link.href = dataUrl;
+                      link.click();
+                      document.body.removeChild(tmp);
+                    });
+                }
+              }
+            }}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
               <path d="M12 1.5a.75.75 0 01.75.75V7.5h-1.5V2.25A.75.75 0 0112 1.5zM11.25 7.5v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V7.5h3.75a3 3 0 013 3v9a3 3 0 01-3 3h-9a3 3 0 01-3-3v-9a3 3 0 013-3h3.75z" />
             </svg>
           </button>
         </div>
       </div>
-      <div className="pt-4 pb-8">
+      <div id="palette-wrapper" className="pt-4 pb-8 bg-white">
         <Palette items={selectedTrainees} setSelected={setSelected} />
       </div>
     </>
