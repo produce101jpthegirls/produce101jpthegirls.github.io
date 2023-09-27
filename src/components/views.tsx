@@ -1,7 +1,7 @@
 import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction, useCallback, useState } from "react";
+import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
 import trainees_en from "@/data/trainees_en.json";
 import trainees_jp  from "@/data/trainees_jp.json";
 
@@ -216,17 +216,16 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
 
-  const debouncedSetQuery = useCallback(debounce((value) => {
-    setQuery(value);
-  }, 500), []);
+  const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
   const filteredTrainees = query === "" ? trainees : trainees.filter((trainee) => {
+    const _query = query.toLowerCase();
     return (
-      trainee.nameEn.includes(query) ||
-      trainee.nameJp.includes(query) ||
-      trainee.birthPlace.includes(query) ||
-      trainee.birthday.includes(query) ||
-      trainee.id.includes(query)
+      trainee.nameEn.toLowerCase().includes(_query) ||
+      trainee.nameJp.toLowerCase().includes(_query) ||
+      trainee.birthPlace.toLowerCase().includes(_query) ||
+      trainee.birthday.toLowerCase().includes(_query) ||
+      trainee.id.toLowerCase().includes(_query)
     );
   });
 
