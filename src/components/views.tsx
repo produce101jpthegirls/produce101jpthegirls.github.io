@@ -149,7 +149,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
         return (
         <li
           key={item.id}
-          className={`flex gap-4 items-center hover:bg-gray-100 px-3 py-2 sm:py-3 sm:px-4 sm:py-4 ${isSelected ? "bg-gray-100" : "cursor-pointer"}`}
+          className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:py-3 sm:px-4 sm:py-4 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
           onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
         >
           <Avatar index={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
@@ -234,10 +234,10 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
     <>
       <div className="p-3 flex gap-2 items-center justify-between border-b">
         {/* <div className="px-4 py-2 border-b border-gray-100 text-pd-pink-100 font-bold">PICK YOUR TOP 11</div> */}
-        <div className="grow flex items-center bg-gray-100 px-3 py-1.5 rounded-lg overflow-hidden">
+        <div className="grow flex items-center bg-zinc-100 px-3 py-1.5 rounded-lg overflow-hidden">
           <input
             id="search"
-            className="grow bg-gray-100 focus:outline-none"
+            className="grow bg-zinc-100 focus:outline-none"
             type="text"
             value={queryText}
             onChange={(e) => {
@@ -339,6 +339,9 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
       <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} />
       <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} />
       <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} />
+      <div id="palette-footer" className="text-right text-pd-gray-900 mt-4 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
+        at {new Date().toLocaleString("ja-JP").slice(0, -3)}
+      </div>
     </div>
   )
 };
@@ -352,6 +355,11 @@ export const createDownloadSelection = (): HTMLElement|undefined => {
     if (_header) {
       const header = _header as HTMLElement;
       header.style.setProperty("display", "block");
+    }
+    const _footer = cloned.querySelector("#palette-footer");
+    if (_footer) {
+      const footer = _footer as HTMLElement;
+      footer.style.setProperty("display", "block");
     }
     return cloned;
   }
