@@ -1,1 +1,962 @@
-[{"name": "AITA RIN", "birthday": "2006/02/08", "birth_place": "Fukushima", "mbti_type": "ENTJ", "height": 163.0, "hobby": "Watching scary stories, watching K-POP", "special_skills": "Girls hiphop \uff0chiphop \uff0cjazz", "id": "001_aitarin"}, {"name": "AOKI YUKA", "birthday": "2003/10/19", "birth_place": "Tochigi", "mbti_type": "ENFJ", "height": 161.0, "hobby": "Bakery hopping, gourmet search", "special_skills": "English and Korean, classical ballet, imitating crows, moving nose and ears at the same time", "id": "002_aokiyuka"}, {"name": "AKIYAMA EMA", "birthday": "2003/02/05", "birth_place": "Tokyo", "mbti_type": "ISTP", "height": 163.0, "hobby": "Hauling Instagram fashion accounts", "special_skills": "Mimicry, flexibility exercises", "id": "003_akiyamaema"}, {"name": "ABE NAGOMI", "birthday": "2007/07/02", "birth_place": "Kanagawa", "mbti_type": "ISFP", "height": 156.0, "hobby": "Taking a nap on the sofa", "special_skills": "Spread legs, bridge higher than people, soften little finger", "id": "004_abenagomi"}, {"name": "ARAMAKI JOA", "birthday": "2005/08/29", "birth_place": "Tokyo", "mbti_type": "ENFP", "height": 157.0, "hobby": "Video editing", "special_skills": "Dance/Awa Odori", "id": "005_aramakijoa"}, {"name": "ANDO CHIHARU", "birthday": "2004/05/20", "birth_place": "Fukuoka", "mbti_type": "INFJ", "height": 168.0, "hobby": "Watching movies", "special_skills": "Origami", "id": "006_andochiharu"}, {"name": "ANDO YUI", "birthday": "2004/10/06", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 160.0, "hobby": "Make-up,find my favorite song", "special_skills": "Singing/Massage/Mimicry", "id": "007_andoyui"}, {"name": "IIDA SHIZUKU", "birthday": "2004/12/04", "birth_place": "Tokyo", "mbti_type": "ENFP", "height": 160.0, "hobby": "Singing, visiting shaved ice, collecting character goods", "special_skills": "Sing, drawing, food", "id": "009_iidashizuku"}, {"name": "ISHII RAN", "birthday": "2004/08/07", "birth_place": "Saitama", "mbti_type": "ISFJ", "height": 162.0, "hobby": "Western music appreciation, educational sweets, cooking", "special_skills": "Dancing,kendama", "id": "010_ishiiran"}, {"name": "IYOTA HANA", "birthday": "2006/11/07", "birth_place": "Tokyo", "mbti_type": "ESFP", "height": 161.0, "hobby": "Human observation,eating", "special_skills": "Dancing, quickly remembering people's faces and names", "id": "011_iyotahana"}, {"name": "UEKI MIMI", "birthday": "2007/10/28", "birth_place": "Kanagawa", "mbti_type": "ESFP", "height": 169.0, "hobby": "Hand sanitizer, impersonating K-POP idols, watching baseball", "special_skills": "Imitating Crayon Shin-chan, playing drums", "id": "012_uekimimi"}, {"name": "UCHIYAMA RIN", "birthday": "2008/02/03", "birth_place": "Tokyo", "mbti_type": "ESTJ", "height": 159.0, "hobby": "Listening to music Games Singing", "special_skills": "Dancing toe touch", "id": "013_uchiyamarin"}, {"name": "EBIHARA TSUZUMI", "birthday": "2007/01/22", "birth_place": "Kanagawa", "mbti_type": "ENFP", "height": 158.0, "hobby": "Sleep, eat, sing", "special_skills": "Can play the guitar, whistle, click with the tongue, and make loud popping sounds", "id": "014_ebiharatsuzumi"}, {"name": "OIKAWA RIO", "birthday": "2006/05/02", "birth_place": "Miyagi", "mbti_type": "ENTJ", "height": 168.0, "hobby": "Playing in the water", "special_skills": "Move one's toes deftly", "id": "015_oikawario"}, {"name": "OTA SARA", "birthday": "2005/04/19", "birth_place": "Kanagawa", "mbti_type": "ENFJ", "height": 165.5, "hobby": "Listening to music, taking pictures", "special_skills": "Control the scapula", "id": "016_otasara"}, {"name": "OTSUBO KAREN", "birthday": "2004/11/05", "birth_place": "Fukuoka", "mbti_type": "ISTP", "height": 165.0, "hobby": "Read comics, go to game arcades", "special_skills": "Korean,play the guitar", "id": "017_otsubokaren"}, {"name": "OKABE NONOKA", "birthday": "2005/08/22", "birth_place": "Kyoto", "mbti_type": "ESFP", "height": 157.0, "hobby": "Shopping, watching dog videos", "special_skills": "K-POP cover dance / bridge walking / hamburger making", "id": "018_okabenonoka"}, {"name": "OKAMURA NANA", "birthday": "2005/08/19", "birth_place": "Hokkaido", "mbti_type": "ENFP", "height": 159.0, "hobby": "Watching K-POP dramas, listening to your favorite music and getting into the rhythm, watching videos of kittens , watching moppang in the middle of the night", "special_skills": "Playing tennis, making people smile", "id": "019_okamuranana"}, {"name": "ODA ARUHA", "birthday": "2002/06/06", "birth_place": "Tokyo", "mbti_type": "ENFP", "height": 155.0, "hobby": "Watching movies, listening to music", "special_skills": "Dancing", "id": "020_odaaruha"}, {"name": "OYANAGI EMI", "birthday": "2003/11/29", "birth_place": "Republik Indonesia", "mbti_type": "ESFJ", "height": 156.0, "hobby": "Dancing, shopping", "special_skills": "Wink", "id": "021_oyanagiemi"}, {"name": "KASAHARA MOMONA", "birthday": "2003/10/22", "birth_place": "Kanagawa", "mbti_type": "ENFJ", "height": 163.0, "hobby": "Shoot with a film camera", "special_skills": "Acrobatic exercise", "id": "022_kasaharamomona"}, {"name": "KATAOKA RIO", "birthday": "2004/09/02", "birth_place": "Osaka", "mbti_type": "ENFJ", "height": 159.0, "hobby": "Dancing, watching idols, talking with friends", "special_skills": "Show your hands neatly when dancing", "id": "023_kataokario"}, {"name": "KATO AIRI", "birthday": "2004/04/11", "birth_place": "Tokyo", "mbti_type": "ENFP", "height": 164.0, "hobby": "Disney", "special_skills": "Imitate", "id": "024_katoairi"}, {"name": "KATO KAGURA", "birthday": "2005/03/08", "birth_place": "Osaka", "mbti_type": "ENFP", "height": 170.0, "hobby": "Playing with mice", "special_skills": "Hold your breath longer, drums", "id": "025_katokagura"}, {"name": "KATO KOKORO", "birthday": "2000/11/01", "birth_place": "Aichi", "mbti_type": "INFP", "height": 166.0, "hobby": "Painting with oil pastels and acrylics, playing the guitar", "special_skills": "Korean", "id": "026_katokokoro"}, {"name": "KATO KONOMI", "birthday": "2004/10/17", "birth_place": "Tokyo", "mbti_type": "ESFJ", "height": 160.0, "hobby": "Eat sweets", "special_skills": "Makeup, fold tongue in two", "id": "027_katokonomi"}, {"name": "KAMADA MOE", "birthday": "2004/03/24", "birth_place": "Osaka", "mbti_type": "ENFP", "height": 162.0, "hobby": "Find a good restaurant", "special_skills": "I can play any song with my nose", "id": "028_kamadamoe"}, {"name": "KAMIO AYANO", "birthday": "2006/07/18", "birth_place": "Osaka", "mbti_type": "ESFJ", "height": 159.0, "hobby": "Taking pictures", "special_skills": "Impersonate Gian", "id": "029_kamioayano"}, {"name": "KAWAGISHI RUNA", "birthday": "2001/04/29", "birth_place": "Tokyo", "mbti_type": "ESFP", "height": 155.0, "hobby": "Play the electone, play the piano", "special_skills": "Taekwondo", "id": "030_kawagishiruna"}, {"name": "KAWABATA RANKA", "birthday": "2006/05/05", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 165.0, "hobby": "Visiting shrines", "special_skills": "Eye relay, tongue touching nose, drawing", "id": "031_kawabataranka"}, {"name": "KANNO MIYU", "birthday": "2002/07/11", "birth_place": "Kagawa", "mbti_type": "ESTJ", "height": 164.0, "hobby": "Make bread, make latte art, design clothes", "special_skills": "Dancing, video editing", "id": "032_kannomiyu"}, {"name": "KIKUKAWA AKI", "birthday": "2001/08/13", "birth_place": "Fukuoka", "mbti_type": "INFJ", "height": 161.0, "hobby": "Dancing, getting in touch with nature, being healed by your favorite scent, taking care of yourself, watching YouTube, watching Netflix", "special_skills": "Dancing, play soft tennis", "id": "033_kikukawaaki"}, {"name": "KITAZATO RIO", "birthday": "2004/03/15", "birth_place": "Fukuoka", "mbti_type": "ISFP", "height": 156.0, "hobby": "Watching anime, listening to music", "special_skills": "Just a little bit faster", "id": "034_kitazatorio"}, {"name": "KITAZUME SAKURA", "birthday": "2004/08/12", "birth_place": "Gunma", "mbti_type": "ENFP", "height": 155.0, "hobby": "Dancing", "special_skills": "imitating, acrobatics", "id": "035_kitazumesakura"}, {"name": "KINO RIKO", "birthday": "2005/09/13", "birth_place": "Kyoto", "mbti_type": "ESFP", "height": 160.0, "hobby": "Watching anime, playing with cats", "special_skills": "Playing sports, painting", "id": "036_kinoriko"}, {"name": "KURIHARA KANO", "birthday": "2004/11/06", "birth_place": "Saitama", "mbti_type": "ISTP", "height": 157.0, "hobby": "Playing with dog", "special_skills": "Moving the scalp Shelling the shrimp", "id": "037_kuriharakano"}, {"name": "KUROKAWA HONOKA", "birthday": "2005/07/01", "birth_place": "Tokushima", "mbti_type": "ENFP", "height": 168.0, "hobby": "Listening to music, playing games", "special_skills": "Imitate, play volleyball", "id": "038_kurokawahonoka"}, {"name": "KENMOTSU NANO", "birthday": "2001/08/27", "birth_place": "Niigata", "mbti_type": "ESFJ", "height": 164.6, "hobby": "K-POP cover dance", "special_skills": "Dancing", "id": "039_kenmotsunano"}, {"name": "KOBAYASHI SAE", "birthday": "2005/02/02", "birth_place": "Kanagawa", "mbti_type": "ESFP", "height": 164.0, "hobby": "Listening to K-POP, dancing", "special_skills": "To imitate someone by grasping their characteristics", "id": "041_kobayashisae"}, {"name": "KOYAMA MANA", "birthday": "1998/09/07", "birth_place": "Kanagawa", "mbti_type": "ENFP", "height": 163.0, "hobby": "Watching horror movies, dancing with friends, eating delicious food", "special_skills": "Cover dance, pirouette, tenor sax", "id": "042_koyamamana"}, {"name": "SAITO SERINA", "birthday": "2006/05/03", "birth_place": "Osaka", "mbti_type": "ESFP", "height": 164.0, "hobby": "Making sweets, makeup", "special_skills": "Doing magic, remembering people's faces and names", "id": "043_saitoserina"}, {"name": "SAKAGUCHI RINO", "birthday": "2003/09/01", "birth_place": "Kanagawa", "mbti_type": "INFJ", "height": 165.0, "hobby": "Watching anime and movies, using computers, studying makeup and fashion", "special_skills": "Singing", "id": "044_sakaguchirino"}, {"name": "SAKATA KOTONE", "birthday": "2003/02/16", "birth_place": "Kyoto", "mbti_type": "INFP", "height": 168.0, "hobby": "Sing karaoke alone", "special_skills": "Draw a picture", "id": "045_sakatakotone"}, {"name": "SAKURAI MIU", "birthday": "2002/01/11", "birth_place": "Aichi", "mbti_type": "ISTP", "height": 162.5, "hobby": "Yoga, baking, cooking, swimming, listening to music", "special_skills": "Studying, cooking, thinking about dance formations", "id": "046_sakuraimiu"}, {"name": "SAKURABA HARUKA", "birthday": "2006/01/29", "birth_place": "Hokkaido", "mbti_type": "INTP", "height": 154.0, "hobby": "Read comics, read novels, play basketball", "special_skills": "Play the Electone, sleep for a long time", "id": "047_sakurabaharuka"}, {"name": "SASAKI KOKONA", "birthday": "2006/01/30", "birth_place": "Mie", "mbti_type": "ISFP", "height": 165.0, "hobby": "Singing, sleeping, watching audition programs, playing badminton", "special_skills": "Play basketball, eat the same food all the time", "id": "048_sasakikokona"}, {"name": "SASAKI TSUKUSHI", "birthday": "2006/05/26", "birth_place": "Iwate", "mbti_type": "ISFJ", "height": 158.0, "hobby": "Observing people, learning dance moves", "special_skills": "Dancing", "id": "049_sasakitsukushi"}, {"name": "SATO AMELI", "birthday": "2004/04/06", "birth_place": "United States of America", "mbti_type": "ISFJ", "height": 167.0, "hobby": "Skiing, journaling, traveling", "special_skills": "Classical ballet", "id": "050_satoameli"}, {"name": "SANO JUERI", "birthday": "2003/07/10", "birth_place": "Tokyo", "mbti_type": "ENTP", "height": 170.0, "hobby": "Watching movies, shopping", "special_skills": "Playing the violin, coordinating fashion", "id": "051_sanojueri"}, {"name": "SHIBAGAKI ARISA", "birthday": "2006/05/23", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 161.0, "hobby": "Swimming, studying Korean and English", "special_skills": "Playing sports,", "id": "052_shibagakiarisa"}, {"name": "SHIBUYA MEI", "birthday": "2006/05/12", "birth_place": "Hyogo", "mbti_type": "ENTP", "height": 163.0, "hobby": "Review the new McDonald's", "special_skills": "Sing with a trembling mouth", "id": "053_shibuyamei"}, {"name": "SHIMIZU KEIKO", "birthday": "2005/11/27", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 160.0, "hobby": "Draw a picture", "special_skills": "Move one eye", "id": "054_shimizukeiko"}, {"name": "SHIROMARU MAHO", "birthday": "2004/11/27", "birth_place": "Kumamoto", "mbti_type": "ESFP", "height": 158.0, "hobby": "Eating, taking pictures, karaoke", "special_skills": "Play basketball, exercise, sleep anywhere", "id": "056_shiromarumaho"}, {"name": "SHINZAWA MIKA", "birthday": "2004/09/10", "birth_place": "Niigata", "mbti_type": "ISTP", "height": 164.0, "hobby": "Skin care, listening to music, eating sweets", "special_skills": "Flexibility exercise", "id": "057_shinzawamika"}, {"name": "SUGAI NATSUHO", "birthday": "2003/06/03", "birth_place": "Saitama", "mbti_type": "INFP", "height": 166.0, "hobby": "Playing guitar, draw a paint", "special_skills": "Do classical ballet, calligraphy", "id": "058_sugainatsuho"}, {"name": "SUZUKI RENA", "birthday": "2006/05/11", "birth_place": "Tokyo", "mbti_type": "ESFP", "height": 156.0, "hobby": "Dancing, sleep with dolls, watch ticketem", "special_skills": "Eating strawberries quickly, dancing at double speed", "id": "059_suzukirena"}, {"name": "SUTANI YURARA", "birthday": "2005/08/18", "birth_place": "Hyogo", "mbti_type": "INFP", "height": 156.0, "hobby": "Going to museums, watching dramas and anime", "special_skills": "Dancing, manage facial expressions", "id": "060_sutaniyurara"}, {"name": "SUDO SAKURA", "birthday": "2003/04/08", "birth_place": "Fukuoka", "mbti_type": "ISTP", "height": 161.0, "hobby": "Drive, play UFO catcher", "special_skills": "Dancing, play rubik's cube", "id": "061_sudosakura"}, {"name": "SEKIGUCHI RIKAKO", "birthday": "2007/12/28", "birth_place": "Kanagawa", "mbti_type": "ENFP", "height": 164.0, "hobby": "Playing the piano, playing the drums, dancing, listening to music, and eating delicious food", "special_skills": "Soft body, dance K-POP BOYS DANCE", "id": "062_sekiguchirikako"}, {"name": "TAKAGI MAYU", "birthday": "2003/01/11", "birth_place": "Chiba", "mbti_type": "INFP", "height": 153.0, "hobby": "Take a walk", "special_skills": "Ball games", "id": "064_takagimayu"}, {"name": "TAKAHASHI HINA", "birthday": "2008/01/16", "birth_place": "Saitama", "mbti_type": "INFP", "height": 156.0, "hobby": "Listening to music, dancing, watching videos of moving ducks and their parents, taking pictures", "special_skills": "You can dance, do karate, peel hard-boiled eggs quickly, and stuff your mouth full of food.", "id": "065_takahashihina"}, {"name": "TAKABATAKE MOMOKA", "birthday": "2004/04/27", "birth_place": "Tokyo", "mbti_type": "ENFP", "height": 169.6, "hobby": "Sleeping, collecting songs, walking", "special_skills": "Sleeping, seeing, ankle opening 230\u00b0", "id": "066_takabatakemomoka"}, {"name": "TAKAMI AYANE", "birthday": "2005/05/15", "birth_place": "Iwate", "mbti_type": "INTP", "height": 158.0, "hobby": "Write lyrics and compose", "special_skills": "Tea ceremony", "id": "067_takamiayane"}, {"name": "TANAKA KOTO", "birthday": "2005/01/11", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 159.0, "hobby": "Breakdancing (practicing!), learning languages", "special_skills": "Ab exercises, dance choreography, three-point handstand", "id": "068_tanakakoto"}, {"name": "TANAKA HANA", "birthday": "2008/01/05", "birth_place": "Osaka", "mbti_type": "ESFP", "height": 160.0, "hobby": "Hair makeup", "special_skills": "Dancing, makeup", "id": "069_tanakahana"}, {"name": "TANAKA YUUKI", "birthday": "2004/02/14", "birth_place": "Kanagawa", "mbti_type": "ISFP", "height": 170.0, "hobby": "Dancing, listening to the radio, eating, playing with dogs", "special_skills": "Dancing", "id": "070_tanakayuuki"}, {"name": "TANABE KARIN", "birthday": "2003/01/23", "birth_place": "Hiroshima", "mbti_type": "ENFJ", "height": 160.0, "hobby": "Singing, watching movies", "special_skills": "Impersonation of familiar people", "id": "071_tanabekarin"}, {"name": "TANI SEIA", "birthday": "2006/12/28", "birth_place": "Saitama", "mbti_type": "ISTJ", "height": 161.0, "hobby": "Reading, appreciating art, eating sweets, being healed by watching Mionagi-chan", "special_skills": "Single eye, bend the first joint of the finger", "id": "072_taniseia"}, {"name": "TABATA NANA", "birthday": "2006/01/01", "birth_place": "Saitama", "mbti_type": "ENFP", "height": 162.0, "hobby": "Listening to music, taking pictures, looking for cute cats", "special_skills": "Dancing, imitate cat meow, handed melon soda", "id": "073_tabatanana"}, {"name": "TABUCHI MIU", "birthday": "2004/03/09", "birth_place": "Okayama", "mbti_type": "INTP", "height": 163.0, "hobby": "Eating, karaoke", "special_skills": "Dancing, flexibility, facial expression management when dancing", "id": "074_tabuchimiu"}, {"name": "NAKANO KOKONA", "birthday": "2007/01/10", "birth_place": "Tokyo", "mbti_type": "INFJ", "height": 160.0, "hobby": "Writing lyrics and composing, drawing faces, studying Japanese textbook sentences", "special_skills": "Performing, endure muscle training", "id": "075_nakanokokona"}, {"name": "NAKAMURA AOI", "birthday": "2006/03/07", "birth_place": "Nagano", "mbti_type": "INFP", "height": 157.0, "hobby": "watching movies, cooking, knitting", "special_skills": "Cooking, K-POP dance", "id": "076_nakamuraaoi"}, {"name": "NAKAMURA RIRO", "birthday": "2005/08/11", "birth_place": "Osaka", "mbti_type": "ESFP", "height": 160.0, "hobby": "Karaoke alone, playing with cats", "special_skills": "Classical ballet", "id": "077_nakamurariro"}, {"name": "NAKAMORI KOTONE", "birthday": "2001/11/03", "birth_place": "Fukuoka", "mbti_type": "ISTP", "height": 163.0, "hobby": "Eating delicious food, shopping, watching movies", "special_skills": "Dancing, gluttony, acrobatics", "id": "078_nakamorikotone"}, {"name": "NAKAMORI MIKOTO", "birthday": "2001/11/03", "birth_place": "Fukuoka", "mbti_type": "ISFP", "height": 162.0, "hobby": "Visiting cafes, finding delicious food, clothes, hot springs", "special_skills": "Dancing, acrobatics, cooking, latte art", "id": "079_nakamorimikoto"}, {"name": "NAKAYAMA HONOKA", "birthday": "2002/09/28", "birth_place": "Aichi", "mbti_type": "ENFP", "height": 166.0, "hobby": "Movies, stage performances, listening to music, drums, collecting cosmetics, fashion", "special_skills": "Imitating Crayon Shin-chan", "id": "080_nakayamahonoka"}, {"name": "HATTA MENA", "birthday": "2006/06/08", "birth_place": "Hyogo", "mbti_type": "ESFP", "height": 163.0, "hobby": "Dancing, going to Instagrammable spots", "special_skills": "Talking to people, posing", "id": "081_hattamena"}, {"name": "HAMASAKI AIKO", "birthday": "2003/10/18", "birth_place": "Fukuoka", "mbti_type": "INFP", "height": 160.0, "hobby": "Playing with children, classical ballet, contemporary dance", "special_skills": "Read aloud, read aloud, sleep anywhere", "id": "082_hamasakiaiko"}, {"name": "BANDO FUKA", "birthday": "2004/08/31", "birth_place": "Tokyo", "mbti_type": "ESFP", "height": 162.0, "hobby": "Dancing, chatting, eating around Toppo's chocolate without breaking it", "special_skills": "Make others smile", "id": "083_bandofuka"}, {"name": "HIDAKA HAZUKI", "birthday": "2007/08/08", "birth_place": "Osaka", "mbti_type": "ENFP", "height": 166.0, "hobby": "To be fashionable", "special_skills": "Eating", "id": "084_hidakahazuki"}, {"name": "FUJIMOTO AYAKA", "birthday": "2001/08/31", "birth_place": "Saitama", "mbti_type": "INFJ", "height": 169.0, "hobby": "Playing with my dog, visiting bakeries, Sudoku", "special_skills": "Baton twirling, acrobatics", "id": "085_fujimotoayaka"}, {"name": "FURUHASHI SAYAKA", "birthday": "2002/07/10", "birth_place": "Chiba", "mbti_type": "INFP", "height": 165.0, "hobby": "Eating ice cream, lost in thought", "special_skills": "Eating a lot of rice playing the piano", "id": "086_furuhashisayaka"}, {"name": "HOSOI AYAKA", "birthday": "2002/04/16", "birth_place": "Chiba", "mbti_type": "ESFP", "height": 153.0, "hobby": "Always listening to music", "special_skills": "Learn a language", "id": "087_hosoiayaka"}, {"name": "MATSUSHITA MIYU", "birthday": "2000/07/10", "birth_place": "Ishikawa", "mbti_type": "ENFP", "height": 160.0, "hobby": "Cooking, watching movies and anime", "special_skills": "Dancing", "id": "088_matsushitamiyu"}, {"name": "MIZUKAMI RIMIKA", "birthday": "2003/07/10", "birth_place": "Fukuoka", "mbti_type": "ENFP", "height": 164.0, "hobby": "Watching horror movies (thinking about how to live in them)", "special_skills": "Being able to get along with anyone", "id": "089_mizukamirimika"}, {"name": "MURAKAMI RINON", "birthday": "2006/09/30", "birth_place": "Okayama", "mbti_type": "INFP", "height": 164.0, "hobby": "Sleeping, eating, collecting cosmetics", "special_skills": "Tongue twister", "id": "090_murakamirinon"}, {"name": "MOGI SHION", "birthday": "2006/11/27", "birth_place": "Chiba", "mbti_type": "INFP", "height": 161.0, "hobby": "Dancing, watching anime", "special_skills": "Drawing, speaking korean", "id": "091_mogishion"}, {"name": "MOTOHASHI MEIKA", "birthday": "2006/08/24", "birth_place": "Chiba", "mbti_type": "ESFJ", "height": 154.0, "hobby": "Eating, playing, sleeping, dancing", "special_skills": "Soft wrists, hula hooping", "id": "092_motohashimeika"}, {"name": "MORO ANON", "birthday": "2003/04/05", "birth_place": "Tokyo", "mbti_type": "INFJ", "height": 159.0, "hobby": "Taking a walk while listening to music, watching soccer and futsal", "special_skills": "Sleeping anywhere", "id": "093_moroanon"}, {"name": "YAMAGUCHI MISAKI", "birthday": "2007/11/26", "birth_place": "Miyazaki", "mbti_type": "ISTP", "height": 160.0, "hobby": "Taking pictures of the sky every day", "special_skills": "Being able to eat a lot of rice, playing the saxophone", "id": "094_yamaguchimisaki"}, {"name": "YAMAZAKI MITSUKI", "birthday": "2001/08/17", "birth_place": "Tokyo", "mbti_type": "ENTJ", "height": 162.0, "hobby": "Sky observation, reading detective novels, latte art", "special_skills": "Cooking, making bread and sweets, scooping goldfish, playing UFO catcher, karate", "id": "095_yamazakimitsuki"}, {"name": "YAMAMOTO SUZU", "birthday": "2006/12/16", "birth_place": "Tokyo", "mbti_type": "INFP", "height": 164.0, "hobby": "Watching drama", "special_skills": "Karate", "id": "096_yamamotosuzu"}, {"name": "YOSHIDA AYANO", "birthday": "2001/12/21", "birth_place": "Osaka", "mbti_type": "INFJ", "height": 156.0, "hobby": "Bakery tour, vintage clothing store tour", "special_skills": "Blow a whistle", "id": "097_yoshidaayano"}, {"name": "YOSHIDA HANA", "birthday": "2006/05/10", "birth_place": "Nara", "mbti_type": "ESFJ", "height": 166.0, "hobby": "Listening to music, fashion", "special_skills": "Mickey Mouse impersonation", "id": "098_yoshidahana"}, {"name": "WAKIMOTO MIHAYA", "birthday": "2006/09/01", "birth_place": "Okayama", "mbti_type": "ISFP", "height": 160.0, "hobby": "Watching movies (anime) (horror)", "special_skills": "Dance a copy dance", "id": "099_wakimotomihaya"}, {"name": "WATANABE MIYU", "birthday": "2007/05/14", "birth_place": "Hyogo", "mbti_type": "ESFP", "height": 158.0, "hobby": "Watching Korean dramas, doing nails", "special_skills": "Making friends", "id": "100_watanabemiyu"}]
+[
+  {
+    "name": "AITA RIN",
+    "birthday": "2006/02/08",
+    "birth_place": "Fukushima",
+    "mbti_type": "ENTJ",
+    "height": 163.0,
+    "hobby": "Watching scary stories, watching K-POP",
+    "special_skills": "Girls hiphop ，hiphop ，jazz",
+    "id": "001_aitarin"
+  },
+  {
+    "name": "AOKI YUKA",
+    "birthday": "2003/10/19",
+    "birth_place": "Tochigi",
+    "mbti_type": "ENFJ",
+    "height": 161.0,
+    "hobby": "Bakery hopping, gourmet search",
+    "special_skills": "English and Korean, classical ballet, imitating crows, moving nose and ears at the same time",
+    "id": "002_aokiyuka"
+  },
+  {
+    "name": "AKIYAMA EMA",
+    "birthday": "2003/02/05",
+    "birth_place": "Tokyo",
+    "mbti_type": "ISTP",
+    "height": 163.0,
+    "hobby": "Hauling Instagram fashion accounts",
+    "special_skills": "Mimicry, flexibility exercises",
+    "id": "003_akiyamaema"
+  },
+  {
+    "name": "ABE NAGOMI",
+    "birthday": "2007/07/02",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ISFP",
+    "height": 156.0,
+    "hobby": "Taking a nap on the sofa",
+    "special_skills": "Spread legs, bridge higher than people, soften little finger",
+    "id": "004_abenagomi"
+  },
+  {
+    "name": "ARAMAKI JOA",
+    "birthday": "2005/08/29",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENFP",
+    "height": 157.0,
+    "hobby": "Video editing",
+    "special_skills": "Dance/Awa Odori",
+    "id": "005_aramakijoa"
+  },
+  {
+    "name": "ANDO CHIHARU",
+    "birthday": "2004/05/20",
+    "birth_place": "Fukuoka",
+    "mbti_type": "INFJ",
+    "height": 168.0,
+    "hobby": "Watching movies",
+    "special_skills": "Origami",
+    "id": "006_andochiharu"
+  },
+  {
+    "name": "ANDO YUI",
+    "birthday": "2004/10/06",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 160.0,
+    "hobby": "Make-up,find my favorite song",
+    "special_skills": "Singing/Massage/Mimicry",
+    "id": "007_andoyui"
+  },
+  {
+    "name": "IIDA SHIZUKU",
+    "birthday": "2004/12/04",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENFP",
+    "height": 160.0,
+    "hobby": "Singing, visiting shaved ice, collecting character goods",
+    "special_skills": "Sing, drawing, food",
+    "id": "009_iidashizuku"
+  },
+  {
+    "name": "ISHII RAN",
+    "birthday": "2004/08/07",
+    "birth_place": "Saitama",
+    "mbti_type": "ISFJ",
+    "height": 162.0,
+    "hobby": "Western music appreciation, educational sweets, cooking",
+    "special_skills": "Dancing,kendama",
+    "id": "010_ishiiran"
+  },
+  {
+    "name": "IYOTA HANA",
+    "birthday": "2006/11/07",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESFP",
+    "height": 161.0,
+    "hobby": "Human observation,eating",
+    "special_skills": "Dancing, quickly remembering people's faces and names",
+    "id": "011_iyotahana"
+  },
+  {
+    "name": "UEKI MIMI",
+    "birthday": "2007/10/28",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ESFP",
+    "height": 169.0,
+    "hobby": "Hand sanitizer, impersonating K-POP idols, watching baseball",
+    "special_skills": "Imitating Crayon Shin-chan, playing drums",
+    "id": "012_uekimimi"
+  },
+  {
+    "name": "UCHIYAMA RIN",
+    "birthday": "2008/02/03",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESTJ",
+    "height": 159.0,
+    "hobby": "Listening to music Games Singing",
+    "special_skills": "Dancing toe touch",
+    "id": "013_uchiyamarin"
+  },
+  {
+    "name": "EBIHARA TSUZUMI",
+    "birthday": "2007/01/22",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ENFP",
+    "height": 158.0,
+    "hobby": "Sleep, eat, sing",
+    "special_skills": "Can play the guitar, whistle, click with the tongue, and make loud popping sounds",
+    "id": "014_ebiharatsuzumi"
+  },
+  {
+    "name": "OIKAWA RIO",
+    "birthday": "2006/05/02",
+    "birth_place": "Miyagi",
+    "mbti_type": "ENTJ",
+    "height": 168.0,
+    "hobby": "Playing in the water",
+    "special_skills": "Move one's toes deftly",
+    "id": "015_oikawario"
+  },
+  {
+    "name": "OTA SARA",
+    "birthday": "2005/04/19",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ENFJ",
+    "height": 165.5,
+    "hobby": "Listening to music, taking pictures",
+    "special_skills": "Control the scapula",
+    "id": "016_otasara"
+  },
+  {
+    "name": "OTSUBO KAREN",
+    "birthday": "2004/11/05",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ISTP",
+    "height": 165.0,
+    "hobby": "Read comics, go to game arcades",
+    "special_skills": "Korean,play the guitar",
+    "id": "017_otsubokaren"
+  },
+  {
+    "name": "OKABE NONOKA",
+    "birthday": "2005/08/22",
+    "birth_place": "Kyoto",
+    "mbti_type": "ESFP",
+    "height": 157.0,
+    "hobby": "Shopping, watching dog videos",
+    "special_skills": "K-POP cover dance / bridge walking / hamburger making",
+    "id": "018_okabenonoka"
+  },
+  {
+    "name": "OKAMURA NANA",
+    "birthday": "2005/08/19",
+    "birth_place": "Hokkaido",
+    "mbti_type": "ENFP",
+    "height": 159.0,
+    "hobby": "Watching K-POP dramas, listening to your favorite music and getting into the rhythm, watching videos of kittens , watching moppang in the middle of the night",
+    "special_skills": "Playing tennis, making people smile",
+    "id": "019_okamuranana"
+  },
+  {
+    "name": "ODA ARUHA",
+    "birthday": "2002/06/06",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENFP",
+    "height": 155.0,
+    "hobby": "Watching movies, listening to music",
+    "special_skills": "Dancing",
+    "id": "020_odaaruha"
+  },
+  {
+    "name": "OYANAGI EMI",
+    "birthday": "2003/11/29",
+    "birth_place": "Republik Indonesia",
+    "mbti_type": "ESFJ",
+    "height": 156.0,
+    "hobby": "Dancing, shopping",
+    "special_skills": "Wink",
+    "id": "021_oyanagiemi"
+  },
+  {
+    "name": "KASAHARA MOMONA",
+    "birthday": "2003/10/22",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ENFJ",
+    "height": 163.0,
+    "hobby": "Shoot with a film camera",
+    "special_skills": "Acrobatic exercise",
+    "id": "022_kasaharamomona"
+  },
+  {
+    "name": "KATAOKA RIO",
+    "birthday": "2004/09/02",
+    "birth_place": "Osaka",
+    "mbti_type": "ENFJ",
+    "height": 159.0,
+    "hobby": "Dancing, watching idols, talking with friends",
+    "special_skills": "Show your hands neatly when dancing",
+    "id": "023_kataokario"
+  },
+  {
+    "name": "KATO AIRI",
+    "birthday": "2004/04/11",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENFP",
+    "height": 164.0,
+    "hobby": "Disney",
+    "special_skills": "Imitate",
+    "id": "024_katoairi"
+  },
+  {
+    "name": "KATO KAGURA",
+    "birthday": "2005/03/08",
+    "birth_place": "Osaka",
+    "mbti_type": "ENFP",
+    "height": 170.0,
+    "hobby": "Playing with mice",
+    "special_skills": "Hold your breath longer, drums",
+    "id": "025_katokagura"
+  },
+  {
+    "name": "KATO KOKORO",
+    "birthday": "2000/11/01",
+    "birth_place": "Aichi",
+    "mbti_type": "INFP",
+    "height": 166.0,
+    "hobby": "Painting with oil pastels and acrylics, playing the guitar",
+    "special_skills": "Korean",
+    "id": "026_katokokoro"
+  },
+  {
+    "name": "KATO KONOMI",
+    "birthday": "2004/10/17",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESFJ",
+    "height": 160.0,
+    "hobby": "Eat sweets",
+    "special_skills": "Makeup, fold tongue in two",
+    "id": "027_katokonomi"
+  },
+  {
+    "name": "KAMADA MOE",
+    "birthday": "2004/03/24",
+    "birth_place": "Osaka",
+    "mbti_type": "ENFP",
+    "height": 162.0,
+    "hobby": "Find a good restaurant",
+    "special_skills": "I can play any song with my nose",
+    "id": "028_kamadamoe"
+  },
+  {
+    "name": "KAMIO AYANO",
+    "birthday": "2006/07/18",
+    "birth_place": "Osaka",
+    "mbti_type": "ESFJ",
+    "height": 159.0,
+    "hobby": "Taking pictures",
+    "special_skills": "Impersonate Gian",
+    "id": "029_kamioayano"
+  },
+  {
+    "name": "KAWAGISHI RUNA",
+    "birthday": "2001/04/29",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESFP",
+    "height": 155.0,
+    "hobby": "Play the electone, play the piano",
+    "special_skills": "Taekwondo",
+    "id": "030_kawagishiruna"
+  },
+  {
+    "name": "KAWABATA RANKA",
+    "birthday": "2006/05/05",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 165.0,
+    "hobby": "Visiting shrines",
+    "special_skills": "Eye relay, tongue touching nose, drawing",
+    "id": "031_kawabataranka"
+  },
+  {
+    "name": "KANNO MIYU",
+    "birthday": "2002/07/11",
+    "birth_place": "Kagawa",
+    "mbti_type": "ESTJ",
+    "height": 164.0,
+    "hobby": "Make bread, make latte art, design clothes",
+    "special_skills": "Dancing, video editing",
+    "id": "032_kannomiyu"
+  },
+  {
+    "name": "KIKUKAWA AKI",
+    "birthday": "2001/08/13",
+    "birth_place": "Fukuoka",
+    "mbti_type": "INFJ",
+    "height": 161.0,
+    "hobby": "Dancing, getting in touch with nature, being healed by your favorite scent, taking care of yourself, watching YouTube, watching Netflix",
+    "special_skills": "Dancing, play soft tennis",
+    "id": "033_kikukawaaki"
+  },
+  {
+    "name": "KITAZATO RIO",
+    "birthday": "2004/03/15",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ISFP",
+    "height": 156.0,
+    "hobby": "Watching anime, listening to music",
+    "special_skills": "Just a little bit faster",
+    "id": "034_kitazatorio"
+  },
+  {
+    "name": "KITAZUME SAKURA",
+    "birthday": "2004/08/12",
+    "birth_place": "Gunma",
+    "mbti_type": "ENFP",
+    "height": 155.0,
+    "hobby": "Dancing",
+    "special_skills": "imitating, acrobatics",
+    "id": "035_kitazumesakura"
+  },
+  {
+    "name": "KINO RIKO",
+    "birthday": "2005/09/13",
+    "birth_place": "Kyoto",
+    "mbti_type": "ESFP",
+    "height": 160.0,
+    "hobby": "Watching anime, playing with cats",
+    "special_skills": "Playing sports, painting",
+    "id": "036_kinoriko"
+  },
+  {
+    "name": "KURIHARA KANO",
+    "birthday": "2004/11/06",
+    "birth_place": "Saitama",
+    "mbti_type": "ISTP",
+    "height": 157.0,
+    "hobby": "Playing with dog",
+    "special_skills": "Moving the scalp Shelling the shrimp",
+    "id": "037_kuriharakano"
+  },
+  {
+    "name": "KUROKAWA HONOKA",
+    "birthday": "2005/07/01",
+    "birth_place": "Tokushima",
+    "mbti_type": "ENFP",
+    "height": 168.0,
+    "hobby": "Listening to music, playing games",
+    "special_skills": "Imitate, play volleyball",
+    "id": "038_kurokawahonoka"
+  },
+  {
+    "name": "KENMOTSU NANO",
+    "birthday": "2001/08/27",
+    "birth_place": "Niigata",
+    "mbti_type": "ESFJ",
+    "height": 164.6,
+    "hobby": "K-POP cover dance",
+    "special_skills": "Dancing",
+    "id": "039_kenmotsunano"
+  },
+  {
+    "name": "KOBAYASHI SAE",
+    "birthday": "2005/02/02",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ESFP",
+    "height": 164.0,
+    "hobby": "Listening to K-POP, dancing",
+    "special_skills": "To imitate someone by grasping their characteristics",
+    "id": "041_kobayashisae"
+  },
+  {
+    "name": "KOYAMA MANA",
+    "birthday": "1998/09/07",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ENFP",
+    "height": 163.0,
+    "hobby": "Watching horror movies, dancing with friends, eating delicious food",
+    "special_skills": "Cover dance, pirouette, tenor sax",
+    "id": "042_koyamamana"
+  },
+  {
+    "name": "SAITO SERINA",
+    "birthday": "2006/05/03",
+    "birth_place": "Osaka",
+    "mbti_type": "ESFP",
+    "height": 164.0,
+    "hobby": "Making sweets, makeup",
+    "special_skills": "Doing magic, remembering people's faces and names",
+    "id": "043_saitoserina"
+  },
+  {
+    "name": "SAKAGUCHI RINO",
+    "birthday": "2003/09/01",
+    "birth_place": "Kanagawa",
+    "mbti_type": "INFJ",
+    "height": 165.0,
+    "hobby": "Watching anime and movies, using computers, studying makeup and fashion",
+    "special_skills": "Singing",
+    "id": "044_sakaguchirino"
+  },
+  {
+    "name": "SAKATA KOTONE",
+    "birthday": "2003/02/16",
+    "birth_place": "Kyoto",
+    "mbti_type": "INFP",
+    "height": 168.0,
+    "hobby": "Sing karaoke alone",
+    "special_skills": "Draw a picture",
+    "id": "045_sakatakotone"
+  },
+  {
+    "name": "SAKURAI MIU",
+    "birthday": "2002/01/11",
+    "birth_place": "Aichi",
+    "mbti_type": "ISTP",
+    "height": 162.5,
+    "hobby": "Yoga, baking, cooking, swimming, listening to music",
+    "special_skills": "Studying, cooking, thinking about dance formations",
+    "id": "046_sakuraimiu"
+  },
+  {
+    "name": "SAKURABA HARUKA",
+    "birthday": "2006/01/29",
+    "birth_place": "Hokkaido",
+    "mbti_type": "INTP",
+    "height": 154.0,
+    "hobby": "Read comics, read novels, play basketball",
+    "special_skills": "Play the Electone, sleep for a long time",
+    "id": "047_sakurabaharuka"
+  },
+  {
+    "name": "SASAKI KOKONA",
+    "birthday": "2006/01/30",
+    "birth_place": "Mie",
+    "mbti_type": "ISFP",
+    "height": 165.0,
+    "hobby": "Singing, sleeping, watching audition programs, playing badminton",
+    "special_skills": "Play basketball, eat the same food all the time",
+    "id": "048_sasakikokona"
+  },
+  {
+    "name": "SASAKI TSUKUSHI",
+    "birthday": "2006/05/26",
+    "birth_place": "Iwate",
+    "mbti_type": "ISFJ",
+    "height": 158.0,
+    "hobby": "Observing people, learning dance moves",
+    "special_skills": "Dancing",
+    "id": "049_sasakitsukushi"
+  },
+  {
+    "name": "SATO AMELI",
+    "birthday": "2004/04/06",
+    "birth_place": "United States of America",
+    "mbti_type": "ISFJ",
+    "height": 167.0,
+    "hobby": "Skiing, journaling, traveling",
+    "special_skills": "Classical ballet",
+    "id": "050_satoameli"
+  },
+  {
+    "name": "SANO JUERI",
+    "birthday": "2003/07/10",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENTP",
+    "height": 170.0,
+    "hobby": "Watching movies, shopping",
+    "special_skills": "Playing the violin, coordinating fashion",
+    "id": "051_sanojueri"
+  },
+  {
+    "name": "SHIBAGAKI ARISA",
+    "birthday": "2006/05/23",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 161.0,
+    "hobby": "Swimming, studying Korean and English",
+    "special_skills": "Playing sports,",
+    "id": "052_shibagakiarisa"
+  },
+  {
+    "name": "SHIBUYA MEI",
+    "birthday": "2006/05/12",
+    "birth_place": "Hyogo",
+    "mbti_type": "ENTP",
+    "height": 163.0,
+    "hobby": "Review the new McDonald's",
+    "special_skills": "Sing with a trembling mouth",
+    "id": "053_shibuyamei"
+  },
+  {
+    "name": "SHIMIZU KEIKO",
+    "birthday": "2005/11/27",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 160.0,
+    "hobby": "Draw a picture",
+    "special_skills": "Move one eye",
+    "id": "054_shimizukeiko"
+  },
+  {
+    "name": "SHIROMARU MAHO",
+    "birthday": "2004/11/27",
+    "birth_place": "Kumamoto",
+    "mbti_type": "ESFP",
+    "height": 158.0,
+    "hobby": "Eating, taking pictures, karaoke",
+    "special_skills": "Play basketball, exercise, sleep anywhere",
+    "id": "056_shiromarumaho"
+  },
+  {
+    "name": "SHINZAWA MIKA",
+    "birthday": "2004/09/10",
+    "birth_place": "Niigata",
+    "mbti_type": "ISTP",
+    "height": 164.0,
+    "hobby": "Skin care, listening to music, eating sweets",
+    "special_skills": "Flexibility exercise",
+    "id": "057_shinzawamika"
+  },
+  {
+    "name": "SUGAI NATSUHO",
+    "birthday": "2003/06/03",
+    "birth_place": "Saitama",
+    "mbti_type": "INFP",
+    "height": 166.0,
+    "hobby": "Playing guitar, draw a paint",
+    "special_skills": "Do classical ballet, calligraphy",
+    "id": "058_sugainatsuho"
+  },
+  {
+    "name": "SUZUKI RENA",
+    "birthday": "2006/05/11",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESFP",
+    "height": 156.0,
+    "hobby": "Dancing, sleep with dolls, watch ticketem",
+    "special_skills": "Eating strawberries quickly, dancing at double speed",
+    "id": "059_suzukirena"
+  },
+  {
+    "name": "SUTANI YURARA",
+    "birthday": "2005/08/18",
+    "birth_place": "Hyogo",
+    "mbti_type": "INFP",
+    "height": 156.0,
+    "hobby": "Going to museums, watching dramas and anime",
+    "special_skills": "Dancing, manage facial expressions",
+    "id": "060_sutaniyurara"
+  },
+  {
+    "name": "SUDO SAKURA",
+    "birthday": "2003/04/08",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ISTP",
+    "height": 161.0,
+    "hobby": "Drive, play UFO catcher",
+    "special_skills": "Dancing, play rubik's cube",
+    "id": "061_sudosakura"
+  },
+  {
+    "name": "SEKIGUCHI RIKAKO",
+    "birthday": "2007/12/28",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ENFP",
+    "height": 164.0,
+    "hobby": "Playing the piano, playing the drums, dancing, listening to music, and eating delicious food",
+    "special_skills": "Soft body, dance K-POP BOYS DANCE",
+    "id": "062_sekiguchirikako"
+  },
+  {
+    "name": "TAKAGI MAYU",
+    "birthday": "2003/01/11",
+    "birth_place": "Chiba",
+    "mbti_type": "INFP",
+    "height": 153.0,
+    "hobby": "Take a walk",
+    "special_skills": "Ball games",
+    "id": "064_takagimayu"
+  },
+  {
+    "name": "TAKAHASHI HINA",
+    "birthday": "2008/01/16",
+    "birth_place": "Saitama",
+    "mbti_type": "INFP",
+    "height": 156.0,
+    "hobby": "Listening to music, dancing, watching videos of moving ducks and their parents, taking pictures",
+    "special_skills": "You can dance, do karate, peel hard-boiled eggs quickly, and stuff your mouth full of food.",
+    "id": "065_takahashihina"
+  },
+  {
+    "name": "TAKABATAKE MOMOKA",
+    "birthday": "2004/04/27",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENFP",
+    "height": 169.6,
+    "hobby": "Sleeping, collecting songs, walking",
+    "special_skills": "Sleeping, seeing, ankle opening 230°",
+    "id": "066_takabatakemomoka"
+  },
+  {
+    "name": "TAKAMI AYANE",
+    "birthday": "2005/05/15",
+    "birth_place": "Iwate",
+    "mbti_type": "INTP",
+    "height": 158.0,
+    "hobby": "Write lyrics and compose",
+    "special_skills": "Tea ceremony",
+    "id": "067_takamiayane"
+  },
+  {
+    "name": "TANAKA KOTO",
+    "birthday": "2005/01/11",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 159.0,
+    "hobby": "Breakdancing (practicing!), learning languages",
+    "special_skills": "Ab exercises, dance choreography, three-point handstand",
+    "id": "068_tanakakoto"
+  },
+  {
+    "name": "TANAKA HANA",
+    "birthday": "2008/01/05",
+    "birth_place": "Osaka",
+    "mbti_type": "ESFP",
+    "height": 160.0,
+    "hobby": "Hair makeup",
+    "special_skills": "Dancing, makeup",
+    "id": "069_tanakahana"
+  },
+  {
+    "name": "TANAKA YUUKI",
+    "birthday": "2004/02/14",
+    "birth_place": "Kanagawa",
+    "mbti_type": "ISFP",
+    "height": 170.0,
+    "hobby": "Dancing, listening to the radio, eating, playing with dogs",
+    "special_skills": "Dancing",
+    "id": "070_tanakayuuki"
+  },
+  {
+    "name": "TANABE KARIN",
+    "birthday": "2003/01/23",
+    "birth_place": "Hiroshima",
+    "mbti_type": "ENFJ",
+    "height": 160.0,
+    "hobby": "Singing, watching movies",
+    "special_skills": "Impersonation of familiar people",
+    "id": "071_tanabekarin"
+  },
+  {
+    "name": "TANI SEIA",
+    "birthday": "2006/12/28",
+    "birth_place": "Saitama",
+    "mbti_type": "ISTJ",
+    "height": 161.0,
+    "hobby": "Reading, appreciating art, eating sweets, being healed by watching Mionagi-chan",
+    "special_skills": "Single eye, bend the first joint of the finger",
+    "id": "072_taniseia"
+  },
+  {
+    "name": "TABATA NANA",
+    "birthday": "2006/01/01",
+    "birth_place": "Saitama",
+    "mbti_type": "ENFP",
+    "height": 162.0,
+    "hobby": "Listening to music, taking pictures, looking for cute cats",
+    "special_skills": "Dancing, imitate cat meow, handed melon soda",
+    "id": "073_tabatanana"
+  },
+  {
+    "name": "TABUCHI MIU",
+    "birthday": "2004/03/09",
+    "birth_place": "Okayama",
+    "mbti_type": "INTP",
+    "height": 163.0,
+    "hobby": "Eating, karaoke",
+    "special_skills": "Dancing, flexibility, facial expression management when dancing",
+    "id": "074_tabuchimiu"
+  },
+  {
+    "name": "NAKANO KOKONA",
+    "birthday": "2007/01/10",
+    "birth_place": "Tokyo",
+    "mbti_type": "INFJ",
+    "height": 160.0,
+    "hobby": "Writing lyrics and composing, drawing faces, studying Japanese textbook sentences",
+    "special_skills": "Performing, endure muscle training",
+    "id": "075_nakanokokona"
+  },
+  {
+    "name": "NAKAMURA AOI",
+    "birthday": "2006/03/07",
+    "birth_place": "Nagano",
+    "mbti_type": "INFP",
+    "height": 157.0,
+    "hobby": "watching movies, cooking, knitting",
+    "special_skills": "Cooking, K-POP dance",
+    "id": "076_nakamuraaoi"
+  },
+  {
+    "name": "NAKAMURA RIRO",
+    "birthday": "2005/08/11",
+    "birth_place": "Osaka",
+    "mbti_type": "ESFP",
+    "height": 160.0,
+    "hobby": "Karaoke alone, playing with cats",
+    "special_skills": "Classical ballet",
+    "id": "077_nakamurariro"
+  },
+  {
+    "name": "NAKAMORI KOTONE",
+    "birthday": "2001/11/03",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ISTP",
+    "height": 163.0,
+    "hobby": "Eating delicious food, shopping, watching movies",
+    "special_skills": "Dancing, gluttony, acrobatics",
+    "id": "078_nakamorikotone"
+  },
+  {
+    "name": "NAKAMORI MIKOTO",
+    "birthday": "2001/11/03",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ISFP",
+    "height": 162.0,
+    "hobby": "Visiting cafes, finding delicious food, clothes, hot springs",
+    "special_skills": "Dancing, acrobatics, cooking, latte art",
+    "id": "079_nakamorimikoto"
+  },
+  {
+    "name": "NAKAYAMA HONOKA",
+    "birthday": "2002/09/28",
+    "birth_place": "Aichi",
+    "mbti_type": "ENFP",
+    "height": 166.0,
+    "hobby": "Movies, stage performances, listening to music, drums, collecting cosmetics, fashion",
+    "special_skills": "Imitating Crayon Shin-chan",
+    "id": "080_nakayamahonoka"
+  },
+  {
+    "name": "HATTA MENA",
+    "birthday": "2006/06/08",
+    "birth_place": "Hyogo",
+    "mbti_type": "ESFP",
+    "height": 163.0,
+    "hobby": "Dancing, going to Instagrammable spots",
+    "special_skills": "Talking to people, posing",
+    "id": "081_hattamena"
+  },
+  {
+    "name": "HAMASAKI AIKO",
+    "birthday": "2003/10/18",
+    "birth_place": "Fukuoka",
+    "mbti_type": "INFP",
+    "height": 160.0,
+    "hobby": "Playing with children, classical ballet, contemporary dance",
+    "special_skills": "Read aloud, read aloud, sleep anywhere",
+    "id": "082_hamasakiaiko"
+  },
+  {
+    "name": "BANDO FUKA",
+    "birthday": "2004/08/31",
+    "birth_place": "Tokyo",
+    "mbti_type": "ESFP",
+    "height": 162.0,
+    "hobby": "Dancing, chatting, eating around Toppo's chocolate without breaking it",
+    "special_skills": "Make others smile",
+    "id": "083_bandofuka"
+  },
+  {
+    "name": "HIDAKA HAZUKI",
+    "birthday": "2007/08/08",
+    "birth_place": "Osaka",
+    "mbti_type": "ENFP",
+    "height": 166.0,
+    "hobby": "To be fashionable",
+    "special_skills": "Eating",
+    "id": "084_hidakahazuki"
+  },
+  {
+    "name": "FUJIMOTO AYAKA",
+    "birthday": "2001/08/31",
+    "birth_place": "Saitama",
+    "mbti_type": "INFJ",
+    "height": 169.0,
+    "hobby": "Playing with my dog, visiting bakeries, Sudoku",
+    "special_skills": "Baton twirling, acrobatics",
+    "id": "085_fujimotoayaka"
+  },
+  {
+    "name": "FURUHASHI SAYAKA",
+    "birthday": "2002/07/10",
+    "birth_place": "Chiba",
+    "mbti_type": "INFP",
+    "height": 165.0,
+    "hobby": "Eating ice cream, lost in thought",
+    "special_skills": "Eating a lot of rice playing the piano",
+    "id": "086_furuhashisayaka"
+  },
+  {
+    "name": "HOSOI AYAKA",
+    "birthday": "2002/04/16",
+    "birth_place": "Chiba",
+    "mbti_type": "ESFP",
+    "height": 153.0,
+    "hobby": "Always listening to music",
+    "special_skills": "Learn a language",
+    "id": "087_hosoiayaka"
+  },
+  {
+    "name": "MATSUSHITA MIYU",
+    "birthday": "2000/07/10",
+    "birth_place": "Ishikawa",
+    "mbti_type": "ENFP",
+    "height": 160.0,
+    "hobby": "Cooking, watching movies and anime",
+    "special_skills": "Dancing",
+    "id": "088_matsushitamiyu"
+  },
+  {
+    "name": "MIZUKAMI RIMIKA",
+    "birthday": "2003/07/10",
+    "birth_place": "Fukuoka",
+    "mbti_type": "ENFP",
+    "height": 164.0,
+    "hobby": "Watching horror movies (thinking about how to live in them)",
+    "special_skills": "Being able to get along with anyone",
+    "id": "089_mizukamirimika"
+  },
+  {
+    "name": "MURAKAMI RINON",
+    "birthday": "2006/09/30",
+    "birth_place": "Okayama",
+    "mbti_type": "INFP",
+    "height": 164.0,
+    "hobby": "Sleeping, eating, collecting cosmetics",
+    "special_skills": "Tongue twister",
+    "id": "090_murakamirinon"
+  },
+  {
+    "name": "MOGI SHION",
+    "birthday": "2006/11/27",
+    "birth_place": "Chiba",
+    "mbti_type": "INFP",
+    "height": 161.0,
+    "hobby": "Dancing, watching anime",
+    "special_skills": "Drawing, speaking korean",
+    "id": "091_mogishion"
+  },
+  {
+    "name": "MOTOHASHI MEIKA",
+    "birthday": "2006/08/24",
+    "birth_place": "Chiba",
+    "mbti_type": "ESFJ",
+    "height": 154.0,
+    "hobby": "Eating, playing, sleeping, dancing",
+    "special_skills": "Soft wrists, hula hooping",
+    "id": "092_motohashimeika"
+  },
+  {
+    "name": "MORO ANON",
+    "birthday": "2003/04/05",
+    "birth_place": "Tokyo",
+    "mbti_type": "INFJ",
+    "height": 159.0,
+    "hobby": "Taking a walk while listening to music, watching soccer and futsal",
+    "special_skills": "Sleeping anywhere",
+    "id": "093_moroanon"
+  },
+  {
+    "name": "YAMAGUCHI MISAKI",
+    "birthday": "2007/11/26",
+    "birth_place": "Miyazaki",
+    "mbti_type": "ISTP",
+    "height": 160.0,
+    "hobby": "Taking pictures of the sky every day",
+    "special_skills": "Being able to eat a lot of rice, playing the saxophone",
+    "id": "094_yamaguchimisaki"
+  },
+  {
+    "name": "YAMAZAKI MITSUKI",
+    "birthday": "2001/08/17",
+    "birth_place": "Tokyo",
+    "mbti_type": "ENTJ",
+    "height": 162.0,
+    "hobby": "Sky observation, reading detective novels, latte art",
+    "special_skills": "Cooking, making bread and sweets, scooping goldfish, playing UFO catcher, karate",
+    "id": "095_yamazakimitsuki"
+  },
+  {
+    "name": "YAMAMOTO SUZU",
+    "birthday": "2006/12/16",
+    "birth_place": "Tokyo",
+    "mbti_type": "INFP",
+    "height": 164.0,
+    "hobby": "Watching drama",
+    "special_skills": "Karate",
+    "id": "096_yamamotosuzu"
+  },
+  {
+    "name": "YOSHIDA AYANO",
+    "birthday": "2001/12/21",
+    "birth_place": "Osaka",
+    "mbti_type": "INFJ",
+    "height": 156.0,
+    "hobby": "Bakery tour, vintage clothing store tour",
+    "special_skills": "Blow a whistle",
+    "id": "097_yoshidaayano"
+  },
+  {
+    "name": "YOSHIDA HANA",
+    "birthday": "2006/05/10",
+    "birth_place": "Nara",
+    "mbti_type": "ESFJ",
+    "height": 166.0,
+    "hobby": "Listening to music, fashion",
+    "special_skills": "Mickey Mouse impersonation",
+    "id": "098_yoshidahana"
+  },
+  {
+    "name": "WAKIMOTO MIHAYA",
+    "birthday": "2006/09/01",
+    "birth_place": "Okayama",
+    "mbti_type": "ISFP",
+    "height": 160.0,
+    "hobby": "Watching movies (anime) (horror)",
+    "special_skills": "Dance a copy dance",
+    "id": "099_wakimotomihaya"
+  },
+  {
+    "name": "WATANABE MIYU",
+    "birthday": "2007/05/14",
+    "birth_place": "Hyogo",
+    "mbti_type": "ESFP",
+    "height": 158.0,
+    "hobby": "Watching Korean dramas, doing nails",
+    "special_skills": "Making friends",
+    "id": "100_watanabemiyu"
+  }
+]
