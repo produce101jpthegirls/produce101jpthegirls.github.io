@@ -1,6 +1,7 @@
+import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useCallback, useState } from "react";
 import trainees_en from "@/data/trainees_en.json";
 import trainees_jp  from "@/data/trainees_jp.json";
 
@@ -154,7 +155,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
           <Avatar index={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
           <div className="grow">
             <div className="flex justify-between">
-              <div className="select-none">{item.nameEn} ({item.nameJp})</div>
+              <div className="select-none">{item.nameJp} ({item.nameEn})</div>
               <div className="select-none">{item.id}</div>
             </div>
             <div className="select-none">{item.birthday} {item.birthPlace}</div>
@@ -211,22 +212,59 @@ type TraineeViewProps = {
 }
 
 export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => {
+  const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
+
+  const debouncedSetQuery = useCallback(debounce((value) => {
+    setQuery(value);
+  }, 500), []);
+
+  const filteredTrainees = query === "" ? trainees : trainees.filter((trainee) => {
+    return (
+      trainee.nameEn.includes(query) ||
+      trainee.nameJp.includes(query) ||
+      trainee.birthPlace.includes(query) ||
+      trainee.birthday.includes(query) ||
+      trainee.id.includes(query)
+    );
+  });
+
   return (
     <>
       <div className="p-3 flex gap-2 items-center justify-between border-b">
         {/* <div className="px-4 py-2 border-b border-gray-100 text-pd-pink-100 font-bold">PICK YOUR TOP 11</div> */}
-        <input
-          className="grow bg-gray-100 px-3 py-1.5 rounded-lg focus:outline-none"
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search"
-        />
+        <div className="grow flex items-center bg-gray-100 px-3 py-1.5 rounded-lg overflow-hidden">
+          <input
+            id="search"
+            className="grow bg-gray-100 focus:outline-none"
+            type="text"
+            value={queryText}
+            onChange={(e) => {
+              setQueryText(e.target.value);
+              debouncedSetQuery(e.target.value);
+            }}
+            placeholder="Search"
+          />
+          <button
+            className={`group ${query === "" ? "text-gray-100" : "text-pd-pink-400"}`}
+            disabled={query === ""}
+            onClick={() => {
+              setQueryText("");
+              setQuery("");
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 block group-hover:hidden">
+              <path fillRule="evenodd" d="M3.792 2.938A49.069 49.069 0 0112 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 011.541 1.836v1.044a3 3 0 01-.879 2.121l-6.182 6.182a1.5 1.5 0 00-.439 1.061v2.927a3 3 0 01-1.658 2.684l-1.757.878A.75.75 0 019.75 21v-5.818a1.5 1.5 0 00-.44-1.06L3.13 7.938a3 3 0 01-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836z" clipRule="evenodd" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hidden group-hover:block">
+              <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
         <div className="flex gap-1">
           <button
-            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-gray-300" : ""}`}
+            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : ""}`}
             disabled={display == "list"}
             onClick={() => setDisplay("list")}
           >
@@ -235,7 +273,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
             </svg>
           </button>
           <button
-            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-gray-300" : ""}`}
+            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : ""}`}
             disabled={display == "grid"}
             onClick={() => setDisplay("grid")}
           >
@@ -246,9 +284,9 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
         </div>
       </div>
       {display === "list" ? (
-        <ListView items={trainees} selected={selected} setSelected={setSelected} />
+        <ListView items={filteredTrainees} selected={selected} setSelected={setSelected} />
       ) : (
-        <GridView items={trainees} selected={selected} setSelected={setSelected} />
+        <GridView items={filteredTrainees} selected={selected} setSelected={setSelected} />
       )}
     </>
   );
