@@ -1,9 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Noto_Sans_JP } from "next/font/google";
 import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'] })
+const noto_sans_jp = Noto_Sans_JP({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: 'PRODUCE 101 JAPAN THE GIRLS RANKER',
@@ -17,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={noto_sans_jp.className}>{children}</body>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJG5KYF35L" />
       <Script id="google-analytics">
         {`
