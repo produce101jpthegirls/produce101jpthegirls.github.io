@@ -21,7 +21,7 @@ const Panel: FC<PanelProps> = ({ children }) => {
   return (
     <div
       className="w-full sm:w-[480px] border border-gray-100 shadow
-      rounded-2xl my-2 sm:my-0 text-sm sm:text-base overflow-hidden"
+      rounded-2xl text-sm sm:text-base overflow-hidden"
     >{children}</div>
   )
 };
@@ -75,13 +75,19 @@ export default function Home() {
         <div
           className="text-pd-gray-400 text-center text-xs sm:text-base"
         >
-          初めて羽ばたいた101人の少女たちが<br className="sm:hidden" />デビューを目指して集ました<br />
-          <br className="sm:hidden" />夢の花道に向かって駆け抜ける<br className="sm:hidden" />彼女たちを応援していきましょう
+          初めて羽ばたいた101人の少女たちが
+          <br className="sm:hidden" />
+          デビューを目指して集ました
+          <br />
+          <br className="sm:hidden" />
+          夢の花道に向かって駆け抜ける
+          <br className="sm:hidden" />
+          彼女たちを応援していきましょう
         </div>
       </div>
       <div
-        className="my-4 sm:my-20 px-4 text-pd-gray-400 flex flex-col sm:flex-row gap-0 sm:gap-8
-        justify-center items-center sm:items-stretch"
+        className="mb-10 sm:mb-20 px-4 text-pd-gray-400 flex
+        flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center sm:items-stretch"
       >
         <Panel>
           <TraineeView selected={selected} setSelected={setSelected} />
