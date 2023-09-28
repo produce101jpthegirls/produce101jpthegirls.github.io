@@ -121,7 +121,7 @@ export default function Analytics() {
                   labels={getEntryLabels(mbtiEntries)}
                   data={getEntryData(mbtiEntries)}
                   title="MBTI"
-                  height={256}
+                  height={180}
                   datasetLabel="Your Top 11"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function Analytics() {
                   labels={getEntryLabels(birthyearEntries)}
                   data={getEntryData(birthyearEntries)}
                   title="Birthyears"
-                  height={256}
+                  height={180}
                   datasetLabel="Your Top 11"
                 />
               </div>
@@ -149,7 +149,7 @@ export default function Analytics() {
                 labels={getEntryLabels(allMbtiEntries)}
                 data={getEntryData(allMbtiEntries)}
                 title="MBTI"
-                height={480}
+                height={400}
                 datasetLabel="All Trainees"
               />
             </div>
@@ -160,7 +160,7 @@ export default function Analytics() {
                 labels={getEntryLabels(allBirthyearEntries)}
                 data={getEntryData(allBirthyearEntries)}
                 title="Birthyears"
-                height={480}
+                height={400}
                 datasetLabel="All Trainees"
               />
             </div>
