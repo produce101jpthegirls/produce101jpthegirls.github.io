@@ -22,6 +22,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'header-banner': "url('/bg_header.webp')",
+        'body-background': "url('/bg_pattern02.png')",
       },
       colors: {
         'pd-gray-300': '#969696',

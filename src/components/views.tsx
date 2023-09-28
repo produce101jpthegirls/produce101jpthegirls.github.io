@@ -2,6 +2,7 @@ import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
 import { TRAINEES } from "../constants";
 
@@ -296,9 +297,6 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
               setQuery("");
             }}
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 block group-hover:hidden">
-              <path fillRule="evenodd" d="M3.792 2.938A49.069 49.069 0 0112 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 011.541 1.836v1.044a3 3 0 01-.879 2.121l-6.182 6.182a1.5 1.5 0 00-.439 1.061v2.927a3 3 0 01-1.658 2.684l-1.757.878A.75.75 0 019.75 21v-5.818a1.5 1.5 0 00-.44-1.06L3.13 7.938a3 3 0 01-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836z" clipRule="evenodd" />
-            </svg> */}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
             </svg>
@@ -306,7 +304,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
         </div>
         <div className="flex gap-1">
           <button
-            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : ""}`}
+            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
             disabled={display == "list"}
             onClick={() => setDisplay("list")}
           >
@@ -315,7 +313,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
             </svg>
           </button>
           <button
-            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : ""}`}
+            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
             disabled={display == "grid"}
             onClick={() => setDisplay("grid")}
           >
@@ -420,6 +418,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
   setCompleteModalIsOpen,
   setDownloadModalIsOpen,
 }) => {
+  const router = useRouter();
   const selectedTrainees: (Trainee|undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
   const selectionCompleted = !selected.some((value) => value === 255);
   const disabled = !selectionCompleted;
@@ -467,6 +466,16 @@ export const SelectionView: FC<SelectionViewProps> = ({
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path d="M12 1.5a.75.75 0 01.75.75V7.5h-1.5V2.25A.75.75 0 0112 1.5zM11.25 7.5v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V7.5h3.75a3 3 0 013 3v9a3 3 0 01-3 3h-9a3 3 0 01-3-3v-9a3 3 0 013-3h3.75z" />
+            </svg>
+          </button>
+          <button
+            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            disabled={disabled}
+            onClick={() => router.replace("/analytics" + location.search)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
+              <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clipRule="evenodd" />
             </svg>
           </button>
         </div>
