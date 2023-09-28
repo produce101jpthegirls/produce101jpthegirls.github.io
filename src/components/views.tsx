@@ -1,42 +1,15 @@
 import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
-import trainees_en from "@/data/trainees_en.json";
-import trainees_jp  from "@/data/trainees_jp.json";
 import Link from "next/link";
+import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
+import { TRAINEES } from "../constants";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
   subsets: ["latin"],
   display: "swap",
 });
-
-type Trainee = {
-  index: number;
-  id: string;
-  code: string;
-  nameEn: string;
-  nameJp: string;
-  birthday: string;
-  birthPlace: string;
-  mbtiType: string;
-  profileUrl: string;
-  videoUrl: string;
-};
-
-const trainees: Trainee[] = Array.from(Array(trainees_en.length).keys()).map((index) => ({
-  index,
-  id: trainees_jp[index].id.split("_")[0],
-  code: trainees_jp[index].id,
-  nameEn: trainees_en[index].name,
-  nameJp: trainees_jp[index].name,
-  birthday: trainees_jp[index].birthday.replaceAll("/", "."),
-  birthPlace: trainees_jp[index].birth_place,
-  mbtiType: trainees_jp[index].mbti_type,
-  profileUrl: `https://produce101.jp/profile/detail/?id=${trainees_jp[index].id}`,
-  videoUrl: trainees_jp[index].video_url,
-}));
 
 export const getItemImage = (item: Trainee) => {
   return {
@@ -51,7 +24,7 @@ const addTrainee = (
   setSelected: Dispatch<SetStateAction<number[]>>,
   itemIndex: number,
 ) => {
-  if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === -1)) {
+  if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === 255)) {
     // Add item to selected
     const newSelected = [...selected];
     const emptyIndex = newSelected.indexOf(-1);
@@ -89,7 +62,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
         if (setSelected) {
           setSelected((prev) => {
             const next = [...prev];
-            next[next.indexOf(traineeIndex)] = -1;
+            next[next.indexOf(traineeIndex)] = 255;
             return next;
           });
         }
@@ -288,7 +261,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
-  const filteredTrainees = query === "" ? trainees : trainees.filter((trainee) => {
+  const filteredTrainees = query === "" ? TRAINEES : TRAINEES.filter((trainee) => {
     const _query = query.toLowerCase();
     return (
       trainee.nameEn.toLowerCase().includes(_query) ||
@@ -418,7 +391,6 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
 export const createDownloadSelection = (): HTMLElement|undefined => {
   const element = document.getElementById("palette-wrapper");
   if (element) {
-    console.log(element)
     const cloned = element.cloneNode(true) as HTMLElement;
     const _header = cloned.querySelector("#palette-header");
     if (_header) {
@@ -448,9 +420,10 @@ export const SelectionView: FC<SelectionViewProps> = ({
   setCompleteModalIsOpen,
   setDownloadModalIsOpen,
 }) => {
-  const selectedTrainees: (Trainee|undefined)[] = selected.map((index) => index === -1 ? undefined : trainees[index]);
-  const selectionCompleted = !selected.some((value) => value < 0);
+  const selectedTrainees: (Trainee|undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
+  const selectionCompleted = !selected.some((value) => value === 255);
   const disabled = !selectionCompleted;
+
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[0.96rem] border-b flex justify-between items-center">
@@ -459,7 +432,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
             onClick={() => {
-              const unshuffled = Array.from(Array(trainees.length).keys());
+              const unshuffled = Array.from(Array(TRAINEES.length).keys());
               const shuffled = unshuffled
                 .map(value => ({ value, sort: Math.random() }))
                 .sort((a, b) => a.sort - b.sort)
