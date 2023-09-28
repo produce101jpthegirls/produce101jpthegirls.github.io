@@ -7,7 +7,8 @@
     "height": 163.0,
     "hobby": "Watching scary stories, watching K-POP",
     "special_skills": "Girls hiphop ，hiphop ，jazz",
-    "id": "001_aitarin"
+    "id": "001_aitarin",
+    "video_url": "https://youtu.be/Z6TZK-e4KTY"
   },
   {
     "name": "AOKI YUKA",
@@ -17,7 +18,8 @@
     "height": 161.0,
     "hobby": "Bakery hopping, gourmet search",
     "special_skills": "English and Korean, classical ballet, imitating crows, moving nose and ears at the same time",
-    "id": "002_aokiyuka"
+    "id": "002_aokiyuka",
+    "video_url": "https://youtu.be/Lev7Ixirv3k"
   },
   {
     "name": "AKIYAMA EMA",
@@ -27,7 +29,8 @@
     "height": 163.0,
     "hobby": "Hauling Instagram fashion accounts",
     "special_skills": "Mimicry, flexibility exercises",
-    "id": "003_akiyamaema"
+    "id": "003_akiyamaema",
+    "video_url": "https://youtu.be/cFWAEqarZpM"
   },
   {
     "name": "ABE NAGOMI",
@@ -37,7 +40,8 @@
     "height": 156.0,
     "hobby": "Taking a nap on the sofa",
     "special_skills": "Spread legs, bridge higher than people, soften little finger",
-    "id": "004_abenagomi"
+    "id": "004_abenagomi",
+    "video_url": "https://youtu.be/N1Msl0grG1U"
   },
   {
     "name": "ARAMAKI JOA",
@@ -47,7 +51,8 @@
     "height": 157.0,
     "hobby": "Video editing",
     "special_skills": "Dance/Awa Odori",
-    "id": "005_aramakijoa"
+    "id": "005_aramakijoa",
+    "video_url": "https://youtu.be/_w0HM5MPdhY"
   },
   {
     "name": "ANDO CHIHARU",
@@ -57,7 +62,8 @@
     "height": 168.0,
     "hobby": "Watching movies",
     "special_skills": "Origami",
-    "id": "006_andochiharu"
+    "id": "006_andochiharu",
+    "video_url": "https://youtu.be/hShdaOO06QQ"
   },
   {
     "name": "ANDO YUI",
@@ -67,7 +73,8 @@
     "height": 160.0,
     "hobby": "Make-up,find my favorite song",
     "special_skills": "Singing/Massage/Mimicry",
-    "id": "007_andoyui"
+    "id": "007_andoyui",
+    "video_url": "https://youtu.be/WtVdYhjwJQI"
   },
   {
     "name": "IIDA SHIZUKU",
@@ -77,7 +84,8 @@
     "height": 160.0,
     "hobby": "Singing, visiting shaved ice, collecting character goods",
     "special_skills": "Sing, drawing, food",
-    "id": "009_iidashizuku"
+    "id": "009_iidashizuku",
+    "video_url": "https://youtu.be/tGL3pIls0Y4"
   },
   {
     "name": "ISHII RAN",
@@ -87,7 +95,8 @@
     "height": 162.0,
     "hobby": "Western music appreciation, educational sweets, cooking",
     "special_skills": "Dancing,kendama",
-    "id": "010_ishiiran"
+    "id": "010_ishiiran",
+    "video_url": "https://youtu.be/5o88uciBJLY"
   },
   {
     "name": "IYOTA HANA",
@@ -97,7 +106,8 @@
     "height": 161.0,
     "hobby": "Human observation,eating",
     "special_skills": "Dancing, quickly remembering people's faces and names",
-    "id": "011_iyotahana"
+    "id": "011_iyotahana",
+    "video_url": "https://youtu.be/Xn20s5RAXPo"
   },
   {
     "name": "UEKI MIMI",
@@ -107,7 +117,8 @@
     "height": 169.0,
     "hobby": "Hand sanitizer, impersonating K-POP idols, watching baseball",
     "special_skills": "Imitating Crayon Shin-chan, playing drums",
-    "id": "012_uekimimi"
+    "id": "012_uekimimi",
+    "video_url": "https://youtu.be/MlK0Kw0hw6M"
   },
   {
     "name": "UCHIYAMA RIN",
@@ -117,7 +128,8 @@
     "height": 159.0,
     "hobby": "Listening to music Games Singing",
     "special_skills": "Dancing toe touch",
-    "id": "013_uchiyamarin"
+    "id": "013_uchiyamarin",
+    "video_url": "https://youtu.be/8PPZO2Cmcso"
   },
   {
     "name": "EBIHARA TSUZUMI",
@@ -127,7 +139,8 @@
     "height": 158.0,
     "hobby": "Sleep, eat, sing",
     "special_skills": "Can play the guitar, whistle, click with the tongue, and make loud popping sounds",
-    "id": "014_ebiharatsuzumi"
+    "id": "014_ebiharatsuzumi",
+    "video_url": "https://youtu.be/cuI7AfuiuJE"
   },
   {
     "name": "OIKAWA RIO",
@@ -137,7 +150,8 @@
     "height": 168.0,
     "hobby": "Playing in the water",
     "special_skills": "Move one's toes deftly",
-    "id": "015_oikawario"
+    "id": "015_oikawario",
+    "video_url": "https://youtu.be/nUvW3VwoZUI"
   },
   {
     "name": "OTA SARA",
@@ -147,7 +161,8 @@
     "height": 165.5,
     "hobby": "Listening to music, taking pictures",
     "special_skills": "Control the scapula",
-    "id": "016_otasara"
+    "id": "016_otasara",
+    "video_url": "https://youtu.be/aQKqxr9y8Gk"
   },
   {
     "name": "OTSUBO KAREN",
@@ -157,7 +172,8 @@
     "height": 165.0,
     "hobby": "Read comics, go to game arcades",
     "special_skills": "Korean,play the guitar",
-    "id": "017_otsubokaren"
+    "id": "017_otsubokaren",
+    "video_url": "https://youtu.be/fpdiwUaCURc"
   },
   {
     "name": "OKABE NONOKA",
@@ -167,7 +183,8 @@
     "height": 157.0,
     "hobby": "Shopping, watching dog videos",
     "special_skills": "K-POP cover dance / bridge walking / hamburger making",
-    "id": "018_okabenonoka"
+    "id": "018_okabenonoka",
+    "video_url": "https://youtu.be/wD2Zkay210E"
   },
   {
     "name": "OKAMURA NANA",
@@ -177,7 +194,8 @@
     "height": 159.0,
     "hobby": "Watching K-POP dramas, listening to your favorite music and getting into the rhythm, watching videos of kittens , watching moppang in the middle of the night",
     "special_skills": "Playing tennis, making people smile",
-    "id": "019_okamuranana"
+    "id": "019_okamuranana",
+    "video_url": "https://youtu.be/e8lE6_CdTx4"
   },
   {
     "name": "ODA ARUHA",
@@ -187,7 +205,8 @@
     "height": 155.0,
     "hobby": "Watching movies, listening to music",
     "special_skills": "Dancing",
-    "id": "020_odaaruha"
+    "id": "020_odaaruha",
+    "video_url": "https://youtu.be/OluOX2Rjaco"
   },
   {
     "name": "OYANAGI EMI",
@@ -197,7 +216,8 @@
     "height": 156.0,
     "hobby": "Dancing, shopping",
     "special_skills": "Wink",
-    "id": "021_oyanagiemi"
+    "id": "021_oyanagiemi",
+    "video_url": "https://youtu.be/riP_mBLo7Ic"
   },
   {
     "name": "KASAHARA MOMONA",
@@ -207,7 +227,8 @@
     "height": 163.0,
     "hobby": "Shoot with a film camera",
     "special_skills": "Acrobatic exercise",
-    "id": "022_kasaharamomona"
+    "id": "022_kasaharamomona",
+    "video_url": "https://youtu.be/6yuNJbloKVM"
   },
   {
     "name": "KATAOKA RIO",
@@ -217,7 +238,8 @@
     "height": 159.0,
     "hobby": "Dancing, watching idols, talking with friends",
     "special_skills": "Show your hands neatly when dancing",
-    "id": "023_kataokario"
+    "id": "023_kataokario",
+    "video_url": "https://youtu.be/lPtwhltXiKM"
   },
   {
     "name": "KATO AIRI",
@@ -227,7 +249,8 @@
     "height": 164.0,
     "hobby": "Disney",
     "special_skills": "Imitate",
-    "id": "024_katoairi"
+    "id": "024_katoairi",
+    "video_url": "https://youtu.be/EHhuQFCDgLs"
   },
   {
     "name": "KATO KAGURA",
@@ -237,7 +260,8 @@
     "height": 170.0,
     "hobby": "Playing with mice",
     "special_skills": "Hold your breath longer, drums",
-    "id": "025_katokagura"
+    "id": "025_katokagura",
+    "video_url": "https://youtu.be/ekGEbYi2r04"
   },
   {
     "name": "KATO KOKORO",
@@ -247,7 +271,8 @@
     "height": 166.0,
     "hobby": "Painting with oil pastels and acrylics, playing the guitar",
     "special_skills": "Korean",
-    "id": "026_katokokoro"
+    "id": "026_katokokoro",
+    "video_url": "https://youtu.be/2GhwXSSHW9w"
   },
   {
     "name": "KATO KONOMI",
@@ -257,7 +282,8 @@
     "height": 160.0,
     "hobby": "Eat sweets",
     "special_skills": "Makeup, fold tongue in two",
-    "id": "027_katokonomi"
+    "id": "027_katokonomi",
+    "video_url": "https://youtu.be/osIgnJlccpk"
   },
   {
     "name": "KAMADA MOE",
@@ -267,7 +293,8 @@
     "height": 162.0,
     "hobby": "Find a good restaurant",
     "special_skills": "I can play any song with my nose",
-    "id": "028_kamadamoe"
+    "id": "028_kamadamoe",
+    "video_url": "https://youtu.be/flG4w7_l_jg"
   },
   {
     "name": "KAMIO AYANO",
@@ -277,7 +304,8 @@
     "height": 159.0,
     "hobby": "Taking pictures",
     "special_skills": "Impersonate Gian",
-    "id": "029_kamioayano"
+    "id": "029_kamioayano",
+    "video_url": "https://youtu.be/A9_SFivhjZk"
   },
   {
     "name": "KAWAGISHI RUNA",
@@ -287,7 +315,8 @@
     "height": 155.0,
     "hobby": "Play the electone, play the piano",
     "special_skills": "Taekwondo",
-    "id": "030_kawagishiruna"
+    "id": "030_kawagishiruna",
+    "video_url": "https://youtu.be/dcduTf8hNGY"
   },
   {
     "name": "KAWABATA RANKA",
@@ -297,7 +326,8 @@
     "height": 165.0,
     "hobby": "Visiting shrines",
     "special_skills": "Eye relay, tongue touching nose, drawing",
-    "id": "031_kawabataranka"
+    "id": "031_kawabataranka",
+    "video_url": "https://youtu.be/zHSHV10yVew"
   },
   {
     "name": "KANNO MIYU",
@@ -307,7 +337,8 @@
     "height": 164.0,
     "hobby": "Make bread, make latte art, design clothes",
     "special_skills": "Dancing, video editing",
-    "id": "032_kannomiyu"
+    "id": "032_kannomiyu",
+    "video_url": "https://youtu.be/CpVQQgZISwo"
   },
   {
     "name": "KIKUKAWA AKI",
@@ -317,7 +348,8 @@
     "height": 161.0,
     "hobby": "Dancing, getting in touch with nature, being healed by your favorite scent, taking care of yourself, watching YouTube, watching Netflix",
     "special_skills": "Dancing, play soft tennis",
-    "id": "033_kikukawaaki"
+    "id": "033_kikukawaaki",
+    "video_url": "https://youtu.be/4G0wgVDAcOw"
   },
   {
     "name": "KITAZATO RIO",
@@ -327,7 +359,8 @@
     "height": 156.0,
     "hobby": "Watching anime, listening to music",
     "special_skills": "Just a little bit faster",
-    "id": "034_kitazatorio"
+    "id": "034_kitazatorio",
+    "video_url": "https://youtu.be/CFo-rMrcS-M"
   },
   {
     "name": "KITAZUME SAKURA",
@@ -337,7 +370,8 @@
     "height": 155.0,
     "hobby": "Dancing",
     "special_skills": "imitating, acrobatics",
-    "id": "035_kitazumesakura"
+    "id": "035_kitazumesakura",
+    "video_url": "https://youtu.be/fc72EBnJrBQ"
   },
   {
     "name": "KINO RIKO",
@@ -347,7 +381,8 @@
     "height": 160.0,
     "hobby": "Watching anime, playing with cats",
     "special_skills": "Playing sports, painting",
-    "id": "036_kinoriko"
+    "id": "036_kinoriko",
+    "video_url": "https://youtu.be/9j5d00kqxAI"
   },
   {
     "name": "KURIHARA KANO",
@@ -357,7 +392,8 @@
     "height": 157.0,
     "hobby": "Playing with dog",
     "special_skills": "Moving the scalp Shelling the shrimp",
-    "id": "037_kuriharakano"
+    "id": "037_kuriharakano",
+    "video_url": "https://youtu.be/sc47CmE-BuA"
   },
   {
     "name": "KUROKAWA HONOKA",
@@ -367,7 +403,8 @@
     "height": 168.0,
     "hobby": "Listening to music, playing games",
     "special_skills": "Imitate, play volleyball",
-    "id": "038_kurokawahonoka"
+    "id": "038_kurokawahonoka",
+    "video_url": "https://youtu.be/Zmd0uLm19pM"
   },
   {
     "name": "KENMOTSU NANO",
@@ -377,7 +414,8 @@
     "height": 164.6,
     "hobby": "K-POP cover dance",
     "special_skills": "Dancing",
-    "id": "039_kenmotsunano"
+    "id": "039_kenmotsunano",
+    "video_url": "https://youtu.be/bhU51cxE1qM"
   },
   {
     "name": "KOBAYASHI SAE",
@@ -387,7 +425,8 @@
     "height": 164.0,
     "hobby": "Listening to K-POP, dancing",
     "special_skills": "To imitate someone by grasping their characteristics",
-    "id": "041_kobayashisae"
+    "id": "041_kobayashisae",
+    "video_url": "https://youtu.be/TV85R6OAQ0U"
   },
   {
     "name": "KOYAMA MANA",
@@ -397,7 +436,8 @@
     "height": 163.0,
     "hobby": "Watching horror movies, dancing with friends, eating delicious food",
     "special_skills": "Cover dance, pirouette, tenor sax",
-    "id": "042_koyamamana"
+    "id": "042_koyamamana",
+    "video_url": "https://youtu.be/S1S_OMBX5LA"
   },
   {
     "name": "SAITO SERINA",
@@ -407,7 +447,8 @@
     "height": 164.0,
     "hobby": "Making sweets, makeup",
     "special_skills": "Doing magic, remembering people's faces and names",
-    "id": "043_saitoserina"
+    "id": "043_saitoserina",
+    "video_url": "https://youtu.be/pRfXQhTOlsA"
   },
   {
     "name": "SAKAGUCHI RINO",
@@ -417,7 +458,8 @@
     "height": 165.0,
     "hobby": "Watching anime and movies, using computers, studying makeup and fashion",
     "special_skills": "Singing",
-    "id": "044_sakaguchirino"
+    "id": "044_sakaguchirino",
+    "video_url": "https://youtu.be/1MlW-OKP4OI"
   },
   {
     "name": "SAKATA KOTONE",
@@ -427,7 +469,8 @@
     "height": 168.0,
     "hobby": "Sing karaoke alone",
     "special_skills": "Draw a picture",
-    "id": "045_sakatakotone"
+    "id": "045_sakatakotone",
+    "video_url": "https://youtu.be/TJ0Wqvb6XhY"
   },
   {
     "name": "SAKURAI MIU",
@@ -437,7 +480,8 @@
     "height": 162.5,
     "hobby": "Yoga, baking, cooking, swimming, listening to music",
     "special_skills": "Studying, cooking, thinking about dance formations",
-    "id": "046_sakuraimiu"
+    "id": "046_sakuraimiu",
+    "video_url": "https://youtu.be/zos7simL9bo"
   },
   {
     "name": "SAKURABA HARUKA",
@@ -447,7 +491,8 @@
     "height": 154.0,
     "hobby": "Read comics, read novels, play basketball",
     "special_skills": "Play the Electone, sleep for a long time",
-    "id": "047_sakurabaharuka"
+    "id": "047_sakurabaharuka",
+    "video_url": "https://youtu.be/OVKbzcPJ4OQ"
   },
   {
     "name": "SASAKI KOKONA",
@@ -457,7 +502,8 @@
     "height": 165.0,
     "hobby": "Singing, sleeping, watching audition programs, playing badminton",
     "special_skills": "Play basketball, eat the same food all the time",
-    "id": "048_sasakikokona"
+    "id": "048_sasakikokona",
+    "video_url": "https://youtu.be/QJl29SttIdY"
   },
   {
     "name": "SASAKI TSUKUSHI",
@@ -467,7 +513,8 @@
     "height": 158.0,
     "hobby": "Observing people, learning dance moves",
     "special_skills": "Dancing",
-    "id": "049_sasakitsukushi"
+    "id": "049_sasakitsukushi",
+    "video_url": "https://youtu.be/kRtdIVvcaDI"
   },
   {
     "name": "SATO AMELI",
@@ -477,7 +524,8 @@
     "height": 167.0,
     "hobby": "Skiing, journaling, traveling",
     "special_skills": "Classical ballet",
-    "id": "050_satoameli"
+    "id": "050_satoameli",
+    "video_url": "https://youtu.be/xnY23JiweLk"
   },
   {
     "name": "SANO JUERI",
@@ -487,7 +535,8 @@
     "height": 170.0,
     "hobby": "Watching movies, shopping",
     "special_skills": "Playing the violin, coordinating fashion",
-    "id": "051_sanojueri"
+    "id": "051_sanojueri",
+    "video_url": "https://youtu.be/PqLxFbl4gPc"
   },
   {
     "name": "SHIBAGAKI ARISA",
@@ -497,7 +546,8 @@
     "height": 161.0,
     "hobby": "Swimming, studying Korean and English",
     "special_skills": "Playing sports,",
-    "id": "052_shibagakiarisa"
+    "id": "052_shibagakiarisa",
+    "video_url": "https://youtu.be/q4GooSeN58k"
   },
   {
     "name": "SHIBUYA MEI",
@@ -507,7 +557,8 @@
     "height": 163.0,
     "hobby": "Review the new McDonald's",
     "special_skills": "Sing with a trembling mouth",
-    "id": "053_shibuyamei"
+    "id": "053_shibuyamei",
+    "video_url": "https://youtu.be/dwzBNMyq-g4"
   },
   {
     "name": "SHIMIZU KEIKO",
@@ -517,7 +568,8 @@
     "height": 160.0,
     "hobby": "Draw a picture",
     "special_skills": "Move one eye",
-    "id": "054_shimizukeiko"
+    "id": "054_shimizukeiko",
+    "video_url": "https://youtu.be/aB2YzB5ZmCA"
   },
   {
     "name": "SHIROMARU MAHO",
@@ -527,7 +579,8 @@
     "height": 158.0,
     "hobby": "Eating, taking pictures, karaoke",
     "special_skills": "Play basketball, exercise, sleep anywhere",
-    "id": "056_shiromarumaho"
+    "id": "056_shiromarumaho",
+    "video_url": "https://youtu.be/aATmHCpwbJU"
   },
   {
     "name": "SHINZAWA MIKA",
@@ -537,7 +590,8 @@
     "height": 164.0,
     "hobby": "Skin care, listening to music, eating sweets",
     "special_skills": "Flexibility exercise",
-    "id": "057_shinzawamika"
+    "id": "057_shinzawamika",
+    "video_url": "https://youtu.be/aTWj5ZxA7No"
   },
   {
     "name": "SUGAI NATSUHO",
@@ -547,7 +601,8 @@
     "height": 166.0,
     "hobby": "Playing guitar, draw a paint",
     "special_skills": "Do classical ballet, calligraphy",
-    "id": "058_sugainatsuho"
+    "id": "058_sugainatsuho",
+    "video_url": "https://youtu.be/iIvxButMQq4"
   },
   {
     "name": "SUZUKI RENA",
@@ -557,7 +612,8 @@
     "height": 156.0,
     "hobby": "Dancing, sleep with dolls, watch ticketem",
     "special_skills": "Eating strawberries quickly, dancing at double speed",
-    "id": "059_suzukirena"
+    "id": "059_suzukirena",
+    "video_url": "https://youtu.be/Uz8cpmqHa6M"
   },
   {
     "name": "SUTANI YURARA",
@@ -567,7 +623,8 @@
     "height": 156.0,
     "hobby": "Going to museums, watching dramas and anime",
     "special_skills": "Dancing, manage facial expressions",
-    "id": "060_sutaniyurara"
+    "id": "060_sutaniyurara",
+    "video_url": "https://youtu.be/AfacjF-lfUI"
   },
   {
     "name": "SUDO SAKURA",
@@ -577,7 +634,8 @@
     "height": 161.0,
     "hobby": "Drive, play UFO catcher",
     "special_skills": "Dancing, play rubik's cube",
-    "id": "061_sudosakura"
+    "id": "061_sudosakura",
+    "video_url": "https://youtu.be/EIphpfbM7xk"
   },
   {
     "name": "SEKIGUCHI RIKAKO",
@@ -587,7 +645,8 @@
     "height": 164.0,
     "hobby": "Playing the piano, playing the drums, dancing, listening to music, and eating delicious food",
     "special_skills": "Soft body, dance K-POP BOYS DANCE",
-    "id": "062_sekiguchirikako"
+    "id": "062_sekiguchirikako",
+    "video_url": "https://youtu.be/WKV2W4qgBkc"
   },
   {
     "name": "TAKAGI MAYU",
@@ -597,7 +656,8 @@
     "height": 153.0,
     "hobby": "Take a walk",
     "special_skills": "Ball games",
-    "id": "064_takagimayu"
+    "id": "064_takagimayu",
+    "video_url": "https://youtu.be/5DitbvKQjaU"
   },
   {
     "name": "TAKAHASHI HINA",
@@ -607,7 +667,8 @@
     "height": 156.0,
     "hobby": "Listening to music, dancing, watching videos of moving ducks and their parents, taking pictures",
     "special_skills": "You can dance, do karate, peel hard-boiled eggs quickly, and stuff your mouth full of food.",
-    "id": "065_takahashihina"
+    "id": "065_takahashihina",
+    "video_url": "https://youtu.be/jz50wzEGYDk"
   },
   {
     "name": "TAKABATAKE MOMOKA",
@@ -617,7 +678,8 @@
     "height": 169.6,
     "hobby": "Sleeping, collecting songs, walking",
     "special_skills": "Sleeping, seeing, ankle opening 230°",
-    "id": "066_takabatakemomoka"
+    "id": "066_takabatakemomoka",
+    "video_url": "https://youtu.be/W8TMM0bRp6U"
   },
   {
     "name": "TAKAMI AYANE",
@@ -627,7 +689,8 @@
     "height": 158.0,
     "hobby": "Write lyrics and compose",
     "special_skills": "Tea ceremony",
-    "id": "067_takamiayane"
+    "id": "067_takamiayane",
+    "video_url": "https://youtu.be/IhEBC-GqNa4"
   },
   {
     "name": "TANAKA KOTO",
@@ -637,7 +700,8 @@
     "height": 159.0,
     "hobby": "Breakdancing (practicing!), learning languages",
     "special_skills": "Ab exercises, dance choreography, three-point handstand",
-    "id": "068_tanakakoto"
+    "id": "068_tanakakoto",
+    "video_url": "https://youtu.be/b6Xo_QJCDgI"
   },
   {
     "name": "TANAKA HANA",
@@ -647,7 +711,8 @@
     "height": 160.0,
     "hobby": "Hair makeup",
     "special_skills": "Dancing, makeup",
-    "id": "069_tanakahana"
+    "id": "069_tanakahana",
+    "video_url": "https://youtu.be/lYwqy4h_Rdg"
   },
   {
     "name": "TANAKA YUUKI",
@@ -657,7 +722,8 @@
     "height": 170.0,
     "hobby": "Dancing, listening to the radio, eating, playing with dogs",
     "special_skills": "Dancing",
-    "id": "070_tanakayuuki"
+    "id": "070_tanakayuuki",
+    "video_url": "https://youtu.be/7kmp13fyDoM"
   },
   {
     "name": "TANABE KARIN",
@@ -667,7 +733,8 @@
     "height": 160.0,
     "hobby": "Singing, watching movies",
     "special_skills": "Impersonation of familiar people",
-    "id": "071_tanabekarin"
+    "id": "071_tanabekarin",
+    "video_url": "https://youtu.be/A5I_VGjJN5s"
   },
   {
     "name": "TANI SEIA",
@@ -677,7 +744,8 @@
     "height": 161.0,
     "hobby": "Reading, appreciating art, eating sweets, being healed by watching Mionagi-chan",
     "special_skills": "Single eye, bend the first joint of the finger",
-    "id": "072_taniseia"
+    "id": "072_taniseia",
+    "video_url": "https://youtu.be/FA7QmnejTKM"
   },
   {
     "name": "TABATA NANA",
@@ -687,7 +755,8 @@
     "height": 162.0,
     "hobby": "Listening to music, taking pictures, looking for cute cats",
     "special_skills": "Dancing, imitate cat meow, handed melon soda",
-    "id": "073_tabatanana"
+    "id": "073_tabatanana",
+    "video_url": "https://youtu.be/SVNcyv1sSUM"
   },
   {
     "name": "TABUCHI MIU",
@@ -697,7 +766,8 @@
     "height": 163.0,
     "hobby": "Eating, karaoke",
     "special_skills": "Dancing, flexibility, facial expression management when dancing",
-    "id": "074_tabuchimiu"
+    "id": "074_tabuchimiu",
+    "video_url": "https://youtu.be/dQcUtDjYA1g"
   },
   {
     "name": "NAKANO KOKONA",
@@ -707,7 +777,8 @@
     "height": 160.0,
     "hobby": "Writing lyrics and composing, drawing faces, studying Japanese textbook sentences",
     "special_skills": "Performing, endure muscle training",
-    "id": "075_nakanokokona"
+    "id": "075_nakanokokona",
+    "video_url": "https://youtu.be/bGAWQ56p8hU"
   },
   {
     "name": "NAKAMURA AOI",
@@ -717,7 +788,8 @@
     "height": 157.0,
     "hobby": "watching movies, cooking, knitting",
     "special_skills": "Cooking, K-POP dance",
-    "id": "076_nakamuraaoi"
+    "id": "076_nakamuraaoi",
+    "video_url": "https://youtu.be/uuWl-Yk_2_4"
   },
   {
     "name": "NAKAMURA RIRO",
@@ -727,7 +799,8 @@
     "height": 160.0,
     "hobby": "Karaoke alone, playing with cats",
     "special_skills": "Classical ballet",
-    "id": "077_nakamurariro"
+    "id": "077_nakamurariro",
+    "video_url": "https://youtu.be/zOsM4WS61ZI"
   },
   {
     "name": "NAKAMORI KOTONE",
@@ -737,7 +810,8 @@
     "height": 163.0,
     "hobby": "Eating delicious food, shopping, watching movies",
     "special_skills": "Dancing, gluttony, acrobatics",
-    "id": "078_nakamorikotone"
+    "id": "078_nakamorikotone",
+    "video_url": "https://youtu.be/i0bCY_goZ8Y"
   },
   {
     "name": "NAKAMORI MIKOTO",
@@ -747,7 +821,8 @@
     "height": 162.0,
     "hobby": "Visiting cafes, finding delicious food, clothes, hot springs",
     "special_skills": "Dancing, acrobatics, cooking, latte art",
-    "id": "079_nakamorimikoto"
+    "id": "079_nakamorimikoto",
+    "video_url": "https://youtu.be/TcJ9cNalhNU"
   },
   {
     "name": "NAKAYAMA HONOKA",
@@ -757,7 +832,8 @@
     "height": 166.0,
     "hobby": "Movies, stage performances, listening to music, drums, collecting cosmetics, fashion",
     "special_skills": "Imitating Crayon Shin-chan",
-    "id": "080_nakayamahonoka"
+    "id": "080_nakayamahonoka",
+    "video_url": "https://youtu.be/6zOU-iFQsZs"
   },
   {
     "name": "HATTA MENA",
@@ -767,7 +843,8 @@
     "height": 163.0,
     "hobby": "Dancing, going to Instagrammable spots",
     "special_skills": "Talking to people, posing",
-    "id": "081_hattamena"
+    "id": "081_hattamena",
+    "video_url": "https://youtu.be/6uXOtDprl-o"
   },
   {
     "name": "HAMASAKI AIKO",
@@ -777,7 +854,8 @@
     "height": 160.0,
     "hobby": "Playing with children, classical ballet, contemporary dance",
     "special_skills": "Read aloud, read aloud, sleep anywhere",
-    "id": "082_hamasakiaiko"
+    "id": "082_hamasakiaiko",
+    "video_url": "https://youtu.be/wI97RbZI-Gg"
   },
   {
     "name": "BANDO FUKA",
@@ -787,7 +865,8 @@
     "height": 162.0,
     "hobby": "Dancing, chatting, eating around Toppo's chocolate without breaking it",
     "special_skills": "Make others smile",
-    "id": "083_bandofuka"
+    "id": "083_bandofuka",
+    "video_url": "https://youtu.be/MR7FnwkvMJQ"
   },
   {
     "name": "HIDAKA HAZUKI",
@@ -797,7 +876,8 @@
     "height": 166.0,
     "hobby": "To be fashionable",
     "special_skills": "Eating",
-    "id": "084_hidakahazuki"
+    "id": "084_hidakahazuki",
+    "video_url": "https://youtu.be/48Md9rzyF3g"
   },
   {
     "name": "FUJIMOTO AYAKA",
@@ -807,7 +887,8 @@
     "height": 169.0,
     "hobby": "Playing with my dog, visiting bakeries, Sudoku",
     "special_skills": "Baton twirling, acrobatics",
-    "id": "085_fujimotoayaka"
+    "id": "085_fujimotoayaka",
+    "video_url": "https://youtu.be/SODHWQo4yD8"
   },
   {
     "name": "FURUHASHI SAYAKA",
@@ -817,7 +898,8 @@
     "height": 165.0,
     "hobby": "Eating ice cream, lost in thought",
     "special_skills": "Eating a lot of rice playing the piano",
-    "id": "086_furuhashisayaka"
+    "id": "086_furuhashisayaka",
+    "video_url": "https://youtu.be/QsdaziS9ic0"
   },
   {
     "name": "HOSOI AYAKA",
@@ -827,7 +909,8 @@
     "height": 153.0,
     "hobby": "Always listening to music",
     "special_skills": "Learn a language",
-    "id": "087_hosoiayaka"
+    "id": "087_hosoiayaka",
+    "video_url": "https://youtu.be/U4tSXYnrSbg"
   },
   {
     "name": "MATSUSHITA MIYU",
@@ -837,7 +920,8 @@
     "height": 160.0,
     "hobby": "Cooking, watching movies and anime",
     "special_skills": "Dancing",
-    "id": "088_matsushitamiyu"
+    "id": "088_matsushitamiyu",
+    "video_url": "https://youtu.be/E00GYg60BLk"
   },
   {
     "name": "MIZUKAMI RIMIKA",
@@ -847,7 +931,8 @@
     "height": 164.0,
     "hobby": "Watching horror movies (thinking about how to live in them)",
     "special_skills": "Being able to get along with anyone",
-    "id": "089_mizukamirimika"
+    "id": "089_mizukamirimika",
+    "video_url": "https://youtu.be/L6L4koAMBwE"
   },
   {
     "name": "MURAKAMI RINON",
@@ -857,7 +942,8 @@
     "height": 164.0,
     "hobby": "Sleeping, eating, collecting cosmetics",
     "special_skills": "Tongue twister",
-    "id": "090_murakamirinon"
+    "id": "090_murakamirinon",
+    "video_url": "https://youtu.be/CBjBm7Yoyjs"
   },
   {
     "name": "MOGI SHION",
@@ -867,7 +953,8 @@
     "height": 161.0,
     "hobby": "Dancing, watching anime",
     "special_skills": "Drawing, speaking korean",
-    "id": "091_mogishion"
+    "id": "091_mogishion",
+    "video_url": "https://youtu.be/17dd7AISsyo"
   },
   {
     "name": "MOTOHASHI MEIKA",
@@ -877,7 +964,8 @@
     "height": 154.0,
     "hobby": "Eating, playing, sleeping, dancing",
     "special_skills": "Soft wrists, hula hooping",
-    "id": "092_motohashimeika"
+    "id": "092_motohashimeika",
+    "video_url": "https://youtu.be/k1-3TliC0a4"
   },
   {
     "name": "MORO ANON",
@@ -887,7 +975,8 @@
     "height": 159.0,
     "hobby": "Taking a walk while listening to music, watching soccer and futsal",
     "special_skills": "Sleeping anywhere",
-    "id": "093_moroanon"
+    "id": "093_moroanon",
+    "video_url": "https://youtu.be/cedNEL8DzOY"
   },
   {
     "name": "YAMAGUCHI MISAKI",
@@ -897,7 +986,8 @@
     "height": 160.0,
     "hobby": "Taking pictures of the sky every day",
     "special_skills": "Being able to eat a lot of rice, playing the saxophone",
-    "id": "094_yamaguchimisaki"
+    "id": "094_yamaguchimisaki",
+    "video_url": "https://youtu.be/2msRjPBFG4c"
   },
   {
     "name": "YAMAZAKI MITSUKI",
@@ -907,7 +997,8 @@
     "height": 162.0,
     "hobby": "Sky observation, reading detective novels, latte art",
     "special_skills": "Cooking, making bread and sweets, scooping goldfish, playing UFO catcher, karate",
-    "id": "095_yamazakimitsuki"
+    "id": "095_yamazakimitsuki",
+    "video_url": "https://youtu.be/LxE_vgZVlDY"
   },
   {
     "name": "YAMAMOTO SUZU",
@@ -917,7 +1008,8 @@
     "height": 164.0,
     "hobby": "Watching drama",
     "special_skills": "Karate",
-    "id": "096_yamamotosuzu"
+    "id": "096_yamamotosuzu",
+    "video_url": "https://youtu.be/cIPXZP58bVc"
   },
   {
     "name": "YOSHIDA AYANO",
@@ -927,7 +1019,8 @@
     "height": 156.0,
     "hobby": "Bakery tour, vintage clothing store tour",
     "special_skills": "Blow a whistle",
-    "id": "097_yoshidaayano"
+    "id": "097_yoshidaayano",
+    "video_url": "https://youtu.be/Xgsi9dDlGB8"
   },
   {
     "name": "YOSHIDA HANA",
@@ -937,7 +1030,8 @@
     "height": 166.0,
     "hobby": "Listening to music, fashion",
     "special_skills": "Mickey Mouse impersonation",
-    "id": "098_yoshidahana"
+    "id": "098_yoshidahana",
+    "video_url": "https://youtu.be/nhwOKQd5QAI"
   },
   {
     "name": "WAKIMOTO MIHAYA",
@@ -947,7 +1041,8 @@
     "height": 160.0,
     "hobby": "Watching movies (anime) (horror)",
     "special_skills": "Dance a copy dance",
-    "id": "099_wakimotomihaya"
+    "id": "099_wakimotomihaya",
+    "video_url": "https://youtu.be/p4Rd-C6UTs8"
   },
   {
     "name": "WATANABE MIYU",
@@ -957,6 +1052,7 @@
     "height": 158.0,
     "hobby": "Watching Korean dramas, doing nails",
     "special_skills": "Making friends",
-    "id": "100_watanabemiyu"
+    "id": "100_watanabemiyu",
+    "video_url": "https://youtu.be/gzRfBSGT6ts"
   }
 ]
