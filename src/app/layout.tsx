@@ -1,7 +1,7 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import "./globals.css";
+import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
-import Script from 'next/script'
+import Script from "next/script";
 
 const noto_sans_jp = Noto_Sans_JP({
   subsets: ["latin", "latin-ext"],
@@ -9,8 +9,24 @@ const noto_sans_jp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: 'PRODUCE 101 JAPAN THE GIRLS RANKER',
-  description: 'PRODUCE 101 JAPAN THE GIRLS RANKER',
+  title: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+  description: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+  openGraph: {
+    title: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    description: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    url: "https://produce101jpthegirls.github.io/",
+    siteName: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    type: "website",
+    locale: "en-US",
+    images: [
+      {
+        url: "https://produce101jpthegirls.github.io/og_preview.png",
+        width: 800,
+        height: 600,
+        alt: "Preview",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
