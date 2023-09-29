@@ -1,13 +1,32 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Script from 'next/script'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
+import Script from "next/script";
 
-const inter = Inter({ subsets: ['latin'] })
+const noto_sans_jp = Noto_Sans_JP({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'PRODUCE 101 JAPAN THE GIRLS RANKER',
-  description: 'PRODUCE 101 JAPAN THE GIRLS RANKER',
+  title: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+  description: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+  openGraph: {
+    title: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    description: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    url: "https://produce101jpthegirls.github.io/",
+    siteName: "PRODUCE 101 JAPAN THE GIRLS RANKER",
+    type: "website",
+    locale: "en-US",
+    images: [
+      {
+        url: "https://produce101jpthegirls.github.io/og_preview.png",
+        width: 800,
+        height: 600,
+        alt: "Preview",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -17,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={noto_sans_jp.className}>{children}</body>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJG5KYF35L" />
       <Script id="google-analytics">
         {`

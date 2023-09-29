@@ -1,9 +1,11 @@
 import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
-import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
-import trainees_en from "@/data/trainees_en.json";
-import trainees_jp  from "@/data/trainees_jp.json";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
+import { TRAINEES } from "../constants";
+import { AvatarDropdown } from "./dropdowns";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -11,17 +13,7 @@ const archivo_black_jp = Archivo_Black({
   display: "swap",
 });
 
-const trainees = Array.from(Array(trainees_en.length).keys()).map((index) => ({
-  index,
-  id: trainees_jp[index].id.split("_")[0],
-  code: trainees_jp[index].id,
-  nameEn: trainees_en[index].name,
-  nameJp: trainees_jp[index].name,
-  birthday: trainees_jp[index].birthday,
-  birthPlace: trainees_jp[index].birth_place,
-}));
-
-export const getItemImage = (item: any) => {
+export const getItemImage = (item: Trainee) => {
   return {
     src: "/assets/trainees/" + item.code + ".jpg",
     alt: item.nameEn,
@@ -34,10 +26,10 @@ const addTrainee = (
   setSelected: Dispatch<SetStateAction<number[]>>,
   itemIndex: number,
 ) => {
-  if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === -1)) {
+  if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === 255)) {
     // Add item to selected
     const newSelected = [...selected];
-    const emptyIndex = newSelected.indexOf(-1);
+    const emptyIndex = newSelected.indexOf(255);
     if (emptyIndex !== undefined) {
       newSelected[emptyIndex] = itemIndex;
       setSelected(newSelected);
@@ -58,45 +50,73 @@ type AvatarProps = {
 };
 
 export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image, setSelected }) => {
-  const STYLES = size == "large" ? "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full" : "w-12 h-12 sm:w-14 sm:h-14 rounded-full";
+  const SIZE = size == "large" ? (
+    "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
+   ) : (
+    "w-12 h-12 sm:w-14 sm:h-14 rounded-full"
+   );
+
   const draggable = image !== undefined && setSelected !== undefined;
+
+  let menuPosition = "top-0 left-16 sm:ml-6 origin-top-right";
+  if ([2, 5].includes(index)) {
+    menuPosition = "top-0 right-16 sm:mr-6 origin-top-right";
+  } else if ([6, 7, 8].includes(index)) {
+    menuPosition = "bottom-0 left-16 sm:ml-6 origin-top-right";
+  } else if ([9, 10].includes(index)) {
+    menuPosition = "bottom-0 right-16 sm:mr-6 origin-top-right";
+  }
+
+  const removeTrainee = useCallback(() => {
+    if (draggable) {
+      setSelected((prev) => {
+        const next = [...prev];
+        next[next.indexOf(traineeIndex)] = 255;
+        return next;
+      });
+    }
+  }, [draggable, setSelected, traineeIndex]);
+
+  const swapTrainees = useCallback((toPositionIndex: number) => {
+    if (draggable) {
+      setSelected((prev) => {
+        const next = [...prev];
+        next[next.indexOf(traineeIndex)] = next[toPositionIndex];
+        next[toPositionIndex] = traineeIndex;
+        return next;
+      });
+    }
+  }, [draggable, setSelected, traineeIndex]);
+
   return (
     <div
       id={`avatar-${index}`}
-      className={`${STYLES} relative bg-gray-200 flex items-center justify-center`}
-      onClick={() => {
-        if (setSelected) {
-          setSelected((prev) => {
-            const next = [...prev];
-            next[next.indexOf(traineeIndex)] = -1;
-            return next;
-          });
-        }
-      }}
+      className={`${SIZE} relative bg-gray-200 flex items-center justify-center`}
     >
       <div
           className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
+          onClick={(e) => {
+            if (e.type === "click") {
+              removeTrainee();
+            } else {}
+          }}
           draggable={draggable}
           onDragEnd={(e) => {
-            if (setSelected) {
-              for (let i = 0; i < 11; i++) {
-                const element = document.getElementById(`avatar-${i}`);
-                if (element) {
-                  const rect = element.getBoundingClientRect(); 
-                  const radius = rect.width / 2;
-                  const centerX = rect.x + radius;
-                  const centerY = rect.y + radius;
-                  const distance = Math.sqrt(Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2));
-                  const overlapped = distance < radius;
-                  if (overlapped) {
-                    setSelected((prev) => {
-                      const next = [...prev];
-                      next[next.indexOf(traineeIndex)] = next[i];
-                      next[i] = traineeIndex;
-                      return next;
-                    });
-                    break;
-                  }
+            for (let i = 0; i < 11; i++) {
+              const element = document.getElementById(`avatar-${i}`);
+              if (element) {
+                const rect = element.getBoundingClientRect(); 
+                const radius = rect.width / 2;
+                const centerX = rect.x + radius;
+                const centerY = rect.y + radius;
+                const distance = (
+                  Math.sqrt(Math.pow(e.clientX - centerX, 2) +
+                  Math.pow(e.clientY - centerY, 2))
+                );
+                const overlapped = distance < radius;
+                if (overlapped) {
+                  swapTrainees(i);
+                  break;
                 }
               }
             }
@@ -105,7 +125,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
         >
           {image ? (
             <Image
-              className={`${STYLES} border-2 sm:border-4 border-pd-pink-400`}
+              className={`${SIZE} border-2 sm:border-4 border-pd-pink-400`}
               src={image.src}
               alt={image.alt}
               width={550}
@@ -119,7 +139,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
           )}
         </div>
         {name && (
-          <div className="absolute -bottom-4 sm:-bottom-5 text-xs sm:text-xs whitespace-nowrap">{name}</div>
+          <div className="absolute -bottom-[1.4rem] sm:-bottom-6 text-[11px] sm:text-xs whitespace-nowrap">{name}</div>
         )}
         {index === 0 && (
           <div className="absolute -top-6 sm:-top-8">
@@ -129,14 +149,36 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
             </svg>
           </div>
         )}
+        {name && (
+          <div
+            className="absolute -bottom-[6px] sm:-bottom-[6px] text-[9px] sm:text-[10px] leading-3
+            select-none bg-pd-pink-400 text-white font-bold w-3.5 sm:w-4 h-3.5 sm:h-4 text-center
+            pt-[0.5px] sm:pt-[1.5px] rounded-full"
+          >{index+1}</div>
+        )}
+        <div className={`absolute ${SIZE}`}>
+          <AvatarDropdown position={menuPosition} fns={[
+            () => {
+              if (index > 0) {
+                swapTrainees(index - 1);
+              }
+            },
+            () => {
+              if (index < 10) {
+                swapTrainees(index + 1);
+              }
+            },
+            () => removeTrainee(),
+          ]} />
+        </div>
     </div>
   )
 };
 
-const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[30rem]"
+const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[30.7rem]"
 
 type ListViewProps = {
-  items: any[];
+  items: Trainee[];
   selected: number[];
   setSelected: Dispatch<SetStateAction<number[]>>;
 };
@@ -155,10 +197,67 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
           <Avatar index={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
           <div className="grow">
             <div className="flex justify-between">
-              <div className="select-none">{item.nameJp} ({item.nameEn})</div>
+              <div>
+                <span className="select-none">{item.nameJp}</span>
+                <span className="select-none ml-2 text-xs sm:text-base">({item.nameEn})</span>
+              </div>
               <div className="select-none">{item.id}</div>
             </div>
-            <div className="select-none">{item.birthday} {item.birthPlace}</div>
+            <div className="sm:mt-0.5 flex gap-4 items-center">
+              <span className="select-none">{item.birthday}</span>
+              <span className="select-none">{item.birthPlace}</span>
+              <span className="select-none">{item.mbtiType}</span>
+            </div>
+            <div className="sm:mt-0.5 flex justify-between items-end text-sm">
+              <div className="flex gap-3 item-centers">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 hidden sm:inline">
+                  <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                </svg>
+                <Link
+                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium text-sm"
+                  href={item.profileUrl}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
+                </Link>
+              </div>
+              <div className="flex gap-3 item-centers">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 hidden sm:inline">
+                  <path d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
+                    c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
+                    C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
+                    c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
+                </svg>
+                <Link
+                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                  href={item.videoUrls.pr}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">PR</span>
+                </Link>
+                <Link
+                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                  href={item.videoUrls.fancam}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
+                </Link>
+                <Link
+                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                  href={item.videoUrls.eyeContact}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">
+                    <span className="hidden sm:inline">Eye Contact</span>
+                    <span className="sm:hidden">Eye</span>
+                  </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </li>
       )})}
@@ -167,7 +266,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
 };
 
 type GridViewProps = {
-  items: any[];
+  items: Trainee[];
   selected: number[];
   setSelected: Dispatch<SetStateAction<number[]>>;
 };
@@ -218,7 +317,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
-  const filteredTrainees = query === "" ? trainees : trainees.filter((trainee) => {
+  const filteredTrainees = query === "" ? TRAINEES : TRAINEES.filter((trainee) => {
     const _query = query.toLowerCase();
     return (
       trainee.nameEn.toLowerCase().includes(_query) ||
@@ -246,24 +345,21 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
             placeholder="Search"
           />
           <button
-            className={`group ${query === "" ? "text-gray-100" : "text-pd-pink-400"}`}
+            className={`group -mr-1 ${query === "" ? "hidden" : "text-pd-pink-400"}`}
             disabled={query === ""}
             onClick={() => {
               setQueryText("");
               setQuery("");
             }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 block group-hover:hidden">
-              <path fillRule="evenodd" d="M3.792 2.938A49.069 49.069 0 0112 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 011.541 1.836v1.044a3 3 0 01-.879 2.121l-6.182 6.182a1.5 1.5 0 00-.439 1.061v2.927a3 3 0 01-1.658 2.684l-1.757.878A.75.75 0 019.75 21v-5.818a1.5 1.5 0 00-.44-1.06L3.13 7.938a3 3 0 01-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836z" clipRule="evenodd" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hidden group-hover:block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
             </svg>
           </button>
         </div>
         <div className="flex gap-1">
           <button
-            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : ""}`}
+            className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
             disabled={display == "list"}
             onClick={() => setDisplay("list")}
           >
@@ -272,7 +368,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
             </svg>
           </button>
           <button
-            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : ""}`}
+            className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
             disabled={display == "grid"}
             onClick={() => setDisplay("grid")}
           >
@@ -292,14 +388,14 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
 };
 
 type PaletteRowProps = {
-  items: any[];
+  items: (Trainee|undefined)[];
   startIndex: number;
   setSelected: Dispatch<SetStateAction<number[]>>;
 }
 
 const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => {
   return (
-    <div className="flex py-3 gap-2 sm:py-3.5 sm:gap-3 justify-center">{items.map((item, index) => (
+    <div className="flex py-3.5 gap-2 sm:py-4 sm:gap-3 justify-center">{items.map((item, index) => (
       item ? (
         <Avatar
           key={index}
@@ -324,7 +420,7 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
 };
 
 type PaletteProps = {
-  items: any[];
+  items: (Trainee|undefined)[];
   setSelected: Dispatch<SetStateAction<number[]>>;
 };
 
@@ -338,7 +434,7 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
       <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} />
       <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} />
       <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} />
-      <div id="palette-footer" className="text-right text-pd-gray-900 mt-4 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
+      <div id="palette-footer" className="text-right text-pd-gray-900 mt-5 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
         at {new Date().toLocaleString("ja-JP").slice(0, -3)}
       </div>
     </div>
@@ -348,7 +444,6 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
 export const createDownloadSelection = (): HTMLElement|undefined => {
   const element = document.getElementById("palette-wrapper");
   if (element) {
-    console.log(element)
     const cloned = element.cloneNode(true) as HTMLElement;
     const _header = cloned.querySelector("#palette-header");
     if (_header) {
@@ -378,9 +473,11 @@ export const SelectionView: FC<SelectionViewProps> = ({
   setCompleteModalIsOpen,
   setDownloadModalIsOpen,
 }) => {
-  const selectedTrainees = selected.map((index) => index === -1 ? undefined : trainees[index]);
-  const selectionCompleted = !selected.some((value) => value < 0);
+  const router = useRouter();
+  const selectedTrainees: (Trainee|undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
+  const selectionCompleted = !selected.some((value) => value === 255);
   const disabled = !selectionCompleted;
+
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[0.96rem] border-b flex justify-between items-center">
@@ -389,7 +486,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
             onClick={() => {
-              const unshuffled = Array.from(Array(trainees.length).keys());
+              const unshuffled = Array.from(Array(TRAINEES.length).keys());
               const shuffled = unshuffled
                 .map(value => ({ value, sort: Math.random() }))
                 .sort((a, b) => a.sort - b.sort)
@@ -424,6 +521,16 @@ export const SelectionView: FC<SelectionViewProps> = ({
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path d="M12 1.5a.75.75 0 01.75.75V7.5h-1.5V2.25A.75.75 0 0112 1.5zM11.25 7.5v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V7.5h3.75a3 3 0 013 3v9a3 3 0 01-3 3h-9a3 3 0 01-3-3v-9a3 3 0 013-3h3.75z" />
+            </svg>
+          </button>
+          <button
+            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            disabled={disabled}
+            onClick={() => router.replace("/analytics" + location.search)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
+              <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clipRule="evenodd" />
             </svg>
           </button>
         </div>
