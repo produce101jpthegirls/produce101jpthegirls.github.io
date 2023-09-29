@@ -28,7 +28,7 @@ const addTrainee = (
   if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === 255)) {
     // Add item to selected
     const newSelected = [...selected];
-    const emptyIndex = newSelected.indexOf(-1);
+    const emptyIndex = newSelected.indexOf(255);
     if (emptyIndex !== undefined) {
       newSelected[emptyIndex] = itemIndex;
       setSelected(newSelected);
