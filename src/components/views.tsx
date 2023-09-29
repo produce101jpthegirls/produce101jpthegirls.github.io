@@ -3,8 +3,9 @@ import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
+import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
 import { TRAINEES } from "../constants";
+import { AvatarDropdown } from "./dropdowns";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -49,52 +50,73 @@ type AvatarProps = {
 };
 
 export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image, setSelected }) => {
-  const STYLES = size == "large" ? (
+  const SIZE = size == "large" ? (
     "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
    ) : (
     "w-12 h-12 sm:w-14 sm:h-14 rounded-full"
    );
+
   const draggable = image !== undefined && setSelected !== undefined;
+
+  let menuPosition = "top-0 left-16 sm:ml-6 origin-top-right";
+  if ([2, 5].includes(index)) {
+    menuPosition = "top-0 right-16 sm:mr-6 origin-top-right";
+  } else if ([6, 7, 8].includes(index)) {
+    menuPosition = "bottom-0 left-16 sm:ml-6 origin-top-right";
+  } else if ([9, 10].includes(index)) {
+    menuPosition = "bottom-0 right-16 sm:mr-6 origin-top-right";
+  }
+
+  const removeTrainee = useCallback(() => {
+    if (draggable) {
+      setSelected((prev) => {
+        const next = [...prev];
+        next[next.indexOf(traineeIndex)] = 255;
+        return next;
+      });
+    }
+  }, [draggable, setSelected, traineeIndex]);
+
+  const swapTrainees = useCallback((toPositionIndex: number) => {
+    if (draggable) {
+      setSelected((prev) => {
+        const next = [...prev];
+        next[next.indexOf(traineeIndex)] = next[toPositionIndex];
+        next[toPositionIndex] = traineeIndex;
+        return next;
+      });
+    }
+  }, [draggable, setSelected, traineeIndex]);
+
   return (
     <div
       id={`avatar-${index}`}
-      className={`${STYLES} relative bg-gray-200 flex items-center justify-center`}
-      onClick={() => {
-        if (setSelected) {
-          setSelected((prev) => {
-            const next = [...prev];
-            next[next.indexOf(traineeIndex)] = 255;
-            return next;
-          });
-        }
-      }}
+      className={`${SIZE} relative bg-gray-200 flex items-center justify-center`}
     >
       <div
           className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
+          onClick={(e) => {
+            if (e.type === "click") {
+              removeTrainee();
+            } else {}
+          }}
           draggable={draggable}
           onDragEnd={(e) => {
-            if (setSelected) {
-              for (let i = 0; i < 11; i++) {
-                const element = document.getElementById(`avatar-${i}`);
-                if (element) {
-                  const rect = element.getBoundingClientRect(); 
-                  const radius = rect.width / 2;
-                  const centerX = rect.x + radius;
-                  const centerY = rect.y + radius;
-                  const distance = (
-                    Math.sqrt(Math.pow(e.clientX - centerX, 2) +
-                    Math.pow(e.clientY - centerY, 2))
-                  );
-                  const overlapped = distance < radius;
-                  if (overlapped) {
-                    setSelected((prev) => {
-                      const next = [...prev];
-                      next[next.indexOf(traineeIndex)] = next[i];
-                      next[i] = traineeIndex;
-                      return next;
-                    });
-                    break;
-                  }
+            for (let i = 0; i < 11; i++) {
+              const element = document.getElementById(`avatar-${i}`);
+              if (element) {
+                const rect = element.getBoundingClientRect(); 
+                const radius = rect.width / 2;
+                const centerX = rect.x + radius;
+                const centerY = rect.y + radius;
+                const distance = (
+                  Math.sqrt(Math.pow(e.clientX - centerX, 2) +
+                  Math.pow(e.clientY - centerY, 2))
+                );
+                const overlapped = distance < radius;
+                if (overlapped) {
+                  swapTrainees(i);
+                  break;
                 }
               }
             }
@@ -103,7 +125,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
         >
           {image ? (
             <Image
-              className={`${STYLES} border-2 sm:border-4 border-pd-pink-400`}
+              className={`${SIZE} border-2 sm:border-4 border-pd-pink-400`}
               src={image.src}
               alt={image.alt}
               width={550}
@@ -134,6 +156,21 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
             pt-[0.5px] sm:pt-[1.5px] rounded-full"
           >{index+1}</div>
         )}
+        <div className={`absolute ${SIZE}`}>
+          <AvatarDropdown position={menuPosition} fns={[
+            () => {
+              if (index > 0) {
+                swapTrainees(index - 1);
+              }
+            },
+            () => {
+              if (index < 10) {
+                swapTrainees(index + 1);
+              }
+            },
+            () => removeTrainee(),
+          ]} />
+        </div>
     </div>
   )
 };
