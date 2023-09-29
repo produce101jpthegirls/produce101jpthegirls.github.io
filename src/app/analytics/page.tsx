@@ -87,7 +87,7 @@ export default function Analytics() {
             <ul className="flex pt-2 sm:pt-6">{selectedTrainees.map((trainee) => {
               const image = getItemTopImage(trainee);
               return (
-                <li>
+                <li key={trainee.id}>
                   <Image
                     src={image.src}
                     alt={image.alt}
