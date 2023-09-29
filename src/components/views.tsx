@@ -203,7 +203,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
               </div>
               <div className="select-none">{item.id}</div>
             </div>
-            <div className="sm:mt-0.5 flex justify-between items-end">
+            <div className="sm:mt-0.5 flex justify-between items-center">
               <div className="flex gap-4 items-center">
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
