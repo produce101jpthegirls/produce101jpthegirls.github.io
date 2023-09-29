@@ -9,4 +9,9 @@ type Trainee = {
   mbtiType: string;
   profileUrl: string;
   videoUrl: string;
+  videoUrls: {
+    eyeContact: string,
+    pr: string,
+    fancam: string,
+  };
 };
