@@ -12,4 +12,9 @@ export const TRAINEES: Trainee[] = Array.from(Array(trainees_en.length).keys()).
   mbtiType: trainees_jp[index].mbti_type,
   profileUrl: `https://produce101.jp/profile/detail/?id=${trainees_jp[index].id}`,
   videoUrl: trainees_jp[index].video_url,
+  videoUrls: {
+    eyeContact: trainees_jp[index].eye_contact_video_url,
+    pr: trainees_jp[index].pr_video_url,
+    fancam: trainees_jp[index].fancam_video_url,
+  },
 }));
