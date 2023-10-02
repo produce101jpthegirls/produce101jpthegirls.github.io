@@ -347,7 +347,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
     } else {
       router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
     }
-  }, [filterEnabled]);
+  }, [filterEnabled, pathname, router, searchParams]);
 
   return (
     <>

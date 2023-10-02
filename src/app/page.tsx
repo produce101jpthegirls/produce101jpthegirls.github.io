@@ -34,7 +34,7 @@ export default function Home() {
         router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
       }
     }
-  }, [selectionCode]);
+  }, [selectionCode, pathname, router, searchParams]);
 
   return (
     <main className="h-full">
