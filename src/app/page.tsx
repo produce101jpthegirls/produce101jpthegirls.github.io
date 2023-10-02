@@ -39,9 +39,9 @@ export default function Home() {
   return (
     <main className="h-full">
       <Header />
-      <div className="my-12 sm:my-20 px-4 text-center">
+      <div className="my-6 sm:my-10 px-4 text-center">
         <h2
-          className="text-pd-pink-400 text-base sm:text-xl font-bold mb-6"
+          className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold"
         >PRODUCE 101 JAPAN THE GIRLS RANKER
         </h2>
         <div
@@ -51,7 +51,6 @@ export default function Home() {
           <br className="sm:hidden" />
           デビューを目指して集ました
           <br />
-          <br className="sm:hidden" />
           夢の花道に向かって駆け抜ける
           <br className="sm:hidden" />
           彼女たちを応援していきましょう

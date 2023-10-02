@@ -93,7 +93,7 @@ export default function Characteristics() {
             })}</ul>
           </div>
         )}
-        <div className="my-12 sm:py-12 px-4 text-center">
+        <div className="my-6 sm:my-10 px-4 text-center">
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
           {selected === undefined && (
