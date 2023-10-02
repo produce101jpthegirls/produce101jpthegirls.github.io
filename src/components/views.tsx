@@ -324,13 +324,13 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
 
   let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : TRAINEES;
   filteredTrainees = query === "" ? filteredTrainees : filteredTrainees.filter((trainee) => {
-    const _query = query.toLowerCase();
+    const _query = query.toLowerCase().replaceAll(" ", "");
     return (
-      trainee.nameEn.toLowerCase().includes(_query) ||
-      trainee.nameJp.toLowerCase().includes(_query) ||
-      trainee.birthPlace.toLowerCase().includes(_query) ||
-      trainee.birthday.toLowerCase().includes(_query) ||
-      trainee.id.toLowerCase().includes(_query)
+      trainee.nameEn.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.nameJp.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.birthPlace.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.birthday.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
 
