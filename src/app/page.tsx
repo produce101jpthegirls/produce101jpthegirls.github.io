@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -12,6 +12,8 @@ import { decodeSelection, encodeSelection } from "@/utils";
 const EMPTY = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255];
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
   const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY);
@@ -24,10 +26,12 @@ export default function Home() {
     if (selectionCode !== currentCode) {
       if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
         // Reset URL if no trainees
-        window.history.replaceState({}, "", location.pathname);
+        router.push(pathname, { scroll: false });
       } else {
         // Set code in params
-        window.history.replaceState({}, "", "?code=" + selectionCode);
+        const currentUrlParams = new URLSearchParams(searchParams);
+        currentUrlParams.set("code", selectionCode);
+        router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
       }
     }
   }, [selectionCode]);
