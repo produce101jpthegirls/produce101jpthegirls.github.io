@@ -83,7 +83,7 @@ export default function Analytics() {
       <div className="bg-body-background bg-contain sm:bg-cover">
         {selectedTrainees && (
           <div className="sm:px-48 pt-10 sm:pt-20 text-center text-pd-gray-400">
-            <p className="text-pd-pink-400 font-bold text-base sm:text-xl">Your Top 11</p>
+            <p className="text-pd-pink-400 font-bold text-base sm:text-xl">MY TOP 11</p>
             <ul className="flex pt-2 sm:pt-6">{selectedTrainees.map((trainee) => {
               const image = getItemTopImage(trainee);
               return (
@@ -100,7 +100,7 @@ export default function Analytics() {
           </div>
         )}
         <div className="my-12 sm:py-12 px-4 text-center">
-          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">Produce 101 Analytics</h2>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 ANALYTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
           {selected === undefined && (
             <p className="text-pd-gray-400 text-sm sm:text-base">
@@ -122,7 +122,7 @@ export default function Analytics() {
                   data={getEntryData(mbtiEntries)}
                   title="MBTI"
                   height={180}
-                  datasetLabel="Your Top 11"
+                  datasetLabel="My Top 11"
                 />
               </div>
             </Panel>
@@ -133,7 +133,7 @@ export default function Analytics() {
                   data={getEntryData(birthyearEntries)}
                   title="Birthyears"
                   height={180}
-                  datasetLabel="Your Top 11"
+                  datasetLabel="My Top 11"
                 />
               </div>
             </Panel>
