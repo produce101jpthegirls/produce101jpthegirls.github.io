@@ -20,3 +20,14 @@ export const TRAINEES: Trainee[] = Array.from(Array(trainees_en.length).keys()).
     fancam: trainees_jp[index].fancam_video_url,
   },
 }));
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCnJN3v7t2x-R0PfCGHsH7hobkAIKIbXbc",
+  authDomain: "produce101jpthegirls.firebaseapp.com",
+  databaseURL: "https://produce101jpthegirls-default-rtdb.firebaseio.com",
+  projectId: "produce101jpthegirls",
+  storageBucket: "produce101jpthegirls.appspot.com",
+  messagingSenderId: "1019355306647",
+  appId: "1:1019355306647:web:c518f2a8fc5669402527d2",
+  measurementId: "G-8NT0QVQN22"
+};

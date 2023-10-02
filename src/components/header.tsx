@@ -3,6 +3,21 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FC } from "react";
 
+const NAV_ITEMS = [
+  {
+    "name": "HOME",
+    "href": "/",
+  },
+  {
+    "name": "CHARACTERISTICS",
+    "href": "/characteristics",
+  },
+  {
+    "name": "ANALYTICS",
+    "href": "/analytics",
+  },
+]
+
 const Header: FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -17,24 +32,21 @@ const Header: FC = () => {
         </Link>
       </h1>
       <ul className="sm:mt-7 flex gap-8">
-        <li>
-          <Link
-            href={{
-              pathname: "/",
-              query: searchParams.toString(),
-            }}
-            className={`${pathname === "/" ? "text-pd-pink-100 pointer-events-none" : "text-pd-pink-400"} font-bold text-sm tracking-wide`}
-          >HOME</Link>
-        </li>
-        <li>
-          <Link 
-            href={{
-              pathname: "/analytics",
-              query: searchParams.toString(),
-            }}
-            className={`${pathname === "/analytics" ? "text-pd-pink-100 pointer-events-none" : "text-pd-pink-400"} font-bold text-sm tracking-wide`}
-          >ANALYTICS</Link>
-        </li>
+        {NAV_ITEMS.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={{
+                pathname: item.href,
+                query: searchParams.toString(),
+              }}
+              className={`${pathname === item.href ? (
+                  "text-pd-pink-100 pointer-events-none"
+                ) : (
+                  "text-pd-pink-400"
+                )} font-bold text-sm tracking-wide`}
+            >{item.name}</Link>
+          </li>
+        ))}
       </ul>
     </header>
   );
