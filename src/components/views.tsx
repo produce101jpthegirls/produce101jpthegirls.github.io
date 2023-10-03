@@ -2,10 +2,11 @@ import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
 import { TRAINEES } from "../constants";
 import { AvatarDropdown } from "./dropdowns";
+import Toggle from "./toggle";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -175,7 +176,7 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
   )
 };
 
-const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[30.7rem]"
+const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]"
 
 type ListViewProps = {
   items: Trainee[];
@@ -191,7 +192,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
         return (
         <li
           key={item.id}
-          className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:py-3 sm:px-4 sm:py-4 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
+          className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
           onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
         >
           <Avatar index={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
@@ -210,7 +211,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
             </div>
             <div className="sm:mt-0.5 flex justify-between items-end text-sm">
               <div className="flex gap-3 item-centers">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 hidden sm:inline">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
                   <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                 </svg>
                 <Link
@@ -219,11 +220,11 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
                   target="_blank"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
+                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
                 </Link>
               </div>
               <div className="flex gap-3 item-centers">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 hidden sm:inline">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
                   <path d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
                     c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
                     C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
@@ -235,7 +236,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
                   target="_blank"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">PR</span>
+                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">PR</span>
                 </Link>
                 <Link
                   className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
@@ -243,7 +244,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
                   target="_blank"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
+                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
                 </Link>
                 <Link
                   className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
@@ -251,7 +252,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
                   target="_blank"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="sm:inline after:content-['_↗'] after:text-xs after:font-bold">
+                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">
                     <span className="hidden sm:inline">Eye Contact</span>
                     <span className="sm:hidden">Eye</span>
                   </span>
@@ -311,38 +312,58 @@ type TraineeViewProps = {
 }
 
 export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
+  const [filterEnabled, setFilterEnabled] = useState<boolean>(searchParams.get("hide") === "1");
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
-  const filteredTrainees = query === "" ? TRAINEES : TRAINEES.filter((trainee) => {
-    const _query = query.toLowerCase();
+  let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : TRAINEES;
+  filteredTrainees = query === "" ? filteredTrainees : filteredTrainees.filter((trainee) => {
+    const _query = query.toLowerCase().replaceAll(" ", "");
     return (
-      trainee.nameEn.toLowerCase().includes(_query) ||
-      trainee.nameJp.toLowerCase().includes(_query) ||
-      trainee.birthPlace.toLowerCase().includes(_query) ||
-      trainee.birthday.toLowerCase().includes(_query) ||
-      trainee.id.toLowerCase().includes(_query)
+      trainee.nameEn.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.nameJp.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.birthPlace.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.birthday.toLowerCase().replaceAll(" ", "").includes(_query) ||
+      trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
 
+  useEffect(() => {
+    const currentUrlParams = new URLSearchParams(searchParams);
+    if (filterEnabled) {
+      currentUrlParams.set("hide", "1");
+    } else {
+      currentUrlParams.delete("hide");
+    }
+    const currentUrlParamsStr = currentUrlParams.toString();
+    if (currentUrlParamsStr === "") {
+      router.push(pathname, { scroll: false });
+    } else {
+      router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
+    }
+  }, [filterEnabled, pathname, router, searchParams]);
+
   return (
     <>
-      <div className="p-3 flex gap-2 items-center justify-between border-b">
+      <div className="px-3 py-2 sm:p-2.5 flex gap-2 items-center justify-between border-b">
         {/* <div className="px-4 py-2 border-b border-gray-100 text-pd-pink-100 font-bold">PICK YOUR TOP 11</div> */}
-        <div className="grow flex items-center bg-zinc-100 px-3 py-1.5 rounded-lg overflow-hidden">
+        <div className="grow flex items-center bg-zinc-100 px-3 py-1 sm:px-3 sm:py-1.5 rounded-lg overflow-hidden">
           <input
             id="search"
-            className="grow bg-zinc-100 focus:outline-none"
+            className="grow bg-zinc-100 focus:outline-none text-base"
             type="text"
             value={queryText}
             onChange={(e) => {
               setQueryText(e.target.value);
               debouncedSetQuery(e.target.value);
             }}
-            placeholder="Search"
+            placeholder="SEARCH"
           />
           <button
             className={`group -mr-1 ${query === "" ? "hidden" : "text-pd-pink-400"}`}
@@ -377,6 +398,19 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
             </svg>
           </button>
         </div>
+      </div>
+      <div className="pl-3 pr-4 py-2 sm:py-2.5 flex gap-2 items-center justify-between border-b">
+        <div className="flex items-center gap-2">
+          <Toggle
+            enabled={filterEnabled}
+            setEnabled={setFilterEnabled}
+            size="h-[20px] w-[40px]"
+            buttonSize="h-[16px] w-[16px]"
+            translate="translate-x-5"
+          />
+          <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
+        </div>
+        <span className="text-pd-gray-300 text-sm">SORT BY ID</span>
       </div>
       {display === "list" ? (
         <ListView items={filteredTrainees} selected={selected} setSelected={setSelected} />
@@ -480,8 +514,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
 
   return (
     <>
-      <div className="px-4 py-[0.85rem] sm:py-[0.96rem] border-b flex justify-between items-center">
-        <div className={`${selectionCompleted ? "text-pd-pink-400" : "text-pd-pink-100"} font-bold text-base sm:text-base`}>SHARE YOUR TOP 11</div>
+      <div className="px-4 py-[0.85rem] sm:py-[1rem] border-b flex justify-between items-center">
+        <div className={`${selectionCompleted ? "text-pd-pink-400" : "text-pd-pink-100"} font-bold text-base sm:text-base`}>SHARE MY TOP 11</div>
         <div className="flex items-center">
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
@@ -526,7 +560,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           <button
             className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
             disabled={disabled}
-            onClick={() => router.replace("/analytics" + location.search)}
+            onClick={() => router.replace("/characteristics" + location.search)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd" />

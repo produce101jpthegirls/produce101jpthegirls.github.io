@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -12,6 +12,8 @@ import { decodeSelection, encodeSelection } from "@/utils";
 const EMPTY = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255];
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
   const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY);
@@ -24,20 +26,22 @@ export default function Home() {
     if (selectionCode !== currentCode) {
       if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
         // Reset URL if no trainees
-        window.history.replaceState({}, "", location.pathname);
+        router.push(pathname, { scroll: false });
       } else {
         // Set code in params
-        window.history.replaceState({}, "", "?code=" + selectionCode);
+        const currentUrlParams = new URLSearchParams(searchParams);
+        currentUrlParams.set("code", selectionCode);
+        router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
       }
     }
-  }, [selectionCode]);
+  }, [selectionCode, pathname, router, searchParams]);
 
   return (
     <main className="h-full">
       <Header />
-      <div className="my-12 sm:my-20 px-4 text-center">
+      <div className="my-6 sm:my-10 px-4 text-center">
         <h2
-          className="text-pd-pink-400 text-base sm:text-xl font-bold mb-6"
+          className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold"
         >PRODUCE 101 JAPAN THE GIRLS RANKER
         </h2>
         <div
@@ -47,7 +51,6 @@ export default function Home() {
           <br className="sm:hidden" />
           デビューを目指して集ました
           <br />
-          <br className="sm:hidden" />
           夢の花道に向かって駆け抜ける
           <br className="sm:hidden" />
           彼女たちを応援していきましょう
