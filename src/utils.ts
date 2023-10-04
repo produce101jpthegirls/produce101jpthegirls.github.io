@@ -4,7 +4,7 @@ export const encodeSelection = (selected: number[]): string => {
   return bs58.encode(selected);
 };
 
-export const decodeSelection = (code: any): number[]|undefined => {
+export const decodeSelection = (code: any): number[] | undefined => {
   if (typeof code === "string") {
     try {
       return Array.from(bs58.decode(code));
@@ -14,6 +14,14 @@ export const decodeSelection = (code: any): number[]|undefined => {
   }
   return undefined;
 };
+
+export const isSelectionValid = (selected: number[]): boolean => {
+  return selected.length === 11 && selected.every((i) => i >= 0 && i < 96);
+}
+
+export const isSelectionComplete = (selected: number[]): boolean => {
+  return isSelectionValid(selected) && selected.every((i) => i < 255);
+}
 
 export const parseHumanNumber = (s: string) => {
   let magnitude = 4;

@@ -9,7 +9,7 @@ import { TRAINEES } from "@/constants";
 import Panel from "@/components/panel";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { decodeSelection } from "@/utils";
+import { decodeSelection, isSelectionComplete } from "@/utils";
 
 const getItemTopImage = (item: Trainee) => {
   return {
@@ -62,10 +62,10 @@ export default function Characteristics() {
   const searchParams = useSearchParams();
   const selected = decodeSelection(searchParams.get("code"));
 
-  let selectedTrainees: Trainee[]|undefined = undefined;
-  let mbtiEntries: [string, number][]|undefined = undefined;
-  let birthyearEntries: [string, number][]|undefined = undefined;
-  if (selected !== undefined) {
+  let selectedTrainees: Trainee[] | undefined = undefined;
+  let mbtiEntries: [string, number][] | undefined = undefined;
+  let birthyearEntries: [string, number][] | undefined = undefined;
+  if (selected !== undefined && isSelectionComplete(selected)) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
     mbtiEntries = createMbtiDataEntries(selectedTrainees);
     birthyearEntries = createBirthyearDataEntries(selectedTrainees);
@@ -96,11 +96,17 @@ export default function Characteristics() {
         <div className="my-6 sm:my-10 px-4 text-center">
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
-          {selected === undefined && (
+          {selected !== undefined && !isSelectionComplete(selected) && (
             <p className="text-pd-gray-400 text-sm sm:text-base">
               See the characteristics of your top 11. Pick them
               {" "}
-              <Link href="/" className="text-pd-pink-400 hover:text-pd-pink-100 after:content-['_↗'] after:text-xs sm:after:text-sm after:font-bold">here</Link>
+              <Link
+                href={{
+                  pathname: "/",
+                  query: searchParams.toString(),
+                }}
+                className="text-pd-pink-400 hover:text-pd-pink-100 after:content-['_↗'] after:text-xs sm:after:text-sm after:font-bold"
+              >here</Link>
             </p>
           )}
         </div>

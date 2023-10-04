@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
-import { TRAINEES } from "../constants";
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
+import { TRAINEES } from "@/constants";
+import { isSelectionComplete } from "@/utils";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -23,11 +24,11 @@ export const getItemImage = (item: Trainee) => {
 
 const addTrainee = (
   isSelected: boolean,
-  selected: number[], 
+  selected: number[],
   setSelected: Dispatch<SetStateAction<number[]>>,
   itemIndex: number,
 ) => {
-  if (!isSelected && !selected.includes(itemIndex) && selected.some((index) => index === 255)) {
+  if (!isSelected && !selected.includes(itemIndex) && !isSelectionComplete(selected)) {
     // Add item to selected
     const newSelected = [...selected];
     const emptyIndex = newSelected.indexOf(255);
@@ -39,7 +40,7 @@ const addTrainee = (
 };
 
 type AvatarProps = {
-  index: number;
+  rankIndex: number;
   traineeIndex: number;
   size: string;
   name?: string;
@@ -50,21 +51,21 @@ type AvatarProps = {
   setSelected?: Dispatch<SetStateAction<number[]>>;
 };
 
-export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image, setSelected }) => {
+export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, image, setSelected }) => {
   const SIZE = size == "large" ? (
     "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
-   ) : (
+  ) : (
     "w-12 h-12 sm:w-14 sm:h-14 rounded-full"
-   );
+  );
 
   const draggable = image !== undefined && setSelected !== undefined;
 
   let menuPosition = "top-0 left-16 sm:ml-6 origin-top-right";
-  if ([2, 5].includes(index)) {
+  if ([2, 5].includes(rankIndex)) {
     menuPosition = "top-0 right-16 sm:mr-6 origin-top-right";
-  } else if ([6, 7, 8].includes(index)) {
+  } else if ([6, 7, 8].includes(rankIndex)) {
     menuPosition = "bottom-0 left-16 sm:ml-6 origin-top-right";
-  } else if ([9, 10].includes(index)) {
+  } else if ([9, 10].includes(rankIndex)) {
     menuPosition = "bottom-0 right-16 sm:mr-6 origin-top-right";
   }
 
@@ -91,87 +92,89 @@ export const Avatar: FC<AvatarProps> = ({ index, traineeIndex, size, name, image
 
   return (
     <div
-      id={`avatar-${index}`}
+      id={`avatar-${traineeIndex}`}
       className={`${SIZE} relative bg-gray-200 flex items-center justify-center`}
     >
       <div
-          className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
-          onClick={(e) => {
-            if (e.type === "click") {
-              removeTrainee();
-            } else {}
-          }}
-          draggable={draggable}
-          onDragEnd={(e) => {
-            for (let i = 0; i < 11; i++) {
-              const element = document.getElementById(`avatar-${i}`);
-              if (element) {
-                const rect = element.getBoundingClientRect(); 
-                const radius = rect.width / 2;
-                const centerX = rect.x + radius;
-                const centerY = rect.y + radius;
-                const distance = (
-                  Math.sqrt(Math.pow(e.clientX - centerX, 2) +
+        className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
+        onClick={(e) => {
+          if (e.type === "click") {
+            removeTrainee();
+          }
+        }}
+        draggable={draggable}
+        onDragEnd={(e) => {
+          for (let i = 0; i < 11; i++) {
+            const element = document.getElementById(`avatar-${i}`);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const radius = rect.width / 2;
+              const centerX = rect.x + radius;
+              const centerY = rect.y + radius;
+              const distance = (
+                Math.sqrt(Math.pow(e.clientX - centerX, 2) +
                   Math.pow(e.clientY - centerY, 2))
-                );
-                const overlapped = distance < radius;
-                if (overlapped) {
-                  swapTrainees(i);
-                  break;
-                }
+              );
+              const overlapped = distance < radius;
+              if (overlapped) {
+                swapTrainees(i);
+                break;
               }
             }
-          }}
-          onDragOver={(e) => e.preventDefault()}
-        >
-          {image ? (
-            <Image
-              className={`${SIZE} border-2 sm:border-4 border-pd-pink-400`}
-              src={image.src}
-              alt={image.alt}
-              width={550}
-              height={550}
-              draggable={false}
-            />
-          ) : (
-            <span
-              className={`${archivo_black_jp.className} select-none text-gray-50 text-lg sm:text-2xl`}
-            >{index+1}</span>
-          )}
+          }
+        }}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        {image ? (
+          <Image
+            className={`${SIZE} border-2 sm:border-4 border-pd-pink-400`}
+            src={image.src}
+            alt={image.alt}
+            width={550}
+            height={550}
+            draggable={false}
+          />
+        ) : (
+          <span
+            className={`${archivo_black_jp.className} select-none text-gray-50 text-lg sm:text-2xl`}
+          >{rankIndex + 1}</span>
+        )}
+      </div>
+      {name && (
+        <div className="absolute -bottom-[1.4rem] sm:-bottom-6 text-[11px] sm:text-xs whitespace-nowrap">{name}</div>
+      )}
+      {rankIndex === 0 && (
+        <div className="absolute -top-6 sm:-top-8">
+          {/* Crown Icon */}
+          <svg width="174" height="169" viewBox="0 0 174 169" fill="#ff99be" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-7 sm:w-7">
+            <path d="M33.2439 64.8072C30.4146 64.8072 15.9146 64.0911 3.89021 50.8432L1.76829 48.3369L0 48.6949L45.622 142.504V169H128.378V142.504L174 48.3369L172.585 47.9788L170.11 50.8432C158.085 64.0911 143.585 64.8072 140.756 64.8072H138.281L142.878 83.0678C132.622 97.3898 119.183 101.686 116 102.403C113.524 99.5381 105.39 88.4385 101.854 83.7839V73.4004L116 60.5106L115.293 59.4365C96.5488 38.3115 88.7683 0.358051 88.7683 0H87.3536H85.939C85.939 0.358051 77.8049 38.3115 59.4146 59.4365L58 60.1525L71.7927 73.0424V83.4258C68.2561 88.0805 60.1219 99.1801 57.6463 102.044C54.4634 101.328 41.0244 97.0318 30.7683 82.7098L35.3659 64.4491L33.2439 64.8072Z" />
+          </svg>
         </div>
-        {name && (
-          <div className="absolute -bottom-[1.4rem] sm:-bottom-6 text-[11px] sm:text-xs whitespace-nowrap">{name}</div>
-        )}
-        {index === 0 && (
-          <div className="absolute -top-6 sm:-top-8">
-            {/* Crown Icon */}
-            <svg width="174" height="169" viewBox="0 0 174 169" fill="#ff99be" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-7 sm:w-7">
-              <path d="M33.2439 64.8072C30.4146 64.8072 15.9146 64.0911 3.89021 50.8432L1.76829 48.3369L0 48.6949L45.622 142.504V169H128.378V142.504L174 48.3369L172.585 47.9788L170.11 50.8432C158.085 64.0911 143.585 64.8072 140.756 64.8072H138.281L142.878 83.0678C132.622 97.3898 119.183 101.686 116 102.403C113.524 99.5381 105.39 88.4385 101.854 83.7839V73.4004L116 60.5106L115.293 59.4365C96.5488 38.3115 88.7683 0.358051 88.7683 0H87.3536H85.939C85.939 0.358051 77.8049 38.3115 59.4146 59.4365L58 60.1525L71.7927 73.0424V83.4258C68.2561 88.0805 60.1219 99.1801 57.6463 102.044C54.4634 101.328 41.0244 97.0318 30.7683 82.7098L35.3659 64.4491L33.2439 64.8072Z" />
-            </svg>
-          </div>
-        )}
-        {name && (
-          <div
-            className="absolute -bottom-[6px] sm:-bottom-[6px] text-[9px] sm:text-[10px] leading-3
+      )}
+      {name && (
+        <div
+          className="absolute -bottom-[6px] sm:-bottom-[6px] text-[9px] sm:text-[10px] leading-3
             select-none bg-pd-pink-400 text-white font-bold w-3.5 sm:w-4 h-3.5 sm:h-4 text-center
             pt-[0.5px] sm:pt-[1.5px] rounded-full"
-          >{index+1}</div>
-        )}
+        >{rankIndex + 1}</div>
+      )}
+      {rankIndex >= 0 && (
         <div className={`absolute ${SIZE}`}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
-              if (index > 0) {
-                swapTrainees(index - 1);
+              if (rankIndex > 0) {
+                swapTrainees(rankIndex - 1);
               }
             },
             () => {
-              if (index < 10) {
-                swapTrainees(index + 1);
+              if (rankIndex < 10) {
+                swapTrainees(rankIndex + 1);
               }
             },
             () => removeTrainee(),
           ]} />
         </div>
+      )}
     </div>
   )
 };
@@ -190,78 +193,79 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
       {items.map((item) => {
         const isSelected = selected.includes(item.index);
         return (
-        <li
-          key={item.id}
-          className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
-          onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
-        >
-          <Avatar index={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
-          <div className="grow">
-            <div className="flex justify-between">
-              <div>
-                <span className="select-none">{item.nameJp}</span>
-                <span className="select-none ml-2 text-xs sm:text-base">({item.nameEn})</span>
+          <li
+            key={item.id}
+            className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
+            onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
+          >
+            <Avatar rankIndex={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
+            <div className="grow">
+              <div className="flex justify-between">
+                <div>
+                  <span className="select-none">{item.nameJp}</span>
+                  <span className="select-none ml-2 text-xs sm:text-base">({item.nameEn})</span>
+                </div>
+                <div className="select-none">{item.id}</div>
               </div>
-              <div className="select-none">{item.id}</div>
-            </div>
-            <div className="sm:mt-0.5 flex gap-4 items-center">
-              <span className="select-none">{item.birthday}</span>
-              <span className="select-none">{item.birthPlace}</span>
-              <span className="select-none">{item.mbtiType}</span>
-            </div>
-            <div className="sm:mt-0.5 flex justify-between items-end text-sm">
-              <div className="flex gap-3 item-centers">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
-                  <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
-                </svg>
-                <Link
-                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium text-sm"
-                  href={item.profileUrl}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
-                </Link>
+              <div className="sm:mt-0.5 flex gap-4 items-center">
+                <span className="select-none">{item.birthday}</span>
+                <span className="select-none">{item.birthPlace}</span>
+                <span className="select-none">{item.mbtiType}</span>
               </div>
-              <div className="flex gap-3 item-centers">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
-                  <path d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
+              <div className="sm:mt-0.5 flex justify-between items-end text-sm">
+                <div className="flex gap-3 item-centers">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
+                    <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                  </svg>
+                  <Link
+                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium text-sm"
+                    href={item.profileUrl}
+                    target="_blank"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
+                  </Link>
+                </div>
+                <div className="flex gap-3 item-centers">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
+                    <path d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
                     c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
                     C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
                     c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
-                </svg>
-                <Link
-                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                  href={item.videoUrls.pr}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">PR</span>
-                </Link>
-                <Link
-                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                  href={item.videoUrls.fancam}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
-                </Link>
-                <Link
-                  className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                  href={item.videoUrls.eyeContact}
-                  target="_blank"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">
-                    <span className="hidden sm:inline">Eye Contact</span>
-                    <span className="sm:hidden">Eye</span>
-                  </span>
-                </Link>
+                  </svg>
+                  <Link
+                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                    href={item.videoUrls.pr}
+                    target="_blank"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">PR</span>
+                  </Link>
+                  <Link
+                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                    href={item.videoUrls.fancam}
+                    target="_blank"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
+                  </Link>
+                  <Link
+                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
+                    href={item.videoUrls.eyeContact}
+                    target="_blank"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">
+                      <span className="hidden sm:inline">Eye Contact</span>
+                      <span className="sm:hidden">Eye</span>
+                    </span>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      )})}
+          </li>
+        )
+      })}
     </ul>
   )
 };
@@ -422,7 +426,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
 };
 
 type PaletteRowProps = {
-  items: (Trainee|undefined)[];
+  items: (Trainee | undefined)[];
   startIndex: number;
   setSelected: Dispatch<SetStateAction<number[]>>;
 }
@@ -433,7 +437,7 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
       item ? (
         <Avatar
           key={index}
-          index={startIndex + index}
+          rankIndex={startIndex + index}
           traineeIndex={item.index}
           size="large"
           name={item.nameJp}
@@ -443,7 +447,7 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
       ) : (
         <Avatar
           key={index}
-          index={startIndex + index}
+          rankIndex={startIndex + index}
           traineeIndex={-1}
           size="large"
           setSelected={setSelected}
@@ -454,7 +458,7 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
 };
 
 type PaletteProps = {
-  items: (Trainee|undefined)[];
+  items: (Trainee | undefined)[];
   setSelected: Dispatch<SetStateAction<number[]>>;
 };
 
@@ -475,7 +479,7 @@ const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
   )
 };
 
-export const createDownloadSelection = (): HTMLElement|undefined => {
+export const createDownloadSelection = (): HTMLElement | undefined => {
   const element = document.getElementById("palette-wrapper");
   if (element) {
     const cloned = element.cloneNode(true) as HTMLElement;
@@ -508,8 +512,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
   setDownloadModalIsOpen,
 }) => {
   const router = useRouter();
-  const selectedTrainees: (Trainee|undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
-  const selectionCompleted = !selected.some((value) => value === 255);
+  const selectedTrainees: (Trainee | undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
+  const selectionCompleted = isSelectionComplete(selected);
   const disabled = !selectionCompleted;
 
   return (
@@ -560,7 +564,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           <button
             className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
             disabled={disabled}
-            onClick={() => router.replace("/characteristics" + location.search)}
+            onClick={() => router.push("/characteristics" + location.search)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
               <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd" />
