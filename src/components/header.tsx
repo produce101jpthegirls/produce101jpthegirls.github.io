@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FC } from "react";
+import { LanguageDropdown } from "./dropdowns";
 
 const NAV_ITEMS = [
   {
@@ -23,7 +24,7 @@ const Header: FC = () => {
   const searchParams = useSearchParams();
   return (
     <header
-      className="bg-header-banner bg-no-repeat bg-center bg-cover
+      className="relative bg-header-banner bg-no-repeat bg-center bg-cover
       h-[120px] sm:h-[300px] flex flex-col justify-center items-center"
     >
       <h1 className="mt-1 w-[70px] h-[70px] sm:w-[170px] sm:h-[170px]">
@@ -48,6 +49,9 @@ const Header: FC = () => {
           </li>
         ))}
       </ul>
+      <div className="absolute top-[16px] sm:top-[30px] right-6 sm:right-[30px] z-10">
+        <LanguageDropdown />
+      </div>
     </header>
   );
 };

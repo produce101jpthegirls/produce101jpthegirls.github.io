@@ -25,8 +25,10 @@ export default function Home() {
     const currentCode = new URL(window.location.toString()).searchParams.get("code");
     if (selectionCode !== currentCode) {
       if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
-        // Reset URL if no trainees
-        router.push(pathname, { scroll: false });
+        if (currentCode !== null) {
+          // Reset URL if no trainees
+          router.push(pathname, { scroll: false });
+        }
       } else {
         // Set code in params
         const currentUrlParams = new URLSearchParams(searchParams);
