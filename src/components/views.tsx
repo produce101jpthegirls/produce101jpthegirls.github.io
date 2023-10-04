@@ -371,6 +371,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
           />
           <button
             className={`group -mr-1 ${query === "" ? "hidden" : "text-pd-pink-400"}`}
+            title="Clear query"
             disabled={query === ""}
             onClick={() => {
               setQueryText("");
@@ -385,6 +386,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
         <div className="flex gap-1">
           <button
             className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
+            title="List view"
             disabled={display == "list"}
             onClick={() => setDisplay("list")}
           >
@@ -394,6 +396,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
           </button>
           <button
             className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
+            title="Grid view"
             disabled={display == "grid"}
             onClick={() => setDisplay("grid")}
           >
@@ -523,6 +526,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
         <div className="flex items-center">
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
+            title="Random"
             onClick={() => {
               const unshuffled = Array.from(Array(TRAINEES.length).keys());
               const shuffled = unshuffled
@@ -541,6 +545,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           </button>
           <button
             className={`ml-3 ${isEmpty ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Clear"
             disabled={isEmpty}
             onClick={() => {
               if (!isEmpty) {
@@ -554,6 +559,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           </button>
           <button
             className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Copy URL"
             disabled={isNotCompleted}
             onClick={() => {
               navigator.clipboard.writeText(window.location.href)
@@ -567,6 +573,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           </button>
           <button
             className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Download image"
             disabled={isNotCompleted}
             onClick={() => setDownloadModalIsOpen(true)}
           >
@@ -576,6 +583,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
           </button>
           <button
             className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="View characteristics"
             disabled={isNotCompleted}
             onClick={() => router.push("/characteristics" + location.search)}
           >
