@@ -10,7 +10,8 @@ import MyPick from "@/components/my_pick";
 import Panel from "@/components/panel";
 import Section from "@/components/section";
 import { TRAINEES } from "@/constants";
-import { decodeSelection, isCompletedSelection } from "@/utils";
+import { decodeSelection, getLanguageId, isCompletedSelection } from "@/utils";
+import { CONTENTS } from "@/i18n";
 
 // Create MBTI data entries
 const createMbtiDataEntries = (trainees: Trainee[]) => {
@@ -55,6 +56,7 @@ const getEntryData = (entries: [string, number][]): number[] => entries.map((ent
 export default function Characteristics() {
   const searchParams = useSearchParams();
   const selected = decodeSelection(searchParams.get("code"));
+  const language = getLanguageId(searchParams.get("lang"));
 
   let selectedTrainees: Trainee[] | undefined = undefined;
   let mbtiEntries: [string, number][] | undefined = undefined;
@@ -71,9 +73,9 @@ export default function Characteristics() {
       <div className="bg-body-background bg-contain sm:bg-cover">
         {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
-          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl break-keep">{CONTENTS[language]["characteristics"]["title"]}</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
-          {selected !== undefined && !isCompletedSelection(selected) && (
+          {(selected === undefined || !isCompletedSelection(selected)) && (
             <p className="text-pd-gray-400 text-sm sm:text-base">
               See the characteristics of your top 11. Pick them
               {" "}

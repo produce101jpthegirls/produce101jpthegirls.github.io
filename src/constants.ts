@@ -23,6 +23,30 @@ export const TRAINEES: Trainee[] = Array.from(Array(trainees_en.length).keys()).
   },
 }));
 
+export const LANGUAGES = [
+  {
+    "id": "ja",
+    "name": "日本語",
+  },
+  {
+    "id": "en",
+    "name": "English",
+  },
+  {
+    "id": "zh",
+    "name": "繁體中文",
+  },
+];
+
+export const getLanguageName = (id: string) => {
+  for (const lang of LANGUAGES) {
+    if (lang.id === id) {
+      return lang.name;
+    }
+  }
+  return LANGUAGES[0].name;
+};
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCnJN3v7t2x-R0PfCGHsH7hobkAIKIbXbc",
   authDomain: "produce101jpthegirls.firebaseapp.com",

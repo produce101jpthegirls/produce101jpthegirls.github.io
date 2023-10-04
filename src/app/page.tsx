@@ -9,13 +9,15 @@ import Panel from "@/components/panel";
 import Section from "@/components/section";
 import { SelectionView, TraineeView } from "@/components/views";
 import { EMPTY_SELECTION } from "@/constants";
-import { decodeSelection, encodeSelection } from "@/utils";
+import { decodeSelection, encodeSelection, getLanguageId } from "@/utils";
+import { CONTENTS } from "@/i18n";
 
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
+  const language = getLanguageId(searchParams.get("lang"));
   const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY_SELECTION);
   const selectionCode = encodeSelection(selected);
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
@@ -43,8 +45,8 @@ export default function Home() {
       <Header />
       <Section>
         <h2
-          className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold"
-        >PRODUCE 101 JAPAN THE GIRLS RANKER
+          className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold break-keep"
+        >{CONTENTS[language]["home"]["title"]}
         </h2>
         <div
           className="text-pd-gray-400 text-center text-sm sm:text-base"

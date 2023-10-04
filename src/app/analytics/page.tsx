@@ -6,7 +6,8 @@ import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
 import Toggle from "@/components/toggle";
 import { TRAINEES, firebaseConfig } from "@/constants";
-import { decodeSelection, isCompletedSelection, parseHumanNumber } from "@/utils";
+import { CONTENTS } from "@/i18n";
+import { decodeSelection, getLanguageId, isCompletedSelection, parseHumanNumber } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
 import Link from "next/link";
@@ -144,6 +145,7 @@ const preprocessAnalyticsResponse = (response: AnalyticsDataResponse) => {
 
 export default function Analytics() {
   const searchParams = useSearchParams();
+  const language = getLanguageId(searchParams.get("lang"));
   const [pending, setPending] = useState<boolean>(true);
   const [data, setData] = useState<AnalyticsData | undefined>(undefined);
   const [updatedAt, setUpdatedAt] = useState<number | undefined>(undefined);
@@ -181,7 +183,7 @@ export default function Analytics() {
       <div className="bg-body-background bg-contain sm:bg-cover">
         {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
-          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 ANALYTICS</h2>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl break-keep">{CONTENTS[language]["analytics"]["title"]}</h2>
           <div className="text-left w-72 sm:w-[462px] mx-auto">
             <p className="text-pd-gray-400 text-sm sm:text-base">The analytics include the view counts of<span className="hidden sm:inline"> the following videos</span></p>
             <ol className="text-pd-gray-400 text-sm sm:text-base list-inside list-decimal">

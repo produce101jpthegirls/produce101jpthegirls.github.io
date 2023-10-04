@@ -3,6 +3,8 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import { LanguageDropdown } from "./dropdowns";
+import { getLanguageId } from "@/utils";
+import { CONTENTS } from "@/i18n";
 
 const NAV_ITEMS = [
   {
@@ -22,6 +24,7 @@ const NAV_ITEMS = [
 const Header: FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const language = getLanguageId(searchParams.get("lang"));
   return (
     <header
       className="relative bg-header-banner bg-no-repeat bg-center bg-cover
@@ -33,7 +36,7 @@ const Header: FC = () => {
         </Link>
       </h1>
       <ul className="sm:mt-7 flex gap-8">
-        {NAV_ITEMS.map((item) => (
+        {NAV_ITEMS.map((item, index) => (
           <li key={item.href}>
             <Link
               href={{
@@ -45,7 +48,7 @@ const Header: FC = () => {
                 ) : (
                   "text-pd-pink-400"
                 )} font-bold text-sm tracking-wide`}
-            >{item.name}</Link>
+            >{CONTENTS[language]["header"]["items"][index]}</Link>
           </li>
         ))}
       </ul>
