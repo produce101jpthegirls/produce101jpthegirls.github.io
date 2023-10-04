@@ -2,15 +2,18 @@
 
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
-import { firebaseConfig } from "@/constants";
-import { parseHumanNumber } from "@/utils";
+import Toggle from "@/components/toggle";
+import { TRAINEES, firebaseConfig } from "@/constants";
+import { decodeSelection, isCompletedSelection, parseHumanNumber } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 // import mockDb from "@/data/mock_db.json";
-import Link from "next/link";
 
 type AnalyticsDataRow = {
   id: string;
@@ -139,10 +142,21 @@ const preprocessAnalyticsResponse = (response: AnalyticsDataResponse) => {
   response.items.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 };
 
-export default function Characteristics() {
+export default function Analytics() {
+  const searchParams = useSearchParams();
   const [pending, setPending] = useState<boolean>(true);
   const [data, setData] = useState<AnalyticsData | undefined>(undefined);
   const [updatedAt, setUpdatedAt] = useState<number | undefined>(undefined);
+  const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
+
+  const selected = decodeSelection(searchParams.get("code"));
+  let selectedTrainees: Trainee[] | undefined = undefined;
+  if (selected !== undefined && isCompletedSelection(selected)) {
+    selectedTrainees = selected.map((index) => TRAINEES[index]);
+  }
+
+  const filteredData = filterEnabled ? data?.filter((_, index) => selected?.includes(index)) : data;
+
   useEffect(() => {
     // setPending(false);
     // const response: AnalyticsDataResponse = mockDb.data.analytics;
@@ -165,6 +179,7 @@ export default function Characteristics() {
     <main className="h-full">
       <Header />
       <div className="bg-body-background bg-contain sm:bg-cover">
+        {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 ANALYTICS</h2>
           <div className="text-left w-72 sm:w-[462px] mx-auto">
@@ -179,14 +194,26 @@ export default function Characteristics() {
         <div className="px-4 sm:px-20 text-pd-gray-400">
           <div className="px-1 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="px-3 sm:px-0">
-              <h3 className="mb-3 sm:mb-6 text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>
+              <div className="mb-3 sm:mb-6 flex justify-between items-center">
+                <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>
+                <div className="flex items-center gap-2">
+                  <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
+                  <Toggle
+                    enabled={filterEnabled}
+                    setEnabled={setFilterEnabled}
+                    size="h-[20px] w-[40px]"
+                    buttonSize="h-[16px] w-[16px]"
+                    translate="translate-x-5"
+                  />
+                </div>
+              </div>
               {updatedAt && (
                 <p className="mb-6 text-sm">Updated at {new Date(updatedAt).toLocaleString()}</p>
               )}
             </div>
             <DataTable
               columns={columns}
-              data={data || []}
+              data={filteredData || []}
               progressPending={pending}
               striped
               highlightOnHover

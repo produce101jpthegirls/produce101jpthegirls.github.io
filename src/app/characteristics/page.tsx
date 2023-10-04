@@ -1,23 +1,16 @@
 "use client";
 
 import { countBy } from "lodash";
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BarChart } from "@/components/charts";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import MyPick from "@/components/my_pick";
 import Panel from "@/components/panel";
 import Section from "@/components/section";
 import { TRAINEES } from "@/constants";
 import { decodeSelection, isCompletedSelection } from "@/utils";
-
-const getItemTopImage = (item: Trainee) => {
-  return {
-    src: "/assets/trainees/top/" + item.code + ".jpg",
-    alt: item.nameEn,
-  };
-};
 
 // Create MBTI data entries
 const createMbtiDataEntries = (trainees: Trainee[]) => {
@@ -76,24 +69,7 @@ export default function Characteristics() {
     <main className="h-full">
       <Header />
       <div className="bg-body-background bg-contain sm:bg-cover">
-        {selectedTrainees && (
-          <div className="sm:px-48 pt-10 sm:pt-20 text-center text-pd-gray-400">
-            <h2 className="text-pd-pink-400 font-bold text-base sm:text-xl">MY TOP 11</h2>
-            <ul className="flex pt-2 sm:pt-6">{selectedTrainees.map((trainee) => {
-              const image = getItemTopImage(trainee);
-              return (
-                <li key={trainee.id}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={300}
-                    height={800}
-                  />
-                </li>
-              );
-            })}</ul>
-          </div>
-        )}
+        {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>

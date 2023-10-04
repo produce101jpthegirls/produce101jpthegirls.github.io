@@ -42,3 +42,10 @@ export const parseHumanNumber = (s: string) => {
   };
   return parseFloat(s);
 };
+
+export const getItemTopImage = (item: Trainee) => {
+  return {
+    src: "/assets/trainees/top/" + item.code + ".jpg",
+    alt: item.nameEn,
+  };
+};
