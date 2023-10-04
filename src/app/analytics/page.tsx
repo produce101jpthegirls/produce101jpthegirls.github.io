@@ -194,10 +194,9 @@ export default function Analytics() {
         <div className="px-4 sm:px-20 text-pd-gray-400">
           <div className="px-1 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="px-3 sm:px-0">
-              <div className="mb-3 sm:mb-6 flex justify-between items-center">
+              <div className="mb-3 sm:mb-6 flex justify-between sm:items-center flex-col sm:flex-row gap-3">
                 <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>
-                <div className="flex items-center gap-2">
-                  <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
+                <div className="flex items-center gap-2 sm:flex-row-reverse">
                   <Toggle
                     enabled={filterEnabled}
                     setEnabled={setFilterEnabled}
@@ -205,10 +204,18 @@ export default function Analytics() {
                     buttonSize="h-[16px] w-[16px]"
                     translate="translate-x-5"
                   />
+                  <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
                 </div>
               </div>
               {updatedAt && (
-                <p className="mb-6 text-sm">Updated at {new Date(updatedAt).toLocaleString()}</p>
+                <p className="mb-6 text-sm">Updated at {new Intl.DateTimeFormat("en-US", {
+                  // "dateStyle": "medium",
+                  "year": "numeric",
+                  "month": "short",
+                  "day": "numeric",
+                  "hour": "2-digit",
+                  "minute": "2-digit",
+                }).format(new Date(updatedAt))}</p>
               )}
             </div>
             <DataTable
