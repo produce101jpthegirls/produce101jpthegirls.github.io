@@ -7,7 +7,7 @@ import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
 import { TRAINEES } from "@/constants";
-import { isSelectionComplete } from "@/utils";
+import { isCompletedSelection, isValidTraineeIndex } from "@/utils";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -28,7 +28,7 @@ const addTrainee = (
   setSelected: Dispatch<SetStateAction<number[]>>,
   itemIndex: number,
 ) => {
-  if (!isSelected && !selected.includes(itemIndex) && !isSelectionComplete(selected)) {
+  if (!isSelected && !selected.includes(itemIndex) && !isCompletedSelection(selected)) {
     // Add item to selected
     const newSelected = [...selected];
     const emptyIndex = newSelected.indexOf(255);
@@ -158,7 +158,7 @@ export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, i
             pt-[0.5px] sm:pt-[1.5px] rounded-full"
         >{rankIndex + 1}</div>
       )}
-      {rankIndex >= 0 && (
+      {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && (
         <div className={`absolute ${SIZE}`}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
@@ -513,7 +513,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
 }) => {
   const router = useRouter();
   const selectedTrainees: (Trainee | undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
-  const selectionCompleted = isSelectionComplete(selected);
+  const selectionCompleted = isCompletedSelection(selected);
   const disabled = !selectionCompleted;
 
   return (

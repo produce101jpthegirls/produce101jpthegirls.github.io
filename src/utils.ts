@@ -15,12 +15,14 @@ export const decodeSelection = (code: any): number[] | undefined => {
   return undefined;
 };
 
-export const isSelectionValid = (selected: number[]): boolean => {
-  return selected.length === 11 && selected.every((i) => i >= 0 && i < 96);
+export const isValidTraineeIndex = (index: number): boolean => index >= 0 && index < 96;
+
+export const isValidSelection = (selected: number[]): boolean => {
+  return selected.length === 11 && selected.every((i) => isValidTraineeIndex(i));
 }
 
-export const isSelectionComplete = (selected: number[]): boolean => {
-  return isSelectionValid(selected) && selected.every((i) => i < 255);
+export const isCompletedSelection = (selected: number[]): boolean => {
+  return isValidSelection(selected) && selected.every((i) => i < 255);
 }
 
 export const parseHumanNumber = (s: string) => {
