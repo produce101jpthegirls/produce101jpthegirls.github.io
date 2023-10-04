@@ -17,12 +17,18 @@ export const decodeSelection = (code: any): number[] | undefined => {
 
 export const isValidTraineeIndex = (index: number): boolean => index >= 0 && index < 96;
 
+export const isEmptyTraineeIndex = (index: number): boolean => index === 255;
+
 export const isValidSelection = (selected: number[]): boolean => {
-  return selected.length === 11 && selected.every((i) => isValidTraineeIndex(i));
+  return selected.length === 11 && selected.every((i) => isValidTraineeIndex(i) || isEmptyTraineeIndex(i));
+}
+
+export const isEmptySelection = (selected: number[]): boolean => {
+  return isValidSelection(selected) && selected.every((i) => isEmptyTraineeIndex(i));
 }
 
 export const isCompletedSelection = (selected: number[]): boolean => {
-  return isValidSelection(selected) && selected.every((i) => i < 255);
+  return isValidSelection(selected) && selected.every((i) => isValidTraineeIndex(i));
 }
 
 export const parseHumanNumber = (s: string) => {

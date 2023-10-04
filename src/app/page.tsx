@@ -7,16 +7,15 @@ import Header from "@/components/header";
 import { CompleteModal, DownloadModal } from "@/components/modals";
 import Panel from "@/components/panel";
 import { SelectionView, TraineeView } from "@/components/views";
+import { EMPTY_SELECTION } from "@/constants";
 import { decodeSelection, encodeSelection } from "@/utils";
-
-const EMPTY = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255];
 
 export default function Home() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
-  const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY);
+  const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY_SELECTION);
   const selectionCode = encodeSelection(selected);
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
   const [downloadModalIsOpen, setDownloadModalIsOpen] = useState<boolean>(false);

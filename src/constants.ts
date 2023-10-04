@@ -1,5 +1,7 @@
 import trainees_en from "@/data/trainees_en.json";
-import trainees_jp  from "@/data/trainees_jp.json";
+import trainees_jp from "@/data/trainees_jp.json";
+
+export const EMPTY_SELECTION = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255];
 
 // Trainee index is derived from the order in the json file.
 // Please ensure the trainees are already sorted by the id and there are 96 trainees in total.
