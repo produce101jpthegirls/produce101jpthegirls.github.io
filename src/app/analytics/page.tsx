@@ -150,6 +150,7 @@ export default function Analytics() {
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
 
   const selected = decodeSelection(searchParams.get("code"));
+  const isCompleted = selected && isCompletedSelection(selected);
   let selectedTrainees: Trainee[] | undefined = undefined;
   if (selected !== undefined && isCompletedSelection(selected)) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
@@ -195,16 +196,18 @@ export default function Analytics() {
             <div className="px-3 sm:px-0">
               <div className="mb-3 sm:mb-6 flex justify-between sm:items-center flex-col sm:flex-row gap-3">
                 <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>
-                <div className="flex items-center gap-2 sm:flex-row-reverse">
-                  <Toggle
-                    enabled={filterEnabled}
-                    setEnabled={setFilterEnabled}
-                    size="h-[20px] w-[40px]"
-                    buttonSize="h-[16px] w-[16px]"
-                    translate="translate-x-5"
-                  />
-                  <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
-                </div>
+                {isCompleted && (
+                  <div className="flex items-center gap-2 sm:flex-row-reverse">
+                    <Toggle
+                      enabled={filterEnabled}
+                      setEnabled={setFilterEnabled}
+                      size="h-[20px] w-[40px]"
+                      buttonSize="h-[16px] w-[16px]"
+                      translate="translate-x-5"
+                    />
+                    <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
+                  </div>
+                )}
               </div>
               {updatedAt && (
                 <p className="mb-6 text-sm">Updated at {new Intl.DateTimeFormat("en-US", {
