@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { CompleteModal, DownloadModal } from "@/components/modals";
 import Panel from "@/components/panel";
+import Section from "@/components/section";
 import { SelectionView, TraineeView } from "@/components/views";
 import { EMPTY_SELECTION } from "@/constants";
 import { decodeSelection, encodeSelection } from "@/utils";
@@ -38,7 +39,7 @@ export default function Home() {
   return (
     <main className="h-full">
       <Header />
-      <div className="my-6 sm:my-10 px-4 text-center">
+      <Section>
         <h2
           className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold"
         >PRODUCE 101 JAPAN THE GIRLS RANKER
@@ -54,7 +55,7 @@ export default function Home() {
           <br className="sm:hidden" />
           彼女たちを応援していきましょう
         </div>
-      </div>
+      </Section>
       <div
         className="mb-10 sm:mb-20 px-4 text-pd-gray-400 flex
         flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center sm:items-stretch"
@@ -75,5 +76,5 @@ export default function Home() {
       <CompleteModal isOpen={completeModalIsOpen} setIsOpen={setCompleteModalIsOpen} />
       <DownloadModal isOpen={downloadModalIsOpen} setIsOpen={setDownloadModalIsOpen} />
     </main>
-  )
+  );
 }

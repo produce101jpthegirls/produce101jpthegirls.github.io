@@ -2,6 +2,7 @@
 
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import Section from "@/components/section";
 import { firebaseConfig } from "@/constants";
 import { parseHumanNumber } from "@/utils";
 import { initializeApp } from "firebase/app";
@@ -164,8 +165,18 @@ export default function Characteristics() {
     <main className="h-full">
       <Header />
       <div className="bg-body-background bg-contain sm:bg-cover">
-        <div className="px-4 sm:px-20 my-8 sm:my-20 text-pd-gray-400">
-          <h2 className="mb-8 text-pd-pink-400 font-bold text-base sm:text-xl text-center">PRODUCE 101 ANALYTICS</h2>
+        <Section>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 ANALYTICS</h2>
+          <div className="text-left w-72 sm:w-[462px] mx-auto">
+            <p className="text-pd-gray-400 text-sm sm:text-base">The analytics include the view counts of<span className="hidden sm:inline"> the following videos</span></p>
+            <ol className="text-pd-gray-400 text-sm sm:text-base list-inside list-decimal">
+              <li>The LEAP HIGH stage fancams</li>
+              <li>The 1 min PR videos</li>
+              <li>The LEAP HIGH eye contact videos</li>
+            </ol>
+          </div>
+        </Section>
+        <div className="px-4 sm:px-20 text-pd-gray-400">
           <div className="px-1 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="px-3 sm:px-0">
               <h3 className="mb-3 sm:mb-6 text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>

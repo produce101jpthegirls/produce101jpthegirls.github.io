@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BarChart } from "@/components/charts";
-import { TRAINEES } from "@/constants";
-import Panel from "@/components/panel";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import Panel from "@/components/panel";
+import Section from "@/components/section";
+import { TRAINEES } from "@/constants";
 import { decodeSelection, isCompletedSelection } from "@/utils";
 
 const getItemTopImage = (item: Trainee) => {
@@ -93,7 +94,7 @@ export default function Characteristics() {
             })}</ul>
           </div>
         )}
-        <div className="my-6 sm:my-10 px-4 text-center">
+        <Section>
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
           {selected !== undefined && !isCompletedSelection(selected) && (
@@ -109,7 +110,7 @@ export default function Characteristics() {
               >here</Link>
             </p>
           )}
-        </div>
+        </Section>
         {selectedTrainees && mbtiEntries && birthyearEntries && (
           <div
             className="pb-4 sm:pb-8 px-4 text-pd-gray-400 flex
