@@ -163,8 +163,7 @@ export default function Analytics() {
     // preprocessAnalyticsResponse(response);
     // setData(response.items);
     // setUpdatedAt(response.updatedAt);
-    const app = initializeApp(firebaseConfig);
-    console.log(app.name);
+    initializeApp(firebaseConfig);
     const db = getDatabase();
     get(ref(db, "/data/analytics"))
       .then((snapshot) => {
