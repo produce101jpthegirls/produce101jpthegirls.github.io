@@ -24,7 +24,7 @@ const NAV_ITEMS = [
 const Header: FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const language = getLanguageId(searchParams.get("lang"));
+  const lang = getLanguageId(searchParams.get("lang"));
   return (
     <header
       className="relative bg-header-banner bg-no-repeat bg-center bg-cover
@@ -44,11 +44,11 @@ const Header: FC = () => {
                 query: searchParams.toString(),
               }}
               className={`${pathname === item.href ? (
-                  "text-pd-pink-100 pointer-events-none"
-                ) : (
-                  "text-pd-pink-400"
-                )} font-bold text-sm tracking-wide`}
-            >{CONTENTS[language]["header"]["items"][index]}</Link>
+                "text-pd-pink-100 pointer-events-none"
+              ) : (
+                "text-pd-pink-400"
+              )} font-bold text-sm tracking-wide`}
+            >{CONTENTS[lang]["header"]["items"][index]}</Link>
           </li>
         ))}
       </ul>

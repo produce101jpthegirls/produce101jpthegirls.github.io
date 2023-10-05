@@ -56,7 +56,7 @@ const getEntryData = (entries: [string, number][]): number[] => entries.map((ent
 export default function Characteristics() {
   const searchParams = useSearchParams();
   const selected = decodeSelection(searchParams.get("code"));
-  const language = getLanguageId(searchParams.get("lang"));
+  const lang = getLanguageId(searchParams.get("lang"));
 
   let selectedTrainees: Trainee[] | undefined = undefined;
   let mbtiEntries: [string, number][] | undefined = undefined;
@@ -73,8 +73,8 @@ export default function Characteristics() {
       <div className="bg-body-background bg-contain sm:bg-cover">
         {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
-          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl break-keep">{CONTENTS[language]["characteristics"]["title"]}</h2>
-          <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl break-keep">{CONTENTS[lang]["characteristics"]["title"]}</h2>
+          <p className="text-pd-gray-400 text-sm sm:text-base whitespace-pre-line break-keep">{CONTENTS[lang]["characteristics"]["description"]}</p>
           {(selected === undefined || !isCompletedSelection(selected)) && (
             <p className="text-pd-gray-400 text-sm sm:text-base">
               See the characteristics of your top 11. Pick them
@@ -99,7 +99,7 @@ export default function Characteristics() {
                 <BarChart
                   labels={getEntryLabels(mbtiEntries)}
                   data={getEntryData(mbtiEntries)}
-                  title="MBTI"
+                  title={CONTENTS[lang]["characteristics"]["mbtiChart"]["title"]}
                   height={180}
                   datasetLabel="My Top 11"
                 />
@@ -110,7 +110,7 @@ export default function Characteristics() {
                 <BarChart
                   labels={getEntryLabels(birthyearEntries)}
                   data={getEntryData(birthyearEntries)}
-                  title="Birthyears"
+                  title={CONTENTS[lang]["characteristics"]["birthyearChart"]["title"]}
                   height={180}
                   datasetLabel="My Top 11"
                 />
@@ -127,7 +127,7 @@ export default function Characteristics() {
               <BarChart
                 labels={getEntryLabels(allMbtiEntries)}
                 data={getEntryData(allMbtiEntries)}
-                title="MBTI"
+                title={CONTENTS[lang]["characteristics"]["mbtiChart"]["title"]}
                 height={400}
                 datasetLabel="All Trainees"
               />
@@ -138,7 +138,7 @@ export default function Characteristics() {
               <BarChart
                 labels={getEntryLabels(allBirthyearEntries)}
                 data={getEntryData(allBirthyearEntries)}
-                title="Birthyears"
+                title={CONTENTS[lang]["characteristics"]["birthyearChart"]["title"]}
                 height={400}
                 datasetLabel="All Trainees"
               />

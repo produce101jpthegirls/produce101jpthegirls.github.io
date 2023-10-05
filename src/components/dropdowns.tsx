@@ -27,9 +27,8 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ position, fns }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
-                  } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
+                  className={`${active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
                   onClick={() => {
                     fns[0]();
                   }}
@@ -52,9 +51,8 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ position, fns }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
-                  } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
+                  className={`${active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
                   onClick={() => {
                     fns[1]();
                   }}
@@ -79,9 +77,8 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = ({ position, fns }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
-                  } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
+                  className={`${active ? 'bg-pd-pink-400 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-1 py-1 sm:px-2 sm:py-2 text-xs sm:text-sm`}
                   onClick={() => {
                     fns[2]();
                   }}
@@ -169,9 +166,8 @@ export const LanguageDropdown: FC = () => {
       const currentUrlParams = new URLSearchParams(searchParams);
       currentUrlParams.set("lang", language);
       router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
-      console.log("dropdown push");
     }
-  }, [language]);
+  }, [language, lang, pathname, searchParams, router]);
   return (
     <div className="text-right">
       <Menu as="div" className="relative inline-block text-left">
@@ -195,10 +191,9 @@ export const LanguageDropdown: FC = () => {
           <Menu.Items className="absolute right-0 mt-2 w-[120px] origin-top-right divide-y divide-gray-100 rounded-md bg-pd-pink-100">
             <div className="px-1 py-1 ">
               {LANGUAGES.map(({ id, name }) => (
-                <Menu.Item>
+                <Menu.Item key={id} >
                   {() => (
                     <button
-                      key={id}
                       className={`text-white hover:text-[#fffa00] group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       onClick={() => setLanguage(id)}
                     >

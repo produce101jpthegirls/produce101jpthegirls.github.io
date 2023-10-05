@@ -17,7 +17,7 @@ export default function Home() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
-  const language = getLanguageId(searchParams.get("lang"));
+  const lang = getLanguageId(searchParams.get("lang"));
   const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY_SELECTION);
   const selectionCode = encodeSelection(selected);
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
@@ -46,19 +46,11 @@ export default function Home() {
       <Section>
         <h2
           className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold break-keep"
-        >{CONTENTS[language]["home"]["title"]}
+        >{CONTENTS[lang]["home"]["title"]}
         </h2>
         <div
-          className="text-pd-gray-400 text-center text-sm sm:text-base"
-        >
-          初めて羽ばたいた101人の少女たちが
-          <br className="sm:hidden" />
-          デビューを目指して集ました
-          <br />
-          夢の花道に向かって駆け抜ける
-          <br className="sm:hidden" />
-          彼女たちを応援していきましょう
-        </div>
+          className="text-pd-gray-400 text-center text-sm sm:text-base whitespace-pre-line break-keep"
+        >{CONTENTS[lang]["home"]["description"]}</div>
       </Section>
       <div
         className="mb-10 sm:mb-20 px-4 text-pd-gray-400 flex
