@@ -7,7 +7,8 @@ import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
 import { EMPTY_SELECTION, TRAINEES } from "@/constants";
-import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
+import { getLanguageId, isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
+import { CONTENTS } from "@/i18n";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -515,6 +516,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
   setDownloadModalIsOpen,
 }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const lang = getLanguageId(searchParams.get("lang"));
   const selectedTrainees: (Trainee | undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
   const isEmpty = isEmptySelection(selected);
   const isNotCompleted = !isCompletedSelection(selected);
@@ -522,7 +525,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[1rem] border-b flex justify-between items-center">
-        <div className={`${isNotCompleted ? "text-pd-pink-100" : "text-pd-pink-400"} font-bold text-base sm:text-base`}>MY TOP 11</div>
+        <div className={`${isNotCompleted ? "text-pd-pink-100" : "text-pd-pink-400"} font-bold text-base sm:text-base`}
+        >{CONTENTS[lang]["home"]["selectionPanel"]["title"]}</div>
         <div className="flex items-center">
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
