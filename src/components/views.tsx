@@ -6,8 +6,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
-import { TRAINEES } from "@/constants";
-import { isSelectionComplete } from "@/utils";
+import { EMPTY_SELECTION, TRAINEES } from "@/constants";
+import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -28,7 +28,7 @@ const addTrainee = (
   setSelected: Dispatch<SetStateAction<number[]>>,
   itemIndex: number,
 ) => {
-  if (!isSelected && !selected.includes(itemIndex) && !isSelectionComplete(selected)) {
+  if (!isSelected && !selected.includes(itemIndex) && !isCompletedSelection(selected)) {
     // Add item to selected
     const newSelected = [...selected];
     const emptyIndex = newSelected.indexOf(255);
@@ -158,7 +158,7 @@ export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, i
             pt-[0.5px] sm:pt-[1.5px] rounded-full"
         >{rankIndex + 1}</div>
       )}
-      {rankIndex >= 0 && (
+      {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && (
         <div className={`absolute ${SIZE}`}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
@@ -371,6 +371,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
           />
           <button
             className={`group -mr-1 ${query === "" ? "hidden" : "text-pd-pink-400"}`}
+            title="Clear query"
             disabled={query === ""}
             onClick={() => {
               setQueryText("");
@@ -385,6 +386,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
         <div className="flex gap-1">
           <button
             className={`rounded p-1 ${display == "list" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
+            title="List view"
             disabled={display == "list"}
             onClick={() => setDisplay("list")}
           >
@@ -394,6 +396,7 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
           </button>
           <button
             className={`rounded p-1 ${display == "grid" ? "text-white bg-pd-pink-400" : "hover:text-pd-pink-400"}`}
+            title="Grid view"
             disabled={display == "grid"}
             onClick={() => setDisplay("grid")}
           >
@@ -513,16 +516,17 @@ export const SelectionView: FC<SelectionViewProps> = ({
 }) => {
   const router = useRouter();
   const selectedTrainees: (Trainee | undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
-  const selectionCompleted = isSelectionComplete(selected);
-  const disabled = !selectionCompleted;
+  const isEmpty = isEmptySelection(selected);
+  const isNotCompleted = !isCompletedSelection(selected);
 
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[1rem] border-b flex justify-between items-center">
-        <div className={`${selectionCompleted ? "text-pd-pink-400" : "text-pd-pink-100"} font-bold text-base sm:text-base`}>SHARE MY TOP 11</div>
+        <div className={`${isNotCompleted ? "text-pd-pink-100" : "text-pd-pink-400"} font-bold text-base sm:text-base`}>MY TOP 11</div>
         <div className="flex items-center">
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
+            title="Random"
             onClick={() => {
               const unshuffled = Array.from(Array(TRAINEES.length).keys());
               const shuffled = unshuffled
@@ -540,8 +544,23 @@ export const SelectionView: FC<SelectionViewProps> = ({
             </svg> */}
           </button>
           <button
-            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
-            disabled={disabled}
+            className={`ml-3 ${isEmpty ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Clear"
+            disabled={isEmpty}
+            onClick={() => {
+              if (!isEmpty) {
+                setSelected(EMPTY_SELECTION);
+              }
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
+              <path fillRule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clipRule="evenodd" />
+            </svg>
+          </button>
+          <button
+            className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Copy URL"
+            disabled={isNotCompleted}
             onClick={() => {
               navigator.clipboard.writeText(window.location.href)
                 .then(() => setCompleteModalIsOpen(true));
@@ -553,17 +572,19 @@ export const SelectionView: FC<SelectionViewProps> = ({
             </svg>
           </button>
           <button
-            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
-            disabled={disabled}
+            className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="Download image"
+            disabled={isNotCompleted}
             onClick={() => setDownloadModalIsOpen(true)}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[26px] h-[26px] -mt-[1px] transition duration-300 group-hover:flip-y">
               <path d="M12 1.5a.75.75 0 01.75.75V7.5h-1.5V2.25A.75.75 0 0112 1.5zM11.25 7.5v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V7.5h3.75a3 3 0 013 3v9a3 3 0 01-3 3h-9a3 3 0 01-3-3v-9a3 3 0 013-3h3.75z" />
             </svg>
           </button>
           <button
-            className={`ml-3 ${disabled ? "text-gray-200" : "text-pd-pink-400 group"}`}
-            disabled={disabled}
+            className={`ml-3 ${isNotCompleted ? "text-gray-200" : "text-pd-pink-400 group"}`}
+            title="View characteristics"
+            disabled={isNotCompleted}
             onClick={() => router.push("/characteristics" + location.search)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 transition duration-300 group-hover:flip-y">

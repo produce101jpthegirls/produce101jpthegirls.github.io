@@ -1,22 +1,16 @@
 "use client";
 
 import { countBy } from "lodash";
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BarChart } from "@/components/charts";
-import { TRAINEES } from "@/constants";
-import Panel from "@/components/panel";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { decodeSelection, isSelectionComplete } from "@/utils";
-
-const getItemTopImage = (item: Trainee) => {
-  return {
-    src: "/assets/trainees/top/" + item.code + ".jpg",
-    alt: item.nameEn,
-  };
-};
+import Header from "@/components/header";
+import MyPick from "@/components/my_pick";
+import Panel from "@/components/panel";
+import Section from "@/components/section";
+import { TRAINEES } from "@/constants";
+import { decodeSelection, isCompletedSelection } from "@/utils";
 
 // Create MBTI data entries
 const createMbtiDataEntries = (trainees: Trainee[]) => {
@@ -65,7 +59,7 @@ export default function Characteristics() {
   let selectedTrainees: Trainee[] | undefined = undefined;
   let mbtiEntries: [string, number][] | undefined = undefined;
   let birthyearEntries: [string, number][] | undefined = undefined;
-  if (selected !== undefined && isSelectionComplete(selected)) {
+  if (selected !== undefined && isCompletedSelection(selected)) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
     mbtiEntries = createMbtiDataEntries(selectedTrainees);
     birthyearEntries = createBirthyearDataEntries(selectedTrainees);
@@ -75,28 +69,11 @@ export default function Characteristics() {
     <main className="h-full">
       <Header />
       <div className="bg-body-background bg-contain sm:bg-cover">
-        {selectedTrainees && (
-          <div className="sm:px-48 pt-10 sm:pt-20 text-center text-pd-gray-400">
-            <h2 className="text-pd-pink-400 font-bold text-base sm:text-xl">MY TOP 11</h2>
-            <ul className="flex pt-2 sm:pt-6">{selectedTrainees.map((trainee) => {
-              const image = getItemTopImage(trainee);
-              return (
-                <li key={trainee.id}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={300}
-                    height={800}
-                  />
-                </li>
-              );
-            })}</ul>
-          </div>
-        )}
-        <div className="my-6 sm:my-10 px-4 text-center">
+        {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
+        <Section>
           <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 CHARACTERISTICS</h2>
           <p className="text-pd-gray-400 text-sm sm:text-base">Visualiztion of the MBTI and birthyear distributions.</p>
-          {selected !== undefined && !isSelectionComplete(selected) && (
+          {selected !== undefined && !isCompletedSelection(selected) && (
             <p className="text-pd-gray-400 text-sm sm:text-base">
               See the characteristics of your top 11. Pick them
               {" "}
@@ -109,7 +86,7 @@ export default function Characteristics() {
               >here</Link>
             </p>
           )}
-        </div>
+        </Section>
         {selectedTrainees && mbtiEntries && birthyearEntries && (
           <div
             className="pb-4 sm:pb-8 px-4 text-pd-gray-400 flex
