@@ -1,15 +1,15 @@
+import { EMPTY_SELECTION, TRAINEES } from "@/constants";
+import { useSiteContext } from "@/context/site";
+import { CONTENTS } from "@/i18n";
+import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
 import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
-import { EMPTY_SELECTION, TRAINEES } from "@/constants";
-import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
-import { CONTENTS } from "@/i18n";
-import { useSiteContext } from "@/context/site";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -322,13 +322,10 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
 };
 
 export const TraineeView: FC = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
-  const [filterEnabled, setFilterEnabled] = useState<boolean>(searchParams.get("hide") === "1");
+  const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
   const { selected, setSelected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
@@ -344,21 +341,6 @@ export const TraineeView: FC = () => {
       trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
-
-  useEffect(() => {
-    const currentUrlParams = new URLSearchParams(searchParams);
-    if (filterEnabled) {
-      currentUrlParams.set("hide", "1");
-    } else {
-      currentUrlParams.delete("hide");
-    }
-    const currentUrlParamsStr = currentUrlParams.toString();
-    if (currentUrlParamsStr === "") {
-      router.push(pathname, { scroll: false });
-    } else {
-      router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
-    }
-  }, [filterEnabled, pathname, router, searchParams]);
 
   return (
     <>
