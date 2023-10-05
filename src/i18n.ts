@@ -123,7 +123,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
     },
     home: {
       title: "PRODUCE 101 JAPAN THE GIRLS 出道組金字塔",
-      description: "初めて羽ばたいた101人の少女たちが デビューを目指して集ました\n夢の花道に向かって駆け抜ける 彼女たちを応援していきましょう",
+      description: "101位初次展翅的少女們，以出道為目標齊聚一堂\n讓我們一起在背後應援她們，祝福女孩們順利走花路吧🌸",
       selectionPanel: {
         title: "我的出道組合",
       },
