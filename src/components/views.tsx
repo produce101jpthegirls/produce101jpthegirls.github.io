@@ -45,6 +45,7 @@ type AvatarProps = {
   traineeIndex: number;
   size: string;
   name?: string;
+  fullName?: string;
   image?: {
     src: string;
     alt: string;
@@ -52,7 +53,15 @@ type AvatarProps = {
   setSelected?: Dispatch<SetStateAction<number[]>>;
 };
 
-export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, image, setSelected }) => {
+export const Avatar: FC<AvatarProps> = ({
+  rankIndex,
+  traineeIndex,
+  size,
+  name,
+  fullName,
+  image,
+  setSelected
+}) => {
   const SIZE = size == "large" ? (
     "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
   ) : (
@@ -160,7 +169,7 @@ export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, i
         >{rankIndex + 1}</div>
       )}
       {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && (
-        <div className={`absolute ${SIZE}`}>
+        <div className={`absolute ${SIZE}`} title={fullName}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
               if (rankIndex > 0) {
@@ -433,9 +442,10 @@ type PaletteRowProps = {
   items: (Trainee | undefined)[];
   startIndex: number;
   setSelected: Dispatch<SetStateAction<number[]>>;
+  lang: string;
 }
 
-const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => {
+const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected, lang }) => {
   return (
     <div className="flex py-3.5 gap-2 sm:py-4 sm:gap-3 justify-center">{items.map((item, index) => (
       item ? (
@@ -444,7 +454,8 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
           rankIndex={startIndex + index}
           traineeIndex={item.index}
           size="large"
-          name={item.nameJp}
+          name={lang === "en" ? item.nameEn.split(" ")[1] : item.nameJp}
+          fullName={lang === "en" ? item.nameEn : item.nameJp}
           image={getItemImage(item)}
           setSelected={setSelected}
         />
@@ -464,18 +475,19 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
 type PaletteProps = {
   items: (Trainee | undefined)[];
   setSelected: Dispatch<SetStateAction<number[]>>;
+  lang: string;
 };
 
-const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
+const Palette: FC<PaletteProps> = ({ items, setSelected, lang }) => {
   return (
     <div className="px-2">
       <div id="palette-header" className="mx-4 border-b sm:border-b-2 border-gray-200 pb-3 mb-8 hidden">
         <h2 className="text-pd-pink-400 font-bold text-center">PRODUCE 101 JAPAN THE GIRLS<br />RANKER</h2>
       </div>
-      <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} />
-      <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} />
-      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} />
-      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} />
+      <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} lang={lang} />
+      <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} lang={lang} />
+      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} lang={lang} />
+      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} lang={lang} />
       <div id="palette-footer" className="text-right text-pd-gray-900 mt-5 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
         at {new Date().toLocaleString("ja-JP").slice(0, -3)}
       </div>
@@ -599,7 +611,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
         </div>
       </div>
       <div id="palette-wrapper" className="py-8 sm:py-10 bg-white">
-        <Palette items={selectedTrainees} setSelected={setSelected} />
+        <Palette items={selectedTrainees} setSelected={setSelected} lang={lang} />
       </div>
     </>
   );
