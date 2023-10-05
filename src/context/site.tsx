@@ -28,7 +28,6 @@ type SiteContextProviderProps = {
 export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) => {
   // Get URL
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
   const initLang = searchParams.get("lang") ?? "";
@@ -48,12 +47,12 @@ export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) 
       if (selectionCode === "26Uw2Vvq8EnJ7hRG") {
         if (currentCode !== null) {
           // Reset URL if no trainees
-          router.push(pathname, { scroll: false });
+          router.push(window.location.pathname, { scroll: false });
         }
       } else {
         // Set code in params
         currentSearchParams.set("code", selectionCode);
-        router.push(`${pathname}?${currentSearchParams.toString()}`, { scroll: false });
+        router.push(`${window.location.pathname}?${currentSearchParams.toString()}`, { scroll: false });
       }
     }
   }, [selectionCode, router]);
