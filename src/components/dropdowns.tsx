@@ -1,7 +1,7 @@
 import { LANGUAGES, getLanguageName } from "@/constants";
+import { useSiteContext } from "@/context/site";
 import { Menu, Transition } from "@headlessui/react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, Fragment, SVGProps, useEffect, useState } from "react";
+import { FC, Fragment, SVGProps } from "react";
 
 type AvatarDropdownProps = {
   position: string;
@@ -155,19 +155,7 @@ const DeleteActiveIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 
 
 export const LanguageDropdown: FC = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const lang = searchParams.get("lang") ?? "";
-  const [language, setLanguage] = useState<string>(lang);
-  useEffect(() => {
-    if (language !== "" && language !== lang) {
-      // Set lang in params
-      const currentUrlParams = new URLSearchParams(searchParams);
-      currentUrlParams.set("lang", language);
-      router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
-    }
-  }, [language, lang, pathname, searchParams, router]);
+  const { language, setLang } = useSiteContext();
   return (
     <div className="text-right">
       <Menu as="div" className="relative inline-block text-left">
@@ -195,7 +183,7 @@ export const LanguageDropdown: FC = () => {
                   {() => (
                     <button
                       className={`text-white hover:text-[#fffa00] group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                      onClick={() => setLanguage(id)}
+                      onClick={() => setLang(id)}
                     >
                       {name}
                     </button>

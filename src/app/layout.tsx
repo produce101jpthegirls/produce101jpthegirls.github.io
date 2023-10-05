@@ -1,4 +1,5 @@
 import "./globals.css";
+import { SiteContextProvider } from "@/context/site";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import Script from "next/script";
@@ -36,18 +37,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={noto_sans_jp.className}>{children}</body>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJG5KYF35L" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'G-ZJG5KYF35L');
-        `}
-      </Script>
-    </html>
+    <SiteContextProvider>
+      <html lang="en">
+        <body className={noto_sans_jp.className}>{children}</body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZJG5KYF35L" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+  
+            gtag('config', 'G-ZJG5KYF35L');
+          `}
+        </Script>
+      </html>
+    </SiteContextProvider>
   )
 }

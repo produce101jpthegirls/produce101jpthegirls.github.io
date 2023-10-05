@@ -1,10 +1,11 @@
+import { useSiteContext } from "@/context/site";
+import { CONTENTS } from "@/i18n";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { LanguageDropdown } from "./dropdowns";
-import { getLanguageId } from "@/utils";
-import { CONTENTS } from "@/i18n";
+import { StableLink } from "./links";
 
 const NAV_ITEMS = [
   {
@@ -23,8 +24,7 @@ const NAV_ITEMS = [
 
 const Header: FC = () => {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const lang = getLanguageId(searchParams.get("lang"));
+  const { language } = useSiteContext();
   return (
     <header
       className="relative bg-header-banner bg-no-repeat bg-center bg-cover
@@ -38,17 +38,14 @@ const Header: FC = () => {
       <ul className="sm:mt-7 flex gap-8">
         {NAV_ITEMS.map((item, index) => (
           <li key={item.href}>
-            <Link
-              href={{
-                pathname: item.href,
-                query: searchParams.toString(),
-              }}
+            <StableLink
               className={`${pathname === item.href ? (
                 "text-pd-pink-100 pointer-events-none"
               ) : (
                 "text-pd-pink-400"
               )} font-bold text-sm tracking-wide`}
-            >{CONTENTS[lang]["header"]["items"][index]}</Link>
+              pathname={item.href}
+            >{CONTENTS[language]["header"]["items"][index]}</StableLink>
           </li>
         ))}
       </ul>
