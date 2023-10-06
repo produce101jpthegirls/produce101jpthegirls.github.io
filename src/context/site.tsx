@@ -15,9 +15,9 @@ type SiteContextProps = {
 
 const SiteContext = createContext<SiteContextProps>({
   selected: [],
-  setSelected: () => {},
+  setSelected: () => { },
   lang: "",
-  setLang: () => {},
+  setLang: () => { },
   language: "ja",
 });
 
@@ -60,7 +60,7 @@ export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) 
   useEffect(() => {
     const currentSearchParams = new URL(window.location.toString()).searchParams;
     const currentLang = currentSearchParams.get("lang");
-    if (lang !== currentLang) {
+    if (lang !== "" && lang !== currentLang) {
       // Set lang in params
       currentSearchParams.set("lang", lang);
       router.push(`${window.location.pathname}?${currentSearchParams.toString()}`, { scroll: false });
@@ -68,7 +68,7 @@ export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) 
   }, [lang, router]);
 
   return (
-    <SiteContext.Provider value={{selected, setSelected, lang, setLang, language}}>
+    <SiteContext.Provider value={{ selected, setSelected, lang, setLang, language }}>
       {children}
     </SiteContext.Provider>
   )
