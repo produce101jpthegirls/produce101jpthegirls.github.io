@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
 import Toggle from "@/components/toggle";
+import { getItemThumbnail } from "@/components/views";
 import { TRAINEES, firebaseConfig } from "@/constants";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
@@ -19,6 +20,11 @@ import DataTable, { TableColumn } from "react-data-table-component";
 type AnalyticsDataRow = {
   id: string;
   name: string;
+  displayName?: string;
+  img?: {
+    src: string;
+    alt: string;
+  };
   fancamCount: string;
   fancamVideoId: string;
   fancamCountRank?: number;
@@ -36,24 +42,6 @@ type AnalyticsDataResponse = {
   updatedAt: number;
   items: AnalyticsData;
 };
-
-const nameSort = (a: AnalyticsDataRow, b: AnalyticsDataRow) => {
-  const [nameJpA, nameEnA] = a.name.split("(");
-  const [nameJpB, nameEnB] = b.name.split("(");
-  if (nameEnA > nameEnB) {
-    return 1;
-  }
-  if (nameEnB > nameEnA) {
-    return -1;
-  }
-  if (nameJpA > nameJpB) {
-    return 1;
-  }
-  if (nameJpB > nameJpA) {
-    return -1;
-  }
-  return 0;
-}
 
 const fancamCountSort = (a: AnalyticsDataRow, b: AnalyticsDataRow) => {
   return parseHumanNumber(b.fancamCount) - parseHumanNumber(a.fancamCount);
@@ -90,15 +78,26 @@ const ViewCountCell: FC<ViewCountCellProps> = ({ viewCount, videoId, rank }) => 
   </div>
 );
 
-const preprocessAnalyticsResponse = (response: AnalyticsDataResponse) => {
+const preprocessAnalyticsResponse = (items: AnalyticsDataRow[], language: string, calcRank?: boolean) => {
+  // Set display names
+  items.forEach((row) => {
+    const m = /(?<jp>.+)\((?<en>.+)\)/.exec(row.name);
+    return row.displayName = row.id + " / " + (language === "en" ? m?.groups?.en : m?.groups?.jp);
+  });
+  // Set profile thumbnails
+  items.forEach((row, index) => {
+    row.img = getItemThumbnail(TRAINEES[index]);
+  })
   // Calculate ranking
-  response.items.sort((a, b) => parseHumanNumber(b.fancamCount) - parseHumanNumber(a.fancamCount));
-  response.items.forEach((item, index) => item.fancamCountRank = index + 1);
-  response.items.sort((a, b) => parseHumanNumber(b.prCount) - parseHumanNumber(a.prCount));
-  response.items.forEach((item, index) => item.prCountRank = index + 1);
-  response.items.sort((a, b) => parseHumanNumber(b.eyeContactCount) - parseHumanNumber(a.eyeContactCount));
-  response.items.forEach((item, index) => item.eyeContactCountRank = index + 1);
-  response.items.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+  if (calcRank) {
+    items.sort((a, b) => parseHumanNumber(b.fancamCount) - parseHumanNumber(a.fancamCount));
+    items.forEach((item, index) => item.fancamCountRank = index + 1);
+    items.sort((a, b) => parseHumanNumber(b.prCount) - parseHumanNumber(a.prCount));
+    items.forEach((item, index) => item.prCountRank = index + 1);
+    items.sort((a, b) => parseHumanNumber(b.eyeContactCount) - parseHumanNumber(a.eyeContactCount));
+    items.forEach((item, index) => item.eyeContactCountRank = index + 1);
+    items.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+  }
 };
 
 export default function Analytics() {
@@ -118,16 +117,14 @@ export default function Analytics() {
 
   const columns: TableColumn<AnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][0],
-      selector: (row: AnalyticsDataRow) => row.id,
-      width: "54px",
-      sortable: true,
-    },
-    {
       name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][1],
-      selector: (row: AnalyticsDataRow) => row.name,
+      cell: (row: AnalyticsDataRow) => (
+        <div className="flex items-center gap-2 truncate">
+          <img className="rounded-full w-8 h-8 hidden sm:block" src={row.img?.src} alt={row.img?.alt} />
+          <span className="truncate">{row.displayName}</span>
+        </div>
+      ),
       sortable: true,
-      sortFunction: nameSort,
     },
     {
       name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][2],
@@ -161,20 +158,29 @@ export default function Analytics() {
   useEffect(() => {
     // setPending(false);
     // const response: AnalyticsDataResponse = mockDb.data.analytics;
-    // preprocessAnalyticsResponse(response);
-    // setData(response.items);
+    // const items = response.items;
+    // preprocessAnalyticsResponse(items, language, true);
+    // setData(items);
     // setUpdatedAt(response.updatedAt);
     initializeApp(firebaseConfig);
     const db = getDatabase();
     get(ref(db, "/data/analytics"))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
-        preprocessAnalyticsResponse(response);
+        const items = response.items;
+        preprocessAnalyticsResponse(items, language, true);
         setPending(false);
-        setData(response.items);
+        setData(items);
         setUpdatedAt(response.updatedAt);
       });
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      preprocessAnalyticsResponse(data, language, false);
+      setData(data);
+    }
+  }, [data, language]);
 
   return (
     <main className="h-full">
