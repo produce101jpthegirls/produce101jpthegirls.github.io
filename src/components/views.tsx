@@ -19,7 +19,14 @@ const archivo_black_jp = Archivo_Black({
 
 export const getItemImage = (item: Trainee) => {
   return {
-    src: "/assets/trainees/" + item.code + ".jpg",
+    src: "/assets/trainees/profile/" + item.code + ".jpg",
+    alt: item.nameEn,
+  };
+};
+
+export const getItemThumbnail = (item: Trainee) => {
+  return {
+    src: "/assets/trainees/profile_thumbnail/" + item.code + ".jpg",
     alt: item.nameEn,
   };
 };
@@ -209,7 +216,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
             className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
             onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
           >
-            <Avatar rankIndex={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
+            <Avatar rankIndex={-1} traineeIndex={item.index} size="medium" image={getItemThumbnail(item)} />
             <div className="grow">
               <div className="flex justify-between">
                 <div>
