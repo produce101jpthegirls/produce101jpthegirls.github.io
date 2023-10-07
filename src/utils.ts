@@ -49,3 +49,10 @@ export const getItemTopImage = (item: Trainee) => {
     alt: item.nameEn,
   };
 };
+
+export const getLanguageId = (id: string | null) => {
+  if (id && ["ja", "en", "zh"].includes(id)) {
+    return id;
+  }
+  return "ja";
+};

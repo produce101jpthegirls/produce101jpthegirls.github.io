@@ -6,11 +6,12 @@ import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
 import Toggle from "@/components/toggle";
 import { TRAINEES, firebaseConfig } from "@/constants";
-import { decodeSelection, isCompletedSelection, parseHumanNumber } from "@/utils";
+import { useSiteContext } from "@/context/site";
+import { CONTENTS } from "@/i18n";
+import { isCompletedSelection, parseHumanNumber } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 // import mockDb from "@/data/mock_db.json";
@@ -89,48 +90,6 @@ const ViewCountCell: FC<ViewCountCellProps> = ({ viewCount, videoId, rank }) => 
   </div>
 );
 
-const columns: TableColumn<AnalyticsDataRow>[] = [
-  {
-    name: "#",
-    selector: (row: AnalyticsDataRow) => row.id,
-    width: "54px",
-    sortable: true,
-  },
-  {
-    name: "TRAINEE",
-    selector: (row: AnalyticsDataRow) => row.name,
-    sortable: true,
-    sortFunction: nameSort,
-  },
-  {
-    name: "LEAP HIGH FANCAM",
-    cell: (row: AnalyticsDataRow) => (
-      <ViewCountCell viewCount={row.fancamCount} videoId={row.fancamVideoId} rank={row.fancamCountRank} />
-    ),
-    minWidth: "60px",
-    sortable: true,
-    sortFunction: fancamCountSort,
-  },
-  {
-    name: "1分PR",
-    cell: (row: AnalyticsDataRow) => (
-      <ViewCountCell viewCount={row.prCount} videoId={row.prVideoId} rank={row.prCountRank} />
-    ),
-    minWidth: "60px",
-    sortable: true,
-    sortFunction: prCountSort,
-  },
-  {
-    name: "LEAP HIGHアイコンタクト",
-    cell: (row: AnalyticsDataRow) => (
-      <ViewCountCell viewCount={row.eyeContactCount} videoId={row.eyeContactVideoId} rank={row.eyeContactCountRank} />
-    ),
-    minWidth: "60px",
-    sortable: true,
-    sortFunction: eyeContactCountSort,
-  },
-];
-
 const preprocessAnalyticsResponse = (response: AnalyticsDataResponse) => {
   // Calculate ranking
   response.items.sort((a, b) => parseHumanNumber(b.fancamCount) - parseHumanNumber(a.fancamCount));
@@ -143,13 +102,12 @@ const preprocessAnalyticsResponse = (response: AnalyticsDataResponse) => {
 };
 
 export default function Analytics() {
-  const searchParams = useSearchParams();
+  const { selected, language } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [data, setData] = useState<AnalyticsData | undefined>(undefined);
   const [updatedAt, setUpdatedAt] = useState<number | undefined>(undefined);
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
 
-  const selected = decodeSelection(searchParams.get("code"));
   const isCompleted = selected && isCompletedSelection(selected);
   let selectedTrainees: Trainee[] | undefined = undefined;
   if (selected !== undefined && isCompletedSelection(selected)) {
@@ -157,6 +115,48 @@ export default function Analytics() {
   }
 
   const filteredData = filterEnabled ? data?.filter((_, index) => selected?.includes(index)) : data;
+
+  const columns: TableColumn<AnalyticsDataRow>[] = [
+    {
+      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][0],
+      selector: (row: AnalyticsDataRow) => row.id,
+      width: "54px",
+      sortable: true,
+    },
+    {
+      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][1],
+      selector: (row: AnalyticsDataRow) => row.name,
+      sortable: true,
+      sortFunction: nameSort,
+    },
+    {
+      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][2],
+      cell: (row: AnalyticsDataRow) => (
+        <ViewCountCell viewCount={row.fancamCount} videoId={row.fancamVideoId} rank={row.fancamCountRank} />
+      ),
+      minWidth: "60px",
+      sortable: true,
+      sortFunction: fancamCountSort,
+    },
+    {
+      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][3],
+      cell: (row: AnalyticsDataRow) => (
+        <ViewCountCell viewCount={row.prCount} videoId={row.prVideoId} rank={row.prCountRank} />
+      ),
+      minWidth: "60px",
+      sortable: true,
+      sortFunction: prCountSort,
+    },
+    {
+      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][4],
+      cell: (row: AnalyticsDataRow) => (
+        <ViewCountCell viewCount={row.eyeContactCount} videoId={row.eyeContactVideoId} rank={row.eyeContactCountRank} />
+      ),
+      minWidth: "60px",
+      sortable: true,
+      sortFunction: eyeContactCountSort,
+    },
+  ];
 
   useEffect(() => {
     // setPending(false);
@@ -175,27 +175,24 @@ export default function Analytics() {
         setUpdatedAt(response.updatedAt);
       });
   }, []);
+
   return (
     <main className="h-full">
       <Header />
       <div className="bg-body-background bg-contain sm:bg-cover">
         {selectedTrainees && <MyPick selectedTrainees={selectedTrainees} />}
         <Section>
-          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl">PRODUCE 101 ANALYTICS</h2>
-          <div className="text-left w-72 sm:w-[462px] mx-auto">
-            <p className="text-pd-gray-400 text-sm sm:text-base">The analytics include the view counts of<span className="hidden sm:inline"> the following videos</span></p>
-            <ol className="text-pd-gray-400 text-sm sm:text-base list-inside list-decimal">
-              <li>The LEAP HIGH stage fancams</li>
-              <li>The 1 min PR videos</li>
-              <li>The LEAP HIGH eye contact videos</li>
-            </ol>
-          </div>
+          <h2 className="mb-2 text-pd-pink-400 font-bold text-base sm:text-xl break-keep"
+          >{CONTENTS[language]["analytics"]["title"]}</h2>
+          <p className="text-pd-gray-400 text-sm sm:text-base whitespace-pre-line break-keep"
+          >{CONTENTS[language]["analytics"]["description"]}</p>
         </Section>
         <div className="px-4 sm:px-20 text-pd-gray-400">
           <div className="px-1 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="px-3 sm:px-0">
               <div className="mb-3 sm:mb-6 flex justify-between sm:items-center flex-col sm:flex-row gap-3">
-                <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl">VIDEO ANALYTICS</h3>
+                <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl"
+                >{CONTENTS[language]["analytics"]["viewCountTable"]["title"]}</h3>
                 {isCompleted && (
                   <div className="flex items-center gap-2 sm:flex-row-reverse">
                     <Toggle
@@ -210,14 +207,17 @@ export default function Analytics() {
                 )}
               </div>
               {updatedAt && (
-                <p className="mb-6 text-sm">Updated at {new Intl.DateTimeFormat("en-US", {
-                  // "dateStyle": "medium",
-                  "year": "numeric",
-                  "month": "short",
-                  "day": "numeric",
-                  "hour": "2-digit",
-                  "minute": "2-digit",
-                }).format(new Date(updatedAt))}</p>
+                <p className="mb-6 text-sm">{
+                  CONTENTS[language]["analytics"]["viewCountTable"]["updatedAtFn"](
+                    new Intl.DateTimeFormat("en-US", {
+                      "year": "numeric",
+                      "month": "short",
+                      "day": "numeric",
+                      "hour": "2-digit",
+                      "minute": "2-digit",
+                    },
+                  ).format(new Date(updatedAt)))
+                }</p>
               )}
             </div>
             <DataTable

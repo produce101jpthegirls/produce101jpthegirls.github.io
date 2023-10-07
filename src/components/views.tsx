@@ -1,13 +1,15 @@
+import { EMPTY_SELECTION, TRAINEES } from "@/constants";
+import { useSiteContext } from "@/context/site";
+import { CONTENTS } from "@/i18n";
+import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
 import { debounce } from "lodash";
 import { Archivo_Black } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
 import { AvatarDropdown } from "./dropdowns";
 import Toggle from "./toggle";
-import { EMPTY_SELECTION, TRAINEES } from "@/constants";
-import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
 
 const archivo_black_jp = Archivo_Black({
   weight: ["400"],
@@ -44,6 +46,7 @@ type AvatarProps = {
   traineeIndex: number;
   size: string;
   name?: string;
+  fullName?: string;
   image?: {
     src: string;
     alt: string;
@@ -51,7 +54,15 @@ type AvatarProps = {
   setSelected?: Dispatch<SetStateAction<number[]>>;
 };
 
-export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, image, setSelected }) => {
+export const Avatar: FC<AvatarProps> = ({
+  rankIndex,
+  traineeIndex,
+  size,
+  name,
+  fullName,
+  image,
+  setSelected
+}) => {
   const SIZE = size == "large" ? (
     "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
   ) : (
@@ -159,7 +170,7 @@ export const Avatar: FC<AvatarProps> = ({ rankIndex, traineeIndex, size, name, i
         >{rankIndex + 1}</div>
       )}
       {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && (
-        <div className={`absolute ${SIZE}`}>
+        <div className={`absolute ${SIZE}`} title={fullName}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
               if (rankIndex > 0) {
@@ -310,19 +321,12 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
   );
 };
 
-type TraineeViewProps = {
-  selected: number[];
-  setSelected: Dispatch<SetStateAction<number[]>>;
-}
-
-export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+export const TraineeView: FC = () => {
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
-  const [filterEnabled, setFilterEnabled] = useState<boolean>(searchParams.get("hide") === "1");
+  const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
+  const { selected, setSelected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
@@ -337,21 +341,6 @@ export const TraineeView: FC<TraineeViewProps> = ({ selected, setSelected }) => 
       trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
-
-  useEffect(() => {
-    const currentUrlParams = new URLSearchParams(searchParams);
-    if (filterEnabled) {
-      currentUrlParams.set("hide", "1");
-    } else {
-      currentUrlParams.delete("hide");
-    }
-    const currentUrlParamsStr = currentUrlParams.toString();
-    if (currentUrlParamsStr === "") {
-      router.push(pathname, { scroll: false });
-    } else {
-      router.push(`${pathname}?${currentUrlParams.toString()}`, { scroll: false });
-    }
-  }, [filterEnabled, pathname, router, searchParams]);
 
   return (
     <>
@@ -432,9 +421,10 @@ type PaletteRowProps = {
   items: (Trainee | undefined)[];
   startIndex: number;
   setSelected: Dispatch<SetStateAction<number[]>>;
+  language: string;
 }
 
-const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => {
+const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected, language }) => {
   return (
     <div className="flex py-3.5 gap-2 sm:py-4 sm:gap-3 justify-center">{items.map((item, index) => (
       item ? (
@@ -443,7 +433,8 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
           rankIndex={startIndex + index}
           traineeIndex={item.index}
           size="large"
-          name={item.nameJp}
+          name={language === "en" ? item.nameEn.split(" ")[1] : item.nameJp}
+          fullName={language === "en" ? item.nameEn : item.nameJp}
           image={getItemImage(item)}
           setSelected={setSelected}
         />
@@ -463,18 +454,19 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected }) => 
 type PaletteProps = {
   items: (Trainee | undefined)[];
   setSelected: Dispatch<SetStateAction<number[]>>;
+  language: string;
 };
 
-const Palette: FC<PaletteProps> = ({ items, setSelected }) => {
+const Palette: FC<PaletteProps> = ({ items, setSelected, language }) => {
   return (
     <div className="px-2">
       <div id="palette-header" className="mx-4 border-b sm:border-b-2 border-gray-200 pb-3 mb-8 hidden">
         <h2 className="text-pd-pink-400 font-bold text-center">PRODUCE 101 JAPAN THE GIRLS<br />RANKER</h2>
       </div>
-      <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} />
-      <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} />
-      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} />
-      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} />
+      <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} language={language} />
+      <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} language={language} />
+      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} language={language} />
+      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} language={language} />
       <div id="palette-footer" className="text-right text-pd-gray-900 mt-5 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
         at {new Date().toLocaleString("ja-JP").slice(0, -3)}
       </div>
@@ -502,19 +494,16 @@ export const createDownloadSelection = (): HTMLElement | undefined => {
 };
 
 type SelectionViewProps = {
-  selected: number[];
-  setSelected: Dispatch<SetStateAction<number[]>>;
   setCompleteModalIsOpen: Dispatch<SetStateAction<boolean>>;
   setDownloadModalIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export const SelectionView: FC<SelectionViewProps> = ({
-  selected,
-  setSelected,
   setCompleteModalIsOpen,
   setDownloadModalIsOpen,
 }) => {
   const router = useRouter();
+  const { selected, setSelected, language } = useSiteContext();
   const selectedTrainees: (Trainee | undefined)[] = selected.map((index) => index === 255 ? undefined : TRAINEES[index]);
   const isEmpty = isEmptySelection(selected);
   const isNotCompleted = !isCompletedSelection(selected);
@@ -522,7 +511,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
   return (
     <>
       <div className="px-4 py-[0.85rem] sm:py-[1rem] border-b flex justify-between items-center">
-        <div className={`${isNotCompleted ? "text-pd-pink-100" : "text-pd-pink-400"} font-bold text-base sm:text-base`}>MY TOP 11</div>
+        <div className={`${isNotCompleted ? "text-pd-pink-100" : "text-pd-pink-400"} font-bold text-base sm:text-base`}
+        >{CONTENTS[language]["home"]["selectionPanel"]["title"]}</div>
         <div className="flex items-center">
           <button
             className="ml-3 mr-0.5 text-pd-pink-400 group"
@@ -595,7 +585,7 @@ export const SelectionView: FC<SelectionViewProps> = ({
         </div>
       </div>
       <div id="palette-wrapper" className="py-8 sm:py-10 bg-white">
-        <Palette items={selectedTrainees} setSelected={setSelected} />
+        <Palette items={selectedTrainees} setSelected={setSelected} language={language} />
       </div>
     </>
   );
