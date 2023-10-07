@@ -18,6 +18,9 @@ type I18nContent = {
     birthyearChart: {
       title: string;
     };
+    heightChart: {
+      title: string;
+    };
   };
   analytics: {
     title: string;
@@ -54,6 +57,9 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       },
       birthyearChart: {
         title: "生まれ年",
+      },
+      heightChart: {
+        title: "身長",
       },
     },
     analytics: {
@@ -94,7 +100,10 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
         title: "MBTI",
       },
       birthyearChart: {
-        title: "Birthyears",
+        title: "Birthyear",
+      },
+      heightChart: {
+        title: "Height",
       },
     },
     analytics: {
@@ -136,6 +145,9 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       },
       birthyearChart: {
         title: "出生年份",
+      },
+      heightChart: {
+        title: "身高",
       },
     },
     analytics: {

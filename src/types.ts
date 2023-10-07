@@ -7,6 +7,7 @@ type Trainee = {
   birthday: string;
   birthPlace: string;
   mbtiType: string;
+  height: number;
   profileUrl: string;
   videoUrl: string;
   videoUrls: {
