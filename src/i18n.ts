@@ -25,9 +25,13 @@ type I18nContent = {
   analytics: {
     title: string;
     description: string;
+    updatedAtFn: (updatedAtStr: string) => string;
     viewCountTable: {
+      titles: string[];
+      columns: string[];
+    };
+    detailedTable: {
       title: string;
-      updatedAtFn: (updatedAtStr: string) => string;
       columns: string[];
     };
   };
@@ -65,9 +69,21 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
     analytics: {
       title: "アナリティクス",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
+      updatedAtFn: (updatedAtStr: string) => `${updatedAtStr} に更新されました`,
       viewCountTable: {
+        titles: [
+          "LEAP HIGH ステージ映像 (2023-09-03)",
+          "1分PR映像 (2023.09.04)",
+          "アイコンタクト映像 (2023-09-28)",
+        ],
+        columns: [
+          "#",
+          "練習生",
+          "再生回数",
+        ],
+      },
+      detailedTable: {
         title: "映像アナリティクス",
-        updatedAtFn: (updatedAtStr: string) => `${updatedAtStr} に更新されました`,
         columns: [
           "#",
           "練習生",
@@ -109,9 +125,21 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
     analytics: {
       title: "ANALYTICS",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
+      updatedAtFn: (updatedAtStr: string) => `Updated at ${updatedAtStr}`,
       viewCountTable: {
+        titles: [
+          "LEAP HIGH FANCAM (2023-09-03)",
+          "1 MIN PR (2023.09.04)",
+          "EYE CONTACT (2023-09-28)",
+        ],
+        columns: [
+          "#",
+          "TRAINEE",
+          "VIEWS",
+        ],
+      },
+      detailedTable: {
         title: "VIDEO ANALYTICS",
-        updatedAtFn: (updatedAtStr: string) => `Updated at ${updatedAtStr}`,
         columns: [
           "#",
           "TRAINEE",
@@ -153,13 +181,25 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
     analytics: {
       title: "數據分析",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
+      updatedAtFn: (updatedAtStr: string) => `更新於 ${updatedAtStr}`,
       viewCountTable: {
-        title: "影片數據分析",
-        updatedAtFn: (updatedAtStr: string) => `更新於 ${updatedAtStr}`,
+        titles: [
+          "LEAP HIGH 舞台直拍 (2023-09-03)",
+          "1分鐘PR影片 (2023.09.04)",
+          "LEAP HIGH 眼神交流影片 (2023-09-28)",
+        ],
         columns: [
           "#",
           "練習生",
-          "LEAP HIGH 舞台影片",
+          "觀看次數",
+        ],
+      },
+      detailedTable: {
+        title: "影片數據分析",
+        columns: [
+          "#",
+          "練習生",
+          "LEAP HIGH 舞台直拍",
           "1分鐘PR影片",
           "LEAP HIGH 眼神交流影片",
         ],
