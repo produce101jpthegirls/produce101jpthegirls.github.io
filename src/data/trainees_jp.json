@@ -8,10 +8,17 @@
     "hobby": "怖い話を見ること、K-POPを見ること",
     "special_skills": "GIRLS HIPHOP、HIPHOP、JAZZ",
     "id": "001_aitarin",
-    "video_url": "https://youtu.be/Z6TZK-e4KTY",
     "pr_video_url": "https://youtu.be/Z6TZK-e4KTY",
     "eye_contact_video_url": "https://youtu.be/eaJCj7ZBh5Y",
-    "fancam_video_url": "https://youtu.be/3c2okoTCPX4"
+    "fancam_video_url": "https://youtu.be/3c2okoTCPX4",
+    "speed_eating_video_url": "https://youtu.be/-VHhOVTeykQ",
+    "speed_eating_members": [
+      "会田凛",
+      "岡部望々花"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "青木 友香",
@@ -22,10 +29,17 @@
     "hobby": "パン屋巡り、グルメサーチ",
     "special_skills": "英語と韓国語、クラシックバレエ、カラスの鳴き真似、鼻と耳を同時に動かすこと",
     "id": "002_aokiyuka",
-    "video_url": "https://youtu.be/Lev7Ixirv3k",
     "pr_video_url": "https://youtu.be/Lev7Ixirv3k",
     "eye_contact_video_url": "https://youtu.be/gNntXBVYJ34",
-    "fancam_video_url": "https://youtu.be/264_rMcU6FA"
+    "fancam_video_url": "https://youtu.be/264_rMcU6FA",
+    "speed_eating_video_url": "https://youtu.be/_qoFyIULZFI",
+    "speed_eating_members": [
+      "青木友香",
+      "須藤紗暮"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "秋山 愛",
@@ -36,10 +50,15 @@
     "hobby": "インスタのファッションアカウントを漁ること",
     "special_skills": "ものまね、柔軟",
     "id": "003_akiyamaema",
-    "video_url": "https://youtu.be/cFWAEqarZpM",
     "pr_video_url": "https://youtu.be/cFWAEqarZpM",
     "eye_contact_video_url": "https://youtu.be/60GBYqdF3Z0",
-    "fancam_video_url": "https://youtu.be/HnCR1WedaqQ"
+    "fancam_video_url": "https://youtu.be/HnCR1WedaqQ",
+    "speed_eating_video_url": "https://youtu.be/y2ZVI-p34RE",
+    "speed_eating_members": [
+      "秋山愛",
+      "中山穗乃楓"
+    ],
+    "classes": []
   },
   {
     "name": "阿部 和",
@@ -50,10 +69,17 @@
     "hobby": "ソファーでお昼寝をすること",
     "special_skills": "開脚、人より高いブリッジ、小指を柔らかくすること",
     "id": "004_abenagomi",
-    "video_url": "https://youtu.be/N1Msl0grG1U",
     "pr_video_url": "https://youtu.be/N1Msl0grG1U",
     "eye_contact_video_url": "https://youtu.be/XSUrCTlqnl0",
-    "fancam_video_url": "https://youtu.be/1nE_UBDTkTI"
+    "fancam_video_url": "https://youtu.be/1nE_UBDTkTI",
+    "speed_eating_video_url": "https://youtu.be/XFzBklZ2rok",
+    "speed_eating_members": [
+      "阿部和",
+      "髙橋妃那"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "荒牧 深愛",
@@ -64,10 +90,17 @@
     "hobby": "動画編集",
     "special_skills": "ダンス、阿波踊り",
     "id": "005_aramakijoa",
-    "video_url": "https://youtu.be/_w0HM5MPdhY",
     "pr_video_url": "https://youtu.be/_w0HM5MPdhY",
     "eye_contact_video_url": "https://youtu.be/YGD7yKqDN6Y",
-    "fancam_video_url": "https://youtu.be/m7dL5KhDfes"
+    "fancam_video_url": "https://youtu.be/m7dL5KhDfes",
+    "speed_eating_video_url": "https://youtu.be/exV9GshJjf0",
+    "speed_eating_members": [
+      "荒牧深愛",
+      "川畑蘭華"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "安藤 千陽",
@@ -78,10 +111,17 @@
     "hobby": "映像作品を観ること",
     "special_skills": "折り紙",
     "id": "006_andochiharu",
-    "video_url": "https://youtu.be/hShdaOO06QQ",
     "pr_video_url": "https://youtu.be/hShdaOO06QQ",
     "eye_contact_video_url": "https://youtu.be/gpCRx7bMUb8",
-    "fancam_video_url": "https://youtu.be/B3bD4VFkX58"
+    "fancam_video_url": "https://youtu.be/B3bD4VFkX58",
+    "speed_eating_video_url": "https://youtu.be/PIC0v7-9gWU",
+    "speed_eating_members": [
+      "笠原桃奈",
+      "安藤千陽"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "安藤 佑唯",
@@ -92,10 +132,17 @@
     "hobby": "メイク、好きな曲を探すこと",
     "special_skills": "歌、マッサージ、モノマネ",
     "id": "007_andoyui",
-    "video_url": "https://youtu.be/WtVdYhjwJQI",
     "pr_video_url": "https://youtu.be/WtVdYhjwJQI",
     "eye_contact_video_url": "https://youtu.be/XoUY7IDVHiI",
-    "fancam_video_url": "https://youtu.be/-J2Tpxn8PBo"
+    "fancam_video_url": "https://youtu.be/-J2Tpxn8PBo",
+    "speed_eating_video_url": "https://youtu.be/nTVdlynLT8g",
+    "speed_eating_members": [
+      "木野稟子",
+      "安藤佑唯"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "飯田 栞月",
@@ -106,10 +153,15 @@
     "hobby": "歌、かき氷巡り、キャラクターグッズを集めること",
     "special_skills": "歌、絵、お料理",
     "id": "009_iidashizuku",
-    "video_url": "https://youtu.be/tGL3pIls0Y4",
     "pr_video_url": "https://youtu.be/tGL3pIls0Y4",
     "eye_contact_video_url": "https://youtu.be/-b5p4VqeC_I",
-    "fancam_video_url": "https://youtu.be/aClg8AZTyko"
+    "fancam_video_url": "https://youtu.be/aClg8AZTyko",
+    "speed_eating_video_url": "https://youtu.be/FPKWPsqM2l0",
+    "speed_eating_members": [
+      "飯田栞月",
+      "山崎美月"
+    ],
+    "classes": []
   },
   {
     "name": "石井 蘭",
@@ -120,10 +172,15 @@
     "hobby": "洋楽鑑賞、知育菓子、料理",
     "special_skills": "ダンス、けん玉",
     "id": "010_ishiiran",
-    "video_url": "https://youtu.be/5o88uciBJLY",
     "pr_video_url": "https://youtu.be/5o88uciBJLY",
     "eye_contact_video_url": "https://youtu.be/7F5iOfkrl0E",
-    "fancam_video_url": "https://youtu.be/Mi-rdT9nlOo"
+    "fancam_video_url": "https://youtu.be/Mi-rdT9nlOo",
+    "speed_eating_video_url": "https://youtu.be/tEKJPmYPC38",
+    "speed_eating_members": [
+      "水上凜巳花",
+      "石井蘭"
+    ],
+    "classes": []
   },
   {
     "name": "井餘田 華",
@@ -134,10 +191,17 @@
     "hobby": "人間観察、食べること",
     "special_skills": "ダンス、人の顔と名前をすぐに覚えること",
     "id": "011_iyotahana",
-    "video_url": "https://youtu.be/Xn20s5RAXPo",
     "pr_video_url": "https://youtu.be/Xn20s5RAXPo",
     "eye_contact_video_url": "https://youtu.be/WdIUz9Psaw8",
-    "fancam_video_url": "https://youtu.be/cThAPt5FLq8"
+    "fancam_video_url": "https://youtu.be/cThAPt5FLq8",
+    "speed_eating_video_url": "https://youtu.be/lNcjbdvyXDE",
+    "speed_eating_members": [
+      "片岡陽音",
+      "井餘田華"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "植木 美々",
@@ -148,10 +212,17 @@
     "hobby": "手指消毒、K-POPアイドルの真似、野球観戦",
     "special_skills": "1人でクレヨンしんちゃん、ドラム",
     "id": "012_uekimimi",
-    "video_url": "https://youtu.be/MlK0Kw0hw6M",
     "pr_video_url": "https://youtu.be/MlK0Kw0hw6M",
     "eye_contact_video_url": "https://youtu.be/KlZ5Esh--Ao",
-    "fancam_video_url": "https://youtu.be/24rwlj3yAwk"
+    "fancam_video_url": "https://youtu.be/24rwlj3yAwk",
+    "speed_eating_video_url": "https://youtu.be/3BpMHGXn8Z8",
+    "speed_eating_members": [
+      "植木美々",
+      "海老原鼓"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "内山 凜",
@@ -162,10 +233,15 @@
     "hobby": "音楽鑑賞、ゲーム、歌うこと",
     "special_skills": "ダンス、トータッチ",
     "id": "013_uchiyamarin",
-    "video_url": "https://youtu.be/8PPZO2Cmcso",
     "pr_video_url": "https://youtu.be/8PPZO2Cmcso",
     "eye_contact_video_url": "https://youtu.be/3oG8Z-kPAvM",
-    "fancam_video_url": "https://youtu.be/KhR9g7xWzpk"
+    "fancam_video_url": "https://youtu.be/KhR9g7xWzpk",
+    "speed_eating_video_url": "https://youtu.be/OCii2v_fCpM",
+    "speed_eating_members": [
+      "内山凜",
+      "川岸瑠那"
+    ],
+    "classes": []
   },
   {
     "name": "海老原 鼓",
@@ -176,10 +252,17 @@
     "hobby": "寝ること、食べること、歌うこと",
     "special_skills": "ギターを弾くこと、口笛を吹くこと、舌で鳴らすコッという音を大きく出せること",
     "id": "014_ebiharatsuzumi",
-    "video_url": "https://youtu.be/cuI7AfuiuJE",
     "pr_video_url": "https://youtu.be/cuI7AfuiuJE",
     "eye_contact_video_url": "https://youtu.be/gPW2k9PRNus",
-    "fancam_video_url": "https://youtu.be/phJ18BskRSI"
+    "fancam_video_url": "https://youtu.be/phJ18BskRSI",
+    "speed_eating_video_url": "https://youtu.be/3BpMHGXn8Z8",
+    "speed_eating_members": [
+      "植木美々",
+      "海老原鼓"
+    ],
+    "classes": [
+      "A"
+    ]
   },
   {
     "name": "及川 里桜",
@@ -190,10 +273,17 @@
     "hobby": "水遊び全般",
     "special_skills": "足の指が器用なこと",
     "id": "015_oikawario",
-    "video_url": "https://youtu.be/nUvW3VwoZUI",
     "pr_video_url": "https://youtu.be/nUvW3VwoZUI",
     "eye_contact_video_url": "https://youtu.be/HiIlPJhYmxI",
-    "fancam_video_url": "https://youtu.be/G9-DuI_sTjc"
+    "fancam_video_url": "https://youtu.be/G9-DuI_sTjc",
+    "speed_eating_video_url": "https://youtu.be/4lTxaw9ZFnw",
+    "speed_eating_members": [
+      "桜庭遥花",
+      "及川里桜"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "太田 紗蘭",
@@ -204,10 +294,17 @@
     "hobby": "音楽を聴くこと、写真を撮ること",
     "special_skills": "肩甲骨コントロール",
     "id": "016_otasara",
-    "video_url": "https://youtu.be/aQKqxr9y8Gk",
     "pr_video_url": "https://youtu.be/aQKqxr9y8Gk",
     "eye_contact_video_url": "https://youtu.be/-BM7uVYp7rk",
-    "fancam_video_url": "https://youtu.be/R9lcEcM19CY"
+    "fancam_video_url": "https://youtu.be/R9lcEcM19CY",
+    "speed_eating_video_url": "https://youtu.be/kIFKOwzRScI",
+    "speed_eating_members": [
+      "髙木舞優",
+      "太田紗蘭"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "大坪 楓恋",
@@ -218,10 +315,15 @@
     "hobby": "漫画、ゲームセンター",
     "special_skills": "韓国語、ギター",
     "id": "017_otsubokaren",
-    "video_url": "https://youtu.be/fpdiwUaCURc",
     "pr_video_url": "https://youtu.be/fpdiwUaCURc",
     "eye_contact_video_url": "https://youtu.be/VDxcxMsiWWs",
-    "fancam_video_url": "https://youtu.be/r9TWvympeTI"
+    "fancam_video_url": "https://youtu.be/r9TWvympeTI",
+    "speed_eating_video_url": "https://youtu.be/S_9h9Qh6Dk0",
+    "speed_eating_members": [
+      "渋谷芽衣",
+      "大坪楓恋"
+    ],
+    "classes": []
   },
   {
     "name": "岡部 望々花",
@@ -232,10 +334,17 @@
     "hobby": "ショッピング、犬の動画を見ること",
     "special_skills": "K-POPカバーダンス、ブリッジ歩き、ハンバーガー作り",
     "id": "018_okabenonoka",
-    "video_url": "https://youtu.be/wD2Zkay210E",
     "pr_video_url": "https://youtu.be/wD2Zkay210E",
     "eye_contact_video_url": "https://youtu.be/HEU_CqiT5Ew",
-    "fancam_video_url": "https://youtu.be/bzOw9pkTV8c"
+    "fancam_video_url": "https://youtu.be/bzOw9pkTV8c",
+    "speed_eating_video_url": "https://youtu.be/-VHhOVTeykQ",
+    "speed_eating_members": [
+      "会田凛",
+      "岡部望々花"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "岡村 菜那",
@@ -246,10 +355,17 @@
     "hobby": "K-POP・ドラマ鑑賞、好きな音楽を聴いてリズムに乗ってノリノリになること、子猫の動画をみること、深夜にモッパンを見ること",
     "special_skills": "テニス、人を笑顔にすること",
     "id": "019_okamuranana",
-    "video_url": "https://youtu.be/e8lE6_CdTx4",
     "pr_video_url": "https://youtu.be/e8lE6_CdTx4",
     "eye_contact_video_url": "https://youtu.be/gmBjznM7aik",
-    "fancam_video_url": "https://youtu.be/kc8tIBwsssg"
+    "fancam_video_url": "https://youtu.be/kc8tIBwsssg",
+    "speed_eating_video_url": "https://youtu.be/YNIRnTXA4KI",
+    "speed_eating_members": [
+      "高見文寧",
+      "岡村菜那"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "小田 有葉",
@@ -260,10 +376,17 @@
     "hobby": "映画を観ること、音楽を聴くこと",
     "special_skills": "ダンス",
     "id": "020_odaaruha",
-    "video_url": "https://youtu.be/OluOX2Rjaco",
     "pr_video_url": "https://youtu.be/OluOX2Rjaco",
     "eye_contact_video_url": "https://youtu.be/35FdkUY9dqQ",
-    "fancam_video_url": "https://youtu.be/pR3JbN03KgU"
+    "fancam_video_url": "https://youtu.be/pR3JbN03KgU",
+    "speed_eating_video_url": "https://youtu.be/YHhF7578sZE",
+    "speed_eating_members": [
+      "菊川亜樹",
+      "小田有葉"
+    ],
+    "classes": [
+      "A"
+    ]
   },
   {
     "name": "小栁 絵美",
@@ -274,10 +397,17 @@
     "hobby": "ダンス、ショッピング",
     "special_skills": "ウィンク",
     "id": "021_oyanagiemi",
-    "video_url": "https://youtu.be/riP_mBLo7Ic",
     "pr_video_url": "https://youtu.be/riP_mBLo7Ic",
     "eye_contact_video_url": "https://youtu.be/kZPTyUzAa_U",
-    "fancam_video_url": "https://youtu.be/cNliRkvlzBE"
+    "fancam_video_url": "https://youtu.be/cNliRkvlzBE",
+    "speed_eating_video_url": "https://youtu.be/89rChWckAJg",
+    "speed_eating_members": [
+      "佐藤あめり",
+      "小栁絵美"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "笠原 桃奈",
@@ -288,10 +418,15 @@
     "hobby": "フィルムカメラ",
     "special_skills": "アクロバット",
     "id": "022_kasaharamomona",
-    "video_url": "https://youtu.be/6yuNJbloKVM",
     "pr_video_url": "https://youtu.be/6yuNJbloKVM",
     "eye_contact_video_url": "https://youtu.be/KkWj2t4QutM",
-    "fancam_video_url": "https://youtu.be/CEZNI2f0njY"
+    "fancam_video_url": "https://youtu.be/CEZNI2f0njY",
+    "speed_eating_video_url": "https://youtu.be/PIC0v7-9gWU",
+    "speed_eating_members": [
+      "笠原桃奈",
+      "安藤千陽"
+    ],
+    "classes": []
   },
   {
     "name": "片岡 陽音",
@@ -302,10 +437,17 @@
     "hobby": "ダンス、アイドル鑑賞、お友達と話すこと",
     "special_skills": "踊る時手先を綺麗に魅せること",
     "id": "023_kataokario",
-    "video_url": "https://youtu.be/lPtwhltXiKM",
     "pr_video_url": "https://youtu.be/lPtwhltXiKM",
     "eye_contact_video_url": "https://youtu.be/2-zgqzagHyk",
-    "fancam_video_url": "https://youtu.be/cwXyTmfF7Ck"
+    "fancam_video_url": "https://youtu.be/cwXyTmfF7Ck",
+    "speed_eating_video_url": "https://youtu.be/lNcjbdvyXDE",
+    "speed_eating_members": [
+      "片岡陽音",
+      "井餘田華"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "加藤 愛梨",
@@ -316,10 +458,15 @@
     "hobby": "ディズニー",
     "special_skills": "ものまね",
     "id": "024_katoairi",
-    "video_url": "https://youtu.be/EHhuQFCDgLs",
     "pr_video_url": "https://youtu.be/EHhuQFCDgLs",
     "eye_contact_video_url": "https://youtu.be/P7mKi8v8rOg",
-    "fancam_video_url": "https://youtu.be/H8HPBjZjMRU"
+    "fancam_video_url": "https://youtu.be/H8HPBjZjMRU",
+    "speed_eating_video_url": "https://youtu.be/Kx4sfQnqmjU",
+    "speed_eating_members": [
+      "山本すず",
+      "加藤愛梨"
+    ],
+    "classes": []
   },
   {
     "name": "加藤 神楽",
@@ -330,10 +477,17 @@
     "hobby": "ねずみと遊ぶこと",
     "special_skills": "息を長く止められること、ドラム",
     "id": "025_katokagura",
-    "video_url": "https://youtu.be/ekGEbYi2r04",
     "pr_video_url": "https://youtu.be/ekGEbYi2r04",
     "eye_contact_video_url": "https://youtu.be/yPzEOizOKiY",
-    "fancam_video_url": "https://youtu.be/ACN4IdkSQzg"
+    "fancam_video_url": "https://youtu.be/ACN4IdkSQzg",
+    "speed_eating_video_url": "https://youtu.be/h42zGfCoLcw",
+    "speed_eating_members": [
+      "渡辺未優",
+      "加藤神楽"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "加藤 心",
@@ -344,10 +498,15 @@
     "hobby": "オイルパステルやアクリル絵の具で絵を描くこと、ギター",
     "special_skills": "韓国語",
     "id": "026_katokokoro",
-    "video_url": "https://youtu.be/2GhwXSSHW9w",
     "pr_video_url": "https://youtu.be/2GhwXSSHW9w",
     "eye_contact_video_url": "https://youtu.be/mlGTrBoVRUw",
-    "fancam_video_url": "https://youtu.be/fCGnxEJo_T8"
+    "fancam_video_url": "https://youtu.be/fCGnxEJo_T8",
+    "speed_eating_video_url": "https://youtu.be/58KXIGgD3_c",
+    "speed_eating_members": [
+      "小山麻菜",
+      "加藤心"
+    ],
+    "classes": []
   },
   {
     "name": "加藤 好実",
@@ -358,10 +517,17 @@
     "hobby": "甘いものを食べること",
     "special_skills": "メイク、舌を2つに折ること",
     "id": "027_katokonomi",
-    "video_url": "https://youtu.be/osIgnJlccpk",
     "pr_video_url": "https://youtu.be/osIgnJlccpk",
     "eye_contact_video_url": "https://youtu.be/z9ibS9nDJdI",
-    "fancam_video_url": "https://youtu.be/IN7Cl-6jLuE"
+    "fancam_video_url": "https://youtu.be/IN7Cl-6jLuE",
+    "speed_eating_video_url": "https://youtu.be/ML4W9HNmpiI",
+    "speed_eating_members": [
+      "加藤好実",
+      "中村璃彩"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "鎌田 萌",
@@ -372,10 +538,15 @@
     "hobby": "美味しいご飯屋さんを見つけること",
     "special_skills": "どんな曲でも鼻で奏でられること",
     "id": "028_kamadamoe",
-    "video_url": "https://youtu.be/flG4w7_l_jg",
     "pr_video_url": "https://youtu.be/flG4w7_l_jg",
     "eye_contact_video_url": "https://youtu.be/Wz7UOQKFsBg",
-    "fancam_video_url": "https://youtu.be/STUxfaqG3Fc"
+    "fancam_video_url": "https://youtu.be/STUxfaqG3Fc",
+    "speed_eating_video_url": "https://youtu.be/AQwZAv---s8",
+    "speed_eating_members": [
+      "村上璃杏",
+      "鎌田萌"
+    ],
+    "classes": []
   },
   {
     "name": "神尾 彩乃",
@@ -386,10 +557,17 @@
     "hobby": "写真を撮ること",
     "special_skills": "ジャイアンのものまね",
     "id": "029_kamioayano",
-    "video_url": "https://youtu.be/A9_SFivhjZk",
     "pr_video_url": "https://youtu.be/A9_SFivhjZk",
     "eye_contact_video_url": "https://youtu.be/nNxlwbm8Mhg",
-    "fancam_video_url": "https://youtu.be/fS4QvwSfRmo"
+    "fancam_video_url": "https://youtu.be/fS4QvwSfRmo",
+    "speed_eating_video_url": "https://youtu.be/IDaoK6jPxy8",
+    "speed_eating_members": [
+      "神尾彩乃",
+      "坂東楓夏"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "川岸 瑠那",
@@ -400,10 +578,15 @@
     "hobby": "エレクトーン、ピアノ",
     "special_skills": "テコンドー",
     "id": "030_kawagishiruna",
-    "video_url": "https://youtu.be/dcduTf8hNGY",
     "pr_video_url": "https://youtu.be/dcduTf8hNGY",
     "eye_contact_video_url": "https://youtu.be/rm5O0rqRESI",
-    "fancam_video_url": "https://youtu.be/vb4z-8JngX0"
+    "fancam_video_url": "https://youtu.be/vb4z-8JngX0",
+    "speed_eating_video_url": "https://youtu.be/OCii2v_fCpM",
+    "speed_eating_members": [
+      "内山凜",
+      "川岸瑠那"
+    ],
+    "classes": []
   },
   {
     "name": "川畑 蘭華",
@@ -414,10 +597,17 @@
     "hobby": "神社巡り",
     "special_skills": "目のリレー、舌が鼻につくこと、絵を描くこと",
     "id": "031_kawabataranka",
-    "video_url": "https://youtu.be/zHSHV10yVew",
     "pr_video_url": "https://youtu.be/zHSHV10yVew",
     "eye_contact_video_url": "https://youtu.be/pMu89i3rq-M",
-    "fancam_video_url": "https://youtu.be/wmvPNMh_da8"
+    "fancam_video_url": "https://youtu.be/wmvPNMh_da8",
+    "speed_eating_video_url": "https://youtu.be/exV9GshJjf0",
+    "speed_eating_members": [
+      "荒牧深愛",
+      "川畑蘭華"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "菅野 美優",
@@ -428,10 +618,15 @@
     "hobby": "パン作り、ラテアート、洋服のデザイン",
     "special_skills": "ダンス、動画編集",
     "id": "032_kannomiyu",
-    "video_url": "https://youtu.be/CpVQQgZISwo",
     "pr_video_url": "https://youtu.be/CpVQQgZISwo",
     "eye_contact_video_url": "https://youtu.be/BD39FhiYP4A",
-    "fancam_video_url": "https://youtu.be/MUEVT3r17b0"
+    "fancam_video_url": "https://youtu.be/MUEVT3r17b0",
+    "speed_eating_video_url": "https://youtu.be/1b9d7cOuM6c",
+    "speed_eating_members": [
+      "斉藤芹菜",
+      "菅野美優"
+    ],
+    "classes": []
   },
   {
     "name": "菊川 亜樹",
@@ -442,10 +637,15 @@
     "hobby": "ダンス、自然に触れること、好きな香りで癒されること、自分のケア、YouTube鑑賞、Netflix鑑賞",
     "special_skills": "ダンス、ソフトテニス",
     "id": "033_kikukawaaki",
-    "video_url": "https://youtu.be/4G0wgVDAcOw",
     "pr_video_url": "https://youtu.be/4G0wgVDAcOw",
     "eye_contact_video_url": "https://youtu.be/JAu_69u3sBA",
-    "fancam_video_url": "https://youtu.be/LaUiCOrHjes"
+    "fancam_video_url": "https://youtu.be/LaUiCOrHjes",
+    "speed_eating_video_url": "https://youtu.be/YHhF7578sZE",
+    "speed_eating_members": [
+      "菊川亜樹",
+      "小田有葉"
+    ],
+    "classes": []
   },
   {
     "name": "北里 理桜",
@@ -456,10 +656,15 @@
     "hobby": "アニメ観賞、音楽鑑賞",
     "special_skills": "少しだけ足が速いこと",
     "id": "034_kitazatorio",
-    "video_url": "https://youtu.be/CFo-rMrcS-M",
     "pr_video_url": "https://youtu.be/CFo-rMrcS-M",
     "eye_contact_video_url": "https://youtu.be/8gV55Q2vAG0",
-    "fancam_video_url": "https://youtu.be/RDeeZEeMI9s"
+    "fancam_video_url": "https://youtu.be/RDeeZEeMI9s",
+    "speed_eating_video_url": "https://youtu.be/xHa-zhS5dII",
+    "speed_eating_members": [
+      "濵嵜愛子",
+      "北里理桜"
+    ],
+    "classes": []
   },
   {
     "name": "北爪 さくら",
@@ -470,10 +675,17 @@
     "hobby": "ダンス",
     "special_skills": "ものまね、アクロバット",
     "id": "035_kitazumesakura",
-    "video_url": "https://youtu.be/fc72EBnJrBQ",
     "pr_video_url": "https://youtu.be/fc72EBnJrBQ",
     "eye_contact_video_url": "https://youtu.be/6z7qQ4Mw_2U",
-    "fancam_video_url": "https://youtu.be/25-FIaW1ju0"
+    "fancam_video_url": "https://youtu.be/25-FIaW1ju0",
+    "speed_eating_video_url": "https://youtu.be/KnPN7Vg226M",
+    "speed_eating_members": [
+      "北爪さくら",
+      "細井彩加"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "木野 稟子",
@@ -484,10 +696,15 @@
     "hobby": "アニメを観ること、猫と遊ぶこと",
     "special_skills": "スポーツ、絵を描くこと",
     "id": "036_kinoriko",
-    "video_url": "https://youtu.be/9j5d00kqxAI",
     "pr_video_url": "https://youtu.be/9j5d00kqxAI",
     "eye_contact_video_url": "https://youtu.be/CQYCfMYVPFM",
-    "fancam_video_url": "https://youtu.be/kmFC6fNjVSg"
+    "fancam_video_url": "https://youtu.be/kmFC6fNjVSg",
+    "speed_eating_video_url": "https://youtu.be/nTVdlynLT8g",
+    "speed_eating_members": [
+      "木野稟子",
+      "安藤佑唯"
+    ],
+    "classes": []
   },
   {
     "name": "栗原 果乃",
@@ -498,10 +715,17 @@
     "hobby": "愛犬と遊ぶこと",
     "special_skills": "頭皮を動かすこと、エビの殼剥き",
     "id": "037_kuriharakano",
-    "video_url": "https://youtu.be/sc47CmE-BuA",
     "pr_video_url": "https://youtu.be/sc47CmE-BuA",
     "eye_contact_video_url": "https://youtu.be/4KTkrCP73xY",
-    "fancam_video_url": "https://youtu.be/C7tdxQ8OjR0"
+    "fancam_video_url": "https://youtu.be/C7tdxQ8OjR0",
+    "speed_eating_video_url": "https://youtu.be/dQKplnmJAjA",
+    "speed_eating_members": [
+      "栗原果乃",
+      "古橋沙也佳"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "黒川 穂香",
@@ -512,10 +736,15 @@
     "hobby": "音楽鑑賞、ゲーム",
     "special_skills": "モノマネ、バレーボール",
     "id": "038_kurokawahonoka",
-    "video_url": "https://youtu.be/Zmd0uLm19pM",
     "pr_video_url": "https://youtu.be/Zmd0uLm19pM",
     "eye_contact_video_url": "https://youtu.be/-KT4YMLvkfU",
-    "fancam_video_url": "https://youtu.be/UtRrntzSuUY"
+    "fancam_video_url": "https://youtu.be/UtRrntzSuUY",
+    "speed_eating_video_url": "https://youtu.be/0oKfwjL_4Tg",
+    "speed_eating_members": [
+      "黒川穂香",
+      "田中優希"
+    ],
+    "classes": []
   },
   {
     "name": "釼持 菜乃",
@@ -526,10 +755,15 @@
     "hobby": "K-POPカバーダンス",
     "special_skills": "ダンス",
     "id": "039_kenmotsunano",
-    "video_url": "https://youtu.be/bhU51cxE1qM",
     "pr_video_url": "https://youtu.be/bhU51cxE1qM",
     "eye_contact_video_url": "https://youtu.be/PTATpjZWgM8",
-    "fancam_video_url": "https://youtu.be/hTIXLu6J15I"
+    "fancam_video_url": "https://youtu.be/hTIXLu6J15I",
+    "speed_eating_video_url": "https://youtu.be/YMj2fYC3PL8",
+    "speed_eating_members": [
+      "釼持菜乃",
+      "日髙葉月"
+    ],
+    "classes": []
   },
   {
     "name": "小林 さえ",
@@ -540,10 +774,17 @@
     "hobby": "K-POPを聴くこと、踊ること",
     "special_skills": "特徴を掴んで人の真似をすること",
     "id": "041_kobayashisae",
-    "video_url": "https://youtu.be/TV85R6OAQ0U",
     "pr_video_url": "https://youtu.be/TV85R6OAQ0U",
     "eye_contact_video_url": "https://youtu.be/ZlOr42-yJ5U",
-    "fancam_video_url": "https://youtu.be/QBQMcF0Z9QY"
+    "fancam_video_url": "https://youtu.be/QBQMcF0Z9QY",
+    "speed_eating_video_url": "https://youtu.be/cPyLZQWl6gQ",
+    "speed_eating_members": [
+      "小林さえ",
+      "脇本美颯"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "小山 麻菜",
@@ -554,10 +795,17 @@
     "hobby": "ホラー映画を観ること、友達と一緒に踊ること、美味しいご飯を食べること",
     "special_skills": "カバーダンス、ピルエット、テナーサックス",
     "id": "042_koyamamana",
-    "video_url": "https://youtu.be/S1S_OMBX5LA",
     "pr_video_url": "https://youtu.be/S1S_OMBX5LA",
     "eye_contact_video_url": "https://youtu.be/o3lPiOmItig",
-    "fancam_video_url": "https://youtu.be/KUKJAW8Boi0"
+    "fancam_video_url": "https://youtu.be/KUKJAW8Boi0",
+    "speed_eating_video_url": "https://youtu.be/58KXIGgD3_c",
+    "speed_eating_members": [
+      "小山麻菜",
+      "加藤心"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "斉藤 芹菜",
@@ -568,10 +816,17 @@
     "hobby": "お菓子作り、メイク",
     "special_skills": "マジック、人の顔と名前を覚えること",
     "id": "043_saitoserina",
-    "video_url": "https://youtu.be/pRfXQhTOlsA",
     "pr_video_url": "https://youtu.be/pRfXQhTOlsA",
     "eye_contact_video_url": "https://youtu.be/Thbbns8Z2yo",
-    "fancam_video_url": "https://youtu.be/s4uuNtvtliE"
+    "fancam_video_url": "https://youtu.be/s4uuNtvtliE",
+    "speed_eating_video_url": "https://youtu.be/1b9d7cOuM6c",
+    "speed_eating_members": [
+      "斉藤芹菜",
+      "菅野美優"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "坂口 梨乃",
@@ -582,10 +837,15 @@
     "hobby": "アニメや映画を観ること、PCを触ること、メイクやファッション勉強",
     "special_skills": "歌",
     "id": "044_sakaguchirino",
-    "video_url": "https://youtu.be/1MlW-OKP4OI",
     "pr_video_url": "https://youtu.be/1MlW-OKP4OI",
     "eye_contact_video_url": "https://youtu.be/YJz549moEDg",
-    "fancam_video_url": "https://youtu.be/plKifyW_e_M"
+    "fancam_video_url": "https://youtu.be/plKifyW_e_M",
+    "speed_eating_video_url": "https://youtu.be/k2kDNfwiYKU",
+    "speed_eating_members": [
+      "櫻井美羽",
+      "坂口梨乃"
+    ],
+    "classes": []
   },
   {
     "name": "坂田 琴音",
@@ -596,10 +856,17 @@
     "hobby": "1人カラオケ",
     "special_skills": "絵画",
     "id": "045_sakatakotone",
-    "video_url": "https://youtu.be/TJ0Wqvb6XhY",
     "pr_video_url": "https://youtu.be/TJ0Wqvb6XhY",
     "eye_contact_video_url": "https://youtu.be/QoQLUfuAk10",
-    "fancam_video_url": "https://youtu.be/m3yfABo2JWg"
+    "fancam_video_url": "https://youtu.be/m3yfABo2JWg",
+    "speed_eating_video_url": "https://youtu.be/Ci1jnyHYBMQ",
+    "speed_eating_members": [
+      "坂田琴音",
+      "田中花"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "櫻井 美羽",
@@ -610,10 +877,17 @@
     "hobby": "ヨガ、ベーキング、料理、水泳、音楽を聴くこと",
     "special_skills": "勉強、料理、ダンスのフォーメーションを考えること",
     "id": "046_sakuraimiu",
-    "video_url": "https://youtu.be/zos7simL9bo",
     "pr_video_url": "https://youtu.be/zos7simL9bo",
     "eye_contact_video_url": "https://youtu.be/W__biazOEI8",
-    "fancam_video_url": "https://youtu.be/RMJpb6su24E"
+    "fancam_video_url": "https://youtu.be/RMJpb6su24E",
+    "speed_eating_video_url": "https://youtu.be/k2kDNfwiYKU",
+    "speed_eating_members": [
+      "櫻井美羽",
+      "坂口梨乃"
+    ],
+    "classes": [
+      "A"
+    ]
   },
   {
     "name": "桜庭 遥花",
@@ -624,10 +898,17 @@
     "hobby": "漫画、小説、バスケ",
     "special_skills": "エレクトーン、長時間睡眠",
     "id": "047_sakurabaharuka",
-    "video_url": "https://youtu.be/OVKbzcPJ4OQ",
     "pr_video_url": "https://youtu.be/OVKbzcPJ4OQ",
     "eye_contact_video_url": "https://youtu.be/owGcgjTPM84",
-    "fancam_video_url": "https://youtu.be/UDRAC5TuVHI"
+    "fancam_video_url": "https://youtu.be/UDRAC5TuVHI",
+    "speed_eating_video_url": "https://youtu.be/4lTxaw9ZFnw",
+    "speed_eating_members": [
+      "桜庭遥花",
+      "及川里桜"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "佐々木 心菜",
@@ -638,10 +919,17 @@
     "hobby": "歌を歌うこと、寝ること、オーディション番組を見ること、バトミントン",
     "special_skills": "バスケ、同じ物をずっと食べられること",
     "id": "048_sasakikokona",
-    "video_url": "https://youtu.be/QJl29SttIdY",
     "pr_video_url": "https://youtu.be/QJl29SttIdY",
     "eye_contact_video_url": "https://youtu.be/3M20Fmr9vGU",
-    "fancam_video_url": "https://youtu.be/flPE7FzsZs8"
+    "fancam_video_url": "https://youtu.be/flPE7FzsZs8",
+    "speed_eating_video_url": "https://youtu.be/ufr4gqcGm0k",
+    "speed_eating_members": [
+      "佐々木心菜",
+      "八田芽奈"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "佐々木 つくし",
@@ -652,10 +940,15 @@
     "hobby": "人間観察、振り覚え",
     "special_skills": "ダンス",
     "id": "049_sasakitsukushi",
-    "video_url": "https://youtu.be/kRtdIVvcaDI",
     "pr_video_url": "https://youtu.be/kRtdIVvcaDI",
     "eye_contact_video_url": "https://youtu.be/1IQ9AW_Bgn0",
-    "fancam_video_url": "https://youtu.be/jGlXcxDXNck"
+    "fancam_video_url": "https://youtu.be/jGlXcxDXNck",
+    "speed_eating_video_url": "https://youtu.be/S9J5h5MLI0w",
+    "speed_eating_members": [
+      "清水恵子",
+      "佐々木つくし"
+    ],
+    "classes": []
   },
   {
     "name": "佐藤 あめり",
@@ -666,10 +959,17 @@
     "hobby": "スキー、日記、旅行",
     "special_skills": "クラシックバレエ",
     "id": "050_satoameli",
-    "video_url": "https://youtu.be/xnY23JiweLk",
     "pr_video_url": "https://youtu.be/xnY23JiweLk",
     "eye_contact_video_url": "https://youtu.be/1TdFk8gRphU",
-    "fancam_video_url": "https://youtu.be/CYbOO5utiKw"
+    "fancam_video_url": "https://youtu.be/CYbOO5utiKw",
+    "speed_eating_video_url": "https://youtu.be/89rChWckAJg",
+    "speed_eating_members": [
+      "佐藤あめり",
+      "小栁絵美"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "佐野 じゅえり",
@@ -680,10 +980,15 @@
     "hobby": "映画鑑賞、ショッピング",
     "special_skills": "バイオリン、ファッションコーディネート",
     "id": "051_sanojueri",
-    "video_url": "https://youtu.be/PqLxFbl4gPc",
     "pr_video_url": "https://youtu.be/PqLxFbl4gPc",
     "eye_contact_video_url": "https://youtu.be/nIRnesESYuI",
-    "fancam_video_url": "https://youtu.be/16e_37HybdM"
+    "fancam_video_url": "https://youtu.be/16e_37HybdM",
+    "speed_eating_video_url": "https://youtu.be/3wYj0cOQO_o",
+    "speed_eating_members": [
+      "佐野じゅえり",
+      "須谷緩"
+    ],
+    "classes": []
   },
   {
     "name": "柴垣 有佐",
@@ -694,10 +999,15 @@
     "hobby": "水泳、韓国語や英語の勉強",
     "special_skills": "スポーツ",
     "id": "052_shibagakiarisa",
-    "video_url": "https://youtu.be/q4GooSeN58k",
     "pr_video_url": "https://youtu.be/q4GooSeN58k",
     "eye_contact_video_url": "https://youtu.be/PXEVItP9XQo",
-    "fancam_video_url": "https://youtu.be/17DjPgbvOJ8"
+    "fancam_video_url": "https://youtu.be/17DjPgbvOJ8",
+    "speed_eating_video_url": "https://youtu.be/oFJ5m3QkRMU",
+    "speed_eating_members": [
+      "本橋明桜",
+      "柴垣有佐"
+    ],
+    "classes": []
   },
   {
     "name": "渋谷 芽衣",
@@ -708,10 +1018,17 @@
     "hobby": "マクドナルド新作レビュー",
     "special_skills": "口を震わせて歌を歌えること",
     "id": "053_shibuyamei",
-    "video_url": "https://youtu.be/dwzBNMyq-g4",
     "pr_video_url": "https://youtu.be/dwzBNMyq-g4",
     "eye_contact_video_url": "https://youtu.be/voL8fKHJT7Y",
-    "fancam_video_url": "https://youtu.be/vyEY7i91zsw"
+    "fancam_video_url": "https://youtu.be/vyEY7i91zsw",
+    "speed_eating_video_url": "https://youtu.be/S_9h9Qh6Dk0",
+    "speed_eating_members": [
+      "渋谷芽衣",
+      "大坪楓恋"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "清水 恵子",
@@ -722,10 +1039,15 @@
     "hobby": "絵を描くこと",
     "special_skills": "片目を動かせること",
     "id": "054_shimizukeiko",
-    "video_url": "https://youtu.be/aB2YzB5ZmCA",
     "pr_video_url": "https://youtu.be/aB2YzB5ZmCA",
     "eye_contact_video_url": "https://youtu.be/-gntc14tyzA",
-    "fancam_video_url": "https://youtu.be/FHGcMvI9-Ro"
+    "fancam_video_url": "https://youtu.be/FHGcMvI9-Ro",
+    "speed_eating_video_url": "https://youtu.be/S9J5h5MLI0w",
+    "speed_eating_members": [
+      "清水恵子",
+      "佐々木つくし"
+    ],
+    "classes": []
   },
   {
     "name": "城丸 真歩",
@@ -736,10 +1058,15 @@
     "hobby": "食べること、写真を撮ること、カラオケ",
     "special_skills": "バスケ、運動、どこでも寝られること",
     "id": "056_shiromarumaho",
-    "video_url": "https://youtu.be/aATmHCpwbJU",
     "pr_video_url": "https://youtu.be/aATmHCpwbJU",
     "eye_contact_video_url": "https://youtu.be/5nU-w2O7KQ8",
-    "fancam_video_url": "https://youtu.be/JgYnMLY9Ufw"
+    "fancam_video_url": "https://youtu.be/JgYnMLY9Ufw",
+    "speed_eating_video_url": "https://youtu.be/rmkUZqtL79A",
+    "speed_eating_members": [
+      "城丸真歩",
+      "茂呂空音"
+    ],
+    "classes": []
   },
   {
     "name": "新澤 実華",
@@ -750,10 +1077,17 @@
     "hobby": "スキンケア、音楽、お菓子",
     "special_skills": "柔軟",
     "id": "057_shinzawamika",
-    "video_url": "https://youtu.be/aTWj5ZxA7No",
     "pr_video_url": "https://youtu.be/aTWj5ZxA7No",
     "eye_contact_video_url": "https://youtu.be/uWi2wNnEREg",
-    "fancam_video_url": "https://youtu.be/3sQ3CQ2nTKc"
+    "fancam_video_url": "https://youtu.be/3sQ3CQ2nTKc",
+    "speed_eating_video_url": "https://youtu.be/ncw6ESMDdc4",
+    "speed_eating_members": [
+      "新澤実華",
+      "谷聖彩"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "菅井 夏帆",
@@ -764,10 +1098,17 @@
     "hobby": "ギター、絵を描くこと",
     "special_skills": "クラシックバレエ、書道",
     "id": "058_sugainatsuho",
-    "video_url": "https://youtu.be/iIvxButMQq4",
     "pr_video_url": "https://youtu.be/iIvxButMQq4",
     "eye_contact_video_url": "https://youtu.be/C0vBiX1Sj_k",
-    "fancam_video_url": "https://youtu.be/HjXZEgSxHrw"
+    "fancam_video_url": "https://youtu.be/HjXZEgSxHrw",
+    "speed_eating_video_url": "https://youtu.be/2AE0GDQG2PI",
+    "speed_eating_members": [
+      "菅井夏帆",
+      "田淵美優"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "鈴木 玲名",
@@ -778,10 +1119,17 @@
     "hobby": "ダンス、人形と一緒に寝ること、チッケムを見ること",
     "special_skills": "いちご早食い、二倍速ダンス",
     "id": "059_suzukirena",
-    "video_url": "https://youtu.be/Uz8cpmqHa6M",
     "pr_video_url": "https://youtu.be/Uz8cpmqHa6M",
     "eye_contact_video_url": "https://youtu.be/0Emr8NpZGV4",
-    "fancam_video_url": "https://youtu.be/uxCz7-HcL8s"
+    "fancam_video_url": "https://youtu.be/uxCz7-HcL8s",
+    "speed_eating_video_url": "https://youtu.be/QwBf9M69Jdk",
+    "speed_eating_members": [
+      "鈴木玲名",
+      "田端那菜"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "須谷 緩",
@@ -792,10 +1140,15 @@
     "hobby": "美術館に行くこと、ドラマやアニメの鑑賞",
     "special_skills": "ダンス、表情管理",
     "id": "060_sutaniyurara",
-    "video_url": "https://youtu.be/AfacjF-lfUI",
     "pr_video_url": "https://youtu.be/AfacjF-lfUI",
     "eye_contact_video_url": "https://youtu.be/vm1N0X4Ua7Q",
-    "fancam_video_url": "https://youtu.be/wsN5YlHqf0I"
+    "fancam_video_url": "https://youtu.be/wsN5YlHqf0I",
+    "speed_eating_video_url": "https://youtu.be/3wYj0cOQO_o",
+    "speed_eating_members": [
+      "佐野じゅえり",
+      "須谷緩"
+    ],
+    "classes": []
   },
   {
     "name": "須藤 紗暮",
@@ -806,10 +1159,15 @@
     "hobby": "ドライブ、UFOキャッチャー",
     "special_skills": "ダンス、ルービックキューブ",
     "id": "061_sudosakura",
-    "video_url": "https://youtu.be/EIphpfbM7xk",
     "pr_video_url": "https://youtu.be/EIphpfbM7xk",
     "eye_contact_video_url": "https://youtu.be/Sah4_1oVR1c",
-    "fancam_video_url": "https://youtu.be/t2uXdFwBvvw"
+    "fancam_video_url": "https://youtu.be/t2uXdFwBvvw",
+    "speed_eating_video_url": "https://youtu.be/_qoFyIULZFI",
+    "speed_eating_members": [
+      "青木友香",
+      "須藤紗暮"
+    ],
+    "classes": []
   },
   {
     "name": "関口 理香子",
@@ -820,10 +1178,17 @@
     "hobby": "ピアノ、ドラム、ダンス、曲を聴くこと、おいしいものを食べること",
     "special_skills": "体の柔らかさ、K-POP BOYS DANCE",
     "id": "062_sekiguchirikako",
-    "video_url": "https://youtu.be/WKV2W4qgBkc",
     "pr_video_url": "https://youtu.be/WKV2W4qgBkc",
     "eye_contact_video_url": "https://youtu.be/i7PSjFztIWg",
-    "fancam_video_url": "https://youtu.be/cDLqXVVf8Lo"
+    "fancam_video_url": "https://youtu.be/cDLqXVVf8Lo",
+    "speed_eating_video_url": "https://youtu.be/uyocLzHg-fs",
+    "speed_eating_members": [
+      "関口理香子",
+      "山口愛咲"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "髙木 舞優",
@@ -834,10 +1199,17 @@
     "hobby": "散歩",
     "special_skills": "球技",
     "id": "064_takagimayu",
-    "video_url": "https://youtu.be/5DitbvKQjaU",
     "pr_video_url": "https://youtu.be/5DitbvKQjaU",
     "eye_contact_video_url": "https://youtu.be/jH2hkDQBaIw",
-    "fancam_video_url": "https://youtu.be/boiukB18p94"
+    "fancam_video_url": "https://youtu.be/boiukB18p94",
+    "speed_eating_video_url": "https://youtu.be/kIFKOwzRScI",
+    "speed_eating_members": [
+      "髙木舞優",
+      "太田紗蘭"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "髙橋 妃那",
@@ -848,10 +1220,17 @@
     "hobby": "音楽を聴くこと、踊ること、かもの親子のお引越し動画を見ること、写真を撮ること",
     "special_skills": "ダンス、空手、ゆで卵の殻を早く剥けること、口の中に沢山食べ物を詰め込めること",
     "id": "065_takahashihina",
-    "video_url": "https://youtu.be/jz50wzEGYDk",
     "pr_video_url": "https://youtu.be/jz50wzEGYDk",
     "eye_contact_video_url": "https://youtu.be/7IEvprO8s0Q",
-    "fancam_video_url": "https://youtu.be/UVPFNAT67cw"
+    "fancam_video_url": "https://youtu.be/UVPFNAT67cw",
+    "speed_eating_video_url": "https://youtu.be/XFzBklZ2rok",
+    "speed_eating_members": [
+      "阿部和",
+      "髙橋妃那"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "髙畠 百加",
@@ -862,10 +1241,15 @@
     "hobby": "寝ること、曲集め、お散歩",
     "special_skills": "寝ること、見得、足首が230°開くこと",
     "id": "066_takabatakemomoka",
-    "video_url": "https://youtu.be/W8TMM0bRp6U",
     "pr_video_url": "https://youtu.be/W8TMM0bRp6U",
     "eye_contact_video_url": "https://youtu.be/rrjex5aIJfY",
-    "fancam_video_url": "https://youtu.be/m8lfpFyhBRQ"
+    "fancam_video_url": "https://youtu.be/m8lfpFyhBRQ",
+    "speed_eating_video_url": "https://youtu.be/KjR4laoPMDo",
+    "speed_eating_members": [
+      "髙畠百加",
+      "茂木詩音"
+    ],
+    "classes": []
   },
   {
     "name": "高見 文寧",
@@ -876,10 +1260,17 @@
     "hobby": "作詞作曲",
     "special_skills": "茶道",
     "id": "067_takamiayane",
-    "video_url": "https://youtu.be/IhEBC-GqNa4",
     "pr_video_url": "https://youtu.be/IhEBC-GqNa4",
     "eye_contact_video_url": "https://youtu.be/JASFDtVhAM0",
-    "fancam_video_url": "https://youtu.be/ZArnB1QQwDM"
+    "fancam_video_url": "https://youtu.be/ZArnB1QQwDM",
+    "speed_eating_video_url": "https://youtu.be/YNIRnTXA4KI",
+    "speed_eating_members": [
+      "高見文寧",
+      "岡村菜那"
+    ],
+    "classes": [
+      "A"
+    ]
   },
   {
     "name": "田中 琴",
@@ -890,10 +1281,17 @@
     "hobby": "ブレイクダンス(練習中！) 、言語の勉強",
     "special_skills": "腹筋、振り付け、三点倒立",
     "id": "068_tanakakoto",
-    "video_url": "https://youtu.be/b6Xo_QJCDgI",
     "pr_video_url": "https://youtu.be/b6Xo_QJCDgI",
     "eye_contact_video_url": "https://youtu.be/Em2V2bNN96Q",
-    "fancam_video_url": "https://youtu.be/kkpPjBCyY7o"
+    "fancam_video_url": "https://youtu.be/kkpPjBCyY7o",
+    "speed_eating_video_url": "https://youtu.be/r_av-LzlsQk",
+    "speed_eating_members": [
+      "田邊果凜",
+      "田中琴"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "田中 花",
@@ -904,10 +1302,17 @@
     "hobby": "ヘアメイク",
     "special_skills": "ダンス、ヘアメイク",
     "id": "069_tanakahana",
-    "video_url": "https://youtu.be/lYwqy4h_Rdg",
     "pr_video_url": "https://youtu.be/lYwqy4h_Rdg",
     "eye_contact_video_url": "https://youtu.be/pO3QZwP3VNk",
-    "fancam_video_url": "https://youtu.be/-_Os0-DzHrU"
+    "fancam_video_url": "https://youtu.be/-_Os0-DzHrU",
+    "speed_eating_video_url": "https://youtu.be/Ci1jnyHYBMQ",
+    "speed_eating_members": [
+      "坂田琴音",
+      "田中花"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "田中 優希",
@@ -918,10 +1323,15 @@
     "hobby": "踊ること、ラジオを聴くこと、食べること、犬と遊ぶこと",
     "special_skills": "ダンス",
     "id": "070_tanakayuuki",
-    "video_url": "https://youtu.be/7kmp13fyDoM",
     "pr_video_url": "https://youtu.be/7kmp13fyDoM",
     "eye_contact_video_url": "https://youtu.be/0nzaOv506Gs",
-    "fancam_video_url": "https://youtu.be/Oa8B6W_ZuVo"
+    "fancam_video_url": "https://youtu.be/Oa8B6W_ZuVo",
+    "speed_eating_video_url": "https://youtu.be/0oKfwjL_4Tg",
+    "speed_eating_members": [
+      "黒川穂香",
+      "田中優希"
+    ],
+    "classes": []
   },
   {
     "name": "田邊 果凜",
@@ -932,10 +1342,17 @@
     "hobby": "歌うこと、映画鑑賞",
     "special_skills": "身近な人のものまね",
     "id": "071_tanabekarin",
-    "video_url": "https://youtu.be/A5I_VGjJN5s",
     "pr_video_url": "https://youtu.be/A5I_VGjJN5s",
     "eye_contact_video_url": "https://youtu.be/Jz1hvimbM6k",
-    "fancam_video_url": "https://youtu.be/jCaT1YzzgsA"
+    "fancam_video_url": "https://youtu.be/jCaT1YzzgsA",
+    "speed_eating_video_url": "https://youtu.be/r_av-LzlsQk",
+    "speed_eating_members": [
+      "田邊果凜",
+      "田中琴"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "谷 聖彩",
@@ -946,10 +1363,15 @@
     "hobby": "読書、芸術鑑賞、お菓子を食べること、みおなぎちゃんを見て癒されること",
     "special_skills": "目を一重にすること、指の第一関節を曲げること",
     "id": "072_taniseia",
-    "video_url": "https://youtu.be/FA7QmnejTKM",
     "pr_video_url": "https://youtu.be/FA7QmnejTKM",
     "eye_contact_video_url": "https://youtu.be/BxkKR-A8N5w",
-    "fancam_video_url": "https://youtu.be/XbjKiG9bd_4"
+    "fancam_video_url": "https://youtu.be/XbjKiG9bd_4",
+    "speed_eating_video_url": "https://youtu.be/ncw6ESMDdc4",
+    "speed_eating_members": [
+      "新澤実華",
+      "谷聖彩"
+    ],
+    "classes": []
   },
   {
     "name": "田端 那菜",
@@ -960,10 +1382,17 @@
     "hobby": "音楽を聴くこと、写真を撮ること、かわいいねこちゃんを探すこと",
     "special_skills": "ダンス、ねこの鳴き真似、利きメロンソーダ",
     "id": "073_tabatanana",
-    "video_url": "https://youtu.be/SVNcyv1sSUM",
     "pr_video_url": "https://youtu.be/SVNcyv1sSUM",
     "eye_contact_video_url": "https://youtu.be/I6H0Syfqr_4",
-    "fancam_video_url": "https://youtu.be/72t0v0HXHSo"
+    "fancam_video_url": "https://youtu.be/72t0v0HXHSo",
+    "speed_eating_video_url": "https://youtu.be/QwBf9M69Jdk",
+    "speed_eating_members": [
+      "鈴木玲名",
+      "田端那菜"
+    ],
+    "classes": [
+      "B"
+    ]
   },
   {
     "name": "田淵 美優",
@@ -974,10 +1403,17 @@
     "hobby": "食べること、カラオケ",
     "special_skills": "ダンス、柔軟性、踊る時の表情管理",
     "id": "074_tabuchimiu",
-    "video_url": "https://youtu.be/dQcUtDjYA1g",
     "pr_video_url": "https://youtu.be/dQcUtDjYA1g",
     "eye_contact_video_url": "https://youtu.be/CUpAy9jnVxk",
-    "fancam_video_url": "https://youtu.be/k-pT7AVPwN0"
+    "fancam_video_url": "https://youtu.be/k-pT7AVPwN0",
+    "speed_eating_video_url": "https://youtu.be/2AE0GDQG2PI",
+    "speed_eating_members": [
+      "菅井夏帆",
+      "田淵美優"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "中野 心結",
@@ -988,10 +1424,15 @@
     "hobby": "作詞作曲、顔の絵を描くこと、国語の教科書文の考察",
     "special_skills": "演技、筋トレに耐えること",
     "id": "075_nakanokokona",
-    "video_url": "https://youtu.be/bGAWQ56p8hU",
     "pr_video_url": "https://youtu.be/bGAWQ56p8hU",
     "eye_contact_video_url": "https://youtu.be/FiAzADWoXos",
-    "fancam_video_url": "https://youtu.be/agen-b5yG4g"
+    "fancam_video_url": "https://youtu.be/agen-b5yG4g",
+    "speed_eating_video_url": "https://youtu.be/BbHcIbK4FvA",
+    "speed_eating_members": [
+      "中野心結",
+      "吉田花夏"
+    ],
+    "classes": []
   },
   {
     "name": "中村 葵",
@@ -1002,10 +1443,17 @@
     "hobby": "映画鑑賞、料理、編み物",
     "special_skills": "料理、K-POPダンス",
     "id": "076_nakamuraaoi",
-    "video_url": "https://youtu.be/uuWl-Yk_2_4",
     "pr_video_url": "https://youtu.be/uuWl-Yk_2_4",
     "eye_contact_video_url": "https://youtu.be/v67g-UmQNJA",
-    "fancam_video_url": "https://youtu.be/-hTo6WmaONw"
+    "fancam_video_url": "https://youtu.be/-hTo6WmaONw",
+    "speed_eating_video_url": "https://youtu.be/RiZ5HU1Sl-0",
+    "speed_eating_members": [
+      "藤本彩花",
+      "中村葵"
+    ],
+    "classes": [
+      "F"
+    ]
   },
   {
     "name": "中村 璃彩",
@@ -1016,10 +1464,17 @@
     "hobby": "1人カラオケ、猫と遊ぶこと",
     "special_skills": "クラシックバレエ",
     "id": "077_nakamurariro",
-    "video_url": "https://youtu.be/zOsM4WS61ZI",
     "pr_video_url": "https://youtu.be/zOsM4WS61ZI",
     "eye_contact_video_url": "https://youtu.be/ZLDERT9hqYc",
-    "fancam_video_url": "https://youtu.be/x5yQoq2iJAI"
+    "fancam_video_url": "https://youtu.be/x5yQoq2iJAI",
+    "speed_eating_video_url": "https://youtu.be/ML4W9HNmpiI",
+    "speed_eating_members": [
+      "加藤好実",
+      "中村璃彩"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "中森 琴音",
@@ -1030,10 +1485,15 @@
     "hobby": "美味しいものを食べること、ショッピング、映画鑑賞",
     "special_skills": "ダンス、大食い、アクロバット",
     "id": "078_nakamorikotone",
-    "video_url": "https://youtu.be/i0bCY_goZ8Y",
     "pr_video_url": "https://youtu.be/i0bCY_goZ8Y",
     "eye_contact_video_url": "https://youtu.be/wQkIl5G6oe0",
-    "fancam_video_url": "https://youtu.be/uFvm3mDNeEo"
+    "fancam_video_url": "https://youtu.be/uFvm3mDNeEo",
+    "speed_eating_video_url": "https://youtu.be/aToYrlSJ7Ag",
+    "speed_eating_members": [
+      "中森美琴",
+      "中森琴音"
+    ],
+    "classes": []
   },
   {
     "name": "中森 美琴",
@@ -1044,10 +1504,15 @@
     "hobby": "カフェ巡り、美味しいご飯を見つけること、服、温泉",
     "special_skills": "ダンス、アクロバット、料理、ラテアート",
     "id": "079_nakamorimikoto",
-    "video_url": "https://youtu.be/TcJ9cNalhNU",
     "pr_video_url": "https://youtu.be/TcJ9cNalhNU",
     "eye_contact_video_url": "https://youtu.be/bJC6dpvwyVw",
-    "fancam_video_url": "https://youtu.be/7Nz7eBG9rGY"
+    "fancam_video_url": "https://youtu.be/7Nz7eBG9rGY",
+    "speed_eating_video_url": "https://youtu.be/aToYrlSJ7Ag",
+    "speed_eating_members": [
+      "中森美琴",
+      "中森琴音"
+    ],
+    "classes": []
   },
   {
     "name": "中山 穗乃楓",
@@ -1058,10 +1523,15 @@
     "hobby": "映画・舞台・音楽鑑賞、ドラム、コスメ集め、ファッション",
     "special_skills": "クレヨンしんちゃんモノマネ",
     "id": "080_nakayamahonoka",
-    "video_url": "https://youtu.be/6zOU-iFQsZs",
     "pr_video_url": "https://youtu.be/6zOU-iFQsZs",
     "eye_contact_video_url": "https://youtu.be/AQy6nQrrPxs",
-    "fancam_video_url": "https://youtu.be/2KCuxRjTKMM"
+    "fancam_video_url": "https://youtu.be/2KCuxRjTKMM",
+    "speed_eating_video_url": "https://youtu.be/y2ZVI-p34RE",
+    "speed_eating_members": [
+      "秋山愛",
+      "中山穗乃楓"
+    ],
+    "classes": []
   },
   {
     "name": "八田 芽奈",
@@ -1072,10 +1542,15 @@
     "hobby": "ダンス、インスタ映えスポットに行くこと",
     "special_skills": "話しかけること、ポーズをとること",
     "id": "081_hattamena",
-    "video_url": "https://youtu.be/6uXOtDprl-o",
     "pr_video_url": "https://youtu.be/6uXOtDprl-o",
     "eye_contact_video_url": "https://youtu.be/oL5t5uBtgeQ",
-    "fancam_video_url": "https://youtu.be/XKg2z3iRJVY"
+    "fancam_video_url": "https://youtu.be/XKg2z3iRJVY",
+    "speed_eating_video_url": "https://youtu.be/ufr4gqcGm0k",
+    "speed_eating_members": [
+      "佐々木心菜",
+      "八田芽奈"
+    ],
+    "classes": []
   },
   {
     "name": "濵嵜 愛子",
@@ -1086,10 +1561,15 @@
     "hobby": "子どもと遊ぶこと、クラシックバレエ、コンテンポラリーダンス",
     "special_skills": "朗読、読み聞かせ、どこでも寝られること",
     "id": "082_hamasakiaiko",
-    "video_url": "https://youtu.be/wI97RbZI-Gg",
     "pr_video_url": "https://youtu.be/wI97RbZI-Gg",
     "eye_contact_video_url": "https://youtu.be/dkVcpep408A",
-    "fancam_video_url": "https://youtu.be/7jYLF1b-iyQ"
+    "fancam_video_url": "https://youtu.be/7jYLF1b-iyQ",
+    "speed_eating_video_url": "https://youtu.be/xHa-zhS5dII",
+    "speed_eating_members": [
+      "濵嵜愛子",
+      "北里理桜"
+    ],
+    "classes": []
   },
   {
     "name": "坂東 楓夏",
@@ -1100,10 +1580,15 @@
     "hobby": "踊ること、おしゃべり、トッポのチョコの部分を折らずに周りを食べること",
     "special_skills": "みんなを笑顔にすること",
     "id": "083_bandofuka",
-    "video_url": "https://youtu.be/MR7FnwkvMJQ",
     "pr_video_url": "https://youtu.be/MR7FnwkvMJQ",
     "eye_contact_video_url": "https://youtu.be/Hthe6sRQ3TQ",
-    "fancam_video_url": "https://youtu.be/lP_TZEmuGRI"
+    "fancam_video_url": "https://youtu.be/lP_TZEmuGRI",
+    "speed_eating_video_url": "https://youtu.be/IDaoK6jPxy8",
+    "speed_eating_members": [
+      "神尾彩乃",
+      "坂東楓夏"
+    ],
+    "classes": []
   },
   {
     "name": "日髙 葉月",
@@ -1114,10 +1599,17 @@
     "hobby": "オシャレをすること",
     "special_skills": "食べること",
     "id": "084_hidakahazuki",
-    "video_url": "https://youtu.be/48Md9rzyF3g",
     "pr_video_url": "https://youtu.be/48Md9rzyF3g",
     "eye_contact_video_url": "https://youtu.be/0jmobwECR0k",
-    "fancam_video_url": "https://youtu.be/UtZBTopn1u0"
+    "fancam_video_url": "https://youtu.be/UtZBTopn1u0",
+    "speed_eating_video_url": "https://youtu.be/YMj2fYC3PL8",
+    "speed_eating_members": [
+      "釼持菜乃",
+      "日髙葉月"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "藤本 彩花",
@@ -1128,10 +1620,15 @@
     "hobby": "愛犬と遊ぶこと、パン屋巡り、ナンプレ",
     "special_skills": "バトントワリング、アクロバット",
     "id": "085_fujimotoayaka",
-    "video_url": "https://youtu.be/SODHWQo4yD8",
     "pr_video_url": "https://youtu.be/SODHWQo4yD8",
     "eye_contact_video_url": "https://youtu.be/iC1_ddJRqa0",
-    "fancam_video_url": "https://youtu.be/gJJIhYzNayA"
+    "fancam_video_url": "https://youtu.be/gJJIhYzNayA",
+    "speed_eating_video_url": "https://youtu.be/RiZ5HU1Sl-0",
+    "speed_eating_members": [
+      "藤本彩花",
+      "中村葵"
+    ],
+    "classes": []
   },
   {
     "name": "古橋 沙也佳",
@@ -1142,10 +1639,15 @@
     "hobby": "アイスを食べること、黄昏れること",
     "special_skills": "ご飯をたくさん食べること、ピアノを弾くこと",
     "id": "086_furuhashisayaka",
-    "video_url": "https://youtu.be/QsdaziS9ic0",
     "pr_video_url": "https://youtu.be/QsdaziS9ic0",
     "eye_contact_video_url": "https://youtu.be/sk1MScjfW-Y",
-    "fancam_video_url": "https://youtu.be/WRZehSrtFRU"
+    "fancam_video_url": "https://youtu.be/WRZehSrtFRU",
+    "speed_eating_video_url": "https://youtu.be/dQKplnmJAjA",
+    "speed_eating_members": [
+      "栗原果乃",
+      "古橋沙也佳"
+    ],
+    "classes": []
   },
   {
     "name": "細井 彩加",
@@ -1156,10 +1658,17 @@
     "hobby": "常に音楽を聴くこと",
     "special_skills": "言語",
     "id": "087_hosoiayaka",
-    "video_url": "https://youtu.be/U4tSXYnrSbg",
     "pr_video_url": "https://youtu.be/U4tSXYnrSbg",
     "eye_contact_video_url": "https://youtu.be/fecbcx4ON_w",
-    "fancam_video_url": "https://youtu.be/eu2_8ssQaeU"
+    "fancam_video_url": "https://youtu.be/eu2_8ssQaeU",
+    "speed_eating_video_url": "https://youtu.be/KnPN7Vg226M",
+    "speed_eating_members": [
+      "北爪さくら",
+      "細井彩加"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "松下 実夢",
@@ -1170,10 +1679,15 @@
     "hobby": "料理、映画・アニメ鑑賞",
     "special_skills": "ダンス",
     "id": "088_matsushitamiyu",
-    "video_url": "https://youtu.be/E00GYg60BLk",
     "pr_video_url": "https://youtu.be/E00GYg60BLk",
     "eye_contact_video_url": "https://youtu.be/SnQFzATWrKY",
-    "fancam_video_url": "https://youtu.be/Qrrn4QMbI44"
+    "fancam_video_url": "https://youtu.be/Qrrn4QMbI44",
+    "speed_eating_video_url": "https://youtu.be/VxuN7zWgsJo",
+    "speed_eating_members": [
+      "松下実夢",
+      "吉田彩乃"
+    ],
+    "classes": []
   },
   {
     "name": "水上 凜巳花",
@@ -1184,10 +1698,15 @@
     "hobby": "ホラー映画を観ること(その中で生きる方法を考えること)",
     "special_skills": "誰とでも仲良くなれること",
     "id": "089_mizukamirimika",
-    "video_url": "https://youtu.be/L6L4koAMBwE",
     "pr_video_url": "https://youtu.be/L6L4koAMBwE",
     "eye_contact_video_url": "https://youtu.be/WSadVnKYCkU",
-    "fancam_video_url": "https://youtu.be/ue8dgRkHXFU"
+    "fancam_video_url": "https://youtu.be/ue8dgRkHXFU",
+    "speed_eating_video_url": "https://youtu.be/tEKJPmYPC38",
+    "speed_eating_members": [
+      "水上凜巳花",
+      "石井蘭"
+    ],
+    "classes": []
   },
   {
     "name": "村上 璃杏",
@@ -1198,10 +1717,15 @@
     "hobby": "寝ること、食べること、コスメ集め",
     "special_skills": "早口言葉",
     "id": "090_murakamirinon",
-    "video_url": "https://youtu.be/CBjBm7Yoyjs",
     "pr_video_url": "https://youtu.be/CBjBm7Yoyjs",
     "eye_contact_video_url": "https://youtu.be/-5GsARXiJJs",
-    "fancam_video_url": "https://youtu.be/xV78cMJATic"
+    "fancam_video_url": "https://youtu.be/xV78cMJATic",
+    "speed_eating_video_url": "https://youtu.be/AQwZAv---s8",
+    "speed_eating_members": [
+      "村上璃杏",
+      "鎌田萌"
+    ],
+    "classes": []
   },
   {
     "name": "茂木 詩音",
@@ -1212,10 +1736,17 @@
     "hobby": "ダンス、アニメ鑑賞",
     "special_skills": "絵を描くこと、韓国語",
     "id": "091_mogishion",
-    "video_url": "https://youtu.be/17dd7AISsyo",
     "pr_video_url": "https://youtu.be/17dd7AISsyo",
     "eye_contact_video_url": "https://youtu.be/51k6zhLFbtk",
-    "fancam_video_url": "https://youtu.be/OViIiA_RZp4"
+    "fancam_video_url": "https://youtu.be/OViIiA_RZp4",
+    "speed_eating_video_url": "https://youtu.be/KjR4laoPMDo",
+    "speed_eating_members": [
+      "髙畠百加",
+      "茂木詩音"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "本橋 明桜",
@@ -1226,10 +1757,17 @@
     "hobby": "食べること、遊ぶこと、寝ること、ダンス",
     "special_skills": "手首が柔らかいこと、フラフープ",
     "id": "092_motohashimeika",
-    "video_url": "https://youtu.be/k1-3TliC0a4",
     "pr_video_url": "https://youtu.be/k1-3TliC0a4",
     "eye_contact_video_url": "https://youtu.be/y6J8htBfd6A",
-    "fancam_video_url": "https://youtu.be/VrqMKvv8xOw"
+    "fancam_video_url": "https://youtu.be/VrqMKvv8xOw",
+    "speed_eating_video_url": "https://youtu.be/oFJ5m3QkRMU",
+    "speed_eating_members": [
+      "本橋明桜",
+      "柴垣有佐"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "茂呂 空音",
@@ -1240,10 +1778,15 @@
     "hobby": "音楽を聴きながら散歩すること、サッカー・フットサル観戦",
     "special_skills": "どこでも寝られること",
     "id": "093_moroanon",
-    "video_url": "https://youtu.be/cedNEL8DzOY",
     "pr_video_url": "https://youtu.be/cedNEL8DzOY",
     "eye_contact_video_url": "https://youtu.be/Ma7XV7kNJKY",
-    "fancam_video_url": "https://youtu.be/ZgLSgE8W87g"
+    "fancam_video_url": "https://youtu.be/ZgLSgE8W87g",
+    "speed_eating_video_url": "https://youtu.be/rmkUZqtL79A",
+    "speed_eating_members": [
+      "城丸真歩",
+      "茂呂空音"
+    ],
+    "classes": []
   },
   {
     "name": "山口 愛咲",
@@ -1254,10 +1797,17 @@
     "hobby": "毎日空の写真を撮ること",
     "special_skills": "ご飯をいっぱい食べられること、サックス",
     "id": "094_yamaguchimisaki",
-    "video_url": "https://youtu.be/2msRjPBFG4c",
     "pr_video_url": "https://youtu.be/2msRjPBFG4c",
     "eye_contact_video_url": "https://youtu.be/jfsikOhgGzE",
-    "fancam_video_url": "https://youtu.be/3i6OJS-fcqk"
+    "fancam_video_url": "https://youtu.be/3i6OJS-fcqk",
+    "speed_eating_video_url": "https://youtu.be/uyocLzHg-fs",
+    "speed_eating_members": [
+      "関口理香子",
+      "山口愛咲"
+    ],
+    "classes": [
+      "D"
+    ]
   },
   {
     "name": "山崎 美月",
@@ -1268,10 +1818,15 @@
     "hobby": "空観察、推理小説読解、ラテアート",
     "special_skills": "料理、パン・お菓子作り、金魚すくい、UFOキャッチャー、空手",
     "id": "095_yamazakimitsuki",
-    "video_url": "https://youtu.be/LxE_vgZVlDY",
     "pr_video_url": "https://youtu.be/LxE_vgZVlDY",
     "eye_contact_video_url": "https://youtu.be/Ad0LIPr24Ao",
-    "fancam_video_url": "https://youtu.be/R3HE2Dq42PY"
+    "fancam_video_url": "https://youtu.be/R3HE2Dq42PY",
+    "speed_eating_video_url": "https://youtu.be/FPKWPsqM2l0",
+    "speed_eating_members": [
+      "飯田栞月",
+      "山崎美月"
+    ],
+    "classes": []
   },
   {
     "name": "山本 すず",
@@ -1282,10 +1837,17 @@
     "hobby": "ドラマ鑑賞",
     "special_skills": "空手",
     "id": "096_yamamotosuzu",
-    "video_url": "https://youtu.be/cIPXZP58bVc",
     "pr_video_url": "https://youtu.be/cIPXZP58bVc",
     "eye_contact_video_url": "https://youtu.be/v_vtLloPQeg",
-    "fancam_video_url": "https://youtu.be/GK7B8cwY5WQ"
+    "fancam_video_url": "https://youtu.be/GK7B8cwY5WQ",
+    "speed_eating_video_url": "https://youtu.be/Kx4sfQnqmjU",
+    "speed_eating_members": [
+      "山本すず",
+      "加藤愛梨"
+    ],
+    "classes": [
+      "A"
+    ]
   },
   {
     "name": "吉田 彩乃",
@@ -1296,10 +1858,15 @@
     "hobby": "パン屋巡り、古着屋巡り",
     "special_skills": "口笛",
     "id": "097_yoshidaayano",
-    "video_url": "https://youtu.be/Xgsi9dDlGB8",
     "pr_video_url": "https://youtu.be/Xgsi9dDlGB8",
     "eye_contact_video_url": "https://youtu.be/BnP2TvDQymk",
-    "fancam_video_url": "https://youtu.be/CTG77qJt_RA"
+    "fancam_video_url": "https://youtu.be/CTG77qJt_RA",
+    "speed_eating_video_url": "https://youtu.be/VxuN7zWgsJo",
+    "speed_eating_members": [
+      "松下実夢",
+      "吉田彩乃"
+    ],
+    "classes": []
   },
   {
     "name": "吉田 花夏",
@@ -1310,10 +1877,15 @@
     "hobby": "音楽鑑賞、ファッション",
     "special_skills": "ミッキーマウスのモノマネ",
     "id": "098_yoshidahana",
-    "video_url": "https://youtu.be/nhwOKQd5QAI",
     "pr_video_url": "https://youtu.be/nhwOKQd5QAI",
     "eye_contact_video_url": "https://youtu.be/g_S1Is2y3p0",
-    "fancam_video_url": "https://youtu.be/qJ9vGtYeAaw"
+    "fancam_video_url": "https://youtu.be/qJ9vGtYeAaw",
+    "speed_eating_video_url": "https://youtu.be/BbHcIbK4FvA",
+    "speed_eating_members": [
+      "中野心結",
+      "吉田花夏"
+    ],
+    "classes": []
   },
   {
     "name": "脇本 美颯",
@@ -1324,10 +1896,17 @@
     "hobby": "映画鑑賞(アニメ・ホラー)",
     "special_skills": "コピーダンス",
     "id": "099_wakimotomihaya",
-    "video_url": "https://youtu.be/p4Rd-C6UTs8",
     "pr_video_url": "https://youtu.be/p4Rd-C6UTs8",
     "eye_contact_video_url": "https://youtu.be/bQrYg8qUdC8",
-    "fancam_video_url": "https://youtu.be/_44NHTYylbY"
+    "fancam_video_url": "https://youtu.be/_44NHTYylbY",
+    "speed_eating_video_url": "https://youtu.be/cPyLZQWl6gQ",
+    "speed_eating_members": [
+      "小林さえ",
+      "脇本美颯"
+    ],
+    "classes": [
+      "C"
+    ]
   },
   {
     "name": "渡辺 未優",
@@ -1338,9 +1917,16 @@
     "hobby": "韓ドラ鑑賞、ネイルをすること",
     "special_skills": "友達を作ること",
     "id": "100_watanabemiyu",
-    "video_url": "https://youtu.be/gzRfBSGT6ts",
     "pr_video_url": "https://youtu.be/gzRfBSGT6ts",
     "eye_contact_video_url": "https://youtu.be/0YDCVC5A-Yk",
-    "fancam_video_url": "https://youtu.be/0PU5rswQ6Ag"
+    "fancam_video_url": "https://youtu.be/0PU5rswQ6Ag",
+    "speed_eating_video_url": "https://youtu.be/h42zGfCoLcw",
+    "speed_eating_members": [
+      "渡辺未優",
+      "加藤神楽"
+    ],
+    "classes": [
+      "D"
+    ]
   }
 ]

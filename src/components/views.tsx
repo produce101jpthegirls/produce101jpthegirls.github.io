@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
 import { AvatarDropdown } from "./dropdowns";
+import Select, { SelectOption } from "./select";
 import Toggle from "./toggle";
 
 const archivo_black_jp = Archivo_Black({
@@ -197,7 +198,23 @@ export const Avatar: FC<AvatarProps> = ({
   )
 };
 
-const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]"
+const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]";
+
+const getClassColor = (c: string): string => {
+  if (c === "A") {
+    return "text-[#ed00e6]";
+  }
+  if (c === "B") {
+    return "text-[#f48919]";
+  }
+  if (c === "C") {
+    return "text-[#d8dc25]";
+  }
+  if (c === "D") {
+    return "text-[#4eeb19]";
+  }
+  return "text-[#727073]";
+};
 
 type ListViewProps = {
   items: Trainee[];
@@ -210,6 +227,8 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
     <ul className={`${TRAINEE_VIEW_HEIGHT} flex flex-col overflow-y-auto text-pd-gray-900`}>
       {items.map((item) => {
         const isSelected = selected.includes(item.index);
+        const traineeClass = item.classes.length > 0 ? item.classes[item.classes.length - 1] : "?";
+        const traineeClassClassName = getClassColor(traineeClass);
         return (
           <li
             key={item.id}
@@ -229,6 +248,7 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
                 <span className="select-none">{item.mbtiType}</span>
+                <span className={`select-none grow text-right ${traineeClassClassName}`}>{traineeClass}</span>
               </div>
               <div className="sm:mt-0.5 flex justify-between items-end text-sm">
                 <div className="flex gap-3 item-centers">
@@ -329,10 +349,15 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
 };
 
 export const TraineeView: FC = () => {
+  const sortByOptions = [
+    { id: 1, name: "ID" },
+    { id: 2, name: "CLASS" },
+  ];
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
+  const [sortBy, setSortBy] = useState<SelectOption>(sortByOptions[0]);
   const { selected, setSelected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
@@ -348,6 +373,24 @@ export const TraineeView: FC = () => {
       trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
+
+  let sortedTrainees = filteredTrainees;
+  if (sortBy.name === "ID") {
+    sortedTrainees.sort((a, b) => a.index - b.index);
+  } else if (sortBy.name === "CLASS") {
+    sortedTrainees.sort((a, b) => {
+      const classA = a.classes.length > 0 ? a.classes[a.classes.length - 1] : "Z";
+      const classB = b.classes.length > 0 ? b.classes[b.classes.length - 1] : "Z";
+      if (classA > classB) {
+        return 1;
+      }
+      if (classA < classB) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  
 
   return (
     <>
@@ -403,7 +446,7 @@ export const TraineeView: FC = () => {
         </div>
       </div>
       <div className="pl-3 pr-4 py-2 sm:py-2.5 flex gap-2 items-center justify-between border-b">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 grow">
           <Toggle
             enabled={filterEnabled}
             setEnabled={setFilterEnabled}
@@ -413,7 +456,8 @@ export const TraineeView: FC = () => {
           />
           <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
         </div>
-        <span className="text-pd-gray-300 text-sm">SORT BY ID</span>
+        <span className="text-pd-gray-300 text-sm">SORT BY</span>
+        <Select selected={sortBy} setSelected={setSortBy} options={sortByOptions} />
       </div>
       {display === "list" ? (
         <ListView items={filteredTrainees} selected={selected} setSelected={setSelected} />
