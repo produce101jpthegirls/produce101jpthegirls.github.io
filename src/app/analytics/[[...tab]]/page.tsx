@@ -141,6 +141,13 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
                   data={data ? data["speed_eating"] : []}
                   n={11}
                   filterSelected={filterEnabled}
+                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][4]}
+                />
+                <TopNDataTable
+                  pending={pending}
+                  data={data ? data["level_division"] : []}
+                  n={11}
+                  filterSelected={filterEnabled}
                   title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][3]}
                 />
                 <TopNDataTable

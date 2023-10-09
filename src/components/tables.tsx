@@ -23,7 +23,8 @@ type AnalyticsVideo = {
 };
 
 export type AnalyticsDataRow = {
-  name?: string;
+  nameEn?: string;
+  nameJp?: string;
   rank: number;
   video: AnalyticsVideo;
   trainees: AnalyticsTrainee[];
@@ -111,12 +112,12 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
     {
       name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][0],
       selector: (row: AnalyticsDataRow) => row.rank,
-      width: "32px",
+      width: "28px",
     },
     {
       name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][1],
       cell: (row: AnalyticsDataRow) => (
-        <TraineesCell trainees={row.trainees} />
+        <TraineesCell trainees={row.trainees} customName={language === "en" ? row.nameEn : row.nameJp} />
       ),
     },
     {
@@ -142,26 +143,70 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
   );
 };
 
+const renderCustomName = (trainees: AnalyticsTrainee[], customName: string) => {
+  if (customName.includes(" ✧ ")) {
+    const [team, artistSong] = customName.split(" ✧ ");
+    return (
+      <div>
+        <div className="font-bold">{artistSong}</div>
+        <div>{team}</div>
+        <div className="mt-1 flex gap-1">
+          {trainees.map((trainee) => {
+            const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
+            return (
+              <img className="rounded-full w-7 h-7 sm:w-8 sm:h-8" src={img.src} alt={img.alt} />
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <>
+      <div className="flex items-center gap-1">
+        {trainees.map((trainee) => {
+          const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
+          return (
+            <img className="rounded-full w-8 h-8 hidden sm:block" src={img.src} alt={img.alt} />
+          );
+        })}
+        <span className="pl-1">{customName}</span>
+      </div>
+      <div className="mt-1 flex gap-1">
+        {trainees.map((trainee) => {
+          const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
+          return (
+            <img className="rounded-full w-7 h-7 sm:w-8 sm:h-8 sm:hidden" src={img.src} alt={img.alt} />
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 type TraineesCellProps = {
   trainees: AnalyticsTrainee[];
+  customName?: string;
 };
 
-const TraineesCell: FC<TraineesCellProps> = ({ trainees }) => {
+const TraineesCell: FC<TraineesCellProps> = ({ trainees, customName }) => {
   const { language } = useSiteContext();
   return (
     <div className="flex flex-col gap-0.5 py-1.5 truncate">
-      {trainees.map((trainee) => {
-        const displayId = trainee.id.split("_")[0];
-        const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
-        return (
-          <div key={trainee.id} className="flex items-center gap-2 truncate">
-            <img className="rounded-full w-8 h-8 hidden sm:block" src={img.src} alt={img.alt} />
-            <span className="truncate">
-              <span className="hidden sm:inline">{displayId}🌸</span>
-              <span></span>{language === "en" ? trainee.nameEn : trainee.nameJp}</span>
-          </div>
-        );
-      })}
+      {customName ? renderCustomName(trainees, customName) : (
+        trainees.map((trainee) => {
+          const displayId = trainee.id.split("_")[0];
+          const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
+          return (
+            <div key={trainee.id} className="flex items-center gap-2 truncate">
+              <img className="rounded-full w-8 h-8 hidden sm:block" src={img.src} alt={img.alt} />
+              <span className="truncate">
+                <span className="hidden sm:inline">{displayId}🌸</span>
+                <span></span>{language === "en" ? trainee.nameEn : trainee.nameJp}</span>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
