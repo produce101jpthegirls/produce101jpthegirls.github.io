@@ -26,13 +26,18 @@ type I18nContent = {
     title: string;
     description: string;
     updatedAtFn: (updatedAtStr: string) => string;
-    viewCountTable: {
-      titles: string[];
-      columns: string[];
-    };
-    detailedTable: {
+    overviewTab: {
       title: string;
-      columns: string[];
+      table: {
+        titles: string[];
+        columns: string[];
+      };
+    };
+    detailsTab: {
+      title: string;
+      table: {
+        columns: string[];
+      };
     };
   };
 };
@@ -70,27 +75,32 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       title: "アナリティクス",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
       updatedAtFn: (updatedAtStr: string) => `${updatedAtStr} に更新されました`,
-      viewCountTable: {
-        titles: [
-          "LEAP HIGH ステージ映像 (2023-09-03)",
-          "1分PR映像 (2023.09.04)",
-          "アイコンタクト映像 (2023-09-28)",
-        ],
-        columns: [
-          "#",
-          "練習生",
-          "再生回数",
-        ],
+      overviewTab: {
+        title: "映像アナリティクス (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH ステージ映像 (2023-09-03)",
+            "1分PR映像 (2023.09.04)",
+            "アイコンタクト映像 (2023-09-28)",
+          ],
+          columns: [
+            "#",
+            "練習生",
+            "再生回数",
+          ],
+        },
       },
-      detailedTable: {
-        title: "映像アナリティクス",
-        columns: [
-          "#",
-          "練習生",
-          "LEAP HIGH ステージ映像",
-          "1分PR映像",
-          "LEAP HIGH アイコンタクト映像",
-        ],
+      detailsTab: {
+        title: "映像アナリティクス (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "練習生",
+            "LEAP HIGH ステージ映像",
+            "1分PR映像",
+            "LEAP HIGH アイコンタクト映像",
+          ],
+        },
       },
     },
   },
@@ -126,27 +136,32 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       title: "ANALYTICS",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
       updatedAtFn: (updatedAtStr: string) => `Updated at ${updatedAtStr}`,
-      viewCountTable: {
-        titles: [
-          "LEAP HIGH FANCAM (2023-09-03)",
-          "1 MIN PR (2023.09.04)",
-          "EYE CONTACT (2023-09-28)",
-        ],
-        columns: [
-          "#",
-          "TRAINEE",
-          "VIEWS",
-        ],
+      overviewTab: {
+        title: "VIDEO ANALYTICS (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH FANCAM (2023-09-03)",
+            "1 MIN PR (2023.09.04)",
+            "EYE CONTACT (2023-09-28)",
+          ],
+          columns: [
+            "#",
+            "TRAINEE",
+            "VIEWS",
+          ],
+        },
       },
-      detailedTable: {
-        title: "VIDEO ANALYTICS",
-        columns: [
-          "#",
-          "TRAINEE",
-          "LEAP HIGH FANCAM",
-          "1 MIN PR",
-          "EYE CONTACT",
-        ],
+      detailsTab: {
+        title: "VIDEO ANALYTICS (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "TRAINEE",
+            "LEAP HIGH FANCAM",
+            "1 MIN PR",
+            "EYE CONTACT",
+          ],
+        },
       },
     },
   },
@@ -182,27 +197,32 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       title: "數據分析",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
       updatedAtFn: (updatedAtStr: string) => `更新於 ${updatedAtStr}`,
-      viewCountTable: {
-        titles: [
-          "LEAP HIGH 舞台直拍 (2023-09-03)",
-          "1分鐘PR影片 (2023.09.04)",
-          "LEAP HIGH 眼神交流影片 (2023-09-28)",
-        ],
-        columns: [
-          "#",
-          "練習生",
-          "觀看次數",
-        ],
+      overviewTab: {
+        title: "影片數據分析 (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH 舞台直拍 (2023-09-03)",
+            "1分鐘PR影片 (2023.09.04)",
+            "LEAP HIGH 眼神交流影片 (2023-09-28)",
+          ],
+          columns: [
+            "#",
+            "練習生",
+            "觀看次數",
+          ],
+        },
       },
-      detailedTable: {
-        title: "影片數據分析",
-        columns: [
-          "#",
-          "練習生",
-          "LEAP HIGH 舞台直拍",
-          "1分鐘PR影片",
-          "LEAP HIGH 眼神交流影片",
-        ],
+      detailsTab: {
+        title: "影片數據分析 (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "練習生",
+            "LEAP HIGH 舞台直拍",
+            "1分鐘PR影片",
+            "LEAP HIGH 眼神交流影片",
+          ],
+        },
       }
     },
   },

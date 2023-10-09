@@ -2,6 +2,7 @@
 
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { StableLink } from "@/components/links";
 import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
 import { AnalyticsData, AnalyticsDataResponse, AnalyticsDataRow, TopNDataTable, TraineeDataTable } from "@/components/tables";
@@ -13,6 +14,7 @@ import { CONTENTS } from "@/i18n";
 import { isCompletedSelection, parseHumanNumber } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
+import { GetStaticPaths } from "next/types";
 import { useEffect, useState } from "react";
 // import mockDb from "@/data/mock_db.json";
 
@@ -38,7 +40,31 @@ const preprocessAnalyticsResponse = (items: AnalyticsDataRow[], language: string
   }
 };
 
-export default function Analytics() {
+export const getStaticPaths = (async () => {
+  return {
+    paths: [
+      {
+        params: {
+          tab: "",
+        },
+      },
+      {
+        params: {
+          tab: "overview",
+        },
+      },
+      {
+        params: {
+          tab: "details",
+        },
+      },
+    ],
+    fallback: false,  // If fallback is false, then any paths not returned by getStaticPaths will result in a 404 page.
+  }
+}) satisfies GetStaticPaths;
+
+export default function Analytics({ params }: { params: { tab: string[] } }) {
+  const tab = params.tab ? params.tab[0] : "overview";
   const { selected, language } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [data, setData] = useState<AnalyticsData | undefined>(undefined);
@@ -93,7 +119,7 @@ export default function Analytics() {
           <div className="px-4 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="mb-3 sm:mb-6 flex justify-between sm:items-center flex-col sm:flex-row gap-3">
               <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl"
-              >{CONTENTS[language]["analytics"]["detailedTable"]["title"]}</h3>
+              >{tab === "overview" ? CONTENTS[language]["analytics"]["overviewTab"]["title"] : CONTENTS[language]["analytics"]["detailsTab"]["title"]}</h3>
               {isCompleted && (
                 <div className="flex items-center gap-2 sm:flex-row-reverse">
                   <Toggle
@@ -107,74 +133,87 @@ export default function Analytics() {
                 </div>
               )}
             </div>
-            {updatedAt && (
-              <p className="mb-6 text-sm">{
-                CONTENTS[language]["analytics"]["updatedAtFn"](
-                  new Intl.DateTimeFormat("en-US", {
-                    "year": "numeric",
-                    "month": "short",
-                    "day": "numeric",
-                    "hour": "2-digit",
-                    "minute": "2-digit",
-                  },
-                ).format(new Date(updatedAt)))
-              }</p>
-            )}
-            <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <TopNDataTable
-                pending={pending}
-                data={data?.map((row) => ({
-                  displayName: row.displayName ?? "",
-                  img: {
-                    src: row.img?.src ?? "",
-                    alt: row.img?.alt ?? "",
-                  },
-                  rank: row.eyeContactCountRank ?? -1,
-                  viewCount: row.eyeContactCount,
-                  videoId: row.eyeContactVideoId,
-                })) ?? []}
-                n={11}
-                filterSelected={filterEnabled}
-                title={CONTENTS[language]["analytics"]["viewCountTable"]["titles"][2]}
-              />
-              <TopNDataTable
-                pending={pending}
-                data={data?.map((row) => ({
-                  displayName: row.displayName ?? "",
-                  img: {
-                    src: row.img?.src ?? "",
-                    alt: row.img?.alt ?? "",
-                  },
-                  rank: row.prCountRank ?? -1,
-                  viewCount: row.prCount,
-                  videoId: row.prVideoId,
-                })) ?? []}
-                n={11}
-                filterSelected={filterEnabled}
-                title={CONTENTS[language]["analytics"]["viewCountTable"]["titles"][1]}
-              />
-              <TopNDataTable
-                pending={pending}
-                data={data?.map((row) => ({
-                  displayName: row.displayName ?? "",
-                  img: {
-                    src: row.img?.src ?? "",
-                    alt: row.img?.alt ?? "",
-                  },
-                  rank: row.fancamCountRank ?? -1,
-                  viewCount: row.fancamCount,
-                  videoId: row.fancamVideoId,
-                })) ?? []}
-                n={11}
-                filterSelected={filterEnabled}
-                title={CONTENTS[language]["analytics"]["viewCountTable"]["titles"][0]}
-              />
+            <div className="mb-3">
+              <p className="mb-3">
+                <span>{tab === "overview" ? "Check out the details" : "Check out the overview"}</span>
+                {" "}
+                <StableLink
+                  className="text-pd-pink-400 hover:text-pd-pink-100"
+                  pathname={tab === "overview" ? "/analytics/details" : "/analytics/overview"}
+                >here</StableLink>
+              </p>
+              {updatedAt && (
+                <p className="mb-3 text-sm">{
+                  CONTENTS[language]["analytics"]["updatedAtFn"](
+                    new Intl.DateTimeFormat("en-US", {
+                      "year": "numeric",
+                      "month": "short",
+                      "day": "numeric",
+                      "hour": "2-digit",
+                      "minute": "2-digit",
+                    },
+                  ).format(new Date(updatedAt)))
+                }</p>
+              )}
             </div>
-            {/* <TraineeDataTable
-              pending={pending}
-              data={data ?? []}
-              filterSelected={filterEnabled}
-            /> */}
+            {tab === "overview" ? (
+              <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <TopNDataTable
+                  pending={pending}
+                  data={data?.map((row) => ({
+                    displayName: row.displayName ?? "",
+                    img: {
+                      src: row.img?.src ?? "",
+                      alt: row.img?.alt ?? "",
+                    },
+                    rank: row.eyeContactCountRank ?? -1,
+                    viewCount: row.eyeContactCount,
+                    videoId: row.eyeContactVideoId,
+                  })) ?? []}
+                  n={11}
+                  filterSelected={filterEnabled}
+                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][2]}
+                />
+                <TopNDataTable
+                  pending={pending}
+                  data={data?.map((row) => ({
+                    displayName: row.displayName ?? "",
+                    img: {
+                      src: row.img?.src ?? "",
+                      alt: row.img?.alt ?? "",
+                    },
+                    rank: row.prCountRank ?? -1,
+                    viewCount: row.prCount,
+                    videoId: row.prVideoId,
+                  })) ?? []}
+                  n={11}
+                  filterSelected={filterEnabled}
+                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][1]}
+                />
+                <TopNDataTable
+                  pending={pending}
+                  data={data?.map((row) => ({
+                    displayName: row.displayName ?? "",
+                    img: {
+                      src: row.img?.src ?? "",
+                      alt: row.img?.alt ?? "",
+                    },
+                    rank: row.fancamCountRank ?? -1,
+                    viewCount: row.fancamCount,
+                    videoId: row.fancamVideoId,
+                  })) ?? []}
+                  n={11}
+                  filterSelected={filterEnabled}
+                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][0]}
+                />
+              </div>
+            ) : (
+              <TraineeDataTable
+                pending={pending}
+                data={data ?? []}
+                filterSelected={filterEnabled}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -22,6 +22,13 @@ const NAV_ITEMS = [
   },
 ]
 
+const isActiveTab = (currentPathname: string, targetPathname: string): boolean => {
+  if (targetPathname === "/") {
+    return currentPathname === targetPathname;
+  }
+  return currentPathname.startsWith(targetPathname);
+};
+
 const Header: FC = () => {
   const pathname = usePathname();
   const { language } = useSiteContext();
@@ -39,7 +46,7 @@ const Header: FC = () => {
         {NAV_ITEMS.map((item, index) => (
           <li key={item.href}>
             <StableLink
-              className={`${pathname === item.href ? (
+              className={`${isActiveTab(pathname, item.href) ? (
                 "text-pd-pink-100 pointer-events-none"
               ) : (
                 "text-pd-pink-400"

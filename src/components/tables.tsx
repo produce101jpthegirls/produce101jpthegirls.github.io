@@ -91,18 +91,18 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
   const topNData = sortedData.slice(0, n);
   const columns: TableColumn<ViewCountDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][0],
+      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][0],
       selector: (row: ViewCountDataRow) => row.rank,
       width: "32px",
     },
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][1],
       cell: (row: ViewCountDataRow) => (
         <TraineeCell img={row.img} name={row.displayName} />
       ),
     },
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][2],
+      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][2],
       cell: (row: ViewCountDataRow) => (
         <ViewCountCell viewCount={row.viewCount} videoId={row.videoId} />
       ),
@@ -187,14 +187,14 @@ export const TraineeDataTable: FC<TraineeDataTableProps> = ({ pending, data, fil
 
   const columns: TableColumn<AnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][1],
       cell: (row: AnalyticsDataRow) => (
         <TraineeCell img={{ src: row.img?.src ?? "", alt: row.img?.alt ?? ""}} name={row.displayName ?? ""} />
       ),
       sortable: true,
     },
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][2],
+      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][2],
       cell: (row: AnalyticsDataRow) => (
         <ViewCountCell viewCount={row.fancamCount} videoId={row.fancamVideoId} rank={row.fancamCountRank} />
       ),
@@ -203,7 +203,7 @@ export const TraineeDataTable: FC<TraineeDataTableProps> = ({ pending, data, fil
       sortFunction: fancamCountSort,
     },
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][3],
+      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][3],
       cell: (row: AnalyticsDataRow) => (
         <ViewCountCell viewCount={row.prCount} videoId={row.prVideoId} rank={row.prCountRank} />
       ),
@@ -212,7 +212,7 @@ export const TraineeDataTable: FC<TraineeDataTableProps> = ({ pending, data, fil
       sortFunction: prCountSort,
     },
     {
-      name: CONTENTS[language]["analytics"]["viewCountTable"]["columns"][4],
+      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][4],
       cell: (row: AnalyticsDataRow) => (
         <ViewCountCell viewCount={row.eyeContactCount} videoId={row.eyeContactVideoId} rank={row.eyeContactCountRank} />
       ),
