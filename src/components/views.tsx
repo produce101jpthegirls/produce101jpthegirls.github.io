@@ -25,12 +25,12 @@ export const getItemImage = (item: Trainee) => {
   };
 };
 
-export const getItemThumbnail = (item: Trainee) => {
-  return {
-    src: "/assets/trainees/profile_thumbnail/" + item.code + ".jpg",
-    alt: item.nameEn,
-  };
-};
+export const getItemThumbnail = (item: Trainee) => getThumbnail(item.code, item.nameEn);
+
+export const getThumbnail = (traineeId: string, alt: string) => ({
+  src: "/assets/trainees/profile_thumbnail/" + traineeId + ".jpg",
+  alt: alt,
+});
 
 const addTrainee = (
   isSelected: boolean,

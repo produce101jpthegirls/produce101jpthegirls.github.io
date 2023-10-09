@@ -5,39 +5,33 @@ import Header from "@/components/header";
 import { StableLink } from "@/components/links";
 import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
-import { AnalyticsData, AnalyticsDataResponse, AnalyticsDataRow, TopNDataTable, TraineeDataTable } from "@/components/tables";
+import { AnalyticsData, AnalyticsDataResponse, DetailedDataTable, TopNDataTable } from "@/components/tables";
 import Toggle from "@/components/toggle";
 import { getItemThumbnail } from "@/components/views";
 import { TRAINEES, firebaseConfig } from "@/constants";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
-import { isCompletedSelection, parseHumanNumber } from "@/utils";
+import { isCompletedSelection } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
 import { GetStaticPaths } from "next/types";
 import { useEffect, useState } from "react";
 // import mockDb from "@/data/mock_db.json";
 
-const preprocessAnalyticsResponse = (items: AnalyticsDataRow[], language: string, calcRank?: boolean) => {
-  // Set display names
-  items.forEach((row) => {
-    const m = /(?<jp>.+)\((?<en>.+)\)/.exec(row.name);
-    return row.displayName = row.id + " / " + (language === "en" ? m?.groups?.en : m?.groups?.jp);
-  });
+const id2trainees = TRAINEES.reduce((acc, cur, i) => {
+  acc[cur.code] = cur;
+  return acc;
+}, {} as { [id: string]: any });
+
+const preprocessAnalyticsResponse = (data: AnalyticsData) => {
   // Set profile thumbnails
-  items.forEach((row, index) => {
-    row.img = getItemThumbnail(TRAINEES[index]);
-  })
-  // Calculate ranking
-  if (calcRank) {
-    items.sort((a, b) => parseHumanNumber(b.fancamCount) - parseHumanNumber(a.fancamCount));
-    items.forEach((item, index) => item.fancamCountRank = index + 1);
-    items.sort((a, b) => parseHumanNumber(b.prCount) - parseHumanNumber(a.prCount));
-    items.forEach((item, index) => item.prCountRank = index + 1);
-    items.sort((a, b) => parseHumanNumber(b.eyeContactCount) - parseHumanNumber(a.eyeContactCount));
-    items.forEach((item, index) => item.eyeContactCountRank = index + 1);
-    items.sort((a, b) => parseInt(a.id) - parseInt(b.id));
-  }
+  Object.values(data).forEach((table) => {
+    table.forEach((row) => {
+      row.trainees.forEach((trainee) => {
+        trainee.img = getItemThumbnail(id2trainees[trainee.id]);
+      });
+    });
+  });
 };
 
 export const getStaticPaths = (async () => {
@@ -79,30 +73,30 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
 
   useEffect(() => {
     // setPending(false);
-    // const response: AnalyticsDataResponse = mockDb.data.analytics;
+    // const response: AnalyticsDataResponse = mockDb.data.analytics_2;
     // const items = response.items;
-    // preprocessAnalyticsResponse(items, language, true);
+    // preprocessAnalyticsResponse(items);
     // setData(items);
     // setUpdatedAt(response.updatedAt);
     initializeApp(firebaseConfig);
     const db = getDatabase();
-    get(ref(db, "/data/analytics"))
+    get(ref(db, "/data/analytics_2"))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
         const items = response.items;
-        preprocessAnalyticsResponse(items, language, true);
+        preprocessAnalyticsResponse(items);
         setPending(false);
         setData(items);
         setUpdatedAt(response.updatedAt);
       });
   }, []);
 
-  useEffect(() => {
-    if (data) {
-      preprocessAnalyticsResponse(data, language, false);
-      setData(data);
-    }
-  }, [data, language]);
+  // useEffect(() => {
+  //   if (data) {
+  //     preprocessAnalyticsResponse(data, language, false);
+  //     setData(data);
+  //   }
+  // }, [data, language]);
 
   return (
     <main className="h-full">
@@ -160,59 +154,40 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
               <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <TopNDataTable
                   pending={pending}
-                  data={data?.map((row) => ({
-                    displayName: row.displayName ?? "",
-                    img: {
-                      src: row.img?.src ?? "",
-                      alt: row.img?.alt ?? "",
-                    },
-                    rank: row.eyeContactCountRank ?? -1,
-                    viewCount: row.eyeContactCount,
-                    videoId: row.eyeContactVideoId,
-                  })) ?? []}
+                  data={data ? data["speed_eating"] : []}
+                  n={11}
+                  filterSelected={filterEnabled}
+                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][3]}
+                />
+                <TopNDataTable
+                  pending={pending}
+                  data={data ? data["eye_contact"] : []}
                   n={11}
                   filterSelected={filterEnabled}
                   title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][2]}
                 />
                 <TopNDataTable
                   pending={pending}
-                  data={data?.map((row) => ({
-                    displayName: row.displayName ?? "",
-                    img: {
-                      src: row.img?.src ?? "",
-                      alt: row.img?.alt ?? "",
-                    },
-                    rank: row.prCountRank ?? -1,
-                    viewCount: row.prCount,
-                    videoId: row.prVideoId,
-                  })) ?? []}
+                  data={data ? data["pr"] : []}
                   n={11}
                   filterSelected={filterEnabled}
                   title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][1]}
                 />
                 <TopNDataTable
                   pending={pending}
-                  data={data?.map((row) => ({
-                    displayName: row.displayName ?? "",
-                    img: {
-                      src: row.img?.src ?? "",
-                      alt: row.img?.alt ?? "",
-                    },
-                    rank: row.fancamCountRank ?? -1,
-                    viewCount: row.fancamCount,
-                    videoId: row.fancamVideoId,
-                  })) ?? []}
+                  data={data ? data["fancam"] : []}
                   n={11}
                   filterSelected={filterEnabled}
                   title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][0]}
                 />
               </div>
             ) : (
-              <TraineeDataTable
+              <DetailedDataTable
                 pending={pending}
-                data={data ?? []}
+                data={data}
                 filterSelected={filterEnabled}
               />
+              // <></>
             )}
           </div>
         </div>

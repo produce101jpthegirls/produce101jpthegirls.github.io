@@ -82,6 +82,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH ステージ映像 (2023-09-03)",
             "1分PR映像 (2023.09.04)",
             "アイコンタクト映像 (2023-09-28)",
+            "パクパク早食い対決 (2023-10-08)",
           ],
           columns: [
             "#",
@@ -99,6 +100,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH ステージ映像",
             "1分PR映像",
             "LEAP HIGH アイコンタクト映像",
+            "パクパク早食い対決",
           ],
         },
       },
@@ -143,6 +145,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH FANCAM (2023-09-03)",
             "1 MIN PR (2023.09.04)",
             "EYE CONTACT (2023-09-28)",
+            "SPEED EATING (2023-10-08)",
           ],
           columns: [
             "#",
@@ -160,6 +163,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH FANCAM",
             "1 MIN PR",
             "EYE CONTACT",
+            "SPEED EATING",
           ],
         },
       },
@@ -204,6 +208,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH 舞台直拍 (2023-09-03)",
             "1分鐘PR影片 (2023.09.04)",
             "LEAP HIGH 眼神交流影片 (2023-09-28)",
+            "吃甜甜圈對決 (2023-10-08)",
           ],
           columns: [
             "#",
@@ -221,6 +226,7 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
             "LEAP HIGH 舞台直拍",
             "1分鐘PR影片",
             "LEAP HIGH 眼神交流影片",
+            "吃甜甜圈對決",
           ],
         },
       }
