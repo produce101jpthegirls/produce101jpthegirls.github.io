@@ -202,18 +202,21 @@ const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]";
 
 const getClassColor = (c: string): string => {
   if (c === "A") {
-    return "text-[#ed00e6]";
+    return "bg-[#ed00e6]";
   }
   if (c === "B") {
-    return "text-[#f48919]";
+    return "bg-[#f48919]";
   }
   if (c === "C") {
-    return "text-[#d8dc25]";
+    return "bg-[#d8dc25]";
   }
   if (c === "D") {
-    return "text-[#4eeb19]";
+    return "bg-[#4eeb19]";
   }
-  return "text-[#727073]";
+  if (c === "F") {
+    return "bg-[#727073]";
+  }
+  return "bg-[#cdcdcd]";
 };
 
 type ListViewProps = {
@@ -247,8 +250,8 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
               <div className="sm:mt-0.5 flex gap-4 items-center">
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
-                <span className="select-none">{item.mbtiType}</span>
-                <span className={`select-none grow text-right ${traineeClassClassName}`}>{traineeClass}</span>
+                <span className="select-none grow">{item.mbtiType}</span>
+                <span className={`select-none text-white font-bold opacity-95 ${traineeClassClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{traineeClass}</span>
               </div>
               <div className="sm:mt-0.5 flex justify-between items-end text-sm">
                 <div className="flex gap-3 item-centers">
