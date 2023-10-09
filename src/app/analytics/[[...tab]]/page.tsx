@@ -14,7 +14,6 @@ import { CONTENTS } from "@/i18n";
 import { isCompletedSelection } from "@/utils";
 import { initializeApp } from "firebase/app";
 import { get, getDatabase, ref } from "firebase/database";
-import { GetStaticPaths } from "next/types";
 import { useEffect, useState } from "react";
 // import mockDb from "@/data/mock_db.json";
 
@@ -34,28 +33,13 @@ const preprocessAnalyticsResponse = (data: AnalyticsData) => {
   });
 };
 
-export const getStaticPaths = (async () => {
-  return {
-    paths: [
-      {
-        params: {
-          tab: "",
-        },
-      },
-      {
-        params: {
-          tab: "overview",
-        },
-      },
-      {
-        params: {
-          tab: "details",
-        },
-      },
-    ],
-    fallback: false,  // If fallback is false, then any paths not returned by getStaticPaths will result in a 404 page.
-  }
-}) satisfies GetStaticPaths;
+export function generateStaticParams() {
+  return [
+    { tab: [""] },
+    { tab: ["overview"] },
+    { tab: ["details"] },
+  ];
+}
 
 export default function Analytics({ params }: { params: { tab: string[] } }) {
   const tab = params.tab ? params.tab[0] : "overview";
