@@ -23,6 +23,7 @@ type AnalyticsVideo = {
 };
 
 export type AnalyticsDataRow = {
+  name?: string;
   rank: number;
   video: AnalyticsVideo;
   trainees: AnalyticsTrainee[];
@@ -153,7 +154,7 @@ const TraineesCell: FC<TraineesCellProps> = ({ trainees }) => {
         const displayId = trainee.id.split("_")[0];
         const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
         return (
-          <div className="flex items-center gap-2 truncate">
+          <div key={trainee.id} className="flex items-center gap-2 truncate">
             <img className="rounded-full w-8 h-8 hidden sm:block" src={img.src} alt={img.alt} />
             <span className="truncate">
               <span className="hidden sm:inline">{displayId}🌸</span>
