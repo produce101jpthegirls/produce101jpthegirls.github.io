@@ -30,13 +30,28 @@ export type AnalyticsDataRow = {
   trainees: AnalyticsTrainee[];
 };
 
-export type AnalyticsData = {
-  [category: string]: AnalyticsDataRow[];
+export type AnalyticsTable = {
+  titles: {
+    ja: string;
+    en: string;
+    zh: string;
+  };
+  uploadedAt: string;
+  data: AnalyticsDataRow[];
+};
+
+type AnalyticsSection = {
+  titles: {
+    ja: string;
+    en: string;
+    zh: string;
+  };
+  tables: AnalyticsTable[],
 };
 
 export type AnalyticsDataResponse = {
   updatedAt: number;
-  items: AnalyticsData;
+  sections: AnalyticsSection[];
 };
 
 export type ViewCountDataRow = {
@@ -52,17 +67,13 @@ export type ViewCountDataRow = {
 
 type DetailedAnalyticsDataRow = {
   trainee: AnalyticsTrainee;
-  level_division: AnalyticsVideo;
-  speed_eating: AnalyticsVideo;
-  eye_contact: AnalyticsVideo;
-  pr: AnalyticsVideo;
-  fancam: AnalyticsVideo;
+  videos: AnalyticsVideo[];
 };
 
 const DATA_TABLE_CUSTOM_STYLES: TableStyles = {
   header: {
     style: {
-      fontSize: "18px",
+      fontSize: "16px",
       padding: "0",
       color: "#ff67b3",
     },
@@ -112,7 +123,7 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
     {
       name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][0],
       selector: (row: AnalyticsDataRow) => row.rank,
-      width: "28px",
+      width: "32px",
     },
     {
       name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][1],
@@ -143,18 +154,33 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
   );
 };
 
+type TraineeIconProps = {
+  trainee: AnalyticsTrainee;
+};
+
+const TraineeIcon: FC<TraineeIconProps> = ({ trainee }) => {
+  const { language } = useSiteContext();
+  const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
+  return (
+    <img
+      key={trainee.id}
+      className="rounded-full w-7 h-7 sm:w-8 hover:brightness-90 hidden sm:block"
+      src={img.src}
+      alt={img.alt}
+      title={language === "en" ? trainee.nameEn : trainee.nameJp}
+    />
+  );
+};
+
 type TraineeIconsProps = {
   trainees: AnalyticsTrainee[];
 };
 
 const TraineeIcons: FC<TraineeIconsProps> = ({ trainees }) => {
   return (
-    <div className="mt-1 flex gap-1">
+    <div className="flex mt-1 gap-1 sm:h-8">
       {trainees.map((trainee) => {
-        const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
-        return (
-          <img key={trainee.id} className="rounded-full w-7 h-7 sm:w-8 sm:h-8 sm:hidden" src={img.src} alt={img.alt} />
-        );
+        return <TraineeIcon trainee={trainee} />;
       })}
     </div>
   );
@@ -173,10 +199,7 @@ const renderCustomName = (trainees: AnalyticsTrainee[], customName: string) => {
   }
   return (
     <>
-      <div className="flex items-center gap-1">
-        <TraineeIcons trainees={trainees} />
-        <span className="pl-1">{customName}</span>
-      </div>
+      <div className="flex items-center gap-1">{customName}</div>
       <TraineeIcons trainees={trainees} />
     </>
   );
@@ -204,7 +227,7 @@ const TraineesCell: FC<TraineesCellProps> = ({ trainees, customName }) => {
           const img = trainee.img ? trainee.img : { "src": "", "alt": "" };
           return (
             <div key={trainee.id} className="flex items-center gap-2 truncate">
-              <img className="rounded-full w-8 h-8 hidden sm:block" src={img.src} alt={img.alt} />
+              <TraineeIcon trainee={trainee} />
               <span className="truncate">
                 <span className="hidden sm:inline">{displayId}🌸</span>
                 <span></span>{language === "en" ? trainee.nameEn : trainee.nameJp}</span>
@@ -243,50 +266,40 @@ const ViewCountCell: FC<ViewCountCellProps> = ({ viewCount, videoId, rank }) => 
 
 type DetailedDataTableProps = {
   pending: boolean;
-  data?: AnalyticsData;
+  tables: AnalyticsTable[];
   filterSelected: boolean;
 };
 
-export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, data, filterSelected }) => {
+export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, tables, filterSelected }) => {
   const { selected, language } = useSiteContext();
 
-  let detailedData: DetailedAnalyticsDataRow[] = [];
+  let data: DetailedAnalyticsDataRow[] = [];
 
-  if (data) {
-    console.log(data)
-    const columnData = [
-      data.level_division,
-      data.speed_eating,
-      data.eye_contact,
-      data.pr,
-      data.fancam,
-    ].map((table) => {
-      const newTable: { [traineeId: string]: AnalyticsVideo } = {};
-      table.forEach((row) => {
-        row.trainees.map((trainee) => {
-          newTable[trainee.id] = row.video;
-        })
+  const mapping = tables.map((table) => {
+    const newTable: { [traineeId: string]: AnalyticsVideo } = {};
+    table.data.forEach((row) => {
+      row.trainees.forEach((trainee) => {
+        newTable[trainee.id] = row.video;
       });
-      return newTable;
     });
+    return newTable;
+  });
+
+  if (mapping.length) {
+    const filteredTrainees = filterSelected && isCompletedSelection(selected) ? (
+      selected.map((index) => TRAINEES[index])
+    ) : (
+      TRAINEES
+    );
   
-    const filteredTrainees = filterSelected && isCompletedSelection(selected) ? selected.map((index) => TRAINEES[index]) : TRAINEES;
-  
-    detailedData = filteredTrainees.map((trainee) => ({
+    data = filteredTrainees.map((trainee) => ({
       trainee: {
         id: trainee.code,
         nameEn: trainee.nameEn,
         nameJp: trainee.nameJp,
         img: getThumbnail(trainee.code, trainee.nameEn),
       },
-      level_division: columnData[0][trainee.code] ?? ({
-        viewCount: undefined,
-        id: undefined,
-      }),
-      speed_eating: columnData[1][trainee.code],
-      eye_contact: columnData[2][trainee.code],
-      pr: columnData[3][trainee.code],
-      fancam: columnData[4][trainee.code],
+      videos: mapping.map((m) => m[trainee.code]  ?? { id: undefined, viewCount: undefined }),
     }));
   }
 
@@ -299,57 +312,25 @@ export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, data, f
       sortable: true,
       sortFunction: (a, b) => parseInt(a.trainee.id.split("_")[0]) - parseInt(b.trainee.id.split("_")[0]),
     },
-    {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][6],
-      cell: (row: DetailedAnalyticsDataRow) => (
-        <ViewCountCell viewCount={row.speed_eating.viewCount} videoId={row.speed_eating.id} />
-      ),
-      minWidth: "60px",
-      sortable: true,
-      sortFunction: (a, b) => getViewCountNumber(b.speed_eating.viewCount) - getViewCountNumber(a.speed_eating.viewCount),
-    },
-    {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][5],
-      cell: (row: DetailedAnalyticsDataRow) => (
-        <ViewCountCell viewCount={row.level_division.viewCount} videoId={row.level_division.id} />
-      ),
-      minWidth: "60px",
-      sortable: true,
-      sortFunction: (a, b) => getViewCountNumber(b.level_division.viewCount) - getViewCountNumber(a.level_division.viewCount),
-    },
-    {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][4],
-      cell: (row: DetailedAnalyticsDataRow) => (
-        <ViewCountCell viewCount={row.eye_contact.viewCount} videoId={row.eye_contact.id} />
-      ),
-      minWidth: "60px",
-      sortable: true,
-      sortFunction: (a, b) => getViewCountNumber(b.eye_contact.viewCount) - getViewCountNumber(a.eye_contact.viewCount),
-    },
-    {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][3],
-      cell: (row: DetailedAnalyticsDataRow) => (
-        <ViewCountCell viewCount={row.pr.viewCount} videoId={row.pr.id} />
-      ),
-      minWidth: "60px",
-      sortable: true,
-      sortFunction: (a, b) => getViewCountNumber(b.pr.viewCount) - getViewCountNumber(a.pr.viewCount),
-    },
-    {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][2],
-      cell: (row: DetailedAnalyticsDataRow) => (
-        <ViewCountCell viewCount={row.fancam.viewCount} videoId={row.fancam.id} />
-      ),
-      minWidth: "60px",
-      sortable: true,
-      sortFunction: (a, b) => getViewCountNumber(b.fancam.viewCount) - getViewCountNumber(a.fancam.viewCount),
-    },
+    ...tables.map((table, index) => {
+      return ({
+        name: table.titles[language],
+        cell: (row: DetailedAnalyticsDataRow) => {
+          return (
+            <ViewCountCell viewCount={row.videos[index].viewCount} videoId={row.videos[index].id} />
+          );
+        },
+        minWidth: "60px",
+        sortable: true,
+        sortFunction: (a: DetailedAnalyticsDataRow, b: DetailedAnalyticsDataRow) => getViewCountNumber(b.videos[index].viewCount) - getViewCountNumber(a.videos[index].viewCount),
+      })
+    }),
   ];
 
   return (
     <DataTable
       columns={columns}
-      data={detailedData}
+      data={data}
       progressPending={pending}
       striped
       highlightOnHover

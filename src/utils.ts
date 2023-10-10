@@ -67,8 +67,8 @@ export const getItemTopImage = (item: Trainee) => {
   };
 };
 
-export const getLanguageId = (id: string | null) => {
-  if (id && ["ja", "en", "zh"].includes(id)) {
+export const getLanguageId = (id: string | null): ("ja" | "en" | "zh") => {
+  if (id === "ja" || id === "en" || id === "zh") {
     return id;
   }
   return "ja";

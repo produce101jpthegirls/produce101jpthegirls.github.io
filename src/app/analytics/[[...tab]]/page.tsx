@@ -5,7 +5,7 @@ import Header from "@/components/header";
 import { StableLink } from "@/components/links";
 import MyPick from "@/components/my_pick";
 import Section from "@/components/section";
-import { AnalyticsData, AnalyticsDataResponse, DetailedDataTable, TopNDataTable } from "@/components/tables";
+import { AnalyticsDataResponse, AnalyticsTable, DetailedDataTable, TopNDataTable } from "@/components/tables";
 import Toggle from "@/components/toggle";
 import { getItemThumbnail } from "@/components/views";
 import { TRAINEES, firebaseConfig } from "@/constants";
@@ -22,13 +22,11 @@ const id2trainees = TRAINEES.reduce((acc, cur, i) => {
   return acc;
 }, {} as { [id: string]: any });
 
-const preprocessAnalyticsResponse = (data: AnalyticsData) => {
+const preprocessTable = (table: AnalyticsTable) => {
   // Set profile thumbnails
-  Object.values(data).forEach((table) => {
-    table.forEach((row) => {
-      row.trainees.forEach((trainee) => {
-        trainee.img = getItemThumbnail(id2trainees[trainee.id]);
-      });
+  table.data.forEach((row) => {
+    row.trainees.forEach((trainee) => {
+      trainee.img = getItemThumbnail(id2trainees[trainee.id]);
     });
   });
 };
@@ -45,8 +43,7 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
   const tab = params.tab ? params.tab[0] : "overview";
   const { selected, language } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
-  const [data, setData] = useState<AnalyticsData | undefined>(undefined);
-  const [updatedAt, setUpdatedAt] = useState<number | undefined>(undefined);
+  const [response, setResponse] = useState<AnalyticsDataResponse | undefined>(undefined);
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
 
   const isCompleted = selected && isCompletedSelection(selected);
@@ -57,30 +54,23 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
 
   useEffect(() => {
     // setPending(false);
-    // const response: AnalyticsDataResponse = mockDb.data.analytics_2;
-    // const items = response.items;
-    // preprocessAnalyticsResponse(items);
-    // setData(items);
-    // setUpdatedAt(response.updatedAt);
+    // const response: AnalyticsDataResponse = mockDb.data.analytics_3;
+    // response.sections.forEach((section) => {
+    //   section.tables.forEach((table) => preprocessTable(table));
+    // });
+    // setResponse(response);
     initializeApp(firebaseConfig);
     const db = getDatabase();
-    get(ref(db, "/data/analytics_2"))
+    get(ref(db, "/data/analytics_3"))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
-        const items = response.items;
-        preprocessAnalyticsResponse(items);
+        response.sections.forEach((section) => {
+          section.tables.forEach((table) => preprocessTable(table));
+        });
+        setResponse(response);
         setPending(false);
-        setData(items);
-        setUpdatedAt(response.updatedAt);
       });
   }, []);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     preprocessAnalyticsResponse(data, language, false);
-  //     setData(data);
-  //   }
-  // }, [data, language]);
 
   return (
     <main className="h-full">
@@ -120,7 +110,7 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
                   pathname={tab === "overview" ? "/analytics/details" : "/analytics/overview"}
                 >here</StableLink>
               </p>
-              {updatedAt && (
+              {response?.updatedAt && (
                 <p className="mb-3 text-sm">{
                   CONTENTS[language]["analytics"]["updatedAtFn"](
                     new Intl.DateTimeFormat("en-US", {
@@ -130,52 +120,35 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
                       "hour": "2-digit",
                       "minute": "2-digit",
                     },
-                  ).format(new Date(updatedAt)))
+                  ).format(new Date(response.updatedAt)))
                 }</p>
               )}
             </div>
             {tab === "overview" ? (
-              <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <TopNDataTable
-                  pending={pending}
-                  data={data ? data["speed_eating"] : []}
-                  n={11}
-                  filterSelected={filterEnabled}
-                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][4]}
-                />
-                <TopNDataTable
-                  pending={pending}
-                  data={data ? data["level_division"] : []}
-                  n={11}
-                  filterSelected={filterEnabled}
-                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][3]}
-                />
-                <TopNDataTable
-                  pending={pending}
-                  data={data ? data["eye_contact"] : []}
-                  n={11}
-                  filterSelected={filterEnabled}
-                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][2]}
-                />
-                <TopNDataTable
-                  pending={pending}
-                  data={data ? data["pr"] : []}
-                  n={11}
-                  filterSelected={filterEnabled}
-                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][1]}
-                />
-                <TopNDataTable
-                  pending={pending}
-                  data={data ? data["fancam"] : []}
-                  n={11}
-                  filterSelected={filterEnabled}
-                  title={CONTENTS[language]["analytics"]["overviewTab"]["table"]["titles"][0]}
-                />
-              </div>
+              pending ? (
+                <div>Loading...</div>
+              ) : (
+                response?.sections.map((section) => (
+                  <div className="mt-4">
+                    <h4 className="text-pd-pink-400 sm:text-lg font-bold">{section.titles[language]}</h4>
+                    <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {section.tables.map((table) => (
+                        <TopNDataTable
+                          pending={pending}
+                          data={table.data}
+                          n={11}
+                          filterSelected={filterEnabled}
+                          title={table.titles[language]}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))
+              )
             ) : (
               <DetailedDataTable
                 pending={pending}
-                data={data}
+                tables={response?.sections.flatMap((section) => section.tables) ?? []}
                 filterSelected={filterEnabled}
               />
               // <></>
