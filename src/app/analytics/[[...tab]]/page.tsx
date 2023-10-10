@@ -128,12 +128,13 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
               pending ? (
                 <div>Loading...</div>
               ) : (
-                response?.sections.map((section) => (
-                  <div className="mt-4">
+                response?.sections.map((section, index) => (
+                  <div key={index} className="mt-4">
                     <h4 className="text-pd-pink-400 sm:text-lg font-bold">{section.titles[language]}</h4>
                     <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {section.tables.map((table) => (
+                      {section.tables.map((table, index) => (
                         <TopNDataTable
+                          key={index}
                           pending={pending}
                           data={table.data}
                           n={11}

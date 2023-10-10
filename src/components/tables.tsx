@@ -180,7 +180,7 @@ const TraineeIcons: FC<TraineeIconsProps> = ({ trainees }) => {
   return (
     <div className="flex mt-1 gap-1 sm:h-8">
       {trainees.map((trainee) => {
-        return <TraineeIcon trainee={trainee} />;
+        return <TraineeIcon key={trainee.id} trainee={trainee} />;
       })}
     </div>
   );
