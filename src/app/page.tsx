@@ -9,6 +9,7 @@ import { SelectionView, TraineeView } from "@/components/views";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
 import { useState } from "react";
+import Slider from "react-slick";
 
 export default function Home() {
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
@@ -18,6 +19,17 @@ export default function Home() {
   return (
     <main className="h-full">
       <Header />
+      <Section>
+        <Slider>
+          {[
+            "News 1",
+            "News 2",
+            "News 3",
+          ].map((content, index) => (
+            <p key={index}>{content}</p>
+          ))}
+        </Slider>
+      </Section>
       <Section>
         <h2
           className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold break-keep"
