@@ -18,14 +18,26 @@ type I18nContent = {
     birthyearChart: {
       title: string;
     };
+    heightChart: {
+      title: string;
+    };
   };
   analytics: {
     title: string;
     description: string;
-    viewCountTable: {
+    updatedAtFn: (updatedAtStr: string) => string;
+    overviewTab: {
       title: string;
-      updatedAtFn: (updatedAtStr: string) => string;
-      columns: string[];
+      table: {
+        titles: string[];
+        columns: string[];
+      };
+    };
+    detailsTab: {
+      title: string;
+      table: {
+        columns: string[];
+      };
     };
   };
 };
@@ -55,20 +67,44 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       birthyearChart: {
         title: "生まれ年",
       },
+      heightChart: {
+        title: "身長",
+      },
     },
     analytics: {
       title: "アナリティクス",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
-      viewCountTable: {
-        title: "映像アナリティクス",
-        updatedAtFn: (updatedAtStr: string) => `${updatedAtStr} に更新されました`,
-        columns: [
-          "#",
-          "練習生",
-          "LEAP HIGH ステージ映像",
-          "1分PR映像",
-          "LEAP HIGH アイコンタクト映像",
-        ],
+      updatedAtFn: (updatedAtStr: string) => `${updatedAtStr} に更新されました`,
+      overviewTab: {
+        title: "映像アナリティクス (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH ステージ映像 (2023-09-03)",
+            "1分PR映像 (2023.09.04)",
+            "アイコンタクト映像 (2023-09-28)",
+            "A-Fクラス分け評価 (2023-10-05)",
+            "パクパク早食い対決 (2023-10-08)",
+          ],
+          columns: [
+            "#",
+            "映像",
+            "再生回数",
+          ],
+        },
+      },
+      detailsTab: {
+        title: "映像アナリティクス (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "練習生",
+            "LEAP HIGH ステージ映像",
+            "1分PR映像",
+            "LEAP HIGH アイコンタクト映像",
+            "A-Fクラス分け評価",
+            "パクパク早食い対決",
+          ],
+        },
       },
     },
   },
@@ -94,22 +130,46 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
         title: "MBTI",
       },
       birthyearChart: {
-        title: "Birthyears",
+        title: "Birthyear",
+      },
+      heightChart: {
+        title: "Height",
       },
     },
     analytics: {
       title: "ANALYTICS",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
-      viewCountTable: {
-        title: "VIDEO ANALYTICS",
-        updatedAtFn: (updatedAtStr: string) => `Updated at ${updatedAtStr}`,
-        columns: [
-          "#",
-          "TRAINEE",
-          "LEAP HIGH FANCAM",
-          "1 MIN PR",
-          "EYE CONTACT",
-        ],
+      updatedAtFn: (updatedAtStr: string) => `Updated at ${updatedAtStr}`,
+      overviewTab: {
+        title: "VIDEO ANALYTICS (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH FANCAM (2023-09-03)",
+            "1 MIN PR (2023.09.04)",
+            "EYE CONTACT (2023-09-28)",
+            "LEVEL DIVISION TEST (2023-10-05)",
+            "SPEED EATING (2023-10-08)",
+          ],
+          columns: [
+            "#",
+            "VIDEO",
+            "VIEWS",
+          ],
+        },
+      },
+      detailsTab: {
+        title: "VIDEO ANALYTICS (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "TRAINEE",
+            "LEAP HIGH FANCAM",
+            "1 MIN PR",
+            "EYE CONTACT",
+            "LEVEL DIVISION TEST",
+            "SPEED EATING",
+          ],
+        },
       },
     },
   },
@@ -137,20 +197,44 @@ export const CONTENTS: { [lang: string]: I18nContent } = {
       birthyearChart: {
         title: "出生年份",
       },
+      heightChart: {
+        title: "身高",
+      },
     },
     analytics: {
       title: "數據分析",
       description: "The analytics include the view counts of the following videos:\nthe LEAP HIGH stage fancams, the 1 min PR videos and the LEAP HIGH eye contact videos.\nThe view counts are updated every hour.",
-      viewCountTable: {
-        title: "影片數據分析",
-        updatedAtFn: (updatedAtStr: string) => `更新於 ${updatedAtStr}`,
-        columns: [
-          "#",
-          "練習生",
-          "LEAP HIGH 舞台影片",
-          "1分鐘PR影片",
-          "LEAP HIGH 眼神交流影片",
-        ],
+      updatedAtFn: (updatedAtStr: string) => `更新於 ${updatedAtStr}`,
+      overviewTab: {
+        title: "影片數據分析 (OVERVIEW)",
+        table: {
+          titles: [
+            "LEAP HIGH 舞台直拍 (2023-09-03)",
+            "1分鐘PR影片 (2023.09.04)",
+            "LEAP HIGH 眼神交流影片 (2023-09-28)",
+            "A-F分級評價 (2023-10-05)",
+            "吃甜甜圈對決 (2023-10-08)",
+          ],
+          columns: [
+            "#",
+            "影片",
+            "觀看次數",
+          ],
+        },
+      },
+      detailsTab: {
+        title: "影片數據分析 (DETAILS)",
+        table: {
+          columns: [
+            "#",
+            "練習生",
+            "LEAP HIGH 舞台直拍",
+            "1分鐘PR影片",
+            "LEAP HIGH 眼神交流影片",
+            "A-F分級評價",
+            "吃甜甜圈對決",
+          ],
+        },
       }
     },
   },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import RootLayout from "../layout";
+import RootLayout from "../../layout";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://produce101jpthegirls.github.io"),

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useCallback, useMemo, useState } from "react";
 import { AvatarDropdown } from "./dropdowns";
+import Select, { SelectOption } from "./select";
 import Toggle from "./toggle";
 
 const archivo_black_jp = Archivo_Black({
@@ -19,10 +20,17 @@ const archivo_black_jp = Archivo_Black({
 
 export const getItemImage = (item: Trainee) => {
   return {
-    src: "/assets/trainees/" + item.code + ".jpg",
+    src: "/assets/trainees/profile/" + item.code + ".jpg",
     alt: item.nameEn,
   };
 };
+
+export const getItemThumbnail = (item: Trainee) => getThumbnail(item.code, item.nameEn);
+
+export const getThumbnail = (traineeId: string, alt: string) => ({
+  src: "/assets/trainees/profile_thumbnail/" + traineeId + ".jpg",
+  alt: alt,
+});
 
 const addTrainee = (
   isSelected: boolean,
@@ -190,7 +198,26 @@ export const Avatar: FC<AvatarProps> = ({
   )
 };
 
-const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]"
+const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]";
+
+const getClassColor = (c: string): string => {
+  if (c === "A") {
+    return "bg-[#ed00e6]";
+  }
+  if (c === "B") {
+    return "bg-[#f48919]";
+  }
+  if (c === "C") {
+    return "bg-[#d8dc25]";
+  }
+  if (c === "D") {
+    return "bg-[#4eeb19]";
+  }
+  if (c === "F") {
+    return "bg-[#727073]";
+  }
+  return "bg-[#cdcdcd]";
+};
 
 type ListViewProps = {
   items: Trainee[];
@@ -203,13 +230,15 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
     <ul className={`${TRAINEE_VIEW_HEIGHT} flex flex-col overflow-y-auto text-pd-gray-900`}>
       {items.map((item) => {
         const isSelected = selected.includes(item.index);
+        const traineeClass = item.classes.length > 0 ? item.classes[item.classes.length - 1] : "?";
+        const traineeClassClassName = getClassColor(traineeClass);
         return (
           <li
             key={item.id}
             className={`flex gap-4 items-center hover:bg-zinc-100 px-3 py-2 sm:px-4 sm:py-2.5 ${isSelected ? "bg-zinc-100" : "cursor-pointer"}`}
             onClick={() => addTrainee(isSelected, selected, setSelected, item.index)}
           >
-            <Avatar rankIndex={-1} traineeIndex={item.index} size="medium" image={getItemImage(item)} />
+            <Avatar rankIndex={-1} traineeIndex={item.index} size="medium" image={getItemThumbnail(item)} />
             <div className="grow">
               <div className="flex justify-between">
                 <div>
@@ -221,7 +250,8 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
               <div className="sm:mt-0.5 flex gap-4 items-center">
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
-                <span className="select-none">{item.mbtiType}</span>
+                <span className="select-none grow">{item.mbtiType}</span>
+                <span className={`select-none text-white font-bold opacity-95 ${traineeClassClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{traineeClass}</span>
               </div>
               <div className="sm:mt-0.5 flex justify-between items-end text-sm">
                 <div className="flex gap-3 item-centers">
@@ -322,10 +352,15 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
 };
 
 export const TraineeView: FC = () => {
+  const sortByOptions = [
+    { id: 1, name: "ID" },
+    { id: 2, name: "CLASS" },
+  ];
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
+  const [sortBy, setSortBy] = useState<SelectOption>(sortByOptions[0]);
   const { selected, setSelected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
@@ -341,6 +376,24 @@ export const TraineeView: FC = () => {
       trainee.id.toLowerCase().replaceAll(" ", "").includes(_query)
     );
   });
+
+  let sortedTrainees = filteredTrainees;
+  if (sortBy.name === "ID") {
+    sortedTrainees.sort((a, b) => a.index - b.index);
+  } else if (sortBy.name === "CLASS") {
+    sortedTrainees.sort((a, b) => {
+      const classA = a.classes.length > 0 ? a.classes[a.classes.length - 1] : "Z";
+      const classB = b.classes.length > 0 ? b.classes[b.classes.length - 1] : "Z";
+      if (classA > classB) {
+        return 1;
+      }
+      if (classA < classB) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  
 
   return (
     <>
@@ -396,7 +449,7 @@ export const TraineeView: FC = () => {
         </div>
       </div>
       <div className="pl-3 pr-4 py-2 sm:py-2.5 flex gap-2 items-center justify-between border-b">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 grow">
           <Toggle
             enabled={filterEnabled}
             setEnabled={setFilterEnabled}
@@ -406,7 +459,8 @@ export const TraineeView: FC = () => {
           />
           <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
         </div>
-        <span className="text-pd-gray-300 text-sm">SORT BY ID</span>
+        <span className="text-pd-gray-300 text-sm">SORT BY</span>
+        <Select selected={sortBy} setSelected={setSortBy} options={sortByOptions} />
       </div>
       {display === "list" ? (
         <ListView items={filteredTrainees} selected={selected} setSelected={setSelected} />

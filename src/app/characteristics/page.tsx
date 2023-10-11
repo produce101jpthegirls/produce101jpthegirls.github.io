@@ -38,10 +38,10 @@ const createBirthyearDataEntries = (trainees: Trainee[]) => {
   const birthyears = trainees.map((trainee) => trainee.birthday.split(".")[0]);
   const birthyearCount = countBy(birthyears);
   const birthyearEntries = Object.entries(birthyearCount).sort((a, b) => {
-    if (a < b) {
+    if (a[0] < b[0]) {
       return 1;
     }
-    if (a > b) {
+    if (a[0] > b[0]) {
       return -1;
     }
     return 0;
@@ -49,6 +49,14 @@ const createBirthyearDataEntries = (trainees: Trainee[]) => {
   return birthyearEntries;
 };
 const allBirthyearEntries = createBirthyearDataEntries(TRAINEES);
+
+const createHeightDataEntries = (trainees: Trainee[]) => {
+  const heights = trainees.map((trainee) => trainee.height.toFixed(0));
+  const heightCount = countBy(heights);
+  const heightEntries = Object.entries(heightCount).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
+  return heightEntries
+};
+const allHeightEntries = createHeightDataEntries(TRAINEES);
 
 const getEntryLabels = (entries: [string, number][]): string[] => entries.map((entry) => entry[0]);
 const getEntryData = (entries: [string, number][]): number[] => entries.map((entry) => entry[1]);
@@ -59,10 +67,12 @@ export default function Characteristics() {
   let selectedTrainees: Trainee[] | undefined = undefined;
   let mbtiEntries: [string, number][] | undefined = undefined;
   let birthyearEntries: [string, number][] | undefined = undefined;
+  let heightEntries: [string, number][] | undefined = undefined;
   if (selected !== undefined && isCompletedSelection(selected)) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
     mbtiEntries = createMbtiDataEntries(selectedTrainees);
     birthyearEntries = createBirthyearDataEntries(selectedTrainees);
+    heightEntries = createHeightDataEntries(selectedTrainees);
   }
 
   return (
@@ -86,7 +96,7 @@ export default function Characteristics() {
             </p>
           )}
         </Section>
-        {selectedTrainees && mbtiEntries && birthyearEntries && (
+        {selectedTrainees && mbtiEntries && birthyearEntries && heightEntries && (
           <div
             className="pb-4 sm:pb-8 px-4 text-pd-gray-400 flex
             flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center sm:items-stretch"
@@ -108,6 +118,17 @@ export default function Characteristics() {
                   labels={getEntryLabels(birthyearEntries)}
                   data={getEntryData(birthyearEntries)}
                   title={CONTENTS[language]["characteristics"]["birthyearChart"]["title"]}
+                  height={180}
+                  datasetLabel="My Top 11"
+                />
+              </div>
+            </Panel>
+            <Panel>
+              <div className="p-2 sm:p-4 flex justify-center">
+                <BarChart
+                  labels={getEntryLabels(heightEntries)}
+                  data={getEntryData(heightEntries)}
+                  title={CONTENTS[language]["characteristics"]["heightChart"]["title"]}
                   height={180}
                   datasetLabel="My Top 11"
                 />
@@ -136,6 +157,17 @@ export default function Characteristics() {
                 labels={getEntryLabels(allBirthyearEntries)}
                 data={getEntryData(allBirthyearEntries)}
                 title={CONTENTS[language]["characteristics"]["birthyearChart"]["title"]}
+                height={400}
+                datasetLabel="All Trainees"
+              />
+            </div>
+          </Panel>
+          <Panel>
+            <div className="p-2 sm:p-4 flex justify-center">
+              <BarChart
+                labels={getEntryLabels(allHeightEntries)}
+                data={getEntryData(allHeightEntries)}
+                title={CONTENTS[language]["characteristics"]["heightChart"]["title"]}
                 height={400}
                 datasetLabel="All Trainees"
               />

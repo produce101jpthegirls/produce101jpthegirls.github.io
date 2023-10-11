@@ -2,7 +2,7 @@
 
 import { EMPTY_SELECTION } from "@/constants";
 import { decodeSelection, encodeSelection, getLanguageId } from "@/utils";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, FC, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from "react";
 
 type SiteContextProps = {
@@ -10,7 +10,7 @@ type SiteContextProps = {
   setSelected: Dispatch<SetStateAction<number[]>>;
   lang: string;
   setLang: Dispatch<SetStateAction<string>>;
-  language: string;
+  language: "ja" | "en" | "zh";
 };
 
 const SiteContext = createContext<SiteContextProps>({
