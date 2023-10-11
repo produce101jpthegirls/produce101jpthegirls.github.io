@@ -352,15 +352,15 @@ const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
 };
 
 export const TraineeView: FC = () => {
-  const sortByOptions = [
-    { id: 1, name: "ID" },
-    { id: 2, name: "CLASS" },
+  const sortByOptions: SelectOption[] = [
+    { name: "ID" },
+    { name: "CLASS" },
   ];
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
   const [display, setDisplay] = useState<string>("list");
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
-  const [sortBy, setSortBy] = useState<SelectOption>(sortByOptions[0]);
+  const [sortBy, setSortBy] = useState<string>(sortByOptions[0].name);
   const { selected, setSelected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
@@ -378,9 +378,9 @@ export const TraineeView: FC = () => {
   });
 
   let sortedTrainees = filteredTrainees;
-  if (sortBy.name === "ID") {
+  if (sortBy === "ID") {
     sortedTrainees.sort((a, b) => a.index - b.index);
-  } else if (sortBy.name === "CLASS") {
+  } else if (sortBy === "CLASS") {
     sortedTrainees.sort((a, b) => {
       const classA = a.classes.length > 0 ? a.classes[a.classes.length - 1] : "Z";
       const classB = b.classes.length > 0 ? b.classes[b.classes.length - 1] : "Z";
@@ -393,7 +393,7 @@ export const TraineeView: FC = () => {
       return 0;
     });
   }
-  
+
 
   return (
     <>
