@@ -31,16 +31,8 @@ const preprocessTable = (table: AnalyticsTable) => {
   });
 };
 
-export function generateStaticParams() {
-  return [
-    { tab: [""] },
-    { tab: ["overview"] },
-    { tab: ["details"] },
-  ];
-}
-
-export default function Analytics({ params }: { params: { tab: string[] } }) {
-  const tab = params.tab ? params.tab[0] : "overview";
+export default function Analytics({ params }: { params: { tab: string } }) {
+  const tab = params.tab;
   const { selected, language } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [response, setResponse] = useState<AnalyticsDataResponse | undefined>(undefined);
@@ -120,7 +112,7 @@ export default function Analytics({ params }: { params: { tab: string[] } }) {
                       "hour": "2-digit",
                       "minute": "2-digit",
                     },
-                  ).format(new Date(response.updatedAt)))
+                    ).format(new Date(response.updatedAt)))
                 }</p>
               )}
             </div>

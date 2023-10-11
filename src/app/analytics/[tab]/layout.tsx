@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ANALYTICS | PRODUCE 101 JAPAN THE GIRLS RANKER",
     description: "ANALYTICS | PRODUCE 101 JAPAN THE GIRLS RANKER, 推しメンメーカー, 出道組金字塔",
-    url: "https://produce101jpthegirls.github.io/analytics",
+    url: "https://produce101jpthegirls.github.io/analytics/overview",
     siteName: "PRODUCE 101 JAPAN THE GIRLS RANKER",
     type: "website",
     locale: "en-US",
@@ -22,5 +22,12 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+export function generateStaticParams() {
+  return [
+    { tab: "overview" },
+    { tab: "details" },
+  ];
+}
 
 export default RootLayout;
