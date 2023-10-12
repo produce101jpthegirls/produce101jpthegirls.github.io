@@ -56,5 +56,5 @@ export const firebaseConfig = {
   storageBucket: "produce101jpthegirls.appspot.com",
   messagingSenderId: "1019355306647",
   appId: "1:1019355306647:web:c518f2a8fc5669402527d2",
-  measurementId: "G-8NT0QVQN22"
+  measurementId: "G-ZJG5KYF35L",
 };
