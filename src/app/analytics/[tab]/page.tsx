@@ -33,7 +33,7 @@ const preprocessTable = (table: AnalyticsTable) => {
 
 export default function Analytics({ params }: { params: { tab: string } }) {
   const tab = params.tab;
-  const { selected, language } = useSiteContext();
+  const { selected, language, isDev } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [response, setResponse] = useState<AnalyticsDataResponse | undefined>(undefined);
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
@@ -44,6 +44,8 @@ export default function Analytics({ params }: { params: { tab: string } }) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
   }
 
+  const refPath = isDev ? "/data/dev/analytics" : "/data/analytics";
+
   useEffect(() => {
     // setPending(false);
     // const response: AnalyticsDataResponse = mockDb.data.dev.analytics;
@@ -53,7 +55,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
     // setResponse(response);
     initializeApp(FIREBASE_CONFIG);
     const db = getDatabase();
-    get(ref(db, "/data/analytics"))
+    get(ref(db, refPath))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
         response.sections.forEach((section) => {
