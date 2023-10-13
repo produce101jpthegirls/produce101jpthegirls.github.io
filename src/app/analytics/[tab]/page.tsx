@@ -25,7 +25,7 @@ const id2trainees = TRAINEES.reduce((acc, cur, i) => {
 const preprocessTable = (table: AnalyticsTable) => {
   // Set profile thumbnails
   table.data.forEach((row) => {
-    row.trainees.forEach((trainee) => {
+    row.trainees?.forEach((trainee) => {
       trainee.img = getItemThumbnail(id2trainees[trainee.id]);
     });
   });
@@ -46,14 +46,14 @@ export default function Analytics({ params }: { params: { tab: string } }) {
 
   useEffect(() => {
     // setPending(false);
-    // const response: AnalyticsDataResponse = mockDb.data.analytics_3;
+    // const response: AnalyticsDataResponse = mockDb.data.dev.analytics;
     // response.sections.forEach((section) => {
     //   section.tables.forEach((table) => preprocessTable(table));
     // });
     // setResponse(response);
     initializeApp(FIREBASE_CONFIG);
     const db = getDatabase();
-    get(ref(db, "/data/analytics_3"))
+    get(ref(db, "/data/analytics"))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
         response.sections.forEach((section) => {
@@ -95,7 +95,13 @@ export default function Analytics({ params }: { params: { tab: string } }) {
             </div>
             <div className="mb-3">
               <p className="mb-3">
-                <span>{tab === "overview" ? "Check out the details" : "Check out the overview"}</span>
+                {tab === "overview" && (
+                  <>
+                    <span>The following show the video analytics of the top 11 videos in each category.</span>
+                    {" "}
+                  </>
+                )}
+                <span>{tab === "overview" ? "Also check out the detailed analytics" : "Check out the overview"}</span>
                 {" "}
                 <StableLink
                   className="text-pd-pink-400 hover:text-pd-pink-100"
@@ -131,7 +137,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
                           data={table.data}
                           n={11}
                           filterSelected={filterEnabled}
-                          title={table.titles[language]}
+                          title={`${table.titles[language]} (${table.uploadedAt})`}
                         />
                       ))}
                     </div>

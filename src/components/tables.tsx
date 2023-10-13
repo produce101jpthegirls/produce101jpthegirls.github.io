@@ -27,7 +27,7 @@ export type AnalyticsDataRow = {
   nameJp?: string;
   rank: number;
   video: AnalyticsVideo;
-  trainees: AnalyticsTrainee[];
+  trainees?: AnalyticsTrainee[];
 };
 
 export type AnalyticsTable = {
@@ -115,7 +115,7 @@ type TopNDataTableProps = {
 export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filterSelected, title }) => {
   const { selected, language } = useSiteContext();
   const filteredData = filterSelected && isCompletedSelection(selected) ? (
-    data.filter((row) => row.trainees.some((trainee) => selected.map((index) => TRAINEES[index].code).includes(trainee.id)))
+    data.filter((row) => row.trainees && row.trainees.some((trainee) => selected.map((index) => TRAINEES[index].code).includes(trainee.id)))
   ) : data;
   // const sortedData = [...filteredData].sort((a, b) => a.rank - b.rank);
   const topNData = filteredData.slice(0, n);
@@ -213,12 +213,13 @@ const getViewCountNumber = (viewCountStr: string): number => {
 }
 
 type TraineesCellProps = {
-  trainees: AnalyticsTrainee[];
+  trainees?: AnalyticsTrainee[];
   customName?: string;
 };
 
 const TraineesCell: FC<TraineesCellProps> = ({ trainees, customName }) => {
   const { language } = useSiteContext();
+  trainees = trainees ?? [];
   return (
     <div className="flex flex-col gap-0.5 py-1.5 truncate">
       {customName ? renderCustomName(trainees, customName) : (
@@ -278,7 +279,7 @@ export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, tables,
   const mapping = tables.map((table) => {
     const newTable: { [traineeId: string]: AnalyticsVideo } = {};
     table.data.forEach((row) => {
-      row.trainees.forEach((trainee) => {
+      row.trainees?.forEach((trainee) => {
         newTable[trainee.id] = row.video;
       });
     });
