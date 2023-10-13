@@ -64,7 +64,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
         setResponse(response);
         setPending(false);
       });
-  }, []);
+  }, [refPath]);
 
   return (
     <main className="h-full">

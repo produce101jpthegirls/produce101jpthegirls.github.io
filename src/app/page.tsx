@@ -49,7 +49,7 @@ export default function Home() {
           console.log(response.items);
         }
       });
-  }, []);
+  }, [refPath]);
 
   return (
     <main className="h-full">
@@ -66,9 +66,9 @@ export default function Home() {
                 autoplaySpeed={6000}
                 arrows={false}
               >
-                {newsItems.map((item) => (
+                {newsItems.map((item, index) => (
                   item.stableLink ? (
-                    <StableLink className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" pathname={item.stableLink}>
+                    <StableLink key={index} className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" pathname={item.stableLink}>
                       <span className="sm:hidden">{item.shortText}</span>
                       <span className="hidden sm:inline">{item.longText}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
@@ -76,7 +76,7 @@ export default function Home() {
                       </svg>
                     </StableLink>
                   ) : item.link ? (
-                    <Link className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" href={item.link} target="_blank">
+                    <Link key={index} className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" href={item.link} target="_blank">
                       <span className="sm:hidden">{item.shortText}</span>
                       <span className="hidden sm:inline">{item.longText}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
@@ -84,7 +84,7 @@ export default function Home() {
                       </svg>
                     </Link>
                   ) : (
-                    <div>
+                    <div key={index}>
                       <span className="sm:hidden">{item.shortText}</span>
                       <span className="hidden sm:inline">{item.longText}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
@@ -92,8 +92,6 @@ export default function Home() {
                       </svg>
                     </div>
                   )
-                )).map((content, index) => (
-                  <div key={index}>{content}</div>
                 ))}
               </Slider>
             </>
