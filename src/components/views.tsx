@@ -59,7 +59,7 @@ type AvatarProps = {
     src: string;
     alt: string;
   };
-  setSelected?: Dispatch<SetStateAction<number[]>>;
+  editable?: boolean;
 };
 
 export const Avatar: FC<AvatarProps> = ({
@@ -69,15 +69,19 @@ export const Avatar: FC<AvatarProps> = ({
   name,
   fullName,
   image,
-  setSelected
+  editable
 }) => {
-  const SIZE = size == "large" ? (
+  const sizeClassName = size == "large" ? (
     "w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
+  ) : size == "toDownload" ? (
+    "w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full"
   ) : (
     "w-12 h-12 sm:w-14 sm:h-14 rounded-full"
   );
 
-  const draggable = image !== undefined && setSelected !== undefined;
+  const { setSelected } = useSiteContext();
+
+  const draggable = image !== undefined && editable;
 
   let menuPosition = "top-0 left-16 sm:ml-6 origin-top-right";
   if ([2, 5].includes(rankIndex)) {
@@ -112,7 +116,7 @@ export const Avatar: FC<AvatarProps> = ({
   return (
     <div
       id={`avatar-${traineeIndex}`}
-      className={`${SIZE} relative bg-gray-200 flex items-center justify-center`}
+      className={`${sizeClassName} relative bg-gray-200 flex items-center justify-center`}
     >
       <div
         className={`${draggable ? "cursor-pointer" : ""} h-full w-full flex items-center justify-center`}
@@ -146,7 +150,7 @@ export const Avatar: FC<AvatarProps> = ({
       >
         {image ? (
           <Image
-            className={`${SIZE} border-2 sm:border-4 border-pd-pink-400`}
+            className={`${sizeClassName} border-2 sm:border-4 border-pd-pink-400`}
             src={image.src}
             alt={image.alt}
             width={550}
@@ -177,8 +181,8 @@ export const Avatar: FC<AvatarProps> = ({
             pt-[0.5px] sm:pt-[1.5px] rounded-full"
         >{rankIndex + 1}</div>
       )}
-      {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && (
-        <div className={`absolute ${SIZE}`} title={fullName}>
+      {rankIndex >= 0 && isValidTraineeIndex(traineeIndex) && draggable && (
+        <div className={`absolute ${sizeClassName}`} title={fullName}>
           <AvatarDropdown position={menuPosition} fns={[
             () => {
               if (rankIndex > 0) {
@@ -221,11 +225,10 @@ const getClassColor = (c: string): string => {
 
 type ListViewProps = {
   items: Trainee[];
-  selected: number[];
-  setSelected: Dispatch<SetStateAction<number[]>>;
 };
 
-const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
+const ListView: FC<ListViewProps> = ({ items }) => {
+  const { selected, setSelected } = useSiteContext();
   return (
     <ul className={`${TRAINEE_VIEW_HEIGHT} flex flex-col overflow-y-auto text-pd-gray-900`}>
       {items.map((item) => {
@@ -313,11 +316,10 @@ const ListView: FC<ListViewProps> = ({ items, selected, setSelected }) => {
 
 type GridViewProps = {
   items: Trainee[];
-  selected: number[];
-  setSelected: Dispatch<SetStateAction<number[]>>;
 };
 
-const GridView: FC<GridViewProps> = ({ items, selected, setSelected }) => {
+const GridView: FC<GridViewProps> = ({ items }) => {
+  const { selected, setSelected } = useSiteContext();
   return (
     <ul className={`${TRAINEE_VIEW_HEIGHT} grid grid-cols-3 sm:grid-cols-4 gap-1 overflow-y-auto text-pd-gray-900`}>
       {items.map((item, index) => {
@@ -361,7 +363,7 @@ export const TraineeView: FC = () => {
   const [display, setDisplay] = useState<string>("list");
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<string>(sortByOptions[0].name);
-  const { selected, setSelected } = useSiteContext();
+  const { selected } = useSiteContext();
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
@@ -463,9 +465,9 @@ export const TraineeView: FC = () => {
         <Select selected={sortBy} setSelected={setSortBy} options={sortByOptions} />
       </div>
       {display === "list" ? (
-        <ListView items={filteredTrainees} selected={selected} setSelected={setSelected} />
+        <ListView items={filteredTrainees} />
       ) : (
-        <GridView items={filteredTrainees} selected={selected} setSelected={setSelected} />
+        <GridView items={filteredTrainees} />
       )}
     </>
   );
@@ -474,31 +476,32 @@ export const TraineeView: FC = () => {
 type PaletteRowProps = {
   items: (Trainee | undefined)[];
   startIndex: number;
-  setSelected: Dispatch<SetStateAction<number[]>>;
-  language: string;
+  toDownload?: boolean;
 }
 
-const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected, language }) => {
+const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, toDownload }) => {
+  const gapXClassName = toDownload ? "gap-x-3 sm:gap-x-6" : "gap-x-2 sm:gap-x-3";
+  const { language } = useSiteContext();
   return (
-    <div className="flex py-3.5 gap-2 sm:py-4 sm:gap-3 justify-center">{items.map((item, index) => (
+    <div className={`flex py-3.5 sm:py-4 ${gapXClassName} justify-center`}>{items.map((item, index) => (
       item ? (
         <Avatar
           key={index}
           rankIndex={startIndex + index}
           traineeIndex={item.index}
-          size="large"
+          size={toDownload ? "toDownload" : "large"}
           name={language === "en" ? item.nameEn.split(" ")[1] : item.nameJp}
           fullName={language === "en" ? item.nameEn : item.nameJp}
           image={getItemImage(item)}
-          setSelected={setSelected}
+          editable={!toDownload}
         />
       ) : (
         <Avatar
           key={index}
           rankIndex={startIndex + index}
           traineeIndex={-1}
-          size="large"
-          setSelected={setSelected}
+          size={toDownload ? "toDownload" : "large"}
+          editable={!toDownload}
         />
       )
     ))}</div>
@@ -507,44 +510,29 @@ const PaletteRow: FC<PaletteRowProps> = ({ items, startIndex, setSelected, langu
 
 type PaletteProps = {
   items: (Trainee | undefined)[];
-  setSelected: Dispatch<SetStateAction<number[]>>;
-  language: string;
+  toDownload?: boolean;
 };
 
-const Palette: FC<PaletteProps> = ({ items, setSelected, language }) => {
+export const Palette: FC<PaletteProps> = ({ items, toDownload }) => {
+  const { language } = useSiteContext();
   return (
     <div className="px-2">
-      <div id="palette-header" className="mx-4 border-b sm:border-b-2 border-gray-200 pb-3 mb-8 hidden">
-        <h2 className="text-pd-pink-400 font-bold text-center">PRODUCE 101 JAPAN THE GIRLS<br />RANKER</h2>
-      </div>
-      <PaletteRow startIndex={0} items={[items[0]]} setSelected={setSelected} language={language} />
-      <PaletteRow startIndex={1} items={[items[1], items[2]]} setSelected={setSelected} language={language} />
-      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} setSelected={setSelected} language={language} />
-      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} setSelected={setSelected} language={language} />
-      <div id="palette-footer" className="text-right text-pd-gray-900 mt-5 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm hidden">
-        at {new Date().toLocaleString("ja-JP").slice(0, -3)}
-      </div>
+      {toDownload && (
+        <div className="mx-4 border-b sm:border-b-2 border-gray-200 pb-3 mb-8">
+          <h2 className="text-pd-pink-400 text-sm sm:text-xl font-bold text-center break-keep">{CONTENTS[language]["home"]["title"]}</h2>
+        </div>
+      )}
+      <PaletteRow startIndex={0} items={[items[0]]} toDownload={toDownload} />
+      <PaletteRow startIndex={1} items={[items[1], items[2]]} toDownload={toDownload} />
+      <PaletteRow startIndex={3} items={[items[3], items[4], items[5]]} toDownload={toDownload} />
+      <PaletteRow startIndex={6} items={[items[6], items[7], items[8], items[9], items[10]]} toDownload={toDownload} />
+      {toDownload && (
+        <div className="text-right text-black mt-5 sm:mt-6 mr-2.5 sm:mr-3.5 text-xs sm:text-sm">
+          at {new Date().toLocaleString("ja-JP").slice(0, -3)}
+        </div>
+      )}
     </div>
   )
-};
-
-export const createDownloadSelection = (): HTMLElement | undefined => {
-  const element = document.getElementById("palette-wrapper");
-  if (element) {
-    const cloned = element.cloneNode(true) as HTMLElement;
-    const _header = cloned.querySelector("#palette-header");
-    if (_header) {
-      const header = _header as HTMLElement;
-      header.style.setProperty("display", "block");
-    }
-    const _footer = cloned.querySelector("#palette-footer");
-    if (_footer) {
-      const footer = _footer as HTMLElement;
-      footer.style.setProperty("display", "block");
-    }
-    return cloned;
-  }
-  return undefined;
 };
 
 type SelectionViewProps = {
@@ -638,8 +626,8 @@ export const SelectionView: FC<SelectionViewProps> = ({
           </button>
         </div>
       </div>
-      <div id="palette-wrapper" className="py-8 sm:py-10 bg-white">
-        <Palette items={selectedTrainees} setSelected={setSelected} language={language} />
+      <div className="py-8 sm:py-10 bg-white">
+        <Palette items={selectedTrainees} />
       </div>
     </>
   );

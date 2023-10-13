@@ -11,6 +11,7 @@ type SiteContextProps = {
   lang: string;
   setLang: Dispatch<SetStateAction<string>>;
   language: "ja" | "en" | "zh";
+  isDev: boolean;
 };
 
 const SiteContext = createContext<SiteContextProps>({
@@ -19,6 +20,7 @@ const SiteContext = createContext<SiteContextProps>({
   lang: "",
   setLang: () => { },
   language: "ja",
+  isDev: false,
 });
 
 type SiteContextProviderProps = {
@@ -31,6 +33,7 @@ export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) 
   const searchParams = useSearchParams();
   const decodedSelected = decodeSelection(searchParams.get("code"));
   const initLang = searchParams.get("lang") ?? "";
+  const isDev = searchParams.get("dev") !== null;
 
   // Initailize states
   const [selected, setSelected] = useState<number[]>(decodedSelected || EMPTY_SELECTION);
@@ -68,7 +71,7 @@ export const SiteContextProvider: FC<SiteContextProviderProps> = ({ children }) 
   }, [lang, router]);
 
   return (
-    <SiteContext.Provider value={{ selected, setSelected, lang, setLang, language }}>
+    <SiteContext.Provider value={{ selected, setSelected, lang, setLang, language, isDev }}>
       {children}
     </SiteContext.Provider>
   )

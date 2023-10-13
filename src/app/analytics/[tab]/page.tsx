@@ -8,7 +8,7 @@ import Section from "@/components/section";
 import { AnalyticsDataResponse, AnalyticsTable, DetailedDataTable, TopNDataTable } from "@/components/tables";
 import Toggle from "@/components/toggle";
 import { getItemThumbnail } from "@/components/views";
-import { TRAINEES, firebaseConfig } from "@/constants";
+import { TRAINEES, FIREBASE_CONFIG } from "@/constants";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
 import { isCompletedSelection } from "@/utils";
@@ -33,7 +33,7 @@ const preprocessTable = (table: AnalyticsTable) => {
 
 export default function Analytics({ params }: { params: { tab: string } }) {
   const tab = params.tab;
-  const { selected, language } = useSiteContext();
+  const { selected, language, isDev } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [response, setResponse] = useState<AnalyticsDataResponse | undefined>(undefined);
   const [filterEnabled, setFilterEnabled] = useState<boolean>(false);
@@ -44,6 +44,8 @@ export default function Analytics({ params }: { params: { tab: string } }) {
     selectedTrainees = selected.map((index) => TRAINEES[index]);
   }
 
+  const refPath = isDev ? "/data/dev/analytics" : "/data/analytics";
+
   useEffect(() => {
     // setPending(false);
     // const response: AnalyticsDataResponse = mockDb.data.dev.analytics;
@@ -51,9 +53,9 @@ export default function Analytics({ params }: { params: { tab: string } }) {
     //   section.tables.forEach((table) => preprocessTable(table));
     // });
     // setResponse(response);
-    initializeApp(firebaseConfig);
+    initializeApp(FIREBASE_CONFIG);
     const db = getDatabase();
-    get(ref(db, "/data/analytics"))
+    get(ref(db, refPath))
       .then((snapshot) => {
         const response: AnalyticsDataResponse = snapshot.val();
         response.sections.forEach((section) => {
@@ -62,7 +64,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
         setResponse(response);
         setPending(false);
       });
-  }, []);
+  }, [refPath]);
 
   return (
     <main className="h-full">

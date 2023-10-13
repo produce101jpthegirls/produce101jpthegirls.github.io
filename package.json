@@ -23,17 +23,20 @@
     "eslint-config-next": "13.4.19",
     "firebase": "^10.4.0",
     "lodash": "^4.17.21",
-    "next": "13.4.19",
-    "postcss": "8.4.29",
+    "next": "^13.5.4",
+    "postcss": "^8.4.31",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-data-table-component": "^7.5.4",
     "react-dom": "18.2.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   },
   "devDependencies": {
     "@types/dom-to-image": "^2.6.5",
-    "@types/lodash": "^4.14.199"
+    "@types/lodash": "^4.14.199",
+    "@types/react-slick": "^0.23.10"
   }
 }
