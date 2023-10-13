@@ -7,47 +7,98 @@ import { CompleteModal, DownloadModal } from "@/components/modals";
 import Panel from "@/components/panel";
 import Section from "@/components/section";
 import { SelectionView, TraineeView } from "@/components/views";
+import { FIREBASE_CONFIG } from "@/constants";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
-import { useState } from "react";
+import { initializeApp } from "firebase/app";
+import { get, getDatabase, ref } from "firebase/database";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+type NewsItem = {
+  shortText: string;
+  longText: string;
+  stableLink?: string;
+  link?: string;
+};
+
+type NewsResponse = {
+  items: NewsItem[];
+};
+
 export default function Home() {
   const [completeModalIsOpen, setCompleteModalIsOpen] = useState<boolean>(false);
   const [downloadModalIsOpen, setDownloadModalIsOpen] = useState<boolean>(false);
-  const { language } = useSiteContext();
+  const { language, isDev } = useSiteContext();
+  const [ newsItems, setNewsItems ] = useState<NewsItem[]>([]);
+
+  const refPath = isDev ? "/data/dev/news" : "/data/news";
+
+  useEffect(() => {
+    initializeApp(FIREBASE_CONFIG);
+    const db = getDatabase();
+    get(ref(db, refPath))
+      .then((snapshot) => {
+        const response: NewsResponse = snapshot.val();
+        if (response) {
+          setNewsItems(response.items);
+          console.log(response.items);
+        }
+      });
+  }, []);
 
   return (
     <main className="h-full">
       <Header />
-      <div className="mx-4 sm:mx-auto sm:max-w-[980px] py-2 sm:py-4 flex items-center gap-4 border-b">
-        <span className="text-sm sm:text-base text-pd-pink-400">NEWS</span>
-        <Slider
-          className=""
-          adaptiveHeight
-          variableWidth
-          infinite
-          vertical
-          autoplay
-          autoplaySpeed={6000}
-          arrows={false}
-        >
-          {[
-            (<StableLink className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" pathname="/analytics/overview">
-                <span className="sm:hidden">The analytics of EP2 are available!</span>
-                <span className="hidden sm:inline">The video analytics of Episode #2 are available!</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-                </svg>
-              </StableLink>),
-          ].map((content, index) => (
-            <p key={index}>{content}</p>
-          ))}
-        </Slider>
-      </div>
+        <div className={`mx-4 sm:mx-auto sm:max-w-[980px] flex items-center gap-4 transition-all ${newsItems.length > 0 ? "border-b h-[43px] sm:h-[59px] py-2 sm:py-4" : "h-[0px] py-0"}`}>
+          {newsItems.length > 0 && (
+            <>
+              <span className="text-sm sm:text-base text-pd-pink-400">NEWS</span>
+              <Slider
+                adaptiveHeight
+                infinite
+                vertical
+                autoplay
+                autoplaySpeed={6000}
+                arrows={false}
+              >
+                {newsItems.map((item) => (
+                  item.stableLink ? (
+                    <StableLink className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" pathname={item.stableLink}>
+                      <span className="sm:hidden">{item.shortText}</span>
+                      <span className="hidden sm:inline">{item.longText}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                      </svg>
+                    </StableLink>
+                  ) : item.link ? (
+                    <Link className="text-sm sm:text-base text-pd-gray-400 hover:text-pd-pink-100 flex gap-2 items-center" href={item.link} target="_blank">
+                      <span className="sm:hidden">{item.shortText}</span>
+                      <span className="hidden sm:inline">{item.longText}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <div>
+                      <span className="sm:hidden">{item.shortText}</span>
+                      <span className="hidden sm:inline">{item.longText}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 hidden sm:block">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                      </svg>
+                    </div>
+                  )
+                )).map((content, index) => (
+                  <div key={index}>{content}</div>
+                ))}
+              </Slider>
+            </>
+          )}
+        </div>
       <Section>
         <h2
           className="mb-2 text-pd-pink-400 text-base sm:text-xl font-bold break-keep"

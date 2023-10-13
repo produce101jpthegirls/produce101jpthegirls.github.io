@@ -8,7 +8,7 @@ import Section from "@/components/section";
 import { AnalyticsDataResponse, AnalyticsTable, DetailedDataTable, TopNDataTable } from "@/components/tables";
 import Toggle from "@/components/toggle";
 import { getItemThumbnail } from "@/components/views";
-import { TRAINEES, firebaseConfig } from "@/constants";
+import { TRAINEES, FIREBASE_CONFIG } from "@/constants";
 import { useSiteContext } from "@/context/site";
 import { CONTENTS } from "@/i18n";
 import { isCompletedSelection } from "@/utils";
@@ -51,7 +51,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
     //   section.tables.forEach((table) => preprocessTable(table));
     // });
     // setResponse(response);
-    initializeApp(firebaseConfig);
+    initializeApp(FIREBASE_CONFIG);
     const db = getDatabase();
     get(ref(db, "/data/analytics_3"))
       .then((snapshot) => {

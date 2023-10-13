@@ -48,7 +48,7 @@ export const getLanguageName = (id: string) => {
   return LANGUAGES[0].name;
 };
 
-export const firebaseConfig = {
+export const FIREBASE_CONFIG = {
   apiKey: "AIzaSyCnJN3v7t2x-R0PfCGHsH7hobkAIKIbXbc",
   authDomain: "produce101jpthegirls.firebaseapp.com",
   databaseURL: "https://produce101jpthegirls-default-rtdb.firebaseio.com",
