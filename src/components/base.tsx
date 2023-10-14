@@ -1,20 +1,17 @@
-"use client";
-
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import { StableLink } from "@/components/links";
-import MyPick from "@/components/my_pick";
-import Section from "@/components/section";
-import { AnalyticsDataResponse, AnalyticsTable, DetailedDataTable, TopNDataTable } from "@/components/tables";
-import Toggle from "@/components/toggle";
-import { getItemThumbnail } from "@/components/views";
-import { TRAINEES, FIREBASE_CONFIG } from "@/constants";
 import { useSiteContext } from "@/context/site";
-import { CONTENTS } from "@/i18n";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { AnalyticsDataResponse, AnalyticsTable } from "./tables";
 import { isCompletedSelection } from "@/utils";
-import { initializeApp } from "firebase/app";
+import { FIREBASE_CONFIG, TRAINEES } from "@/constants";
 import { get, getDatabase, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import { initializeApp } from "firebase/app";
+import Header from "./header";
+import MyPick from "./my_pick";
+import Section from "./section";
+import { CONTENTS } from "@/i18n";
+import Footer from "./footer";
+import Toggle from "./toggle";
+import { getItemThumbnail } from "./views";
 // import mockDb from "@/data/mock_db.json";
 
 const id2trainees = TRAINEES.reduce((acc, cur, i) => {
@@ -31,8 +28,19 @@ const preprocessTable = (table: AnalyticsTable) => {
   });
 };
 
-export default function Analytics({ params }: { params: { tab: string } }) {
-  const tab = params.tab;
+type AnalyticsBaseProps = {
+  title: ReactNode[] | ReactNode | string;
+  description: ReactNode[] | ReactNode | string;
+  createTables: (
+    pending: boolean,
+    response: AnalyticsDataResponse | undefined,
+    filterEnabled: boolean,
+  ) => (
+    ReactNode[] | ReactNode | string
+  );
+};
+
+export const AnalyticsBase: FC<AnalyticsBaseProps> = ({ title, description, createTables }) => {
   const { selected, language, isDev } = useSiteContext();
   const [pending, setPending] = useState<boolean>(true);
   const [response, setResponse] = useState<AnalyticsDataResponse | undefined>(undefined);
@@ -81,7 +89,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
           <div className="px-4 py-4 sm:p-8 mx-auto max-w-[1200px] bg-white border border-4 sm:border-8 border-pd-pink-400">
             <div className="mb-3 sm:mb-6 flex justify-between sm:items-center flex-col sm:flex-row gap-3">
               <h3 className="text-pd-pink-400 font-bold text-base sm:text-xl"
-              >{tab === "overview" ? CONTENTS[language]["analytics"]["overviewTab"]["title"] : CONTENTS[language]["analytics"]["detailsTab"]["title"]}</h3>
+              >{title}</h3>
               {isCompleted && (
                 <div className="flex items-center gap-2 sm:flex-row-reverse">
                   <Toggle
@@ -96,20 +104,7 @@ export default function Analytics({ params }: { params: { tab: string } }) {
               )}
             </div>
             <div className="mb-3">
-              <p className="mb-3">
-                {tab === "overview" && (
-                  <>
-                    <span>The following show the video analytics of the top 11 videos in each category.</span>
-                    {" "}
-                  </>
-                )}
-                <span>{tab === "overview" ? "Also check out the detailed analytics" : "Check out the overview"}</span>
-                {" "}
-                <StableLink
-                  className="text-pd-pink-400 hover:text-pd-pink-100"
-                  pathname={tab === "overview" ? "/analytics/details" : "/analytics/overview"}
-                >here</StableLink>
-              </p>
+              <p className="mb-3">{description}</p>
               {response?.updatedAt && (
                 <p className="mb-3 text-sm">{
                   CONTENTS[language]["analytics"]["updatedAtFn"](
@@ -124,40 +119,11 @@ export default function Analytics({ params }: { params: { tab: string } }) {
                 }</p>
               )}
             </div>
-            {tab === "overview" ? (
-              pending ? (
-                <div>Loading...</div>
-              ) : (
-                response?.sections.map((section, index) => (
-                  <div key={index} className="mt-4">
-                    <h4 className="text-pd-pink-400 sm:text-lg font-bold">{section.titles[language]}</h4>
-                    <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {section.tables.map((table, index) => (
-                        <TopNDataTable
-                          key={index}
-                          pending={pending}
-                          data={table.data}
-                          n={11}
-                          filterSelected={filterEnabled}
-                          title={`${table.titles[language]} (${table.uploadedAt})`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))
-              )
-            ) : (
-              <DetailedDataTable
-                pending={pending}
-                tables={response?.sections.flatMap((section) => section.tables) ?? []}
-                filterSelected={filterEnabled}
-              />
-              // <></>
-            )}
+            {createTables(pending, response, filterEnabled)}
           </div>
         </div>
       </div>
       <Footer />
     </main>
   );
-}
+};
