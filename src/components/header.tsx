@@ -18,7 +18,7 @@ const NAV_ITEMS = [
   },
   {
     "name": "ANALYTICS",
-    "href": "/analytics/overview",
+    "href": "/analytics",
   },
 ]
 

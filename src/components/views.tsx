@@ -1,5 +1,6 @@
 import { EMPTY_SELECTION, TRAINEES } from "@/constants";
 import { useSiteContext } from "@/context/site";
+import { getItemImage, getItemThumbnail } from "@/core";
 import { CONTENTS } from "@/i18n";
 import { isCompletedSelection, isEmptySelection, isValidTraineeIndex } from "@/utils";
 import { debounce } from "lodash";
@@ -16,20 +17,6 @@ const archivo_black_jp = Archivo_Black({
   weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-});
-
-export const getItemImage = (item: Trainee) => {
-  return {
-    src: "/assets/trainees/profile/" + item.code + ".jpg",
-    alt: item.nameEn,
-  };
-};
-
-export const getItemThumbnail = (item: Trainee) => getThumbnail(item.code, item.nameEn);
-
-export const getThumbnail = (traineeId: string, alt: string) => ({
-  src: "/assets/trainees/profile_thumbnail/" + traineeId + ".jpg",
-  alt: alt,
 });
 
 const addTrainee = (
