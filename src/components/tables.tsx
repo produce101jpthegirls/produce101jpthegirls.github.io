@@ -121,18 +121,18 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
   const topNData = filteredData.slice(0, n);
   const columns: TableColumn<AnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][0],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][0],
       selector: (row: AnalyticsDataRow) => row.rank,
       width: "32px",
     },
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][1],
       cell: (row: AnalyticsDataRow) => (
         <TraineesCell trainees={row.trainees} customName={language === "en" ? row.nameEn : row.nameJp} />
       ),
     },
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][2],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][2],
       cell: (row: AnalyticsDataRow) => (
         <ViewCountCell viewCount={row.video.viewCount} videoId={row.video.id} />
       ),
@@ -306,7 +306,7 @@ export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, tables,
 
   const columns: TableColumn<DetailedAnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["traineePage"]["table"]["columns"][1],
       cell: (row: DetailedAnalyticsDataRow) => (
         <TraineesCell trainees={[row.trainee]} />
       ),

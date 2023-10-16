@@ -10,7 +10,7 @@ export default function Analytics() {
   const { language } = useSiteContext();
   return (
     <AnalyticsBase
-      title={CONTENTS[language]["analytics"]["detailsTab"]["title"]}
+      title={CONTENTS[language]["analytics"]["traineePage"]["title"]}
       description={
         <>
           <span>Check out the overview</span>

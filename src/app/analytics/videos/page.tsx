@@ -10,7 +10,7 @@ export default function Analytics() {
   const { language } = useSiteContext();
   return (
     <AnalyticsBase
-      title={CONTENTS[language]["analytics"]["overviewTab"]["title"]}
+      title={CONTENTS[language]["analytics"]["videoPage"]["title"]}
       description={
         <>
           <span>The following show the video analytics of the top 11 videos in each category.</span>

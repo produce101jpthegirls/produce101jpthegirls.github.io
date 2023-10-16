@@ -3,12 +3,12 @@ import HomeLayout from "../../layout";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://produce101jpthegirls.github.io"),
-  title: "ANALYTICS (DETAILS) | PRODUCE 101 JAPAN THE GIRLS RANKER",
-  description: "Aggregated video statistics of the stage videos, fancam videos, promotion videos, etc. of the Produce 101 Japan Season 3",
+  title: "VIDEO ANALYTICS | PRODUCE 101 JAPAN THE GIRLS RANKER",
+  description: "View counts and ranking of the stage videos, fancam videos, promotion videos, etc. of the Produce 101 Japan Season 3",
   openGraph: {
-    title: "ANALYTICS (DETAILS) | PRODUCE 101 JAPAN THE GIRLS RANKER",
-    description: "Aggregated video statistics of the stage videos, fancam videos, promotion videos, etc. of the Produce 101 Japan Season 3",
-    url: "https://produce101jpthegirls.github.io/analytics/details",
+    title: "VIDEO ANALYTICS | PRODUCE 101 JAPAN THE GIRLS RANKER",
+    description: "View counts and ranking of the stage videos, fancam videos, promotion videos, etc. of the Produce 101 Japan Season 3",
+    url: "https://produce101jpthegirls.github.io/analytics/overview",
     siteName: "PRODUCE 101 JAPAN THE GIRLS RANKER",
     type: "website",
     locale: "en-US",
