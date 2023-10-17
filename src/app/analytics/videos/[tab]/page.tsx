@@ -42,7 +42,7 @@ export default function Analytics({ params }: { params: { tab: string }}) {
             <div>Loading...</div>
           ) : specificTable ? (
             <div className="mt-4">
-              <h4 className="text-pd-pink-400 sm:text-lg font-bold">{specificTable.titles[language]}</h4>
+              {/* <h4 className="text-pd-pink-400 sm:text-lg font-bold">{specificTable.titles[language]}</h4> */}
               <div className="">
                 <TopNDataTable
                   pending={pending}
