@@ -15,7 +15,8 @@ export const TRAINEES: Trainee[] = Array.from(Array(trainees_en.length).keys()).
   birthPlace: trainees_jp[index].birth_place,
   mbtiType: trainees_jp[index].mbti_type,
   height: trainees_jp[index].height,
-  classes: trainees_jp[index].classes,
+  levels: trainees_jp[index].levels,
+  ranks: trainees_jp[index].ranks,
   profileUrl: `https://produce101.jp/profile/detail/?id=${trainees_jp[index].id}`,
   videoUrls: {
     eyeContact: trainees_jp[index].eye_contact_video_url,

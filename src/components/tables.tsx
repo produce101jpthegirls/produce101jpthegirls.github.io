@@ -1,58 +1,11 @@
 import { TRAINEES } from "@/constants";
 import { useSiteContext } from "@/context/site";
+import { getThumbnail } from "@/core";
 import { CONTENTS } from "@/i18n";
 import { formatHumanNumber, isCompletedSelection } from "@/utils";
 import Link from "next/link";
 import { FC } from "react";
 import DataTable, { TableColumn, TableStyles } from "react-data-table-component";
-import { getThumbnail } from "./views";
-
-type AnalyticsTrainee = {
-  id: string;
-  nameEn: string;
-  nameJp: string;
-  img?: {
-    src: string;
-    alt: string;
-  };
-};
-
-type AnalyticsVideo = {
-  id: string;
-  viewCount: string;
-};
-
-export type AnalyticsDataRow = {
-  nameEn?: string;
-  nameJp?: string;
-  rank: number;
-  video: AnalyticsVideo;
-  trainees?: AnalyticsTrainee[];
-};
-
-export type AnalyticsTable = {
-  titles: {
-    ja: string;
-    en: string;
-    zh: string;
-  };
-  uploadedAt: string;
-  data: AnalyticsDataRow[];
-};
-
-type AnalyticsSection = {
-  titles: {
-    ja: string;
-    en: string;
-    zh: string;
-  };
-  tables: AnalyticsTable[],
-};
-
-export type AnalyticsDataResponse = {
-  updatedAt: number;
-  sections: AnalyticsSection[];
-};
 
 export type ViewCountDataRow = {
   displayName: string;
@@ -107,7 +60,7 @@ const DATA_TABLE_CUSTOM_STYLES: TableStyles = {
 type TopNDataTableProps = {
   pending: boolean;
   data: AnalyticsDataRow[];
-  n: number;
+  n?: number;
   filterSelected: boolean;
   title: string;
 };
@@ -118,21 +71,21 @@ export const TopNDataTable: FC<TopNDataTableProps> = ({ pending, data, n, filter
     data.filter((row) => row.trainees && row.trainees.some((trainee) => selected.map((index) => TRAINEES[index].code).includes(trainee.id)))
   ) : data;
   // const sortedData = [...filteredData].sort((a, b) => a.rank - b.rank);
-  const topNData = filteredData.slice(0, n);
+  const topNData = n ? filteredData.slice(0, n) : filteredData;
   const columns: TableColumn<AnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][0],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][0],
       selector: (row: AnalyticsDataRow) => row.rank,
-      width: "32px",
+      width: "34px",
     },
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][1],
       cell: (row: AnalyticsDataRow) => (
         <TraineesCell trainees={row.trainees} customName={language === "en" ? row.nameEn : row.nameJp} />
       ),
     },
     {
-      name: CONTENTS[language]["analytics"]["overviewTab"]["table"]["columns"][2],
+      name: CONTENTS[language]["analytics"]["videoPage"]["table"]["columns"][2],
       cell: (row: AnalyticsDataRow) => (
         <ViewCountCell viewCount={row.video.viewCount} videoId={row.video.id} />
       ),
@@ -306,7 +259,7 @@ export const DetailedDataTable: FC<DetailedDataTableProps> = ({ pending, tables,
 
   const columns: TableColumn<DetailedAnalyticsDataRow>[] = [
     {
-      name: CONTENTS[language]["analytics"]["detailsTab"]["table"]["columns"][1],
+      name: CONTENTS[language]["analytics"]["traineePage"]["table"]["columns"][1],
       cell: (row: DetailedAnalyticsDataRow) => (
         <TraineesCell trainees={[row.trainee]} />
       ),
