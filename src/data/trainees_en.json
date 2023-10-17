@@ -16,7 +16,11 @@
       "AITA RIN",
       "OKABE NONOKA"
     ],
-    "classes": [
+    "ranks": [
+      "82",
+      "32"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -37,7 +41,11 @@
       "AOKI YUKA",
       "SUDO SAKURA"
     ],
-    "classes": [
+    "ranks": [
+      "44",
+      "72"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -58,7 +66,13 @@
       "AKIYAMA EMA",
       "NAKAYAMA HONOKA"
     ],
-    "classes": []
+    "ranks": [
+      "55",
+      "35"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "ABE NAGOMI",
@@ -77,7 +91,11 @@
       "ABE NAGOMI",
       "TAKAHASHI HINA"
     ],
-    "classes": [
+    "ranks": [
+      "27",
+      "15"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -98,7 +116,11 @@
       "ARAMAKI JOA",
       "KAWABATA RANKA"
     ],
-    "classes": [
+    "ranks": [
+      "37",
+      "12"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -119,7 +141,11 @@
       "KASAHARA MOMONA",
       "ANDO CHIHARU"
     ],
-    "classes": [
+    "ranks": [
+      "62",
+      "43"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -140,7 +166,11 @@
       "KINO RIKO",
       "ANDO YUI"
     ],
-    "classes": [
+    "ranks": [
+      "20",
+      "20"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -161,7 +191,13 @@
       "IIDA SHIZUKU",
       "YAMAZAKI MITSUKI"
     ],
-    "classes": []
+    "ranks": [
+      "74",
+      "31"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "ISHII RAN",
@@ -180,7 +216,13 @@
       "MIZUKAMI RIMIKA",
       "ISHII RAN"
     ],
-    "classes": []
+    "ranks": [
+      "63",
+      "7"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "IYOTA HANA",
@@ -199,7 +241,11 @@
       "KATAOKA RIO",
       "IYOTA HANA"
     ],
-    "classes": [
+    "ranks": [
+      "6",
+      "63"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -220,7 +266,11 @@
       "UEKI MIMI",
       "EBIHARA TSUZUMI"
     ],
-    "classes": [
+    "ranks": [
+      "99",
+      "51"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -241,7 +291,13 @@
       "UCHIYAMA RIN",
       "KAWAGISHI RUNA"
     ],
-    "classes": []
+    "ranks": [
+      "57",
+      "74"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "EBIHARA TSUZUMI",
@@ -260,7 +316,11 @@
       "UEKI MIMI",
       "EBIHARA TSUZUMI"
     ],
-    "classes": [
+    "ranks": [
+      "1",
+      "3"
+    ],
+    "levels": [
       "A"
     ]
   },
@@ -281,7 +341,11 @@
       "SAKURABA HARUKA",
       "OIKAWA RIO"
     ],
-    "classes": [
+    "ranks": [
+      "97",
+      "39"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -302,7 +366,11 @@
       "TAKAGI MAYU",
       "OTA SARA"
     ],
-    "classes": [
+    "ranks": [
+      "49",
+      "94"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -323,7 +391,13 @@
       "SHIBUYA MEI",
       "OTSUBO KAREN"
     ],
-    "classes": []
+    "ranks": [
+      "22",
+      "54"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "OKABE NONOKA",
@@ -342,7 +416,11 @@
       "AITA RIN",
       "OKABE NONOKA"
     ],
-    "classes": [
+    "ranks": [
+      "38",
+      "73"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -363,7 +441,11 @@
       "TAKAMI AYANE",
       "OKAMURA NANA"
     ],
-    "classes": [
+    "ranks": [
+      "80",
+      "58"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -384,7 +466,11 @@
       "KIKUKAWA AKI",
       "ODA ARUHA"
     ],
-    "classes": [
+    "ranks": [
+      "3",
+      "33"
+    ],
+    "levels": [
       "A"
     ]
   },
@@ -405,7 +491,11 @@
       "SATO AMELI",
       "OYANAGI EMI"
     ],
-    "classes": [
+    "ranks": [
+      "68",
+      "61"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -426,7 +516,13 @@
       "KASAHARA MOMONA",
       "ANDO CHIHARU"
     ],
-    "classes": []
+    "ranks": [
+      "8",
+      "4"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "KATAOKA RIO",
@@ -445,7 +541,11 @@
       "KATAOKA RIO",
       "IYOTA HANA"
     ],
-    "classes": [
+    "ranks": [
+      "47",
+      "70"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -466,7 +566,13 @@
       "YAMAMOTO SUZU",
       "KATO AIRI"
     ],
-    "classes": []
+    "ranks": [
+      "83",
+      "88"
+    ],
+    "levels": [
+      "F"
+    ]
   },
   {
     "name": "KATO KAGURA",
@@ -485,7 +591,11 @@
       "WATANABE MIYU",
       "KATO KAGURA"
     ],
-    "classes": [
+    "ranks": [
+      "94",
+      "10"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -506,7 +616,13 @@
       "KOYAMA MANA",
       "KATO KOKORO"
     ],
-    "classes": []
+    "ranks": [
+      "52",
+      "2"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "KATO KONOMI",
@@ -525,7 +641,11 @@
       "KATO KONOMI",
       "NAKAMURA RIRO"
     ],
-    "classes": [
+    "ranks": [
+      "42",
+      "82"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -546,7 +666,13 @@
       "MURAKAMI RINON",
       "KAMADA MOE"
     ],
-    "classes": []
+    "ranks": [
+      "13",
+      "89"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "KAMIO AYANO",
@@ -565,7 +691,11 @@
       "KAMIO AYANO",
       "BANDO FUKA"
     ],
-    "classes": [
+    "ranks": [
+      "52",
+      "29"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -586,7 +716,13 @@
       "UCHIYAMA RIN",
       "KAWAGISHI RUNA"
     ],
-    "classes": []
+    "ranks": [
+      "54",
+      "66"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "KAWABATA RANKA",
@@ -605,7 +741,11 @@
       "ARAMAKI JOA",
       "KAWABATA RANKA"
     ],
-    "classes": [
+    "ranks": [
+      "30",
+      "41"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -626,7 +766,13 @@
       "SAITO SERINA",
       "KANNO MIYU"
     ],
-    "classes": []
+    "ranks": [
+      "17",
+      "47"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "KIKUKAWA AKI",
@@ -645,7 +791,13 @@
       "KIKUKAWA AKI",
       "ODA ARUHA"
     ],
-    "classes": []
+    "ranks": [
+      "7",
+      "50"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "KITAZATO RIO",
@@ -664,7 +816,13 @@
       "HAMASAKI AIKO",
       "KITAZATO RIO"
     ],
-    "classes": []
+    "ranks": [
+      "77",
+      "8"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "KITAZUME SAKURA",
@@ -683,7 +841,11 @@
       "KITAZUME SAKURA",
       "HOSOI AYAKA"
     ],
-    "classes": [
+    "ranks": [
+      "16",
+      "11"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -704,7 +866,13 @@
       "KINO RIKO",
       "ANDO YUI"
     ],
-    "classes": []
+    "ranks": [
+      "59",
+      "76"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "KURIHARA KANO",
@@ -723,7 +891,11 @@
       "KURIHARA KANO",
       "FURUHASHI SAYAKA"
     ],
-    "classes": [
+    "ranks": [
+      "75",
+      "95"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -744,7 +916,13 @@
       "KUROKAWA HONOKA",
       "TANAKA YUUKI"
     ],
-    "classes": []
+    "ranks": [
+      "32",
+      "78"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "KENMOTSU NANO",
@@ -763,7 +941,13 @@
       "KENMOTSU NANO",
       "HIDAKA HAZUKI"
     ],
-    "classes": []
+    "ranks": [
+      "40",
+      "14"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "KOBAYASHI SAE",
@@ -782,7 +966,11 @@
       "KOBAYASHI SAE",
       "WAKIMOTO MIHAYA"
     ],
-    "classes": [
+    "ranks": [
+      "56",
+      "79"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -803,7 +991,11 @@
       "KOYAMA MANA",
       "KATO KOKORO"
     ],
-    "classes": [
+    "ranks": [
+      "90",
+      "44"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -824,7 +1016,11 @@
       "SAITO SERINA",
       "KANNO MIYU"
     ],
-    "classes": [
+    "ranks": [
+      "48",
+      "17"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -845,7 +1041,13 @@
       "SAKURAI MIU",
       "SAKAGUCHI RINO"
     ],
-    "classes": []
+    "ranks": [
+      "12",
+      "25"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "SAKATA KOTONE",
@@ -864,8 +1066,12 @@
       "SAKATA KOTONE",
       "TANAKA HANA"
     ],
-    "classes": [
-      "D"
+    "ranks": [
+      "24",
+      "56"
+    ],
+    "levels": [
+      "F"
     ]
   },
   {
@@ -885,7 +1091,11 @@
       "SAKURAI MIU",
       "SAKAGUCHI RINO"
     ],
-    "classes": [
+    "ranks": [
+      "51",
+      "5"
+    ],
+    "levels": [
       "A"
     ]
   },
@@ -906,7 +1116,11 @@
       "SAKURABA HARUKA",
       "OIKAWA RIO"
     ],
-    "classes": [
+    "ranks": [
+      "89",
+      "34"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -927,7 +1141,11 @@
       "SASAKI KOKONA",
       "HATTA MENA"
     ],
-    "classes": [
+    "ranks": [
+      "86",
+      "6"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -948,7 +1166,13 @@
       "SHIMIZU KEIKO",
       "SASAKI TSUKUSHI"
     ],
-    "classes": []
+    "ranks": [
+      "63",
+      "22"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "SATO AMELI",
@@ -967,7 +1191,11 @@
       "SATO AMELI",
       "OYANAGI EMI"
     ],
-    "classes": [
+    "ranks": [
+      "71",
+      "64"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -988,7 +1216,13 @@
       "SANO JUERI",
       "SUTANI YURARA"
     ],
-    "classes": []
+    "ranks": [
+      "30",
+      "92"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "SHIBAGAKI ARISA",
@@ -1007,7 +1241,13 @@
       "MOTOHASHI MEIKA",
       "SHIBAGAKI ARISA"
     ],
-    "classes": []
+    "ranks": [
+      "81",
+      "96"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "SHIBUYA MEI",
@@ -1026,8 +1266,12 @@
       "SHIBUYA MEI",
       "OTSUBO KAREN"
     ],
-    "classes": [
-      "F"
+    "ranks": [
+      "23",
+      "71"
+    ],
+    "levels": [
+      "D"
     ]
   },
   {
@@ -1047,7 +1291,13 @@
       "SHIMIZU KEIKO",
       "SASAKI TSUKUSHI"
     ],
-    "classes": []
+    "ranks": [
+      "9",
+      "18"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "SHIROMARU MAHO",
@@ -1066,7 +1316,13 @@
       "SHIROMARU MAHO",
       "MORO ANON"
     ],
-    "classes": []
+    "ranks": [
+      "50",
+      "60"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "SHINZAWA MIKA",
@@ -1085,7 +1341,11 @@
       "SHINZAWA MIKA",
       "TANI SEIA"
     ],
-    "classes": [
+    "ranks": [
+      "98",
+      "86"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1106,7 +1366,11 @@
       "SUGAI NATSUHO",
       "TABUCHI MIU"
     ],
-    "classes": [
+    "ranks": [
+      "91",
+      "87"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -1127,7 +1391,11 @@
       "SUZUKI RENA",
       "TABATA NANA"
     ],
-    "classes": [
+    "ranks": [
+      "39",
+      "40"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -1148,7 +1416,13 @@
       "SANO JUERI",
       "SUTANI YURARA"
     ],
-    "classes": []
+    "ranks": [
+      "65",
+      "38"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "SUDO SAKURA",
@@ -1167,7 +1441,13 @@
       "AOKI YUKA",
       "SUDO SAKURA"
     ],
-    "classes": []
+    "ranks": [
+      "21",
+      "30"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "SEKIGUCHI RIKAKO",
@@ -1186,7 +1466,11 @@
       "SEKIGUCHI RIKAKO",
       "YAMAGUCHI MISAKI"
     ],
-    "classes": [
+    "ranks": [
+      "46",
+      "83"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1207,7 +1491,11 @@
       "TAKAGI MAYU",
       "OTA SARA"
     ],
-    "classes": [
+    "ranks": [
+      "100",
+      "19"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1228,7 +1516,11 @@
       "ABE NAGOMI",
       "TAKAHASHI HINA"
     ],
-    "classes": [
+    "ranks": [
+      "35",
+      "28"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1249,7 +1541,13 @@
       "TAKABATAKE MOMOKA",
       "MOGI SHION"
     ],
-    "classes": []
+    "ranks": [
+      "14",
+      "36"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "TAKAMI AYANE",
@@ -1268,7 +1566,11 @@
       "TAKAMI AYANE",
       "OKAMURA NANA"
     ],
-    "classes": [
+    "ranks": [
+      "2",
+      "9"
+    ],
+    "levels": [
       "A"
     ]
   },
@@ -1289,7 +1591,11 @@
       "TANABE KARIN",
       "TANAKA KOTO"
     ],
-    "classes": [
+    "ranks": [
+      "5",
+      "13"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1310,7 +1616,11 @@
       "SAKATA KOTONE",
       "TANAKA HANA"
     ],
-    "classes": [
+    "ranks": [
+      "45",
+      "68"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -1331,7 +1641,13 @@
       "KUROKAWA HONOKA",
       "TANAKA YUUKI"
     ],
-    "classes": []
+    "ranks": [
+      "17",
+      "21"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "TANABE KARIN",
@@ -1350,7 +1666,11 @@
       "TANABE KARIN",
       "TANAKA KOTO"
     ],
-    "classes": [
+    "ranks": [
+      "28",
+      "62"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -1371,7 +1691,13 @@
       "SHINZAWA MIKA",
       "TANI SEIA"
     ],
-    "classes": []
+    "ranks": [
+      "92",
+      "85"
+    ],
+    "levels": [
+      "F"
+    ]
   },
   {
     "name": "TABATA NANA",
@@ -1390,7 +1716,11 @@
       "SUZUKI RENA",
       "TABATA NANA"
     ],
-    "classes": [
+    "ranks": [
+      "33",
+      "65"
+    ],
+    "levels": [
       "B"
     ]
   },
@@ -1411,7 +1741,11 @@
       "SUGAI NATSUHO",
       "TABUCHI MIU"
     ],
-    "classes": [
+    "ranks": [
+      "86",
+      "91"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1432,7 +1766,13 @@
       "NAKANO KOKONA",
       "YOSHIDA HANA"
     ],
-    "classes": []
+    "ranks": [
+      "11",
+      "16"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "NAKAMURA AOI",
@@ -1451,7 +1791,11 @@
       "FUJIMOTO AYAKA",
       "NAKAMURA AOI"
     ],
-    "classes": [
+    "ranks": [
+      "95",
+      "81"
+    ],
+    "levels": [
       "F"
     ]
   },
@@ -1472,7 +1816,11 @@
       "KATO KONOMI",
       "NAKAMURA RIRO"
     ],
-    "classes": [
+    "ranks": [
+      "35",
+      "93"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1493,7 +1841,13 @@
       "NAKAMORI MIKOTO",
       "NAKAMORI KOTONE"
     ],
-    "classes": []
+    "ranks": [
+      "43",
+      "49"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "NAKAMORI MIKOTO",
@@ -1512,7 +1866,13 @@
       "NAKAMORI MIKOTO",
       "NAKAMORI KOTONE"
     ],
-    "classes": []
+    "ranks": [
+      "65",
+      "52"
+    ],
+    "levels": [
+      "A"
+    ]
   },
   {
     "name": "NAKAYAMA HONOKA",
@@ -1531,7 +1891,13 @@
       "AKIYAMA EMA",
       "NAKAYAMA HONOKA"
     ],
-    "classes": []
+    "ranks": [
+      "58",
+      "84"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "HATTA MENA",
@@ -1550,7 +1916,13 @@
       "SASAKI KOKONA",
       "HATTA MENA"
     ],
-    "classes": []
+    "ranks": [
+      "19",
+      "27"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "HAMASAKI AIKO",
@@ -1569,7 +1941,13 @@
       "HAMASAKI AIKO",
       "KITAZATO RIO"
     ],
-    "classes": []
+    "ranks": [
+      "96",
+      "57"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "BANDO FUKA",
@@ -1588,7 +1966,13 @@
       "KAMIO AYANO",
       "BANDO FUKA"
     ],
-    "classes": []
+    "ranks": [
+      "34",
+      "67"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "HIDAKA HAZUKI",
@@ -1607,7 +1991,11 @@
       "KENMOTSU NANO",
       "HIDAKA HAZUKI"
     ],
-    "classes": [
+    "ranks": [
+      "73",
+      "37"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1628,7 +2016,13 @@
       "FUJIMOTO AYAKA",
       "NAKAMURA AOI"
     ],
-    "classes": []
+    "ranks": [
+      "10",
+      "45"
+    ],
+    "levels": [
+      "C"
+    ]
   },
   {
     "name": "FURUHASHI SAYAKA",
@@ -1647,7 +2041,13 @@
       "KURIHARA KANO",
       "FURUHASHI SAYAKA"
     ],
-    "classes": []
+    "ranks": [
+      "79",
+      "75"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "HOSOI AYAKA",
@@ -1666,7 +2066,11 @@
       "KITAZUME SAKURA",
       "HOSOI AYAKA"
     ],
-    "classes": [
+    "ranks": [
+      "72",
+      "55"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1687,7 +2091,13 @@
       "MATSUSHITA MIYU",
       "YOSHIDA AYANO"
     ],
-    "classes": []
+    "ranks": [
+      "4",
+      "59"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "MIZUKAMI RIMIKA",
@@ -1706,7 +2116,13 @@
       "MIZUKAMI RIMIKA",
       "ISHII RAN"
     ],
-    "classes": []
+    "ranks": [
+      "67",
+      "26"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "MURAKAMI RINON",
@@ -1725,7 +2141,13 @@
       "MURAKAMI RINON",
       "KAMADA MOE"
     ],
-    "classes": []
+    "ranks": [
+      "84",
+      "23"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "MOGI SHION",
@@ -1744,7 +2166,11 @@
       "TAKABATAKE MOMOKA",
       "MOGI SHION"
     ],
-    "classes": [
+    "ranks": [
+      "29",
+      "46"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1765,7 +2191,11 @@
       "MOTOHASHI MEIKA",
       "SHIBAGAKI ARISA"
     ],
-    "classes": [
+    "ranks": [
+      "69",
+      "80"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1786,7 +2216,13 @@
       "SHIROMARU MAHO",
       "MORO ANON"
     ],
-    "classes": []
+    "ranks": [
+      "40",
+      "77"
+    ],
+    "levels": [
+      "F"
+    ]
   },
   {
     "name": "YAMAGUCHI MISAKI",
@@ -1805,7 +2241,11 @@
       "SEKIGUCHI RIKAKO",
       "YAMAGUCHI MISAKI"
     ],
-    "classes": [
+    "ranks": [
+      "88",
+      "90"
+    ],
+    "levels": [
       "D"
     ]
   },
@@ -1826,7 +2266,13 @@
       "IIDA SHIZUKU",
       "YAMAZAKI MITSUKI"
     ],
-    "classes": []
+    "ranks": [
+      "78",
+      "24"
+    ],
+    "levels": [
+      "D"
+    ]
   },
   {
     "name": "YAMAMOTO SUZU",
@@ -1845,7 +2291,11 @@
       "YAMAMOTO SUZU",
       "KATO AIRI"
     ],
-    "classes": [
+    "ranks": [
+      "15",
+      "1"
+    ],
+    "levels": [
       "A"
     ]
   },
@@ -1866,7 +2316,13 @@
       "MATSUSHITA MIYU",
       "YOSHIDA AYANO"
     ],
-    "classes": []
+    "ranks": [
+      "61",
+      "53"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "YOSHIDA HANA",
@@ -1885,7 +2341,13 @@
       "NAKANO KOKONA",
       "YOSHIDA HANA"
     ],
-    "classes": []
+    "ranks": [
+      "25",
+      "48"
+    ],
+    "levels": [
+      "B"
+    ]
   },
   {
     "name": "WAKIMOTO MIHAYA",
@@ -1904,7 +2366,11 @@
       "KOBAYASHI SAE",
       "WAKIMOTO MIHAYA"
     ],
-    "classes": [
+    "ranks": [
+      "75",
+      "69"
+    ],
+    "levels": [
       "C"
     ]
   },
@@ -1925,7 +2391,11 @@
       "WATANABE MIYU",
       "KATO KAGURA"
     ],
-    "classes": [
+    "ranks": [
+      "69",
+      "42"
+    ],
+    "levels": [
       "D"
     ]
   }

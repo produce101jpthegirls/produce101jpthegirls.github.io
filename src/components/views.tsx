@@ -191,20 +191,20 @@ export const Avatar: FC<AvatarProps> = ({
 
 const TRAINEE_VIEW_HEIGHT = "h-[23.8rem] sm:h-[28.6rem]";
 
-const getClassColor = (c: string): string => {
-  if (c === "A") {
+const getLevelColor = (level: string): string => {
+  if (level === "A") {
     return "bg-[#ed00e6]";
   }
-  if (c === "B") {
+  if (level === "B") {
     return "bg-[#f48919]";
   }
-  if (c === "C") {
+  if (level === "C") {
     return "bg-[#d8dc25]";
   }
-  if (c === "D") {
+  if (level === "D") {
     return "bg-[#4eeb19]";
   }
-  if (c === "F") {
+  if (level === "F") {
     return "bg-[#727073]";
   }
   return "bg-[#cdcdcd]";
@@ -220,8 +220,9 @@ const ListView: FC<ListViewProps> = ({ items }) => {
     <ul className={`${TRAINEE_VIEW_HEIGHT} flex flex-col overflow-y-auto text-pd-gray-900`}>
       {items.map((item) => {
         const isSelected = selected.includes(item.index);
-        const traineeClass = item.classes.length > 0 ? item.classes[item.classes.length - 1] : "?";
-        const traineeClassClassName = getClassColor(traineeClass);
+        const traineeLevel = item.levels.length > 0 ? item.levels[item.levels.length - 1] : "?";
+        const traineeLevelClassName = getLevelColor(traineeLevel);
+        const traineeRank = item.ranks.length > 0 ? item.ranks[item.ranks.length - 1] : "?";
         return (
           <li
             key={item.id}
@@ -241,9 +242,9 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
                 <span className="select-none grow">{item.mbtiType}</span>
-                <span className={`select-none text-white font-bold opacity-95 ${traineeClassClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{traineeClass}</span>
+                <span className={`select-none text-white font-bold opacity-95 ${traineeLevelClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{traineeLevel}</span>
               </div>
-              <div className="sm:mt-0.5 flex justify-between items-end text-sm">
+              <div className="sm:mt-0.5 flex justify-between items-end">
                 <div className="flex gap-3 item-centers">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
                     <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
@@ -257,40 +258,10 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                     <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
                   </Link>
                 </div>
-                <div className="flex gap-3 item-centers">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" fill="currentColor" className="w-4 h-4 mt-[2.5px] text-pd-pink-100 -mr-1">
-                    <path d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
-                    c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
-                    C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
-                    c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
-                  </svg>
-                  <Link
-                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                    href={item.videoUrls.pr}
-                    target="_blank"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">PR</span>
-                  </Link>
-                  <Link
-                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                    href={item.videoUrls.fancam}
-                    target="_blank"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Fancam</span>
-                  </Link>
-                  <Link
-                    className="text-pd-gray-300 hover:text-pd-pink-400 sm:font-medium"
-                    href={item.videoUrls.eyeContact}
-                    target="_blank"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">
-                      <span className="hidden sm:inline">Eye Contact</span>
-                      <span className="sm:hidden">Eye</span>
-                    </span>
-                  </Link>
+                <div>
+                  <span className="text-sm">RANK:</span>
+                  {" "}
+                  <span className="text-sm sm:text-base">{traineeRank}</span>
                 </div>
               </div>
             </div>
@@ -343,7 +314,8 @@ const GridView: FC<GridViewProps> = ({ items }) => {
 export const TraineeView: FC = () => {
   const sortByOptions: SelectOption[] = [
     { name: "ID" },
-    { name: "CLASS" },
+    { name: "LEVEL" },
+    { name: "RANK" },
   ];
   const [queryText, setQueryText] = useState<string>("");
   const [query, setQuery] = useState<string>("");
@@ -369,18 +341,36 @@ export const TraineeView: FC = () => {
   let sortedTrainees = filteredTrainees;
   if (sortBy === "ID") {
     sortedTrainees.sort((a, b) => a.index - b.index);
-  } else if (sortBy === "CLASS") {
+  } else if (sortBy === "LEVEL") {
     sortedTrainees.sort((a, b) => {
-      const classA = a.classes.length > 0 ? a.classes[a.classes.length - 1] : "Z";
-      const classB = b.classes.length > 0 ? b.classes[b.classes.length - 1] : "Z";
-      if (classA > classB) {
+      let levelA = a.levels.length > 0 ? a.levels[a.levels.length - 1] : "Z";
+      let levelB = b.levels.length > 0 ? b.levels[b.levels.length - 1] : "Z";
+      if (levelA === "?") {
+        levelA = "Z";
+      }
+      if (levelB === "?") {
+        levelB = "Z";
+      }
+      if (levelA > levelB) {
         return 1;
       }
-      if (classA < classB) {
+      if (levelA < levelB) {
         return -1;
       }
       return 0;
     });
+  } else if (sortBy === "RANK") {
+    sortedTrainees.sort((a, b) => {
+      let rankA = a.ranks.length > 0 ? a.ranks[a.ranks.length - 1] : "1000";
+      let rankB = b.ranks.length > 0 ? b.ranks[b.ranks.length - 1] : "1000";
+      if (rankA === "?") {
+        rankA = "1000";
+      }
+      if (rankB === "?") {
+        rankB = "1000";
+      }
+      return parseInt(rankA) - parseInt(rankB);
+    })
   }
 
 
@@ -446,7 +436,11 @@ export const TraineeView: FC = () => {
             buttonSize="h-[16px] w-[16px]"
             translate="translate-x-5"
           />
-          <label className="text-pd-gray-300 text-sm">SHOW MY TOP 11</label>
+          <label className="text-pd-gray-300 text-sm">
+            <span className="hidden sm:inline">SHOW</span>
+            {" "}
+            MY TOP 11
+          </label>
         </div>
         <span className="text-pd-gray-300 text-sm">SORT BY</span>
         <Select selected={sortBy} setSelected={setSortBy} options={sortByOptions} />
