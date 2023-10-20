@@ -240,11 +240,11 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                 </div>
                 <div className="select-none">{item.id}</div>
               </div>
-              <div className="sm:mt-0.5 flex gap-4 items-center">
+              <div className="sm:mt-0.5 flex gap-3 sm:gap-4 items-center">
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
                 <span className="select-none grow">{item.mbtiType}</span>
-                <div className="flex gap-1 items-center">
+                <div className="flex gap-0.5 sm:gap-1 items-center">
                   {previousLevel && (
                     <>
                       <span className={`select-none text-white font-bold opacity-60 ${previousLevelClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{previousLevel}</span>
