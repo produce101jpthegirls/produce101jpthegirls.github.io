@@ -326,7 +326,7 @@ export const TraineeView: FC = () => {
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
-  let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : TRAINEES;
+  let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : [...TRAINEES];
   filteredTrainees = query === "" ? filteredTrainees : filteredTrainees.filter((trainee) => {
     const _query = query.toLowerCase().replaceAll(" ", "");
     return (
