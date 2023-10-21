@@ -210,6 +210,33 @@ const getLevelColor = (level: string): string => {
   return "bg-[#cdcdcd]";
 };
 
+type RankDiffProps = {
+  rankA: string;
+  rankB: string;
+};
+
+const RankDiff: FC<RankDiffProps> = ({ rankA, rankB }) => {
+  if (parseInt(rankB) - parseInt(rankA) > 0) {
+    return (
+      <span>
+        <span>{parseInt(rankB) - parseInt(rankA)}</span>
+        <span className="text-red-400">▲</span>
+      </span>
+    )
+  }
+  if (parseInt(rankA) - parseInt(rankB) > 0) {
+    return (
+      <span>
+        <span>{parseInt(rankA) - parseInt(rankB)}</span>
+        <span className="text-blue-400">▼</span>
+      </span>
+    )
+  }
+  return (
+    <span>－</span>
+  )
+};
+
 type ListViewProps = {
   items: Trainee[];
 };
@@ -224,7 +251,8 @@ const ListView: FC<ListViewProps> = ({ items }) => {
         const previousLevelClassName = getLevelColor(previousLevel);
         const currentLevel = item.levels.length > 0 ? item.levels[item.levels.length - 1] : "?";
         const currentLevelClassName = getLevelColor(currentLevel);
-        const traineeRank = item.ranks.length > 0 ? item.ranks[item.ranks.length - 1] : "?";
+        const previousRank: string | undefined = item.ranks.length > 0 ? item.ranks[item.ranks.length - 2] : "?";
+        const currentRank = item.ranks.length > 0 ? item.ranks[item.ranks.length - 1] : "?";
         return (
           <li
             key={item.id}
@@ -270,10 +298,16 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                     <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
                   </Link>
                 </div>
-                <div>
+                <div className="flex gap-1 items-center">
                   <span className="text-sm">RANK:</span>
-                  {" "}
-                  <span className="text-sm sm:text-base">{traineeRank}</span>
+                  <span className="text-sm sm:text-base">{currentRank}</span>
+                  {previousRank && previousRank !== "?" && currentRank !== "?" && (
+                    <div>
+                      (
+                      <RankDiff rankA={currentRank} rankB={previousRank} />
+                      )
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
