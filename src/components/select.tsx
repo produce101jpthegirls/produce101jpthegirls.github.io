@@ -35,7 +35,7 @@ const Select: FC<SelectProps> = ({ selected, setSelected, options }) => {
                 <Listbox.Option
                   key={index}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-0.5 sm:py-1 pl-7 pr-1.5 ${active ? 'bg-pink-50 text-gray-900' : 'text-gray-900'
+                    `relative cursor-default select-none py-1 pl-7 pr-1.5 ${active ? 'bg-pink-50 text-gray-900' : 'text-gray-900'
                     }`
                   }
                   value={option.name}

@@ -210,6 +210,33 @@ const getLevelColor = (level: string): string => {
   return "bg-[#cdcdcd]";
 };
 
+type RankDiffProps = {
+  rankA: string;
+  rankB: string;
+};
+
+const RankDiff: FC<RankDiffProps> = ({ rankA, rankB }) => {
+  if (parseInt(rankB) - parseInt(rankA) > 0) {
+    return (
+      <span>
+        <span>{parseInt(rankB) - parseInt(rankA)}</span>
+        <span className="text-red-400">▲</span>
+      </span>
+    )
+  }
+  if (parseInt(rankA) - parseInt(rankB) > 0) {
+    return (
+      <span>
+        <span>{parseInt(rankA) - parseInt(rankB)}</span>
+        <span className="text-blue-400">▼</span>
+      </span>
+    )
+  }
+  return (
+    <span>－</span>
+  )
+};
+
 type ListViewProps = {
   items: Trainee[];
 };
@@ -220,9 +247,12 @@ const ListView: FC<ListViewProps> = ({ items }) => {
     <ul className={`${TRAINEE_VIEW_HEIGHT} flex flex-col overflow-y-auto text-pd-gray-900`}>
       {items.map((item) => {
         const isSelected = selected.includes(item.index);
-        const traineeLevel = item.levels.length > 0 ? item.levels[item.levels.length - 1] : "?";
-        const traineeLevelClassName = getLevelColor(traineeLevel);
-        const traineeRank = item.ranks.length > 0 ? item.ranks[item.ranks.length - 1] : "?";
+        const previousLevel: string | undefined = item.levels[item.levels.length - 2];
+        const previousLevelClassName = getLevelColor(previousLevel);
+        const currentLevel = item.levels.length > 0 ? item.levels[item.levels.length - 1] : "?";
+        const currentLevelClassName = getLevelColor(currentLevel);
+        const previousRank: string | undefined = item.ranks.length > 0 ? item.ranks[item.ranks.length - 2] : "?";
+        const currentRank = item.ranks.length > 0 ? item.ranks[item.ranks.length - 1] : "?";
         return (
           <li
             key={item.id}
@@ -238,11 +268,21 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                 </div>
                 <div className="select-none">{item.id}</div>
               </div>
-              <div className="sm:mt-0.5 flex gap-4 items-center">
+              <div className="sm:mt-0.5 flex gap-3 sm:gap-4 items-center">
                 <span className="select-none">{item.birthday}</span>
                 <span className="select-none">{item.birthPlace}</span>
                 <span className="select-none grow">{item.mbtiType}</span>
-                <span className={`select-none text-white font-bold opacity-95 ${traineeLevelClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{traineeLevel}</span>
+                <div className="flex gap-0.5 sm:gap-1 items-center">
+                  {previousLevel && (
+                    <>
+                      <span className={`select-none text-white font-bold opacity-60 ${previousLevelClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{previousLevel}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-pd-gray-400">
+                        <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z" clipRule="evenodd" />
+                      </svg>
+                    </>
+                  )}
+                  <span className={`select-none text-white font-bold opacity-95 ${currentLevelClassName} w-[23.33px] sm:w-[26.66px] text-center rounded`}>{currentLevel}</span>
+                </div>
               </div>
               <div className="sm:mt-0.5 flex justify-between items-end">
                 <div className="flex gap-3 item-centers">
@@ -258,10 +298,16 @@ const ListView: FC<ListViewProps> = ({ items }) => {
                     <span className="sm:inline sm:after:content-['_↗'] after:text-xs after:font-bold">Profile</span>
                   </Link>
                 </div>
-                <div>
+                <div className="flex gap-1 items-center">
                   <span className="text-sm">RANK:</span>
-                  {" "}
-                  <span className="text-sm sm:text-base">{traineeRank}</span>
+                  <span className="text-sm sm:text-base">{currentRank}</span>
+                  {previousRank && previousRank !== "?" && currentRank !== "?" && (
+                    <div>
+                      (
+                      <RankDiff rankA={currentRank} rankB={previousRank} />
+                      )
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -326,7 +372,7 @@ export const TraineeView: FC = () => {
 
   const debouncedSetQuery = useMemo(() => debounce((value) => setQuery(value), 500), []);
 
-  let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : TRAINEES;
+  let filteredTrainees = filterEnabled ? selected.filter((index) => index !== 255).map((index) => TRAINEES[index]) : [...TRAINEES];
   filteredTrainees = query === "" ? filteredTrainees : filteredTrainees.filter((trainee) => {
     const _query = query.toLowerCase().replaceAll(" ", "");
     return (
